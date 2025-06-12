@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mon profil – ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Bienvenue sur votre espace utilisateur</h1>
+    </header>
+
+    <main>
+      <section class="profile-section">
+        <div class="container">
+          <h2>Mon Profil</h2>
+          <div id="user-info" class="form-card">
+            <p>Chargement en cours...</p>
+          </div>
+          <button id="logout-btn" class="search-button">Se déconnecter</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 ecoCovoit – Tous droits réservés</p>
+    </footer>
+
+    <script>
+      // Récupérer les infos utilisateur via PHP
+      fetch("../backend/auth/get-user.php")
+        .then((res) => res.json())
+        .then((data) => {
+          const container = document.getElementById("user-info");
+
+          if (!data.success) {
+            container.innerHTML = `<p>${data.message}</p>`;
+            return;
+          }
+
+          container.innerHTML = `
+          <p><strong>Pseudo :</strong> ${data.user.pseudo}</p>
+          <p><strong>Email :</strong> ${data.user.email}</p>
+          <p><strong>Rôle :</strong> ${data.user.role}</p>
+          <p><strong>Crédits :</strong> ${data.user.credit} 💰</p>
+        `;
+        });
+
+      // Déconnexion (voir étape suivante pour logout.php)
+      document.getElementById("logout-btn").addEventListener("click", () => {
+        fetch("../backend/auth/logout.php").then(
+          () => (window.location.href = "login.html")
+        );
+      });
+    </script>
+  </body>
+</html>
