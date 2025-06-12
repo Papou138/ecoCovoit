@@ -21,3 +21,35 @@ document
     </div>
   `;
   });
+
+document.getElementById("search-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  fetch("backend/trajets/rechercher.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      const results = document.getElementById("results");
+      results.innerHTML = "";
+
+      if (!data.success || data.trajets.length === 0) {
+        results.innerHTML = "<p>Aucun trajet trouvé</p>";
+        return;
+      }
+
+      data.trajets.forEach((trajet) => {
+        results.innerHTML += `
+          <div class="result-item">
+            <p><strong>${trajet.ville_depart}</strong> → <strong>${trajet.ville_arrivee}</strong></p>
+            <p>Départ : ${trajet.date_depart} à ${trajet.heure_depart}</p>
+            <p>Prix : ${trajet.prix} €</p>
+            <a href="detail.html?id=${trajet.id}">Voir détail</a>
+          </div>
+        `;
+      });
+    });
+});
