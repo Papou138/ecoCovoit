@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ecoCovoit – Accueil</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- MENU NAVIGATION -->
+    <header>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="#">Covoiturages</a></li>
+          <li><a href="#">Connexion</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- SECTION PRÉSENTATION -->
+    <main>
+      <section class="presentation">
+        <h1>Bienvenue sur ecoCovoit</h1>
+        <p>La plateforme de covoiturage écoresponsable 🚗💚</p>
+        <img src="assets/img/eco.jpg" alt="Présentation entreprise" />
+      </section>
+
+      <!-- FORMULAIRE DE RECHERCHE -->
+      <section class="recherche">
+        <h2>Recherchez un covoiturage</h2>
+        <form id="formRecherche">
+          <input
+            type="text"
+            name="depart"
+            placeholder="Ville de départ"
+            required
+          />
+          <input
+            type="text"
+            name="arrivee"
+            placeholder="Ville d’arrivée"
+            required
+          />
+          <input type="date" name="date" required />
+          <button type="submit">Rechercher</button>
+        </form>
+        <div id="resultats"></div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>Contact : contact@ecocovoit.fr</p>
+      <a href="#">Mentions légales</a>
+    </footer>
+
+    <script src="assets/js/search.js"></script>
+  </body>
+</html>
