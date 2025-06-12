@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscription – ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <!-- Tu peux inclure ton menu de navigation ici si tu veux -->
+      <h1>Créer un compte – ecoCovoit</h1>
+    </header>
+
+    <main>
+      <section class="register-section">
+        <div class="container">
+          <form id="register-form" class="form-card">
+            <h2>Inscription</h2>
+
+            <div class="form-group">
+              <label for="pseudo"><i class="fas fa-user"></i> Pseudo</label>
+              <input
+                type="text"
+                id="pseudo"
+                name="pseudo"
+                required
+                placeholder="Choisissez un pseudo"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email"><i class="fas fa-envelope"></i> Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="Adresse email"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password"
+                ><i class="fas fa-lock"></i> Mot de passe</label
+              >
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                placeholder="Mot de passe sécurisé"
+              />
+            </div>
+
+            <button type="submit" class="search-button">S'inscrire</button>
+
+            <div id="register-message" class="message-box"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <!-- Footer facultatif -->
+      <p>&copy; 2025 ecoCovoit – Tous droits réservés</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("register-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const formData = new FormData(this);
+
+          fetch("backend/auth/register.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              const msgBox = document.getElementById("register-message");
+              msgBox.textContent = data.message;
+              msgBox.style.color = data.success ? "green" : "red";
+
+              if (data.success) {
+                this.reset(); // Réinitialiser le formulaire si OK
+              }
+            })
+            .catch(() => {
+              document.getElementById("register-message").textContent =
+                "Erreur de connexion au serveur.";
+            });
+        });
+    </script>
+  </body>
+</html>
