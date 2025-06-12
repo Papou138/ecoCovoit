@@ -77,11 +77,14 @@
           <!-- Bouton de participation -->
           <div class="actions">
             <button
+              id="btn-participer"
               class="search-button"
-              onclick="alert('Fonctionnalité à venir')"
+              date-trajet-id="12"
             >
               Participer à ce covoiturage
             </button>
+
+            <div id="participation-message" class="message-box"></div>
           </div>
         </div>
       </section>
@@ -90,5 +93,35 @@
     <footer>
       <!-- Footer copié depuis index.html -->
     </footer>
+    <script>
+      document
+        .getElementById("btn-participer")
+        .addEventListener("click", () => {
+          const trajetId =
+            document.getElementById("btn-participer").dataset.trajetId;
+
+          if (
+            !confirm(
+              "Confirmez-vous vouloir participer à ce trajet ? Cela coûtera 2 crédits."
+            )
+          ) {
+            return;
+          }
+
+          fetch("../backend/reservations/participer.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: "trajet_id=" + encodeURIComponent(trajetId),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              const msg = document.getElementById("participation-message");
+              msg.textContent = data.message;
+              msg.style.color = data.success ? "green" : "red";
+            });
+        });
+    </script>
   </body>
 </html>
