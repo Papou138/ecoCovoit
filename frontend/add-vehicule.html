@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ajouter un véhicule – ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Ajouter un véhicule</h1>
+
+      <form id="vehicule-form" class="form-card">
+        <div class="form-group">
+          <label for="immatriculation">Immatriculation</label>
+          <input
+            type="text"
+            name="immatriculation"
+            id="immatriculation"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="marque">Marque</label>
+          <input type="text" name="marque" id="marque" required />
+        </div>
+
+        <div class="form-group">
+          <label for="modele">Modèle</label>
+          <input type="text" name="modele" id="modele" required />
+        </div>
+
+        <div class="form-group">
+          <label for="couleur">Couleur</label>
+          <input type="text" name="couleur" id="couleur" required />
+        </div>
+
+        <div class="form-group">
+          <label for="energie">Énergie</label>
+          <select name="energie" id="energie" required>
+            <option value="">-- Choisir --</option>
+            <option value="essence">Essence</option>
+            <option value="diesel">Diesel</option>
+            <option value="électrique">Électrique</option>
+            <option value="hybride">Hybride</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="date_immatriculation">Date de 1ère immatriculation</label>
+          <input
+            type="date"
+            name="date_immatriculation"
+            id="date_immatriculation"
+            required
+          />
+        </div>
+
+        <button type="submit" class="search-button">
+          Enregistrer le véhicule
+        </button>
+        <div id="vehicule-message" class="message-box"></div>
+      </form>
+    </main>
+
+    <script>
+      document
+        .getElementById("vehicule-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const formData = new FormData(this);
+
+          fetch("../backend/vehicules/ajouter.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              const msg = document.getElementById("vehicule-message");
+              msg.textContent = data.message;
+              msg.style.color = data.success ? "green" : "red";
+              if (data.success) this.reset();
+            });
+        });
+    </script>
+  </body>
+</html>
