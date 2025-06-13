@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Proposer un trajet – ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Proposer un trajet</h1>
+
+      <form id="voyage-form" class="form-card">
+        <div class="form-group">
+          <label for="depart">Ville de départ</label>
+          <input type="text" name="depart" id="depart" required />
+        </div>
+
+        <div class="form-group">
+          <label for="arrivee">Ville d'arrivée</label>
+          <input type="text" name="arrivee" id="arrivee" required />
+        </div>
+
+        <div class="form-group">
+          <label for="date">Date du trajet</label>
+          <input type="date" name="date" id="date" required />
+        </div>
+
+        <div class="form-group">
+          <label for="heure_depart">Heure de départ</label>
+          <input type="time" name="heure_depart" id="heure_depart" required />
+        </div>
+
+        <div class="form-group">
+          <label for="heure_arrivee">Heure d'arrivée</label>
+          <input type="time" name="heure_arrivee" id="heure_arrivee" required />
+        </div>
+
+        <div class="form-group">
+          <label for="prix">Prix (€)</label>
+          <input
+            type="number"
+            name="prix"
+            id="prix"
+            required
+            min="0"
+            step="0.01"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="vehicule_id">Véhicule</label>
+          <select name="vehicule_id" id="vehicule_id" required></select>
+        </div>
+
+        <div class="form-group">
+          <label for="places">Places disponibles</label>
+          <input type="number" name="places" id="places" required min="1" />
+        </div>
+
+        <button type="submit" class="search-button">Créer le trajet</button>
+        <div id="form-message"></div>
+      </form>
+    </main>
+
+    <script>
+      // Charger les véhicules du chauffeur
+      fetch("../backend/vehicules/lister.php")
+        .then((res) => res.json())
+        .then((data) => {
+          const select = document.getElementById("vehicule_id");
+          data.forEach((v) => {
+            const option = document.createElement("option");
+            option.value = v.id;
+            option.textContent = `${v.marque} ${v.modele} (${v.immatriculation})`;
+            select.appendChild(option);
+          });
+        });
+
+      // Envoi du formulaire
+      document
+        .getElementById("voyage-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const formData = new FormData(this);
+
+          fetch("../backend/trajets/ajouter.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              const msg = document.getElementById("form-message");
+              msg.textContent = data.message;
+              msg.style.color = data.success ? "green" : "red";
+              if (data.success) this.reset();
+            });
+        });
+    </script>
+  </body>
+</html>
