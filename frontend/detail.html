@@ -18,29 +18,44 @@
     <main>
       <section class="trajet-detail">
         <div class="container">
-          <h1>Détails du trajet</h1>
+          <h1><i class="fas fa-route"></i> Paris → Lyon</h1>
 
           <!-- Infos trajet -->
           <div class="trajet-info">
-            <p><strong>Départ :</strong> Paris</p>
-            <p><strong>Arrivée :</strong> Lyon</p>
-            <p><strong>Date :</strong> 20 juin 2025</p>
-            <p><strong>Heure :</strong> 08h00 → 12h30</p>
-            <p><strong>Prix :</strong> 15 €</p>
-            <p><strong>Places disponibles :</strong> 2</p>
-            <p><strong>Écologique :</strong> ✅ Véhicule électrique</p>
+            <div class="info-group">
+              <h3><i class="fas fa-info-circle"></i> Informations trajet</h3>
+              <p><i class="fas fa-calendar-alt"></i> Jeudi 20 juin 2025</p>
+              <p><i class="fas fa-clock"></i> Départ : 08h00</p>
+              <p><i class="fas fa-hourglass-half"></i> Durée : 4h30</p>
+              <p><i class="fas fa-map-marked-alt"></i> Distance : 465 km</p>
+            </div>
+
+            <div class="info-group">
+              <h3><i class="fas fa-leaf"></i> Impact écologique</h3>
+              <p><i class="fas fa-charging-station"></i> Véhicule électrique</p>
+              <p><i class="fas fa-tree"></i> -75% d'émissions CO2</p>
+              <p><i class="fas fa-users"></i> 2 places disponibles</p>
+              <p class="eco-badge">🌱 Trajet éco-responsable</p>
+            </div>
           </div>
 
-          <!-- Infos chauffeur -->
-          <div class="chauffeur-info">
-            <h2>Chauffeur</h2>
-            <img
-              src="assets/img/photo-chauffeur.jpg"
-              alt="Photo du chauffeur"
-              width="80"
-            />
-            <p><strong>Nom :</strong> Alice Dupont</p>
-            <p><strong>Note :</strong> ⭐ 4.7 / 5</p>
+          <!-- Box prix de réservation -->
+          <div class="reservation-box">
+            <div class="prix-container">
+              <span class="prix">15 €</span>
+              <span class="prix-details">par personne</span>
+            </div>
+            <button
+              class="btn-reserver"
+              id="btn-participer"
+              data-trajet-id="12"
+            >
+              <i class="fas fa-check-circle"></i> Réserver ce trajet
+            </button>
+            <p class="places-dispo">
+              <i class="fas fa-user-friends"></i> 2 places encore disponibles
+            </p>
+            <div id="participation-message" class="message-box"></div>
           </div>
 
           <!-- Véhicule -->
@@ -50,6 +65,28 @@
             <p><strong>Modèle :</strong> Zoé</p>
             <p><strong>Énergie :</strong> Électrique</p>
             <p><strong>Immatriculation :</strong> AB-123-CD</p>
+          </div>
+
+          <!-- Section conducteur -->
+          <div class="conducteur-info">
+            <img
+              src="assets/img/photo-chauffeur.jpg"
+              alt="Avatar du conducteur"
+            />
+            <div class="conducteur-details">
+              <h3><i class="fas fa-user-circle"></i> Alice Dupont</h3>
+              <p class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>4.7/5</span>
+              </p>
+              <p class="member-since">
+                <i class="fas fa-clock"></i> Membre depuis 2023
+              </p>
+            </div>
           </div>
 
           <!-- Préférences conducteur -->
@@ -73,19 +110,6 @@
               <p><strong>Claire :</strong> Chauffeur agréable. ⭐⭐⭐⭐</p>
             </div>
           </div>
-
-          <!-- Bouton de participation -->
-          <div class="actions">
-            <button
-              id="btn-participer"
-              class="search-button"
-              date-trajet-id="12"
-            >
-              Participer à ce covoiturage
-            </button>
-
-            <div id="participation-message" class="message-box"></div>
-          </div>
         </div>
       </section>
     </main>
@@ -99,6 +123,7 @@
         .addEventListener("click", () => {
           const trajetId =
             document.getElementById("btn-participer").dataset.trajetId;
+          const msgBox = document.getElementById("participation-message");
 
           if (
             !confirm(
@@ -107,6 +132,12 @@
           ) {
             return;
           }
+
+          // Désactiver le bouton pendant la requête
+          const btn = document.getElementById("btn-participer");
+          btn.disabled = true;
+          btn.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Traitement en cours...';
 
           fetch("../backend/reservations/participer.php", {
             method: "POST",
@@ -117,9 +148,34 @@
           })
             .then((res) => res.json())
             .then((data) => {
-              const msg = document.getElementById("participation-message");
-              msg.textContent = data.message;
-              msg.style.color = data.success ? "green" : "red";
+              msgBox.textContent = data.message;
+              msgBox.style.color = data.success ? "green" : "red";
+              msgBox.classList.add("visible");
+
+              // Réactiver le bouton
+              btn.disabled = false;
+              btn.innerHTML =
+                '<i class="fas fa-check-circle"></i> Réserver ce trajet';
+
+              if (data.success) {
+                // Mettre à jour le nombre de places disponibles
+                const placesElement = document.querySelector(".places-dispo");
+                const places = parseInt(placesElement.textContent) - 1;
+                placesElement.innerHTML = `<i class="fas fa-user-friends"></i> ${places} place${
+                  places > 1 ? "s" : ""
+                } encore disponible${places > 1 ? "s" : ""}`;
+              }
+            })
+            .catch((error) => {
+              msgBox.textContent =
+                "Une erreur est survenue. Veuillez réessayer.";
+              msgBox.style.color = "red";
+              msgBox.classList.add("visible");
+
+              // Réactiver le bouton
+              btn.disabled = false;
+              btn.innerHTML =
+                '<i class="fas fa-check-circle"></i> Réserver ce trajet';
             });
         });
     </script>

@@ -73,6 +73,230 @@ footer {
 
 .message-box {
   margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
   font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.message-box.visible {
+  opacity: 1;
+}
+
+/* Styles pour la page détail */
+.trajet-detail {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.trajet-detail h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 2rem;
+  color: #2e8b57;
+  margin-bottom: 2rem;
+}
+
+.trajet-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-group {
+  padding: 1rem;
+  background: #f8f8f8;
+  border-radius: 6px;
+  transition: transform 0.2s;
+}
+
+.info-group i {
+  width: 20px;
+  margin-right: 8px;
+  color: #246b43;
+  opacity: 0.9;
+  transition: color 0.2s ease;
+}
+
+.info-group:hover {
+  transform: translateY(-2px);
+}
+
+.info-group h3 {
+  color: #2e8b57;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.conducteur-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: #f0f8f4;
+  border-radius: 6px;
+  margin: 2rem 0;
+}
+
+.conducteur-info img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #2e8b57;
+}
+
+.conducteur-details {
+  flex: 1;
+}
+
+.reservation-box {
   text-align: center;
+  padding: 2rem;
+  background: #f0f8f4;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.prix-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.prix {
+  font-size: 2.5rem;
+  color: #2e8b57;
+  font-weight: bold;
+}
+
+.prix-details {
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.btn-reserver {
+  background: #2e8b57;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 80%; /* Largeur plus importante pour le bouton */
+  max-width: 300px; /* Largeur maximale du bouton */
+  transform: translateX(0);
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn-reserver:hover {
+  background: #246b43;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(46, 139, 87, 0.2);
+}
+
+.places-dispo {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: #666;
+}
+
+.eco-badge {
+  background: #e8f5e9;
+  color: #2e8b57;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.rating {
+  color: #ffd700;
+  margin: 0.5rem 0;
+}
+
+.rating span {
+  color: #333;
+  margin-left: 0.5rem;
+}
+
+.vehicule-info,
+.preferences,
+.avis-section {
+  padding: 1.5rem;
+  background: #f8f8f8;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.vehicule-info h2,
+.preferences h2,
+.avis-section h2 {
+  color: #2e8b57;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.preferences ul {
+  list-style: none;
+  padding: 0;
+}
+
+.preferences li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.avis {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.avis p {
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+  .trajet-info {
+    grid-template-columns: 1fr;
+  }
+
+  .trajet-detail {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .conducteur-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .prix {
+    font-size: 2rem;
+  }
+
+  .btn-reserver {
+    width: 100%;
+  }
 }
