@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <title>ecoCovoit – Accueil</title>
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
   </head>
   <body>
     <!-- MENU NAVIGATION -->
@@ -29,23 +33,34 @@
       <!-- FORMULAIRE DE RECHERCHE -->
       <section class="recherche">
         <h2>Recherchez un covoiturage</h2>
-        <form id="formRecherche">
-          <input
-            type="text"
-            name="depart"
-            placeholder="Ville de départ"
-            required
-          />
-          <input
-            type="text"
-            name="arrivee"
-            placeholder="Ville d’arrivée"
-            required
-          />
-          <input type="date" name="date" required />
-          <button type="submit">Rechercher</button>
+        <form id="formRecherche" class="search-form">
+          <div class="form-group">
+            <i class="fas fa-map-marker-alt"></i>
+            <input
+              type="text"
+              name="depart"
+              placeholder="Ville de départ"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <i class="fas fa-map-marker"></i>
+            <input
+              type="text"
+              name="arrivee"
+              placeholder="Ville d'arrivée"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <i class="fas fa-calendar"></i>
+            <input type="date" name="date" required />
+          </div>
+          <button type="submit" class="search-button">
+            <i class="fas fa-search"></i> Rechercher
+          </button>
         </form>
-        <div id="resultats"></div>
+        <div id="resultats" class="results-container"></div>
       </section>
     </main>
 

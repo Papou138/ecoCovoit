@@ -3,53 +3,82 @@ document
   .addEventListener("submit", function (e) {
     e.preventDefault();
 
-    const depart = e.target.depart.value;
-    const arrivee = e.target.arrivee.value;
-    const date = e.target.date.value;
-
-    // Simuler résultats
+    const formData = new FormData(this);
     const resultats = document.getElementById("resultats");
-    resultats.innerHTML = `
-    <h3>Résultats :</h3>
-    <div>
-      <p><strong>Chauffeur :</strong> Alice (note : 4.5⭐)</p>
-      <p><strong>Départ :</strong> ${depart} — <strong>Arrivée :</strong> ${arrivee}</p>
-      <p><strong>Date :</strong> ${date} à 08:00</p>
-      <p><strong>Prix :</strong> 10 €</p>
-      <p><strong>Écologique :</strong> ✅</p>
-      <a href="detail.html">Voir détails</a>
-    </div>
-  `;
-  });
 
-document.getElementById("search-form").addEventListener("submit", function (e) {
-  e.preventDefault();
+    // Afficher un message de chargement
+    resultats.innerHTML =
+      '<p class="loading"><i class="fas fa-spinner fa-spin"></i> Recherche en cours...</p>';
 
-  const formData = new FormData(this);
+    // Préparer les données pour l'envoi
+    const searchData = new URLSearchParams();
+    searchData.append("depart", formData.get("depart"));
+    searchData.append("arrivee", formData.get("arrivee"));
+    searchData.append("date", formData.get("date"));
 
-  fetch("backend/trajets/rechercher.php", {
-    method: "POST",
-    body: formData,
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      const results = document.getElementById("results");
-      results.innerHTML = "";
+    fetch("../backend/trajets/rechercher.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: searchData,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erreur réseau");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        resultats.innerHTML = "";
 
-      if (!data.success || data.trajets.length === 0) {
-        results.innerHTML = "<p>Aucun trajet trouvé</p>";
-        return;
-      }
+        if (!data.success || !data.trajets || data.trajets.length === 0) {
+          resultats.innerHTML = `
+                <div class="no-results">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Aucun trajet trouvé pour votre recherche</p>
+                </div>
+            `;
+          return;
+        }
 
-      data.trajets.forEach((trajet) => {
-        results.innerHTML += `
-          <div class="result-item">
-            <p><strong>${trajet.ville_depart}</strong> → <strong>${trajet.ville_arrivee}</strong></p>
-            <p>Départ : ${trajet.date_depart} à ${trajet.heure_depart}</p>
-            <p>Prix : ${trajet.prix} €</p>
-            <a href="detail.html?id=${trajet.id}">Voir détail</a>
-          </div>
+        data.trajets.forEach((trajet) => {
+          resultats.innerHTML += `
+                <div class="trajet-card">
+                    <div class="trajet-header">
+                        <h3><i class="fas fa-route"></i> ${
+                          trajet.ville_depart
+                        } → ${trajet.ville_arrivee}</h3>
+                        <span class="eco-badge">${
+                          trajet.vehicule_electrique ? "🌱 Éco" : ""
+                        }</span>
+                    </div>
+                    <div class="trajet-details">
+                        <p><i class="fas fa-calendar"></i> ${
+                          trajet.date_depart
+                        }</p>
+                        <p><i class="fas fa-clock"></i> ${
+                          trajet.heure_depart
+                        }</p>
+                        <p><i class="fas fa-euro-sign"></i> ${trajet.prix} €</p>
+                        <p><i class="fas fa-user-friends"></i> ${
+                          trajet.nb_places_dispo
+                        } place(s) disponible(s)</p>
+                    </div>
+                    <a href="detail.html?id=${trajet.id}" class="btn-details">
+                        <i class="fas fa-info-circle"></i> Voir détails
+                    </a>
+                </div>
+            `;
+        });
+      })
+      .catch((error) => {
+        resultats.innerHTML = `
+            <div class="error-message">
+                <i class="fas fa-exclamation-circle"></i>
+                <p>Une erreur est survenue lors de la recherche</p>
+            </div>
         `;
+        console.error("Erreur:", error);
       });
-    });
-});
+  });

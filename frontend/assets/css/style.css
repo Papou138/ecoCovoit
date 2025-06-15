@@ -1,20 +1,39 @@
+/* Variables CSS globales */
+:root {
+  --primary-color: #2e8b57;
+  --primary-hover: #246b43;
+  --text-dark: #333;
+  --text-light: #666;
+  --background-light: #f6f6f6;
+  --background-white: #fff;
+  --border-radius: 8px;
+  --box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.8rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+}
+
+/* Reset et styles de base */
 body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
-  background: #f6f6f6;
+  background: var(--background-light);
 }
 
+/* Header et Navigation */
 header nav {
-  background: #2e8b57;
+  background: var(--primary-color);
   color: white;
-  padding: 10px;
+  padding: var(--spacing-md);
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: var(--spacing-lg);
 }
 
 nav a {
@@ -22,60 +41,52 @@ nav a {
   text-decoration: none;
 }
 
-.presentation {
-  padding: 20px;
+/* Composants communs */
+.form-card,
+.trajet-card {
+  background: var(--background-white);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s;
+}
+
+.form-card:hover,
+.trajet-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Boutons */
+.btn-primary,
+.btn-details,
+.terminer-btn {
+  background: var(--primary-color);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.btn-primary:hover,
+.btn-details:hover,
+.terminer-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* Messages et notifications */
+.message-box,
+.message-zone {
+  min-height: 20px;
+  color: var(--text-light);
+  font-size: 0.9rem;
   text-align: center;
-}
-
-.recherche {
-  padding: 20px;
-  background: #fff;
-  margin: 20px;
-  border-radius: 8px;
-}
-
-footer {
-  text-align: center;
-  padding: 15px;
-  background: #eee;
-}
-
-.form-card {
-  max-width: 400px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-card h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.form-group {
-  margin-bottom: 1rem;
-}
-
-.form-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 0.6rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-.message-box {
-  margin-top: 1rem;
-  padding: 1rem;
-  border-radius: 8px;
-  font-weight: bold;
+  padding: var(--spacing-sm);
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -84,219 +95,88 @@ footer {
   opacity: 1;
 }
 
-/* Styles pour la page détail */
-.trajet-detail {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-}
-
-.trajet-detail h1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  font-size: 2rem;
-  color: #2e8b57;
-  margin-bottom: 2rem;
-}
-
-.trajet-info {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.info-group {
-  padding: 1rem;
-  background: #f8f8f8;
-  border-radius: 6px;
-  transition: transform 0.2s;
-}
-
-.info-group i {
-  width: 20px;
-  margin-right: 8px;
-  color: #246b43;
-  opacity: 0.9;
-  transition: color 0.2s ease;
-}
-
-.info-group:hover {
-  transform: translateY(-2px);
-}
-
-.info-group h3 {
-  color: #2e8b57;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.conducteur-info {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  background: #f0f8f4;
-  border-radius: 6px;
-  margin: 2rem 0;
-}
-
-.conducteur-info img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #2e8b57;
-}
-
-.conducteur-details {
+/* Formulaires */
+.form-group {
+  position: relative;
+  margin-bottom: var(--spacing-md);
   flex: 1;
+  min-width: 200px;
 }
 
-.reservation-box {
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: var(--spacing-xs);
+}
+
+.form-group input {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) 35px;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+}
+
+.form-group i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--primary-color);
+}
+
+/* Sections spécifiques */
+.presentation {
+  padding: var(--spacing-lg);
   text-align: center;
-  padding: 2rem;
-  background: #f0f8f4;
-  border-radius: 8px;
-  margin: 2rem 0;
 }
 
-.prix-container {
+.recherche {
+  padding: var(--spacing-lg);
+  background: var(--background-white);
+  margin: var(--spacing-lg);
+  border-radius: var(--border-radius);
+}
+
+/* Trajet cards et détails */
+.trajet-header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-md);
 }
 
-.prix {
-  font-size: 2.5rem;
-  color: #2e8b57;
-  font-weight: bold;
-}
-
-.prix-details {
-  color: #666;
-  margin-top: 0.25rem;
-}
-
-.btn-reserver {
-  background: #2e8b57;
-  color: white;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  width: 80%; /* Largeur plus importante pour le bouton */
-  max-width: 300px; /* Largeur maximale du bouton */
-  transform: translateX(0);
-  transition: transform 0.2s, background-color 0.3s;
-}
-
-.btn-reserver:hover {
-  background: #246b43;
-  transform: translateY(-2px);
-  box-shadow: 0 2px 8px rgba(46, 139, 87, 0.2);
-}
-
-.places-dispo {
-  margin-top: 1.5rem;
-  font-style: italic;
-  color: #666;
-}
-
-.eco-badge {
-  background: #e8f5e9;
-  color: #2e8b57;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  display: inline-block;
-  margin-top: 1rem;
-  font-weight: bold;
-}
-
-.rating {
-  color: #ffd700;
-  margin: 0.5rem 0;
-}
-
-.rating span {
-  color: #333;
-  margin-left: 0.5rem;
-}
-
-.vehicule-info,
-.preferences,
-.avis-section {
-  padding: 1.5rem;
-  background: #f8f8f8;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
-}
-
-.vehicule-info h2,
-.preferences h2,
-.avis-section h2 {
-  color: #2e8b57;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+.trajet-header h3 {
+  color: var(--primary-color);
+  margin: 0;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--spacing-xs);
 }
 
-.preferences ul {
-  list-style: none;
-  padding: 0;
+/* Footer */
+footer {
+  text-align: center;
+  padding: var(--spacing-md);
+  background: #eee;
 }
 
-.preferences li {
-  margin-bottom: 0.8rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.avis {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-top: 1rem;
-}
-
-.avis p {
-  margin-bottom: 0.8rem;
-  padding-bottom: 0.8rem;
-  border-bottom: 1px solid #eee;
-}
-
+/* Media queries */
 @media (max-width: 768px) {
-  .trajet-info {
-    grid-template-columns: 1fr;
-  }
-
-  .trajet-detail {
-    margin: 1rem;
-    padding: 1rem;
-  }
-
-  .conducteur-info {
+  .trajet-header {
     flex-direction: column;
     text-align: center;
+    gap: var(--spacing-xs);
   }
 
-  .prix {
-    font-size: 2rem;
+  .form-card,
+  .trajet-card {
+    padding: var(--spacing-md);
+    margin: var(--spacing-md);
   }
 
-  .btn-reserver {
+  .btn-primary,
+  .btn-details,
+  .terminer-btn {
     width: 100%;
   }
 }
