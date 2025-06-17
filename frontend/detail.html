@@ -181,34 +181,52 @@
 
     <!-- Script pour les avis -->
     <script>
-      // Remplace ceci par une variable dynamique
-      const chauffeurId = 5; // TODO : remplacer dynamiquement si possible
+      const params = new URLSearchParams(window.location.search);
+      const trajetId = params.get("trajet_id");
 
-      fetch("../backend/avis/lister_valides.php?chauffeur_id=" + chauffeurId)
+      if (!trajetId) {
+        document.getElementById("avis-liste").innerHTML =
+          "<p>Trajet non spécifié</p>";
+        throw new Error("trajet_id manquant dans l'URL");
+      }
+
+      // Étape 1 : récupérer l'ID du chauffeur depuis le trajet
+      fetch("../backend/trajets/get-chauffeur.php?trajet_id=" + trajetId)
         .then((res) => res.json())
         .then((data) => {
-          const container = document.getElementById("avis-liste");
-          container.innerHTML = "";
-
-          if (data.length === 0) {
-            container.innerHTML = "<p>Aucun avis pour ce chauffeur.</p>";
+          if (!data.success) {
+            document.getElementById("avis-liste").innerHTML =
+              "<p>Erreur : trajet introuvable</p>";
             return;
           }
 
-          data.forEach((avis) => {
-            const div = document.createElement("div");
-            div.classList.add("avis-item");
-            div.innerHTML = `
-              <p><strong>Note :</strong> ${avis.note} ⭐</p>
-              <p><em>${avis.commentaire}</em></p>
-              <hr />
-            `;
-            container.appendChild(div);
-          });
-        })
-        .catch(() => {
-          document.getElementById("avis-liste").innerHTML =
-            "<p>Erreur lors du chargement des avis.</p>";
+          const chauffeurId = data.chauffeur_id;
+
+          // Étape 2 : charger les avis du chauffeur
+          fetch(
+            "../backend/avis/lister_valides.php?chauffeur_id=" + chauffeurId
+          )
+            .then((res) => res.json())
+            .then((avisList) => {
+              const container = document.getElementById("avis-liste");
+              container.innerHTML = "";
+
+              if (avisList.length === 0) {
+                container.innerHTML = "<p>Aucun avis pour ce chauffeur.</p>";
+                return;
+              }
+
+              avisList.forEach((avis) => {
+                const div = document.createElement("div");
+                div.classList.add("avis-item");
+                div.innerHTML = `
+                  <p><strong>Note :</strong> ${avis.note} ⭐</p>
+                  <p><em>${avis.commentaire}</em></p>
+                  <hr />
+                `;
+                container.appendChild(div);
+              });
+            });
         });
     </script>
   </body>
