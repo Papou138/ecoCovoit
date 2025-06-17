@@ -101,15 +101,12 @@
           </div>
 
           <!-- Avis -->
-          <div class="avis-section">
-            <h2>Avis des passagers</h2>
-            <div class="avis">
-              <p>
-                <strong>Marc :</strong> Super trajet ! Très ponctuel. ⭐⭐⭐⭐⭐
-              </p>
-              <p><strong>Claire :</strong> Chauffeur agréable. ⭐⭐⭐⭐</p>
+          <section>
+            <h2>Avis sur ce chauffeur</h2>
+            <div id="avis-liste">
+              <p>Chargement des avis en cours...</p>
             </div>
-          </div>
+          </section>
         </div>
       </section>
     </main>
@@ -117,6 +114,8 @@
     <footer>
       <!-- Footer copié depuis index.html -->
     </footer>
+
+    <!-- Script pour la réservation -->
     <script>
       document
         .getElementById("btn-participer")
@@ -177,6 +176,39 @@
               btn.innerHTML =
                 '<i class="fas fa-check-circle"></i> Réserver ce trajet';
             });
+        });
+    </script>
+
+    <!-- Script pour les avis -->
+    <script>
+      // Remplace ceci par une variable dynamique
+      const chauffeurId = 5; // TODO : remplacer dynamiquement si possible
+
+      fetch("../backend/avis/lister_valides.php?chauffeur_id=" + chauffeurId)
+        .then((res) => res.json())
+        .then((data) => {
+          const container = document.getElementById("avis-liste");
+          container.innerHTML = "";
+
+          if (data.length === 0) {
+            container.innerHTML = "<p>Aucun avis pour ce chauffeur.</p>";
+            return;
+          }
+
+          data.forEach((avis) => {
+            const div = document.createElement("div");
+            div.classList.add("avis-item");
+            div.innerHTML = `
+              <p><strong>Note :</strong> ${avis.note} ⭐</p>
+              <p><em>${avis.commentaire}</em></p>
+              <hr />
+            `;
+            container.appendChild(div);
+          });
+        })
+        .catch(() => {
+          document.getElementById("avis-liste").innerHTML =
+            "<p>Erreur lors du chargement des avis.</p>";
         });
     </script>
   </body>
