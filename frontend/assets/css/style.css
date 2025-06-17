@@ -169,9 +169,9 @@ nav a {
 }
 
 .note-chauffeur {
-  font-size: 0.9em;
-  color: #444;
-  margin-top: 4px;
+  color: #f39c12;
+  font-weight: bold;
+  margin-top: 8px;
 }
 
 /* Footer */

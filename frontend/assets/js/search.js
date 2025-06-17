@@ -29,7 +29,7 @@ document
         }
         return response.json();
       })
-      .then((data) => {
+      .then(async (data) => {
         resultats.innerHTML = "";
 
         if (!data.success || !data.trajets || data.trajets.length === 0) {
@@ -42,9 +42,28 @@ document
           return;
         }
 
-        data.trajets.forEach((trajet) => {
+        // Étape 1 : enrichir chaque trajet avec sa note moyenne (en parallèle)
+        const notesPromises = data.trajets.map(async (trajet) => {
+          const res = await fetch(
+            `../backend/avis/moyenne.php?chauffeur_id=${trajet.id_chauffeur}`
+          );
+          const noteData = await res.json();
+          trajet.note_moyenne = noteData.moyenne ?? 0;
+          trajet.nb_avis = noteData.total ?? 0;
+          return trajet;
+        });
+
+        // Étape 2 : attendre toutes les notes
+        const trajetsAvecNotes = await Promise.all(notesPromises);
+
+        // Étape 3 : trier les trajets par note décroissante
+        trajetsAvecNotes.sort((a, b) => b.note_moyenne - a.note_moyenne);
+
+        // Étape 4 : afficher les trajets triés
+        trajetsAvecNotes.forEach((trajet) => {
           const trajetDiv = document.createElement("div");
           trajetDiv.classList.add("trajet-card");
+
           trajetDiv.innerHTML = `
                 <div class="trajet-header">
                     <h3><i class="fas fa-route"></i> ${trajet.ville_depart} → ${
@@ -62,31 +81,16 @@ document
                       trajet.nb_places_dispo
                     } place(s) disponible(s)</p>
                     <p><i class="fas fa-user"></i> ${trajet.pseudo}</p>
-                    <div class="note-chauffeur">
-                        <i class="fas fa-spinner fa-spin"></i> Chargement note...
-                    </div>
+                    <p class="note-chauffeur">⭐ ${trajet.note_moyenne.toFixed(
+                      1
+                    )} (${trajet.nb_avis} avis)</p>
                 </div>
                 <a href="detail.html?id=${trajet.id}" class="btn-details">
                     <i class="fas fa-info-circle"></i> Voir détails
                 </a>
-          `;
+            `;
 
           resultats.appendChild(trajetDiv);
-
-          // Charger la note du chauffeur
-          fetch(
-            `../backend/avis/moyenne.php?chauffeur_id=${trajet.id_chauffeur}`
-          )
-            .then((res) => res.json())
-            .then((note) => {
-              const noteDiv = trajetDiv.querySelector(".note-chauffeur");
-
-              if (note.moyenne !== null) {
-                noteDiv.innerHTML = `⭐ ${note.moyenne} (${note.total} avis)`;
-              } else {
-                noteDiv.innerHTML = `<em>Aucune note</em>`;
-              }
-            });
         });
       })
       .catch((error) => {
