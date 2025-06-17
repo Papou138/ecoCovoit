@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Espace Employé – Validation des avis</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Avis en attente de validation</h1>
+      <div id="avis-container">Chargement...</div>
+    </main>
+
+    <script>
+      // Récupérer les avis en attente
+      fetch("../backend/avis/lister_non_valides.php")
+        .then((res) => res.json())
+        .then((data) => {
+          const container = document.getElementById("avis-container");
+          container.innerHTML = "";
+
+          if (data.length === 0) {
+            container.innerHTML = "<p>Aucun avis à valider.</p>";
+            return;
+          }
+
+          data.forEach((avis) => {
+            const div = document.createElement("div");
+            div.classList.add("avis-card");
+
+            div.innerHTML = `
+            <p><strong>Note :</strong> ${avis.note} ⭐</p>
+            <p><strong>Commentaire :</strong> ${avis.commentaire}</p>
+            <p><strong>Passager :</strong> ${avis.passager_id}</p>
+            <p><strong>Chauffeur :</strong> ${avis.chauffeur_id}</p>
+            <button onclick="validerAvis('${avis._id}', true)">✅ Valider</button>
+            <button onclick="validerAvis('${avis._id}', false)">❌ Refuser</button>
+            <hr />
+          `;
+
+            container.appendChild(div);
+          });
+        });
+
+      function validerAvis(id, accepte) {
+        fetch("../backend/avis/valider.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: `id=${id}&accepte=${accepte}`,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            alert(data.message);
+            location.reload();
+          });
+      }
+    </script>
+  </body>
+</html>
