@@ -60,6 +60,17 @@
             <i class="fas fa-search"></i> Rechercher
           </button>
         </form>
+
+        <!-- Ajout des options de tri -->
+        <div class="tri-container">
+          <label for="tri-option"><strong>Trier par :</strong></label>
+          <select id="tri-option">
+            <option value="note">Note du chauffeur</option>
+            <option value="prix">Prix croissant</option>
+            <option value="places">Places disponibles</option>
+          </select>
+        </div>
+
         <div id="resultats" class="results-container"></div>
       </section>
     </main>
