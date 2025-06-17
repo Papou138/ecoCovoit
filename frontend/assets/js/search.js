@@ -43,33 +43,50 @@ document
         }
 
         data.trajets.forEach((trajet) => {
-          resultats.innerHTML += `
-                <div class="trajet-card">
-                    <div class="trajet-header">
-                        <h3><i class="fas fa-route"></i> ${
-                          trajet.ville_depart
-                        } → ${trajet.ville_arrivee}</h3>
-                        <span class="eco-badge">${
-                          trajet.vehicule_electrique ? "🌱 Éco" : ""
-                        }</span>
-                    </div>
-                    <div class="trajet-details">
-                        <p><i class="fas fa-calendar"></i> ${
-                          trajet.date_depart
-                        }</p>
-                        <p><i class="fas fa-clock"></i> ${
-                          trajet.heure_depart
-                        }</p>
-                        <p><i class="fas fa-euro-sign"></i> ${trajet.prix} €</p>
-                        <p><i class="fas fa-user-friends"></i> ${
-                          trajet.nb_places_dispo
-                        } place(s) disponible(s)</p>
-                    </div>
-                    <a href="detail.html?id=${trajet.id}" class="btn-details">
-                        <i class="fas fa-info-circle"></i> Voir détails
-                    </a>
+          const trajetDiv = document.createElement("div");
+          trajetDiv.classList.add("trajet-card");
+          trajetDiv.innerHTML = `
+                <div class="trajet-header">
+                    <h3><i class="fas fa-route"></i> ${trajet.ville_depart} → ${
+            trajet.ville_arrivee
+          }</h3>
+                    <span class="eco-badge">${
+                      trajet.vehicule_electrique ? "🌱 Éco" : ""
+                    }</span>
                 </div>
-            `;
+                <div class="trajet-details">
+                    <p><i class="fas fa-calendar"></i> ${trajet.date_depart}</p>
+                    <p><i class="fas fa-clock"></i> ${trajet.heure_depart}</p>
+                    <p><i class="fas fa-euro-sign"></i> ${trajet.prix} €</p>
+                    <p><i class="fas fa-user-friends"></i> ${
+                      trajet.nb_places_dispo
+                    } place(s) disponible(s)</p>
+                    <p><i class="fas fa-user"></i> ${trajet.pseudo}</p>
+                    <div class="note-chauffeur">
+                        <i class="fas fa-spinner fa-spin"></i> Chargement note...
+                    </div>
+                </div>
+                <a href="detail.html?id=${trajet.id}" class="btn-details">
+                    <i class="fas fa-info-circle"></i> Voir détails
+                </a>
+          `;
+
+          resultats.appendChild(trajetDiv);
+
+          // Charger la note du chauffeur
+          fetch(
+            `../backend/avis/moyenne.php?chauffeur_id=${trajet.id_chauffeur}`
+          )
+            .then((res) => res.json())
+            .then((note) => {
+              const noteDiv = trajetDiv.querySelector(".note-chauffeur");
+
+              if (note.moyenne !== null) {
+                noteDiv.innerHTML = `⭐ ${note.moyenne} (${note.total} avis)`;
+              } else {
+                noteDiv.innerHTML = `<em>Aucune note</em>`;
+              }
+            });
         });
       })
       .catch((error) => {
