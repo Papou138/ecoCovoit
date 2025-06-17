@@ -153,6 +153,21 @@ nav a {
   gap: var(--spacing-xs);
 }
 
+.note-global {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.badge-good {
+  background-color: #e0ffe0;
+  color: green;
+  padding: 3px 6px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  margin-left: 8px;
+}
+
 /* Footer */
 footer {
   text-align: center;
