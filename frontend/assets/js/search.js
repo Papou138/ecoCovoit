@@ -1,19 +1,18 @@
 let trajetsGlobal = []; // Variable globale pour stocker les trajets
 const selectTri = document.getElementById("tri-option");
 const selectNote = document.getElementById("filtre-note");
+const resultats = document.getElementById("resultats");
+const formRecherche = document.getElementById("formRecherche");
 
-document
-  .getElementById("formRecherche")
-  .addEventListener("submit", function (e) {
-    e.preventDefault();
-    chargerTrajets(new FormData(this));
-  });
+// Écouteur pour le formulaire de recherche
+formRecherche.addEventListener("submit", function (e) {
+  e.preventDefault();
+  chargerTrajets(new FormData(this));
+});
 
 // Fonction pour charger les trajets
 async function chargerTrajets(formData) {
-  const resultats = document.getElementById("resultats");
-  resultats.innerHTML =
-    '<p class="loading"><i class="fas fa-spinner fa-spin"></i> Recherche en cours...</p>';
+  afficherChargement();
 
   const searchData = new URLSearchParams();
   searchData.append("depart", formData.get("depart"));
@@ -33,47 +32,39 @@ async function chargerTrajets(formData) {
     const data = await response.json();
 
     if (!data.success || !data.trajets || data.trajets.length === 0) {
-      resultats.innerHTML = `
-                <div class="no-results">
-                    <i class="fas fa-info-circle"></i>
-                    <p>Aucun trajet trouvé pour votre recherche</p>
-                </div>
-            `;
+      afficherAucunResultat();
       return;
     }
 
     // Enrichir avec les notes
-    const notesPromises = data.trajets.map(async (trajet) => {
-      const noteRes = await fetch(
-        `../backend/avis/moyenne.php?chauffeur_id=${trajet.id_chauffeur}`
-      );
-      const noteData = await noteRes.json();
-      trajet.note_moyenne = noteData.moyenne ?? 0;
-      trajet.nb_avis = noteData.total ?? 0;
-      return trajet;
-    });
+    trajetsGlobal = await Promise.all(
+      data.trajets.map(async (trajet) => {
+        const noteRes = await fetch(
+          `../backend/avis/moyenne.php?chauffeur_id=${trajet.id_chauffeur}`
+        );
+        const noteData = await noteRes.json();
+        trajet.note_moyenne = noteData.moyenne ?? 0;
+        trajet.nb_avis = noteData.total ?? 0;
+        return trajet;
+      })
+    );
 
-    trajetsGlobal = await Promise.all(notesPromises);
     trierEtAfficher();
   } catch (error) {
-    resultats.innerHTML = `
-            <div class="error-message">
-                <i class="fas fa-exclamation-circle"></i>
-                <p>Une erreur est survenue lors de la recherche</p>
-            </div>
-        `;
+    afficherErreur();
     console.error("Erreur:", error);
   }
 }
 
 // Fonction de tri et affichage
 function trierEtAfficher() {
-  const tri = document.getElementById("tri-option").value;
-  const noteMin = parseFloat(document.getElementById("filtre-note").value);
+  const tri = selectTri.value;
+  const noteMin = parseFloat(selectNote.value);
 
   // Cloner et filtrer les trajets selon la note minimale
   let trajets = [...trajetsGlobal].filter((t) => t.note_moyenne >= noteMin);
 
+  // Appliquer le tri
   switch (tri) {
     case "note":
       trajets.sort((a, b) => b.note_moyenne - a.note_moyenne);
@@ -89,15 +80,37 @@ function trierEtAfficher() {
   afficherTrajets(trajets);
 }
 
-// Fonction d'affichage
+// Fonctions utilitaires pour l'affichage
+function afficherChargement() {
+  resultats.innerHTML =
+    '<p class="loading"><i class="fas fa-spinner fa-spin"></i> Recherche en cours...</p>';
+}
+
+function afficherAucunResultat() {
+  resultats.innerHTML = `
+        <div class="no-results">
+            <i class="fas fa-info-circle"></i>
+            <p>Aucun trajet trouvé pour votre recherche</p>
+        </div>
+    `;
+}
+
+function afficherErreur() {
+  resultats.innerHTML = `
+        <div class="error-message">
+            <i class="fas fa-exclamation-circle"></i>
+            <p>Une erreur est survenue lors de la recherche</p>
+        </div>
+    `;
+}
+
+// Fonction d'affichage des trajets
 function afficherTrajets(trajets) {
-  const resultats = document.getElementById("resultats");
   resultats.innerHTML = "";
 
   trajets.forEach((trajet) => {
     const trajetDiv = document.createElement("div");
     trajetDiv.classList.add("trajet-card");
-
     trajetDiv.innerHTML = `
             <div class="trajet-header">
                 <h3><i class="fas fa-route"></i> ${trajet.ville_depart} → ${
@@ -128,15 +141,6 @@ function afficherTrajets(trajets) {
   });
 }
 
-// Écouteur d'événement pour le tri
-document
-  .getElementById("tri-option")
-  .addEventListener("change", trierEtAfficher);
-
-// Écouteur d'événement pour le filtre de note
-document
-  .getElementById("filtre-note")
-  .addEventListener("change", trierEtAfficher);
-
-// Initialisation des événements de tri et de filtres
+// Initialisation des écouteurs d'événements
+selectTri.addEventListener("change", trierEtAfficher);
 selectNote.addEventListener("change", trierEtAfficher);
