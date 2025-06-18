@@ -61,14 +61,26 @@
           </button>
         </form>
 
-        <!-- Ajout des options de tri -->
+        <!-- Options de tri et filtres -->
         <div class="tri-container">
-          <label for="tri-option"><strong>Trier par :</strong></label>
-          <select id="tri-option">
-            <option value="note">Note du chauffeur</option>
-            <option value="prix">Prix croissant</option>
-            <option value="places">Places disponibles</option>
-          </select>
+          <div class="tri-groupe">
+            <label for="tri-option"><strong>Trier par :</strong></label>
+            <select id="tri-option">
+              <option value="note">Note du chauffeur</option>
+              <option value="prix">Prix croissant</option>
+              <option value="places">Places disponibles</option>
+            </select>
+          </div>
+
+          <div class="tri-groupe">
+            <label for="filtre-note"><strong>Note minimum :</strong></label>
+            <select id="filtre-note">
+              <option value="0">Toutes les notes</option>
+              <option value="3">≥ 3 ⭐</option>
+              <option value="4">≥ 4 ⭐</option>
+              <option value="4.5">≥ 4.5 ⭐</option>
+            </select>
+          </div>
         </div>
 
         <div id="resultats" class="results-container"></div>

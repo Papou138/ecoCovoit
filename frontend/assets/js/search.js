@@ -1,4 +1,6 @@
 let trajetsGlobal = []; // Variable globale pour stocker les trajets
+const selectTri = document.getElementById("tri-option");
+const selectNote = document.getElementById("filtre-note");
 
 document
   .getElementById("formRecherche")
@@ -67,7 +69,10 @@ async function chargerTrajets(formData) {
 // Fonction de tri et affichage
 function trierEtAfficher() {
   const tri = document.getElementById("tri-option").value;
-  const trajets = [...trajetsGlobal];
+  const noteMin = parseFloat(document.getElementById("filtre-note").value);
+
+  // Cloner et filtrer les trajets selon la note minimale
+  let trajets = [...trajetsGlobal].filter((t) => t.note_moyenne >= noteMin);
 
   switch (tri) {
     case "note":
@@ -127,3 +132,11 @@ function afficherTrajets(trajets) {
 document
   .getElementById("tri-option")
   .addEventListener("change", trierEtAfficher);
+
+// Écouteur d'événement pour le filtre de note
+document
+  .getElementById("filtre-note")
+  .addEventListener("change", trierEtAfficher);
+
+// Initialisation des événements de tri et de filtres
+selectNote.addEventListener("change", trierEtAfficher);

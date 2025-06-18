@@ -175,24 +175,35 @@ nav a {
 }
 
 .tri-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
   margin: 20px 0;
-  text-align: right;
+  align-items: center;
 }
 
-#tri-option {
+.tri-groupe {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#tri-option,
+#fitre-note {
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-left: 10px;
   background-color: white;
   cursor: pointer;
 }
 
-#tri-option:hover {
+#tri-option:hover,
+#fitre-note:hover {
   border-color: #4caf50;
 }
 
-#tri-option:focus {
+#tri-option:focus,
+#filtre-note:focus {
   outline: none;
   border-color: #4caf50;
   box-shadow: 0 0 3px rgba(76, 175, 80, 0.3);
