@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mon historique – ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>🕓 Mon historique de covoiturages</h1>
+      <label for="filtre-statut"><strong>Afficher :</strong></label>
+      <select id="filtre-statut">
+        <option value="tous">Tous les trajets</option>
+        <option value="avenir">Trajets à venir</option>
+        <option value="termine">Trajets terminés</option>
+      </select>
+
+      <div id="historique-container">Chargement...</div>
+    </main>
+
+    <script>
+      const selectFiltre = document.getElementById("filtre-statut");
+      const container = document.getElementById("historique-container");
+      let trajetsGlobal = [];
+
+      // Charger tous les trajets
+      fetch("../backend/trajets/historique.php")
+        .then((res) => res.json())
+        .then((data) => {
+          trajetsGlobal = data;
+          afficherTrajets(); // Appel initial pour afficher tous les trajets
+        });
+
+      // Afficher les trajets filtrés
+      function afficherTrajets() {
+        const filtre = selectFiltre.value;
+        container.innerHTML = "";
+
+        const trajetsFiltres = trajetsGlobal.filter((trajet) => {
+          if (filtre === "tous") return true; // Tous les trajets
+          if (filtre === "avenir") return trajet.statut !== "termine"; // Trajets à venir
+          if (filtre === "termine") return trajet.statut === "terminé"; // Trajets terminés
+        });
+
+        if (trajetsFiltres.length === 0) {
+          container.innerHTML = "<p>Aucun trajet trouvé pour ce filtre.</p>";
+          return;
+        }
+
+        trajetsFiltres.forEach((trajet) => {
+          const div = document.createElement("div");
+          div.classList.add("trajet");
+
+          div.innerHTML = `
+            <h3>${trajet.ville_depart} → ${trajet.ville_arrivee}</h3>
+            <p><strong>Date :</strong> ${trajet.date}</p>
+            <p><strong>Rôle :</strong> ${
+              trajet.estChauffeur ? "Chauffeur" : "Passager"
+            }</p>
+            <p><strong>Statut :</strong> ${trajet.statut}</p>
+            ${
+              trajet.annulable
+                ? `<button onclick="annulerTrajet(${trajet.id})">❌ Annuler</button>`
+                : ""
+            }${
+            trajet.est_chauffeur && trajet.statut !== "termine"
+              ? `<button onclick="demarrerTrajet(${trajet.id})">🟢 Démarrer</button>`
+              : ""
+          }
+              ${
+                trajet.est_chauffeur && trajet.statut === "en_cours"
+                  ? `<button onclick="cloreTrajet(${trajet.id})">🛑 Arrivée à destination</button>`
+                  : ""
+              }
+          `;
+
+          container.appendChild(div);
+        });
+      }
+
+      selectFiltre.addEventListener("change", afficherTrajets);
+
+      function annulerTrajet(id) {
+        if (!confirm("Confirmer l’annulation de ce trajet ?")) return;
+
+        fetch("../backend/trajets/annuler.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: "trajet_id=" + id,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            alert(data.message);
+            location.reload();
+          });
+      }
+
+      function demarrerTrajet(id) {
+        if (!confirm("Démarrer ce trajet maintenant ?")) return;
+
+        fetch("../backend/trajets/demarrer.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: "trajet_id=" + id,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            alert(data.message);
+            location.reload();
+          });
+      }
+
+      function cloreTrajet(id) {
+        if (!confirm("Confirmer la fin de ce trajet ?")) return;
+
+        fetch("../backend/trajets/arriver.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: "trajet_id=" + id,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            alert(data.message);
+            location.reload();
+          });
+      }
+    </script>
+  </body>
+</html>
