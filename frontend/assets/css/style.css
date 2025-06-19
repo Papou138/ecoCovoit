@@ -210,7 +210,9 @@ nav a {
 }
 
 /* Style de carte trajet */
-.trajet.note-faible {
+.note-faible {
+  opacity: 0.6;
+  filter: grayscale(0.3);
   background-color: #ffecec;
   border: 1px solid #ff5c5c;
 }

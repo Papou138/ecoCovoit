@@ -144,7 +144,7 @@ function afficherTrajets(trajets) {
             </a>
         `;
 
-    resultats.appendChild(div);
+    resultats.appendChild(trajetDiv);
   });
 }
 
