@@ -106,11 +106,18 @@ function afficherErreur() {
 
 // Fonction d'affichage des trajets
 function afficherTrajets(trajets) {
+  const noteMin = parseFloat(selectNote.value);
   resultats.innerHTML = "";
 
   trajets.forEach((trajet) => {
     const trajetDiv = document.createElement("div");
     trajetDiv.classList.add("trajet-card");
+
+    // Marquage visuel si la note est inférieure au filtre actuel
+    if (trajet.note_moyenne < noteMin) {
+      div.classList.add("note-faible");
+    }
+
     trajetDiv.innerHTML = `
             <div class="trajet-header">
                 <h3><i class="fas fa-route"></i> ${trajet.ville_depart} → ${
@@ -137,7 +144,7 @@ function afficherTrajets(trajets) {
             </a>
         `;
 
-    resultats.appendChild(trajetDiv);
+    resultats.appendChild(div);
   });
 }
 

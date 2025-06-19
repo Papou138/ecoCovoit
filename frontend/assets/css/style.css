@@ -209,6 +209,12 @@ nav a {
   box-shadow: 0 0 3px rgba(76, 175, 80, 0.3);
 }
 
+/* Style de carte trajet */
+.trajet.note-faible {
+  background-color: #ffecec;
+  border: 1px solid #ff5c5c;
+}
+
 /* Footer */
 footer {
   text-align: center;
