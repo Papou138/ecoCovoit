@@ -217,6 +217,21 @@ nav a {
   border: 1px solid #ff5c5c;
 }
 
+.btn-link {
+  display: inline-block;
+  margin-top: 5px;
+  background-color: #f0f0f0;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: #333;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  background-color: #dff0d8;
+  color: green;
+}
+
 /* Footer */
 footer {
   text-align: center;

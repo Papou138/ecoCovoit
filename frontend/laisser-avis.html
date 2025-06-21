@@ -38,7 +38,15 @@
       // Récupérer l'ID du trajet depuis l'URL
       const urlParams = new URLSearchParams(window.location.search);
       const trajetId = urlParams.get("trajet_id");
-      document.getElementById("trajet_id").value = trajetId;
+
+      // Sécurité basique
+      if (!trajetId) {
+        document.getElementById("avis-message").textContent =
+          "Trajet non spécifié.";
+        document.getElementById("avis-form").style.color = "none";
+      } else {
+        document.getElementById("trajet_id").value = trajetId;
+      }
 
       document
         .getElementById("avis-form")
@@ -56,6 +64,11 @@
               msg.textContent = data.message;
               msg.style.color = data.success ? "green" : "red";
               if (data.success) this.reset();
+            })
+            .catch(() => {
+              const msg = document.getElementById("avis-message");
+              msg.textContent = "Erreur réseau. Veuillez réessayer.";
+              msg.style.color = "red";
             });
         });
     </script>
