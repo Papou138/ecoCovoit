@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mes réservations – ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>📅 Mes trajets réservés</h1>
+      <div id="reservations-container">Chargement...</div>
+    </main>
+
+    <script>
+      const container = document.getElementById("reservations-container");
+
+      fetch("../backend/reservations/mes_reservations.php")
+        .then((res) => res.json())
+        .then((data) => {
+          container.innerHTML = "";
+
+          if (data.length === 0) {
+            container.innerHTML =
+              "<p>Vous n’avez encore réservé aucun trajet.</p>";
+            return;
+          }
+
+          data.forEach((trajet) => {
+            const div = document.createElement("div");
+            div.classList.add("trajet");
+
+            div.innerHTML = `
+            <h3>${trajet.ville_depart} → ${trajet.ville_arrivee}</h3>
+            <p><strong>Date :</strong> ${trajet.date}</p>
+            <p><strong>Chauffeur :</strong> ${trajet.pseudo_chauffeur}</p>
+            <p><strong>Statut :</strong> ${trajet.statut}</p>
+            ${
+              trajet.statut !== "termine"
+                ? `<button onclick="annuler(${trajet.id})">❌ Annuler</button>`
+                : ""
+            }
+          `;
+
+            container.appendChild(div);
+          });
+        });
+
+      function annuler(trajetId) {
+        if (!confirm("Annuler votre réservation pour ce trajet ?")) return;
+
+        fetch("../backend/trajets/annuler.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: "trajet_id=" + trajetId,
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            alert(data.message);
+            location.reload();
+          });
+      }
+    </script>
+  </body>
+</html>
