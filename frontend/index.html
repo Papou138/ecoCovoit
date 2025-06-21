@@ -2,7 +2,18 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ecoCovoit - Plateforme de covoiturage écoresponsable. Partagez vos trajets et réduisez votre empreinte carbone."
+    />
+    <meta
+      name="keywords"
+      content="covoiturage, écologique, transport, mobilité verte"
+    />
+    <meta name="author" content="ecoCovoit" />
     <title>ecoCovoit – Accueil</title>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link
       rel="stylesheet"
@@ -12,87 +23,222 @@
   <body>
     <!-- MENU NAVIGATION -->
     <header>
-      <nav>
+      <div class="header-content">
+        <div class="logo-container">
+          <img
+            src="assets/img/logo_ecoCovoit.jpg"
+            alt="Logo ecoCovoit"
+            class="logo"
+            width="80"
+            height="80"
+            loading="lazy"
+          />
+          <h1>ecoCovoit</h1>
+        </div>
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Menu Principal"
+          aria-expanded="false"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+      <nav id="main-nav">
         <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="#">Covoiturages</a></li>
-          <li><a href="#">Connexion</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="index.html" class="active">Accueil</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">
+              <i class="fas fa-user"></i> Mon Compte
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="login.html"
+                  ><i class="fas fa-sign-in-alt"></i> Connexion</a
+                >
+              </li>
+              <li>
+                <a href="register.html"
+                  ><i class="fas fa-user-plus"></i> Inscription</a
+                >
+              </li>
+              <li>
+                <a href="user-profile.html"
+                  ><i class="fas fa-user-circle"></i> Mon Profil</a
+                >
+              </li>
+              <li>
+                <a href="#" id="logout"
+                  ><i class="fas fa-sign-out-alt"></i> Déconnexion</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Trajets</a>
+            <ul class="dropdown-menu">
+              <li><a href="add-voyage.html">Proposer un trajet</a></li>
+              <li><a href="mes-reservations.html">Mes réservations</a></li>
+              <li>
+                <a href="notation.html"
+                  ><i class="fas fa-star"></i> Avis & Notations</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+          </li>
         </ul>
       </nav>
     </header>
 
     <!-- SECTION PRÉSENTATION -->
     <main>
-      <section class="presentation">
-        <h1>Bienvenue sur ecoCovoit</h1>
-        <p>La plateforme de covoiturage écoresponsable 🚗💚</p>
-        <img src="assets/img/eco.jpg" alt="Présentation entreprise" />
+      <section id="presentation" class="presentation-section">
+        <div class="container">
+          <div class="presentation-content">
+            <div class="text-content">
+              <h2>Bienvenue sur ecoCovoit</h2>
+              <p>
+                ecoCovoit est votre solution de covoiturage écoresponsable.
+                Réduisez votre empreinte carbone en partageant vos trajets avec
+                d'autres utilisateurs.
+              </p>
+            </div>
+            <div class="image-container">
+              <img
+                src="assets/img/covoit-ecoresponsable..jpg"
+                alt="Voiture écologique"
+                class="responsive-image"
+                loading="lazy"
+                width="800"
+                height="450"
+              />
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- FORMULAIRE DE RECHERCHE -->
-      <section class="recherche">
-        <h2>Recherchez un covoiturage</h2>
-        <form id="formRecherche" class="search-form">
-          <div class="form-group">
-            <i class="fas fa-map-marker-alt"></i>
-            <input
-              type="text"
-              name="depart"
-              placeholder="Ville de départ"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <i class="fas fa-map-marker"></i>
-            <input
-              type="text"
-              name="arrivee"
-              placeholder="Ville d'arrivée"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <i class="fas fa-calendar"></i>
-            <input type="date" name="date" required />
-          </div>
-          <button type="submit" class="search-button">
-            <i class="fas fa-search"></i> Rechercher
-          </button>
-        </form>
+      <section id="recherche" class="search-section">
+        <div class="search-container animate-slideUp">
+          <h2>Rechercher un covoiturage</h2>
+          <form id="search-form" aria-label="Recherche de trajets">
+            <div class="search-main-fields">
+              <div class="form-group">
+                <label for="depart"
+                  ><i class="fas fa-map-marker-alt"></i> Départ</label
+                >
+                <input
+                  type="text"
+                  id="depart"
+                  name="depart"
+                  class="form-input"
+                  required
+                  placeholder="Ville de départ"
+                  aria-required="true"
+                />
+              </div>
+              <div class="form-group">
+                <label for="arrivee"
+                  ><i class="fas fa-map-marker"></i> Arrivée</label
+                >
+                <input
+                  type="text"
+                  id="arrivee"
+                  name="arrivee"
+                  class="form-input"
+                  required
+                  placeholder="Ville d'arrivée"
+                  aria-required="true"
+                />
+              </div>
+              <div class="form-group">
+                <label for="date"
+                  ><i class="fas fa-calendar"></i> Date du trajet</label
+                >
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  class="form-input"
+                  required
+                  aria-required="true"
+                />
+              </div>
+            </div>
+            <button type="submit" class="search-button">
+              <i class="fas fa-search"></i> Rechercher
+            </button>
+          </form>
+          <div id="results" class="results-container"></div>
+        </div>
+      </section>
 
-        <!-- Options de tri et filtres -->
-        <div class="tri-container">
-          <div class="tri-groupe">
-            <label for="tri-option"><strong>Trier par :</strong></label>
-            <select id="tri-option">
-              <option value="note">Note du chauffeur</option>
-              <option value="prix">Prix croissant</option>
-              <option value="places">Places disponibles</option>
-            </select>
-          </div>
-
-          <div class="tri-groupe">
-            <label for="filtre-note"><strong>Note minimum :</strong></label>
-            <select id="filtre-note">
-              <option value="0">Toutes les notes</option>
-              <option value="3">≥ 3 ⭐</option>
-              <option value="4">≥ 4 ⭐</option>
-              <option value="4.5">≥ 4.5 ⭐</option>
-            </select>
+      <!-- SECTION AVANTAGES -->
+      <section id="avantages" class="features-section">
+        <div class="container">
+          <h2>Pourquoi choisir ecoCovoit ?</h2>
+          <div class="features-grid grid-4-columns">
+            <div class="feature-card">
+              <i class="fas fa-leaf"></i>
+              <h3>Écologique</h3>
+              <p>Réduisez votre empreinte carbone en partageant vos trajets</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-wallet"></i>
+              <h3>Économique</h3>
+              <p>Partagez les frais de transport avec d'autres voyageurs</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-users"></i>
+              <h3>Communautaire</h3>
+              <p>Rejoignez une communauté de voyageurs responsables</p>
+            </div>
+            <div class="feature-card">
+              <i class="fas fa-shield-alt"></i>
+              <h3>Sécurisé</h3>
+              <p>Profitez d'un système de réservation sûr et fiable</p>
+            </div>
           </div>
         </div>
-
-        <div id="resultats" class="results-container"></div>
       </section>
     </main>
 
     <!-- FOOTER -->
     <footer>
-      <p>Contact : contact@ecocovoit.fr</p>
-      <a href="#">Mentions légales</a>
+      <div class="footer-content">
+        <div class="footer-section contact-section">
+          <h3>Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:contact@ecocovoit.fr">contact@ecocovoit.fr</a>
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3>Liens utiles</h3>
+          <ul>
+            <li><a href="#">Mentions légales</a></li>
+            <li><a href="#">Politique de confidentialité</a></li>
+            <li><a href="#">CGU</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>À propos</h3>
+          <p>
+            ecoCovoit s'engage pour une mobilité plus verte et plus économique.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ecoCovoit - Tous droits réservés</p>
+      </div>
     </footer>
 
     <script src="assets/js/search.js"></script>
+    <script src="assets/js/menu.js"></script>
   </body>
 </html>
