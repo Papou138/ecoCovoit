@@ -1,0 +1,92 @@
+/* ---------------------------------------------------------------------------------------
+ *  Styles du footer
+ * ---------------------------------------------------------------------------------------
+ */
+footer {
+  background-color: var(--color-primary);
+  color: var(--color-bg-primary);
+  padding: var(--space-md) 0;
+  margin-top: var(--space-xl);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding: 0 var(--space-md);
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-section h3 {
+  color: var(--color-bg-primary);
+  margin-bottom: var(--space-sm);
+  font-size: 1.1rem;
+  border-bottom: 2px solid var(--color-bg-primary);
+  padding-bottom: var(--space-xs);
+}
+
+.footer-section p {
+  color: var(--color-bg-primary);
+  margin: var(--space-md) 0;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--space-md);
+}
+
+.footer-section ul li {
+  margin-bottom: var(--space-md);
+  padding: var(--space-xs);
+}
+
+/* Optimisation de la section Contact */
+.footer-section.contact-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.footer-section.contact-section p {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: 0;
+}
+
+.footer-section.contact-section i {
+  width: 20px;
+  text-align: center;
+}
+
+.footer-section a {
+  color: var(--color-bg-primary);
+  text-decoration: none;
+  transition: var(--transition-base);
+  position: relative;
+}
+
+.footer-section a:hover {
+  color: #df3f0f;
+}
+
+.footer-section a:hover::after {
+  content: "→";
+  margin-left: var(--space-xs);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: var(--space-md);
+  background-color: #45a049;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: var(--space-md) 0;
+}
