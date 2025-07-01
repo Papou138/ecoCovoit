@@ -52,6 +52,8 @@ async function chargerTrajets(formData) {
     trierEtAfficher();
   } catch (error) {
     afficherErreur();
+    // ************ Log pour le debug : ***********
+    resultats.innerHTML += `<div style="color:red;font-size:0.9em;">Erreur de connexion au backend : ${error.message}</div>`;
     console.error("Erreur:", error);
   }
 }
@@ -115,7 +117,7 @@ function afficherTrajets(trajets) {
 
     // Marquage visuel si la note est inférieure au filtre actuel
     if (trajet.note_moyenne < noteMin) {
-      div.classList.add("note-faible");
+      trajetDiv.classList.add("note-faible");
     }
 
     trajetDiv.innerHTML = `
@@ -151,3 +153,15 @@ function afficherTrajets(trajets) {
 // Initialisation des écouteurs d'événements
 selectTri.addEventListener("change", trierEtAfficher);
 selectNote.addEventListener("change", trierEtAfficher);
+
+// Gestion de l'affichage des filtres avancés
+const toggleFiltersBtn = document.getElementById("toggle-filters");
+const filtersContent = document.getElementById("filters-content");
+
+if (toggleFiltersBtn && filtersContent) {
+  toggleFiltersBtn.addEventListener("click", function () {
+    const isActive = filtersContent.classList.toggle("active");
+    toggleFiltersBtn.setAttribute("aria-expanded", isActive);
+    filtersContent.setAttribute("aria-hidden", !isActive);
+  });
+}

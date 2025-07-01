@@ -128,7 +128,7 @@
       <section id="recherche" class="search-section">
         <div class="search-container animate-slideUp">
           <h2>Rechercher un covoiturage</h2>
-          <form id="search-form" aria-label="Recherche de trajets">
+          <form id="formRecherche" aria-label="Recherche de trajets">
             <div class="search-main-fields">
               <div class="form-group">
                 <label for="depart"
@@ -172,11 +172,137 @@
                 />
               </div>
             </div>
+
+            <!-- Filtres avancés -->
+            <div class="advanced-filters">
+              <button
+                type="button"
+                class="toggle-filters"
+                id="toggle-filters"
+                aria-expanded="false"
+                aria-controls="filters-content"
+                aria-label="Afficher ou masquer les filtres avancés"
+              >
+                <i class="fas fa-sliders-h" aria-hidden="true"></i> Filtres
+                avancés
+              </button>
+              <div
+                class="filters-content"
+                id="filters-content"
+                aria-hidden="true"
+                aria-labelledby="toggle-filters"
+              >
+                <h3 class="filters-title">Filtres avancés</h3>
+                <div class="filters-grid">
+                  <!-- Type de véhicule -->
+                  <div class="form-group">
+                    <label for="ecologique">
+                      <i class="fas fa-leaf"></i> Type de véhicule
+                    </label>
+                    <select
+                      name="ecologique"
+                      id="ecologique"
+                      class="form-input"
+                      aria-labelledby="ecologique-label"
+                    >
+                      <option value="">Tous les véhicules</option>
+                      <option value="oui">Véhicules écologiques</option>
+                      <option value="non">Véhicules standards</option>
+                    </select>
+                  </div>
+
+                  <!-- Prix Max -->
+                  <div class="form-group">
+                    <label for="prix" id="prix-label">
+                      <i class="fas fa-euro-sign" aria-hidden="true"></i> Prix
+                      Max
+                    </label>
+                    <input
+                      type="number"
+                      id="prix"
+                      name="prix"
+                      class="form-input"
+                      placeholder="Ex: 30"
+                      min="0"
+                      max="1000"
+                      step="0.01"
+                      aria-labelledby="prix-label"
+                      aria-describedby="prix-help"
+                    />
+                    <div id="prix-help" class="help-text">
+                      Entrer un montant entre 0 et 1000 €
+                    </div>
+                  </div>
+
+                  <!-- Durée Max -->
+                  <div class="form-group">
+                    <label for="duree" id="duree-label">
+                      <i class="fas fa-clock" aria-hidden="true"></i> Durée Max
+                      (heures)
+                    </label>
+                    <input
+                      type="number"
+                      id="duree"
+                      name="duree"
+                      class="form-input"
+                      placeholder="Ex: 5"
+                      min="0"
+                      max="24"
+                      aria-labelledby="duree-label"
+                      aria-describedby="duree-help"
+                    />
+                    <div id="duree-help" class="help-text">
+                      Entrer une durée entre 0 et 24 heures
+                    </div>
+                  </div>
+
+                  <!-- Note Minimale -->
+                  <div class="form-group">
+                    <label for="filtre-note" id="note-label">
+                      <i class="fas fa-star" aria-hidden="true"></i> Note
+                      minimale
+                    </label>
+                    <input
+                      type="number"
+                      id="filtre-note"
+                      name="note"
+                      class="form-input"
+                      placeholder="Ex: 4"
+                      min="0"
+                      max="5"
+                      step="0.5"
+                      aria-labelledby="note-label"
+                      aria-describedby="note-help"
+                    />
+                    <div id="note-help" class="help-text">
+                      Entrer une note entre 0 et 5
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Zone de tri -->
+            <div class="tri-container">
+              <h3 class="tri-title">Trier les résultats</h3>
+              <div class="tri-groupe">
+                <label for="tri-option"
+                  ><i class="fas fa-sort"></i> Trier par :</label
+                >
+                <select id="tri-option" class="form-input">
+                  <option value="note">Note</option>
+                  <option value="prix">Prix</option>
+                  <option value="places">Places disponibles</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Bouton de Recherche -->
             <button type="submit" class="search-button">
               <i class="fas fa-search"></i> Rechercher
             </button>
           </form>
-          <div id="results" class="results-container"></div>
+          <div id="resultats" class="results-container"></div>
         </div>
       </section>
 

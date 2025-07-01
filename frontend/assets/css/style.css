@@ -134,8 +134,10 @@
 
 .filters-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-md);
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+  width: 100%;
+  box-sizing: border-box; /* Assure que le padding n'affecte pas la largeur totale */
 }
 
 /* Bouton de recherche */
@@ -161,51 +163,6 @@
 .search-button:hover {
   background-color: var(--color-primary-dark);
   transform: translateY(-2px);
-}
-
-/* ========================= */
-/* AVANTAGES SECTION         */
-/* ========================= */
-.features-section {
-  background: var(--color-bg-primary);
-  padding: var(--space-xl) 0;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-lg);
-  margin-top: var(--space-lg);
-}
-
-.feature-card {
-  background: var(--color-bg-secondary);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
-  padding: var(--space-lg);
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.feature-card i {
-  font-size: 2.2em;
-  color: var(--color-primary);
-  margin-bottom: 10px;
-}
-
-.feature-card h3 {
-  margin: 10px 0 8px 0;
-  color: var(--color-primary);
-}
-
-.feature-card p {
-  color: var(--text-light);
-  font-size: 1em;
-}
-
-.feature-card:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 4px 18px rgba(46, 139, 87, 0.13);
 }
 
 /* ========================= */
@@ -259,9 +216,6 @@
 /* RESPONSIVE DESIGN         */
 /* ========================= */
 @media screen and (max-width: 1100px) {
-  .features-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .presentation-content {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
@@ -282,9 +236,6 @@
 }
 
 @media screen and (max-width: 700px), (max-width: 768px) {
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
   .footer-content {
     flex-direction: column;
     align-items: center;
@@ -360,13 +311,6 @@
   opacity: 1;
 }
 
-.form-group input {
-  width: 100%;
-  padding: var(--space-sm) var(--space-sm) var(--space-sm) 35px;
-  border: 1px solid #ddd;
-  border-radius: var(--radius-md);
-}
-
 /* Sections spécifiques */
 .presentation {
   padding: var(--space-lg);
@@ -419,16 +363,17 @@
 
 .tri-container {
   display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   justify-content: flex-end;
-  gap: 20px;
-  margin: 20px 0;
-  align-items: center;
+  gap: var(--space-sm);
+  margin: var(--space-lg) 0;
 }
 
 .tri-groupe {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--space-xs);
 }
 
 #tri-option,
@@ -476,6 +421,13 @@
 }
 
 /* Media queries */
+@media screen and (max-width: 900px) {
+  .filters-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+
 @media (max-width: 768px) {
   .trajet-header {
     flex-direction: column;
