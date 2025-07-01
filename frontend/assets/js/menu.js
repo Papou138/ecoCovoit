@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const expanded = menuToggle.getAttribute("aria-expanded") === "true";
       menuToggle.setAttribute("aria-expanded", !expanded);
       mainNav.classList.toggle("active");
+
+      menuToggle.classList.toggle("active");
+      mainNav.setAttribute("aria-hidden", expanded);
     });
   }
 
@@ -28,6 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!isMenu && mainNav && mainNav.classList.contains("active")) {
       mainNav.classList.remove("active");
       menuToggle.setAttribute("aria-expanded", "false");
+
+      menuToggle.classList.remove("active");
+      mainNav.setAttribute("aria-hidden", "true");
     }
   });
 
