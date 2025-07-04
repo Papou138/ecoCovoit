@@ -123,10 +123,12 @@ nav ul li a:hover {
   top: 100%;
   left: 0;
   min-width: 200px;
+  max-width: 250px;
   background-color: var(--color-bg-primary);
   box-shadow: var(--shadow-md);
   border-radius: var(--radius-sm);
   z-index: 1000;
+  overflow: hidden; /* Pour éviter le débordement */
 }
 
 .dropdown:hover .dropdown-menu,
@@ -137,6 +139,11 @@ nav ul li a:hover {
 
 .dropdown-menu li {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Pour couper le texte qui déborde */
+  white-space: nowrap; /* Pour éviter le retour à la ligne */
 }
 
 .dropdown-menu a {
@@ -189,17 +196,107 @@ nav ul li a:hover {
   }
 
   #main-nav {
-    display: none;
+    display: block;
     position: fixed;
     top: 60px;
     left: 0;
-    width: 100%;
-    background-color: var(--color-bg-primary);
+    width: 100vw; /* Prend toute la largeur de l'écran */
+    height: calc(100vh - 60px); /* Prend toute la hauteur de l'écran moins la hauteur du header */
+    background-color: var(--color-secondary);
     box-shadow: var(--shadow-md);
-    padding: var(--space-md);
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 0.4s cubic-bezier(.4,0,.2,1), opacity 0.3s;
+    z-index: 999; /* Assure que le menu est au-dessus des autres éléments */
   }
 
   #main-nav.active {
-    display: block;
+    max-height: 1000px; /* Ajuste selon le contenu */
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  #main-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: var(--space-lg) 0;
+    height: 100%;
+    justify-content: flex-start;
+  }
+
+  #main-nav li {
+    width: 100%;
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+  }
+
+  #main-nav li:last-child {
+    border-bottom: none;
+  }
+
+  #main-nav li a,
+  #main-nav .dropdown-toggle {
+    width: 100%;
+    padding: var(--space-lg) var(--space-md);
+    border-radius: 0;
+    text-align: left;
+    color: var(--color-text-primary);
+    background: none;
+    font-size: 1.15rem;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  #main-nav li a.active,
+  #main-nav li a:active,
+  #main-nav li a:focus,
+  #main-nav .dropdown-toggle.active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  /* Dropdown mobile : affichage en colonne et ouverture fluide */
+  .dropdown-menu {
+    position: static;
+    display: none;
+    background: none;
+    box-shadow: none;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0;
+    border-radius: 0;
+    animation: none;
+  }
+
+  .dropdown.open .dropdown-menu,
+  .dropdown-menu.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dropdown-menu li {
+    border-bottom: none;
+  }
+
+  .dropdown-menu a {
+    padding: var(--space-md) var(--space-xl);
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    background: none;
+    border-left: 3px solid transparent;
+  }
+
+  .dropdown-menu a:hover,
+  .dropdown-menu a:focus {
+    color: var(--color-primary);
+    background-color: var(--color-bg-tertiary);
+    border-left: 3px solid var(--color-primary);
   }
 }
