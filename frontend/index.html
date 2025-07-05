@@ -40,15 +40,17 @@
         <button
           id="menu-toggle"
           class="menu-toggle"
-          aria-label="Menu Principal"
+          aria-label="Ouvrir le menu Principal"
           aria-expanded="false"
+          aria-controls="main-nav"
+          type="button"
         >
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
         </button>
       </div>
-      <nav id="main-nav">
+      <nav id="main-nav" role="navigation" aria-label="Menu Principal">
         <ul>
           <li><a href="index.html" class="active"><i class="fas fa-home"></i> Accueil</a></li>
           <li class="dropdown">
