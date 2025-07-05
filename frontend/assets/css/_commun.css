@@ -1,6 +1,6 @@
-/* ========================= */
-/* Variables CSS globales    */
-/* ========================= */
+/* ============================ */
+/* =  Variables CSS globales  = */
+/* ============================ */
 :root {
   /* Familles de polices */
   --font-mono: "Consolas", "Monaco", monospace;
@@ -11,6 +11,7 @@
   --color-primary-light: #a5d6a7; /* Version claire de la couleur primaire */
   --color-secondary: #2196f3; /* Bleu */
   --color-tertiary: #ff9800; /* Orange pour les alertes/notifications */
+  --color-accent: #43e97b; /* Couleur d'accentuation - Vert lumineux */
   --color-border: #e0e0e0; /* Couleur de bordure standard */
 
   /* Couleurs de texte */
@@ -77,11 +78,47 @@
   --grid-gap: 2rem;
   --grid-columns-mobile: 1fr;
   --grid-columns-desktop: repeat(4, 1fr);
+
+  /* Mise en page */
+  --container-max-width: 1200px;
+  --section-padding-desktop: var(--space-xxl);
+  --section-padding-tablet: var(--space-xl);
+  --section-padding-mobile: var(--space-lg);
+
+  /* Variables pour les images responsives */
+  --image-max-height-desktop: 450px;
+  --image-max-height-tablet: 350px;
+  --image-max-height-mobile: 250px;
+  --image-min-height: 150px;
+
+  /* Variables pour les ratios d'aspect */
+  --aspect-ratio-wide: 16/9;
+  --aspect-ratio-standard: 4/3;
+  --aspect-ratio-portrait: 3/4;
+  --aspect-ratio-square: 1/1;
+
+  /* Variables pour les breakpoints */
+  --breakpoint-xl: 1100px;
+  --breakpoint-lg: 900px;
+  --breakpoint-md: 768px;
+  --breakpoint-sm: 480px;
+
+  /* Variables pour les z-index */
+  --z-index-base: 1;
+  --z-index-elevated: 2;
+  --z-index-overlay: 10;
+  --z-index-modal: 100;
+
+  /* Variables pour les animations */
+  --animation-duration-fast: 0.3s;
+  --animation-duration-normal: 0.6s;
+  --animation-duration-slow: 0.8s;
 }
 
-/* ========================= */
-/* Styles communs réutilisables */
-/* ========================= */
+
+/* ================================== */
+/* =  Styles communs réutilisables  = */
+/* ================================== */
 
 /* Mise en page principale */
 body {
