@@ -1,0 +1,79 @@
+<!-- TEMPLATE STANDARDISÉ DU HEADER POUR TOUTES LES PAGES -->
+<!-- À copier dans chaque page HTML du projet -->
+
+<header>
+  <div class="header-content">
+    <div class="logo-container">
+      <img
+        src="assets/img/logo-ecoRide.png"
+        alt="Logo ecoCovoit"
+        class="logo"
+        width="50"
+        height="50"
+        loading="lazy"
+      />
+      <h1 class="app-title">ecoCovoit</h1>
+    </div>
+
+    <button
+      id="menu-toggle"
+      class="menu-toggle"
+      aria-label="Ouvrir le menu Principal"
+      aria-expanded="false"
+      aria-controls="main-nav"
+      type="button"
+    >
+      <span class="hamburger-line" aria-hidden="true"></span>
+      <span class="hamburger-line" aria-hidden="true"></span>
+      <span class="hamburger-line" aria-hidden="true"></span>
+    </button>
+
+    <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal de navigation">
+      <ul class="nav-list">
+        <!-- PAGES PUBLIQUES (non connecté) -->
+        <li><a href="index.html" class="nav-link">Accueil</a></li>
+        <li><a href="rechercher-covoiturage.html" class="nav-link">Rechercher</a></li>
+        <li><a href="login.html" class="nav-link">Connexion</a></li>
+        <li><a href="register.html" class="nav-link">Inscription</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+
+        <!-- PAGES CONNECTÉES (à afficher conditionnellement) -->
+        <!-- Décommenter selon le type de page :
+        <li><a href="add-voyage.html" class="nav-link">Proposer</a></li>
+        <li><a href="mes-reservations.html" class="nav-link">Mes réservations</a></li>
+        <li><a href="historique.html" class="nav-link">Historique</a></li>
+        <li><a href="user-profile.html" class="nav-link">Mon profil</a></li>
+        <li><a href="add-vehicule.html" class="nav-link">Mes véhicules</a></li>
+        <li><a href="add-preferences.html" class="nav-link">Préférences</a></li>
+        <li><a href="#" class="nav-link" id="logout-nav">Déconnexion</a></li>
+        -->
+
+        <!-- PAGES ADMIN (à afficher conditionnellement) -->
+        <!-- Décommenter pour les pages admin :
+        <li><a href="admin-dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="admin-comptes.html" class="nav-link">Comptes</a></li>
+        <li><a href="employe-avis.html" class="nav-link">Avis</a></li>
+        <li><a href="employe-incidents.html" class="nav-link">Incidents</a></li>
+        -->
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!--
+INSTRUCTIONS D'UTILISATION :
+
+1. Copier cette structure dans chaque page HTML
+2. Ajouter la classe "active" sur le lien correspondant à la page actuelle
+3. Activer/désactiver les liens selon le type d'utilisateur (public/connecté/admin)
+4. S'assurer que les liens CSS sont présents :
+   - <link rel="stylesheet" href="assets/css/_header.css" />
+   - <link rel="stylesheet" href="assets/css/_commun.css" />
+5. Ajouter le script du menu mobile :
+   - <script src="assets/js/menu.js"></script>
+
+EXEMPLE pour la page user-profile.html :
+- Ajouter class="active" sur le lien "Mon profil"
+- Afficher uniquement les liens des pages connectées
+- Masquer les liens publics (connexion/inscription)
+-->

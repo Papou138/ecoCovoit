@@ -397,23 +397,43 @@
     </style>
 </head>
 <body>
-    <!-- Header Employé -->
-    <header class="header">
-        <div class="header-container">
-            <div class="logo">
-                <img src="assets/img/logo_ecoCovoit.jpg" alt="ecoCovoit">
-                <span>ecoCovoit - Employé</span>
-            </div>
-            <nav class="nav">
-                <a href="employe-avis.html">Gestion des Avis</a>
-                <a href="employe-incidents.html" class="active">Incidents</a>
-                <a href="admin-dashboard.html">Dashboard</a>
-            </nav>
-            <div class="auth-buttons">
-                <span class="user-name">👨‍💼 Employé</span>
-                <a href="index.html" class="btn-logout">Déconnexion</a>
-            </div>
+    <!-- HEADER STANDARDISÉ -->
+    <header>
+      <div class="header-content">
+        <div class="logo-container">
+          <img
+            src="assets/img/logo-ecoRide.png"
+            alt="Logo ecoCovoit"
+            class="logo"
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <h1 class="app-title">ecoCovoit - Admin</h1>
         </div>
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Ouvrir le menu principal"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          type="button"
+        >
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+
+        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal de navigation">
+          <ul class="nav-list">
+            <li><a href="admin-dashboard.html" class="nav-link">Dashboard</a></li>
+            <li><a href="admin-comptes.html" class="nav-link">Comptes</a></li>
+            <li><a href="employe-avis.html" class="nav-link">Avis</a></li>
+            <li><a href="employe-incidents.html" class="nav-link active">Incidents</a></li>
+            <li><a href="index.html" class="nav-link">Déconnexion</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main class="employee-container">
@@ -508,6 +528,26 @@
         </div>
     </main>
 
+    <!-- FOOTER STANDARDISÉ -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: contact@ecocovoit.fr</p>
+        </div>
+        <div class="footer-section">
+          <h3>Informations</h3>
+          <ul>
+            <li><a href="mentions.html">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EcoCovoit. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/menu.js"></script>
     <script>
         // État de l'application
         let allIncidents = [];

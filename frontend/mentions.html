@@ -11,28 +11,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+    <!-- HEADER STANDARDISÉ -->
     <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <img src="assets/img/logo_ecoCovoit.jpg" alt="ecoCovoit">
-                    <span>ecoCovoit</span>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="rechercher-covoiturage.html">Rechercher</a></li>
-                    <li><a href="add-voyage.html">Proposer un trajet</a></li>
-                    <li><a href="historique.html">Historique</a></li>
-                    <li><a href="user-profile.html">Mon profil</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
+      <div class="header-content">
+        <div class="logo-container">
+          <img
+            src="assets/img/logo-ecoRide.png"
+            alt="Logo ecoCovoit"
+            class="logo"
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <h1 class="app-title">ecoCovoit</h1>
+        </div>
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Ouvrir le menu principal"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          type="button"
+        >
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+
+        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal de navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Accueil</a></li>
+            <li><a href="rechercher-covoiturage.html" class="nav-link">Covoiturages</a></li>
+            <li><a href="login.html" class="nav-link">Connexion</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
         </nav>
+      </div>
     </header>
 
     <main>
@@ -290,34 +304,23 @@
         </div>
     </main>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>ecoCovoit</h3>
-                <p>La plateforme de covoiturage éco-responsable</p>
-            </div>
-            <div class="footer-section">
-                <h4>Liens utiles</h4>
-                <ul>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="mentions.html">Mentions légales</a></li>
-                    <li><a href="#" target="_blank">CGU</a></li>
-                    <li><a href="#" target="_blank">Politique de confidentialité</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Réglementation</h4>
-                <ul>
-                    <li><a href="#donnees">Protection des données</a></li>
-                    <li><a href="#cookies">Gestion des cookies</a></li>
-                    <li><a href="mailto:dpo@ecocovoit.fr">DPO</a></li>
-                    <li><a href="https://www.cnil.fr" target="_blank">CNIL</a></li>
-                </ul>
-            </div>
+    <!-- FOOTER STANDARDISÉ -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: contact@ecocovoit.fr</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 ecoCovoit – Tous droits réservés</p>
+        <div class="footer-section">
+          <h3>Informations</h3>
+          <ul>
+            <li><a href="mentions.html">Mentions légales</a></li>
+          </ul>
         </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EcoCovoit. Tous droits réservés.</p>
+      </div>
     </footer>
 
     <script src="assets/js/menu.js"></script>
