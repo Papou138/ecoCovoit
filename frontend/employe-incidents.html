@@ -655,7 +655,7 @@
             const statusClass = `status-${incident.statut.replace('_', '-')}`;
             const priorityClass = `priority-${incident.priorite}`;
             const priorityIcon = getPriorityIcon(incident.priorite);
-            
+
             return `
                 <div class="incident-card">
                     <div class="incident-header">
@@ -676,12 +676,12 @@
                             </span>
                         </div>
                     </div>
-                    
+
                     <div class="incident-content">
                         <div class="incident-description">
                             ${incident.description}
                         </div>
-                        
+
                         <div class="incident-details">
                             <div class="detail-item">
                                 <span class="detail-icon">👤</span>
@@ -700,14 +700,14 @@
                                 <span>${incident.assigne_a || 'Non assigné'}</span>
                             </div>
                         </div>
-                        
+
                         ${incident.responses && incident.responses.length > 0 ? createResponseHistory(incident.responses) : ''}
                     </div>
-                    
+
                     <div class="incident-actions">
                         ${generateActionButtons(incident)}
                     </div>
-                    
+
                     ${incident.statut !== 'ferme' ? generateResponseSection(incident.id) : ''}
                 </div>
             `;
@@ -755,9 +755,9 @@
             return `
                 <div class="response-section" id="response-${incidentId}" style="display: none;">
                     <h4>💬 Répondre à l'incident</h4>
-                    <textarea 
-                        id="response-text-${incidentId}" 
-                        class="response-textarea" 
+                    <textarea
+                        id="response-text-${incidentId}"
+                        class="response-textarea"
                         placeholder="Tapez votre réponse ici..."
                     ></textarea>
                     <div style="display: flex; gap: 10px;">
@@ -872,7 +872,7 @@
 
         async function sendResponse(incidentId) {
             const responseText = document.getElementById(`response-text-${incidentId}`).value;
-            
+
             if (!responseText.trim()) {
                 alert('Veuillez saisir une réponse');
                 return;
@@ -882,7 +882,7 @@
                 // Simulation de l'envoi de réponse
                 alert('Réponse envoyée avec succès');
                 hideResponseSection(incidentId);
-                
+
                 // Ajouter la réponse à l'historique
                 const incident = allIncidents.find(i => i.id === incidentId);
                 if (incident) {

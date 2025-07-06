@@ -395,7 +395,7 @@
                             <div class="preference-label">Nouvelles demandes de réservation</div>
                             <div class="preference-description">Recevoir un email lors d'une nouvelle demande</div>
                         </div>
-                        <button type="button" class="toggle-switch" onclick="toggleNotification(this, 'nouvelles_demandes')" onkeydown="if(event.key==='Enter') toggleNotification(this, 'nouvelles_demandes')" role="switch" aria-checked="false" aria-label="Activer les notifications de nouvelles demandes"></button>
+                        <div class="toggle-switch" onclick="toggleNotification(this, 'nouvelles_demandes')"></div>
                     </div>
 
                     <div class="notification-item">
@@ -403,7 +403,7 @@
                             <div class="preference-label">Confirmations de réservation</div>
                             <div class="preference-description">Notifications lors de confirmations</div>
                         </div>
-                        <button type="button" class="toggle-switch" onclick="toggleNotification(this, 'confirmations')" onkeydown="if(event.key==='Enter') toggleNotification(this, 'confirmations')" role="switch" aria-checked="false" aria-label="Activer les notifications de confirmation"></button>
+                        <div class="toggle-switch" onclick="toggleNotification(this, 'confirmations')"></div>
                     </div>
 
                     <div class="notification-item">
@@ -411,7 +411,7 @@
                             <div class="preference-label">Rappels de trajets</div>
                             <div class="preference-description">Rappel 24h avant le départ</div>
                         </div>
-                        <button type="button" class="toggle-switch active" onclick="toggleNotification(this, 'rappels')" onkeydown="if(event.key==='Enter') toggleNotification(this, 'rappels')" role="switch" aria-checked="true" aria-label="Activer les rappels de trajet"></button>
+                        <div class="toggle-switch active" onclick="toggleNotification(this, 'rappels')"></div>
                     </div>
 
                     <div class="notification-item">
@@ -419,7 +419,7 @@
                             <div class="preference-label">Newsletter ecoCovoit</div>
                             <div class="preference-description">Conseils et actualités écologiques</div>
                         </div>
-                        <button type="button" class="toggle-switch" onclick="toggleNotification(this, 'newsletter')" onkeydown="if(event.key==='Enter') toggleNotification(this, 'newsletter')" role="switch" aria-checked="false" aria-label="Activer la newsletter"></button>
+                        <div class="toggle-switch" onclick="toggleNotification(this, 'newsletter')"></div>
                     </div>
                 </div>
             </div>
@@ -474,7 +474,8 @@
             // Compteur de caractères pour le textarea
             const textarea = document.getElementById('autres');
             textarea.addEventListener('input', function() {
-                // Possibilité d'ajouter un compteur de caractères plus tard
+                const remaining = 300 - this.value.length;
+                // Vous pouvez ajouter un compteur de caractères si nécessaire
             });
         }
 

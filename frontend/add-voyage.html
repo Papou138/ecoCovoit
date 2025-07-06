@@ -49,7 +49,7 @@
                     <!-- Étape 1: Itinéraire -->
                     <div class="form-section" data-step="1">
                         <h3><i class="fas fa-map-marked-alt"></i> Itinéraire</h3>
-                        
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="ville_depart">
@@ -79,7 +79,7 @@
                                 <i class="fas fa-map-pin"></i>
                                 Étapes intermédiaires (optionnel)
                             </label>
-                            <input type="text" id="etapes" name="etapes" 
+                            <input type="text" id="etapes" name="etapes"
                                    placeholder="Ex: Mâcon, Beaune (séparées par des virgules)">
                             <small class="form-hint">Mentionnez les villes où vous pouvez prendre ou déposer des passagers</small>
                         </div>
@@ -88,7 +88,7 @@
                     <!-- Étape 2: Date et heure -->
                     <div class="form-section" data-step="2">
                         <h3><i class="fas fa-clock"></i> Date et heure</h3>
-                        
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="date_depart">
@@ -132,7 +132,7 @@
                     <!-- Étape 3: Véhicule et places -->
                     <div class="form-section" data-step="3">
                         <h3><i class="fas fa-car"></i> Véhicule et places</h3>
-                        
+
                         <div class="form-group">
                             <label for="vehicule_id">
                                 <i class="fas fa-car-side"></i>
@@ -185,7 +185,7 @@
                     <!-- Étape 4: Préférences et options -->
                     <div class="form-section" data-step="4">
                         <h3><i class="fas fa-cog"></i> Préférences du voyage</h3>
-                        
+
                         <div class="preferences-grid">
                             <div class="preference-item">
                                 <label class="checkbox-container">
@@ -242,7 +242,7 @@
                                 <i class="fas fa-comment"></i>
                                 Commentaire (optionnel)
                             </label>
-                            <textarea id="commentaire" name="commentaire" rows="4" 
+                            <textarea id="commentaire" name="commentaire" rows="4"
                                       placeholder="Informations supplémentaires pour les passagers..."></textarea>
                         </div>
                     </div>
@@ -299,7 +299,7 @@
             const submitText = document.getElementById('submit-text');
             const feedback = document.getElementById('form-feedback');
             const cancelBtn = document.getElementById('cancel-btn');
-            
+
             // Initialisation
             init();
 
@@ -322,10 +322,10 @@
                 try {
                     const response = await fetch('../backend/vehicules/lister.php');
                     const data = await response.json();
-                    
+
                     const vehiculeSelect = document.getElementById('vehicule_id');
                     const noVehicleMessage = document.querySelector('.no-vehicle-message');
-                    
+
                     if (data.success && data.vehicules && data.vehicules.length > 0) {
                         vehiculeSelect.innerHTML = '<option value="">Sélectionner un véhicule</option>';
                         data.vehicules.forEach(vehicle => {
@@ -335,15 +335,15 @@
                             option.dataset.places = vehicle.places;
                             vehiculeSelect.appendChild(option);
                         });
-                        
+
                         // Mettre à jour les places disponibles quand on change de véhicule
                         vehiculeSelect.addEventListener('change', updateAvailableSeats);
-                        
+
                     } else {
                         vehiculeSelect.style.display = 'none';
                         noVehicleMessage.style.display = 'block';
                     }
-                    
+
                 } catch (error) {
                     console.error('Erreur lors du chargement des véhicules:', error);
                     showFeedback('Erreur lors du chargement des véhicules', 'error');
@@ -354,11 +354,11 @@
             function updateAvailableSeats() {
                 const vehiculeSelect = document.getElementById('vehicule_id');
                 const placesSelect = document.getElementById('places_disponibles');
-                
+
                 if (vehiculeSelect.value) {
                     const selectedOption = vehiculeSelect.options[vehiculeSelect.selectedIndex];
                     const maxPlaces = parseInt(selectedOption.dataset.places) - 1; // -1 pour le conducteur
-                    
+
                     placesSelect.innerHTML = '<option value="">Sélectionner</option>';
                     for (let i = 1; i <= maxPlaces; i++) {
                         const option = document.createElement('option');
@@ -366,7 +366,7 @@
                         option.textContent = i === 1 ? '1 place' : `${i} places`;
                         placesSelect.appendChild(option);
                     }
-                    
+
                     // Calculer le prix recommandé
                     calculateRecommendedPrice();
                 }
@@ -376,7 +376,7 @@
             function calculateRecommendedPrice() {
                 const depart = document.getElementById('ville_depart').value;
                 const arrivee = document.getElementById('ville_arrivee').value;
-                
+
                 if (depart && arrivee) {
                     // Simulation du calcul (à remplacer par une vraie API de calcul de distance)
                     const distance = Math.random() * 500 + 50; // Distance simulée entre 50 et 550 km
@@ -388,8 +388,8 @@
             // Configuration de l'autocomplétion des villes
             function setupCityAutocomplete() {
                 const cities = [
-                    'Paris', 'Lyon', 'Marseille', 'Toulouse', 'Nice', 'Nantes', 'Strasbourg', 
-                    'Montpellier', 'Bordeaux', 'Lille', 'Rennes', 'Reims', 'Le Havre', 
+                    'Paris', 'Lyon', 'Marseille', 'Toulouse', 'Nice', 'Nantes', 'Strasbourg',
+                    'Montpellier', 'Bordeaux', 'Lille', 'Rennes', 'Reims', 'Le Havre',
                     'Saint-Étienne', 'Toulon', 'Grenoble', 'Dijon', 'Angers', 'Nîmes', 'Villeurbanne'
                 ];
 
@@ -406,7 +406,7 @@
                     suggestions.innerHTML = '';
 
                     if (value.length > 1) {
-                        const filtered = cities.filter(city => 
+                        const filtered = cities.filter(city =>
                             city.toLowerCase().includes(value)
                         ).slice(0, 5);
 
@@ -437,18 +437,18 @@
             function setupEventListeners() {
                 // Soumission du formulaire
                 form.addEventListener('submit', handleSubmit);
-                
+
                 // Annulation
                 cancelBtn.addEventListener('click', () => {
                     if (confirm('Êtes-vous sûr de vouloir annuler ? Les informations saisies seront perdues.')) {
                         window.location.href = 'index.html';
                     }
                 });
-                
+
                 // Mise à jour du récapitulatif en temps réel
                 form.addEventListener('input', updateRecap);
                 form.addEventListener('change', updateRecap);
-                
+
                 // Déconnexion
                 document.getElementById('logout-nav').addEventListener('click', async (e) => {
                     e.preventDefault();
@@ -474,7 +474,7 @@
                 const prix = document.getElementById('prix').value;
 
                 let html = '<div class="recap-grid">';
-                
+
                 if (depart && arrivee) {
                     html += `
                         <div class="recap-item">
@@ -483,7 +483,7 @@
                         </div>
                     `;
                 }
-                
+
                 if (date && heure) {
                     const dateObj = new Date(date);
                     const formattedDate = dateObj.toLocaleDateString('fr-FR', {
@@ -498,7 +498,7 @@
                         </div>
                     `;
                 }
-                
+
                 if (places) {
                     html += `
                         <div class="recap-item">
@@ -507,7 +507,7 @@
                         </div>
                     `;
                 }
-                
+
                 if (prix) {
                     html += `
                         <div class="recap-item">
@@ -524,25 +524,25 @@
             // Soumission du formulaire
             async function handleSubmit(e) {
                 e.preventDefault();
-                
+
                 if (!validateForm()) return;
-                
+
                 const formData = new FormData(form);
-                
+
                 // Animation de chargement
                 const originalText = submitText.textContent;
                 submitText.textContent = 'Publication...';
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + submitText.textContent;
                 submitBtn.disabled = true;
-                
+
                 try {
                     const response = await fetch('../backend/trajets/ajouter.php', {
                         method: 'POST',
                         body: formData
                     });
-                    
+
                     const data = await response.json();
-                    
+
                     if (data.success) {
                         showFeedback('Trajet publié avec succès !', 'success');
                         setTimeout(() => {
@@ -568,7 +568,7 @@
                     'ville_depart', 'ville_arrivee', 'date_depart', 'heure_depart',
                     'duree_estimee', 'vehicule_id', 'places_disponibles', 'prix'
                 ];
-                
+
                 requiredFields.forEach(fieldName => {
                     const field = document.getElementById(fieldName);
                     if (!field.value.trim()) {
@@ -578,26 +578,26 @@
                         clearFieldError(field);
                     }
                 });
-                
+
                 // Validations spécifiques
                 const dateDepart = document.getElementById('date_depart');
                 if (dateDepart.value) {
                     const selectedDate = new Date(dateDepart.value);
                     const today = new Date();
                     today.setHours(0, 0, 0, 0);
-                    
+
                     if (selectedDate < today) {
                         showFieldError(dateDepart, 'La date ne peut pas être dans le passé');
                         isValid = false;
                     }
                 }
-                
+
                 const prix = document.getElementById('prix');
                 if (prix.value && (parseFloat(prix.value) < 0 || parseFloat(prix.value) > 100)) {
                     showFieldError(prix, 'Le prix doit être entre 0 et 100€');
                     isValid = false;
                 }
-                
+
                 return isValid;
             }
 
@@ -622,7 +622,7 @@
                 feedback.textContent = message;
                 feedback.className = `form-feedback ${type}`;
                 feedback.style.display = 'block';
-                
+
                 if (type === 'success') {
                     feedback.innerHTML = '<i class="fas fa-check-circle"></i> ' + message;
                 } else {

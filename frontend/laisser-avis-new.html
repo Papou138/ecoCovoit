@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laisser un avis – ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Styles spécifiques pour la page d'avis */
+        .avis-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .avis-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .avis-header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+        }
+
+        .avis-header p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .avis-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .trajet-info {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #27ae60;
+        }
+
+        .trajet-info h3 {
+            margin: 0 0 0.5rem 0;
+            color: #2c3e50;
+        }
+
+        .rating-section {
+            margin-bottom: 2rem;
+        }
+
+        .rating-section h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .star {
+            font-size: 2rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.2s;
+            user-select: none;
+        }
+
+        .star:hover,
+        .star.active {
+            color: #f39c12;
+        }
+
+        .rating-criteria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .criteria-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .criteria-item h4 {
+            margin: 0 0 0.5rem 0;
+            color: #2c3e50;
+            font-size: 0.9rem;
+        }
+
+        .criteria-rating {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .criteria-rating .star {
+            font-size: 1.2rem;
+        }
+
+        .comment-section {
+            margin-bottom: 2rem;
+        }
+
+        .comment-section label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .comment-textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 1rem;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .comment-textarea:focus {
+            outline: none;
+            border-color: #27ae60;
+        }
+
+        .character-count {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            margin-top: 0.5rem;
+        }
+
+        .photo-section {
+            margin-bottom: 2rem;
+        }
+
+        .photo-upload {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border: 2px dashed #e1e8ed;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .photo-upload:hover {
+            border-color: #27ae60;
+            background: #f8fff8;
+        }
+
+        .photo-upload input {
+            display: none;
+        }
+
+        .photo-preview {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .photo-item {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-remove {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(231, 76, 60, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #27ae60;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #229954;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+
+        .message-box {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .message-box.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message-box.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #27ae60;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .avis-container {
+                margin: 1rem auto;
+                padding: 0 0.5rem;
+            }
+
+            .avis-header {
+                padding: 1.5rem;
+            }
+
+            .avis-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .avis-form {
+                padding: 1.5rem;
+            }
+
+            .rating-criteria {
+                grid-template-columns: 1fr;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="avis-container">
+        <div class="avis-header">
+            <h1>Évaluez votre expérience</h1>
+            <p>Votre avis aide à améliorer la communauté ecoCovoit</p>
+        </div>
+
+        <form id="avis-form" class="avis-form">
+            <input type="hidden" id="trajet_id" name="trajet_id" />
+
+            <div class="trajet-info" id="trajet-info">
+                <h3>Informations du trajet</h3>
+                <p id="trajet-details">Chargement des détails du trajet...</p>
+            </div>
+
+            <div class="rating-section">
+                <h3>Note générale</h3>
+                <div class="star-rating" id="main-rating">
+                    <span class="star" data-rating="1">⭐</span>
+                    <span class="star" data-rating="2">⭐</span>
+                    <span class="star" data-rating="3">⭐</span>
+                    <span class="star" data-rating="4">⭐</span>
+                    <span class="star" data-rating="5">⭐</span>
+                </div>
+                <input type="hidden" id="note" name="note" required />
+            </div>
+
+            <div class="rating-criteria">
+                <div class="criteria-item">
+                    <h4>Ponctualité</h4>
+                    <div class="criteria-rating" data-criteria="ponctualite">
+                        <span class="star" data-rating="1">⭐</span>
+                        <span class="star" data-rating="2">⭐</span>
+                        <span class="star" data-rating="3">⭐</span>
+                        <span class="star" data-rating="4">⭐</span>
+                        <span class="star" data-rating="5">⭐</span>
+                    </div>
+                    <input type="hidden" name="ponctualite" />
+                </div>
+
+                <div class="criteria-item">
+                    <h4>Conduite</h4>
+                    <div class="criteria-rating" data-criteria="conduite">
+                        <span class="star" data-rating="1">⭐</span>
+                        <span class="star" data-rating="2">⭐</span>
+                        <span class="star" data-rating="3">⭐</span>
+                        <span class="star" data-rating="4">⭐</span>
+                        <span class="star" data-rating="5">⭐</span>
+                    </div>
+                    <input type="hidden" name="conduite" />
+                </div>
+
+                <div class="criteria-item">
+                    <h4>Communication</h4>
+                    <div class="criteria-rating" data-criteria="communication">
+                        <span class="star" data-rating="1">⭐</span>
+                        <span class="star" data-rating="2">⭐</span>
+                        <span class="star" data-rating="3">⭐</span>
+                        <span class="star" data-rating="4">⭐</span>
+                        <span class="star" data-rating="5">⭐</span>
+                    </div>
+                    <input type="hidden" name="communication" />
+                </div>
+
+                <div class="criteria-item">
+                    <h4>Confort du véhicule</h4>
+                    <div class="criteria-rating" data-criteria="confort">
+                        <span class="star" data-rating="1">⭐</span>
+                        <span class="star" data-rating="2">⭐</span>
+                        <span class="star" data-rating="3">⭐</span>
+                        <span class="star" data-rating="4">⭐</span>
+                        <span class="star" data-rating="5">⭐</span>
+                    </div>
+                    <input type="hidden" name="confort" />
+                </div>
+            </div>
+
+            <div class="comment-section">
+                <label for="commentaire">Commentaire détaillé</label>
+                <textarea
+                    id="commentaire"
+                    name="commentaire"
+                    class="comment-textarea"
+                    placeholder="Partagez votre expérience pour aider les autres utilisateurs..."
+                    maxlength="500"
+                    required
+                ></textarea>
+                <div class="character-count">
+                    <span id="char-count">0</span>/500 caractères
+                </div>
+            </div>
+
+            <div class="photo-section">
+                <h3>Photos (optionnel)</h3>
+                <label class="photo-upload" for="photos">
+                    <span>📷</span>
+                    <span>Ajouter des photos de votre trajet</span>
+                    <input type="file" id="photos" name="photos[]" multiple accept="image/*" />
+                </label>
+                <div class="photo-preview" id="photo-preview"></div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="history.back()">
+                    Annuler
+                </button>
+                <button type="submit" class="btn btn-primary" id="submit-btn">
+                    Publier mon avis
+                </button>
+            </div>
+
+            <div id="avis-message" class="message-box" style="display: none;"></div>
+        </form>
+    </div>
+
+    <script>
+        // Variables globales
+        let selectedPhotos = [];
+        let ratings = {
+            main: 0,
+            ponctualite: 0,
+            conduite: 0,
+            communication: 0,
+            confort: 0
+        };
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeAvisForm();
+            loadTrajetInfo();
+            setupEventListeners();
+        });
+
+        function initializeAvisForm() {
+            // Récupérer l'ID du trajet depuis l'URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const trajetId = urlParams.get('trajet_id');
+
+            if (!trajetId) {
+                showMessage('Aucun trajet spécifié. Redirection...', 'error');
+                setTimeout(() => {
+                    window.location.href = 'historique.html';
+                }, 2000);
+                return;
+            }
+
+            document.getElementById('trajet_id').value = trajetId;
+        }
+
+        function loadTrajetInfo() {
+            const trajetId = document.getElementById('trajet_id').value;
+            if (!trajetId) return;
+
+            // Simulation du chargement des détails du trajet
+            setTimeout(() => {
+                document.getElementById('trajet-details').innerHTML = `
+                    <strong>De:</strong> Paris <strong>À:</strong> Lyon<br>
+                    <strong>Date:</strong> 15 janvier 2024<br>
+                    <strong>Chauffeur:</strong> Marie Dupont
+                `;
+            }, 500);
+        }
+
+        function setupEventListeners() {
+            // Gestion des étoiles
+            setupStarRatings();
+
+            // Compteur de caractères
+            const textarea = document.getElementById('commentaire');
+            const charCount = document.getElementById('char-count');
+
+            textarea.addEventListener('input', function() {
+                charCount.textContent = this.value.length;
+            });
+
+            // Gestion des photos
+            document.getElementById('photos').addEventListener('change', handlePhotoUpload);
+
+            // Soumission du formulaire
+            document.getElementById('avis-form').addEventListener('submit', submitAvis);
+        }
+
+        function setupStarRatings() {
+            // Rating principal
+            const mainStars = document.querySelectorAll('#main-rating .star');
+            setupStarGroup(mainStars, 'main');
+
+            // Ratings des critères
+            document.querySelectorAll('.criteria-rating').forEach(criteriaGroup => {
+                const stars = criteriaGroup.querySelectorAll('.star');
+                const criteriaName = criteriaGroup.dataset.criteria;
+                setupStarGroup(stars, criteriaName);
+            });
+        }
+
+        function setupStarGroup(stars, ratingType) {
+            stars.forEach((star, index) => {
+                star.addEventListener('click', () => {
+                    const rating = parseInt(star.dataset.rating);
+                    setRating(ratingType, rating);
+                    updateStarDisplay(stars, rating);
+                });
+
+                star.addEventListener('mouseenter', () => {
+                    const rating = parseInt(star.dataset.rating);
+                    highlightStars(stars, rating);
+                });
+            });
+
+            // Reset highlight on mouse leave
+            const container = stars[0].parentElement;
+            container.addEventListener('mouseleave', () => {
+                const currentRating = ratings[ratingType];
+                updateStarDisplay(stars, currentRating);
+            });
+        }
+
+        function setRating(type, rating) {
+            ratings[type] = rating;
+
+            if (type === 'main') {
+                document.getElementById('note').value = rating;
+            } else {
+                const input = document.querySelector(`input[name="${type}"]`);
+                if (input) input.value = rating;
+            }
+        }
+
+        function updateStarDisplay(stars, rating) {
+            stars.forEach((star, index) => {
+                star.classList.toggle('active', index < rating);
+            });
+        }
+
+        function highlightStars(stars, rating) {
+            stars.forEach((star, index) => {
+                star.style.color = index < rating ? '#f39c12' : '#ddd';
+            });
+        }
+
+        function handlePhotoUpload(event) {
+            const files = Array.from(event.target.files);
+            const preview = document.getElementById('photo-preview');
+
+            files.forEach(file => {
+                if (selectedPhotos.length >= 5) {
+                    showMessage('Maximum 5 photos autorisées', 'error');
+                    return;
+                }
+
+                if (file.size > 5 * 1024 * 1024) {
+                    showMessage('Fichier trop volumineux (max 5MB)', 'error');
+                    return;
+                }
+
+                selectedPhotos.push(file);
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const photoItem = document.createElement('div');
+                    photoItem.className = 'photo-item';
+                    photoItem.innerHTML = `
+                        <img src="${e.target.result}" alt="Photo du trajet">
+                        <button type="button" class="photo-remove" onclick="removePhoto(${selectedPhotos.length - 1})">×</button>
+                    `;
+                    preview.appendChild(photoItem);
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function removePhoto(index) {
+            selectedPhotos.splice(index, 1);
+            const preview = document.getElementById('photo-preview');
+            preview.children[index].remove();
+        }
+
+        function submitAvis(event) {
+            event.preventDefault();
+
+            if (!validateForm()) return;
+
+            const submitBtn = document.getElementById('submit-btn');
+            const originalText = submitBtn.textContent;
+
+            // Affichage du loading
+            submitBtn.innerHTML = '<span class="spinner"></span>Envoi en cours...';
+            submitBtn.disabled = true;
+            document.querySelector('.avis-form').classList.add('loading');
+
+            const formData = new FormData();
+            formData.append('trajet_id', document.getElementById('trajet_id').value);
+            formData.append('note', document.getElementById('note').value);
+            formData.append('commentaire', document.getElementById('commentaire').value);
+
+            // Ajout des ratings détaillés
+            Object.keys(ratings).forEach(key => {
+                if (key !== 'main' && ratings[key] > 0) {
+                    formData.append(key, ratings[key]);
+                }
+            });
+
+            // Ajout des photos
+            selectedPhotos.forEach((photo, index) => {
+                formData.append(`photos[${index}]`, photo);
+            });
+
+            fetch('../backend/avis/enregistrer.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showMessage('Votre avis a été publié avec succès ! 🎉', 'success');
+                    setTimeout(() => {
+                        window.location.href = 'historique.html';
+                    }, 2000);
+                } else {
+                    showMessage(data.message || 'Erreur lors de l\'envoi de l\'avis', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                showMessage('Erreur réseau. Veuillez réessayer.', 'error');
+            })
+            .finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                document.querySelector('.avis-form').classList.remove('loading');
+            });
+        }
+
+        function validateForm() {
+            const note = document.getElementById('note').value;
+            const commentaire = document.getElementById('commentaire').value.trim();
+
+            if (!note) {
+                showMessage('Veuillez donner une note générale', 'error');
+                return false;
+            }
+
+            if (!commentaire) {
+                showMessage('Veuillez rédiger un commentaire', 'error');
+                return false;
+            }
+
+            if (commentaire.length < 10) {
+                showMessage('Le commentaire doit contenir au moins 10 caractères', 'error');
+                return false;
+            }
+
+            return true;
+        }
+
+        function showMessage(text, type) {
+            const messageBox = document.getElementById('avis-message');
+            messageBox.textContent = text;
+            messageBox.className = `message-box ${type}`;
+            messageBox.style.display = 'block';
+
+            // Auto-hide après 5 secondes pour les messages de succès
+            if (type === 'success') {
+                setTimeout(() => {
+                    messageBox.style.display = 'none';
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>

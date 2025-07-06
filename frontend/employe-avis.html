@@ -490,13 +490,13 @@
         async function loadAvis() {
             try {
                 const response = await fetch('../backend/avis/lister_non_valides.php');
-                
+
                 if (!response.ok) {
                     throw new Error('Erreur lors du chargement');
                 }
 
                 const data = await response.json();
-                
+
                 if (data.success) {
                     allAvis = data.avis || [];
                     updateStats(data.stats || {});
@@ -582,7 +582,7 @@
         function createAvisCard(avis) {
             const statusClass = `status-${avis.statut.replace('_', '-')}`;
             const stars = '⭐'.repeat(avis.note) + '☆'.repeat(5 - avis.note);
-            
+
             return `
                 <div class="avis-card">
                     <div class="avis-header">
@@ -602,12 +602,12 @@
                             ${getStatusText(avis.statut)}
                         </span>
                     </div>
-                    
+
                     <div class="avis-content">
                         <div class="avis-comment">
                             "${avis.commentaire || 'Aucun commentaire'}"
                         </div>
-                        
+
                         <div class="avis-details">
                             <div class="detail-item">
                                 <span class="detail-icon">👤</span>
@@ -623,11 +623,11 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="avis-actions">
                         ${generateActionButtons(avis)}
                     </div>
-                    
+
                     ${avis.statut === 'en-attente' ? generateModerateSection(avis.id) : ''}
                 </div>
             `;
@@ -662,9 +662,9 @@
             return `
                 <div class="moderate-section" id="moderate-${avisId}" style="display: none;">
                     <h4>💬 Commentaire de modération</h4>
-                    <textarea 
-                        id="comment-${avisId}" 
-                        class="moderate-textarea" 
+                    <textarea
+                        id="comment-${avisId}"
+                        class="moderate-textarea"
                         placeholder="Ajoutez un commentaire de modération (optionnel)..."
                     ></textarea>
                     <div style="display: flex; gap: 10px;">
@@ -708,7 +708,7 @@
 
         async function confirmValidation(avisId) {
             const comment = document.getElementById(`comment-${avisId}`).value;
-            
+
             try {
                 const response = await fetch('../backend/avis/valider.php', {
                     method: 'POST',
@@ -734,12 +734,12 @@
 
         async function confirmRejection(avisId) {
             const comment = document.getElementById(`comment-${avisId}`).value;
-            
+
             if (!comment.trim()) {
                 alert('Un commentaire de modération est requis pour rejeter un avis');
                 return;
             }
-            
+
             try {
                 const response = await fetch('../backend/avis/rejeter.php', {
                     method: 'POST',
@@ -766,7 +766,7 @@
         // Validation en lot
         async function validateAll() {
             const pendingAvis = filteredAvis.filter(avis => avis.statut === 'en-attente');
-            
+
             if (pendingAvis.length === 0) {
                 alert('Aucun avis en attente à valider');
                 return;
@@ -777,7 +777,7 @@
             }
 
             try {
-                const promises = pendingAvis.map(avis => 
+                const promises = pendingAvis.map(avis =>
                     fetch('../backend/avis/valider.php', {
                         method: 'POST',
                         headers: {

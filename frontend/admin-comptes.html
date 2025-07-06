@@ -553,7 +553,7 @@
                     </button>
                 </div>
             </div>
-            
+
             <div id="users-container">
                 <div class="loading">
                     <div class="spinner"></div>
@@ -648,7 +648,7 @@
         // Configuration des écouteurs d'événements
         function setupEventListeners() {
             userForm.addEventListener('submit', handleUserSubmit);
-            
+
             // Fermer le modal en cliquant à l'extérieur
             window.addEventListener('click', function(event) {
                 if (event.target === userModal) {
@@ -738,7 +738,7 @@
                 }
 
                 // Filtre par recherche
-                if (searchFilter && 
+                if (searchFilter &&
                     !user.nom.toLowerCase().includes(searchFilter) &&
                     !user.prenom.toLowerCase().includes(searchFilter) &&
                     !user.email.toLowerCase().includes(searchFilter)) {
@@ -787,7 +787,7 @@
         function createUserRow(user) {
             const statusClass = `status-${user.status}`;
             const initials = (user.prenom[0] + user.nom[0]).toUpperCase();
-            
+
             return `
                 <div class="user-row">
                     <div class="user-avatar">${initials}</div>
@@ -817,7 +817,7 @@
                         <button onclick="editUser(${user.id})" class="btn btn-primary btn-small">
                             ✏️ Éditer
                         </button>
-                        ${user.status === 'actif' ? 
+                        ${user.status === 'actif' ?
                             `<button onclick="suspendUser(${user.id})" class="btn btn-warning btn-small">
                                 🔒 Suspendre
                             </button>` :
@@ -836,14 +836,14 @@
         // Rendu de la pagination
         function renderPagination() {
             const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
-            
+
             if (totalPages <= 1) {
                 paginationContainer.innerHTML = '';
                 return;
             }
 
             let paginationHTML = '';
-            
+
             // Bouton précédent
             paginationHTML += `
                 <button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
@@ -911,7 +911,7 @@
         // Soumission du formulaire
         function handleUserSubmit(e) {
             e.preventDefault();
-            
+
             const formData = new FormData(userForm);
             const userData = Object.fromEntries(formData.entries());
 

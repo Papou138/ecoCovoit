@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const response = await fetch('../backend/auth/get-user.php');
             const data = await response.json();
-            
+
             const userInfoContainer = document.getElementById('user-info');
             const creditsAmount = document.getElementById('credits-amount');
-            
+
             if (!data.success) {
                 userInfoContainer.innerHTML = `
                     <div class="empty-state">
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             currentUser = data.user;
-            
+
             // Affichage des informations utilisateur
             userInfoContainer.innerHTML = `
                 <div class="user-info">
@@ -80,9 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const response = await fetch('../backend/vehicules/lister.php');
             const data = await response.json();
-            
+
             const vehiclesContainer = document.getElementById('vehicles-list');
-            
+
             if (!data.success || !data.vehicules || data.vehicules.length === 0) {
                 vehiclesContainer.innerHTML = `
                     <div class="empty-state">
@@ -144,12 +144,12 @@ document.addEventListener('DOMContentLoaded', function() {
             ];
 
             const preferencesContainer = document.getElementById('preferences-list');
-            
+
             preferencesContainer.innerHTML = preferences.map(pref => `
                 <div class="preference-item">
                     <span class="preference-label">${pref.label}</span>
-                    <div class="preference-toggle ${pref.value ? 'active' : ''}" 
-                         data-preference="${pref.id}" 
+                    <div class="preference-toggle ${pref.value ? 'active' : ''}"
+                         data-preference="${pref.id}"
                          onclick="togglePreference('${pref.id}')">
                     </div>
                 </div>
@@ -165,9 +165,9 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             const response = await fetch('../backend/trajets/mes-trajets.php?status=en_cours');
             const data = await response.json();
-            
+
             const tripsContainer = document.getElementById('current-trips');
-            
+
             if (!data.success || !data.trajets || data.trajets.length === 0) {
                 tripsContainer.innerHTML = `
                     <div class="empty-state">
@@ -307,10 +307,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Gestion de la mise à jour du profil
     async function handleProfileUpdate(e) {
         e.preventDefault();
-        
+
         const formData = new FormData(e.target);
         const submitBtn = e.target.querySelector('button[type="submit"]');
-        
+
         // Animation de chargement
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enregistrement...';
@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             const data = await response.json();
-            
+
             if (data.success) {
                 showNotification('Profil mis à jour avec succès !', 'success');
                 document.getElementById('edit-profile-modal').style.display = 'none';
@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.togglePreference = async function(preferenceId) {
         const toggle = document.querySelector(`[data-preference="${preferenceId}"]`);
         const isActive = toggle.classList.contains('active');
-        
+
         try {
             const response = await fetch('../backend/preferences/enregistrer.php', {
                 method: 'POST',
@@ -356,7 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             const data = await response.json();
-            
+
             if (data.success) {
                 toggle.classList.toggle('active');
                 showNotification('Préférence mise à jour', 'success');
@@ -384,7 +384,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             const data = await response.json();
-            
+
             if (data.success) {
                 showNotification('Trajet terminé avec succès !', 'success');
                 loadCurrentTrips(); // Recharger la liste
@@ -413,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             const data = await response.json();
-            
+
             if (data.success) {
                 showNotification('Trajet annulé', 'success');
                 loadCurrentTrips(); // Recharger la liste
@@ -441,7 +441,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             const data = await response.json();
-            
+
             if (data.success) {
                 showNotification('Véhicule supprimé', 'success');
                 loadVehicles(); // Recharger la liste
@@ -481,7 +481,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             const data = await response.json();
-            
+
             if (data.success) {
                 showNotification(`${amount}€ ajoutés à votre compte !`, 'success');
                 loadUserData(); // Recharger pour mettre à jour le solde
@@ -563,7 +563,7 @@ document.addEventListener('DOMContentLoaded', function() {
             z-index: 10000;
             animation: slideInRight 0.3s ease;
         `;
-        
+
         switch (type) {
             case 'success':
                 notification.style.background = '#28a745';
@@ -574,10 +574,10 @@ document.addEventListener('DOMContentLoaded', function() {
             default:
                 notification.style.background = '#17a2b8';
         }
-        
+
         notification.textContent = message;
         document.body.appendChild(notification);
-        
+
         setTimeout(() => {
             notification.style.animation = 'slideOutRight 0.3s ease';
             setTimeout(() => {
@@ -600,7 +600,7 @@ style.textContent = `
             transform: translateX(0);
         }
     }
-    
+
     @keyframes slideOutRight {
         from {
             opacity: 1;

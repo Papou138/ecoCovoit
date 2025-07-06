@@ -467,13 +467,13 @@
         async function loadHistorique() {
             try {
                 const response = await fetch('../backend/trajets/historique.php');
-                
+
                 if (!response.ok) {
                     throw new Error('Erreur lors du chargement');
                 }
 
                 const data = await response.json();
-                
+
                 if (data.success) {
                     allTrajets = data.trajets || [];
                     updateStats(data.stats || {});
@@ -554,7 +554,7 @@
             const statusClass = `status-${trajet.statut.replace('_', '-')}`;
             const roleClass = trajet.est_chauffeur ? 'role-chauffeur' : 'role-passager';
             const roleText = trajet.est_chauffeur ? '🚗 Chauffeur' : '🪑 Passager';
-            
+
             return `
                 <div class="trajet-card">
                     <div class="trajet-header">
@@ -565,7 +565,7 @@
                             ${getStatusText(trajet.statut)}
                         </span>
                     </div>
-                    
+
                     <div class="trajet-details">
                         <div class="detail-item">
                             <span class="detail-icon">📅</span>
@@ -584,7 +584,7 @@
                             <span>${trajet.distance || 'N/A'} km</span>
                         </div>
                     </div>
-                    
+
                     <div class="trajet-actions">
                         ${generateActionButtons(trajet)}
                     </div>

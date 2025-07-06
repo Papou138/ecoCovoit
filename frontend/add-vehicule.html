@@ -109,7 +109,7 @@
                                 <i class="fas fa-id-card"></i>
                                 Immatriculation
                             </label>
-                            <input type="text" id="immatriculation" name="immatriculation" 
+                            <input type="text" id="immatriculation" name="immatriculation"
                                    placeholder="AB-123-CD" pattern="[A-Z]{2}-[0-9]{3}-[A-Z]{2}" required>
                             <div class="error-message"></div>
                         </div>
@@ -203,11 +203,11 @@
             const submitText = document.getElementById('submit-text');
             const feedback = document.getElementById('form-feedback');
             const cancelBtn = document.getElementById('cancel-btn');
-            
+
             // Vérifier si on est en mode édition
             const urlParams = new URLSearchParams(window.location.search);
             const editId = urlParams.get('edit');
-            
+
             if (editId) {
                 document.getElementById('form-title').textContent = 'Modifier le véhicule';
                 submitText.textContent = 'Mettre à jour le véhicule';
@@ -217,31 +217,31 @@
             // Gestion du formulaire
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                
+
                 if (!validateForm()) return;
-                
+
                 const formData = new FormData(form);
                 if (editId) {
                     formData.append('vehicule_id', editId);
                 }
-                
+
                 // Animation de chargement
                 const originalText = submitText.textContent;
                 submitText.textContent = editId ? 'Mise à jour...' : 'Enregistrement...';
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + submitText.textContent;
                 submitBtn.disabled = true;
-                
+
                 try {
                     const response = await fetch('../backend/vehicules/ajouter.php', {
                         method: 'POST',
                         body: formData
                     });
-                    
+
                     const data = await response.json();
-                    
+
                     if (data.success) {
                         showFeedback(
-                            editId ? 'Véhicule mis à jour avec succès !' : 'Véhicule ajouté avec succès !', 
+                            editId ? 'Véhicule mis à jour avec succès !' : 'Véhicule ajouté avec succès !',
                             'success'
                         );
                         setTimeout(() => {
@@ -270,13 +270,13 @@
             // Validation de l'immatriculation en temps réel
             document.getElementById('immatriculation').addEventListener('input', function(e) {
                 let value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-                
+
                 if (value.length > 2 && value.length <= 5) {
                     value = value.slice(0, 2) + '-' + value.slice(2);
                 } else if (value.length > 5) {
                     value = value.slice(0, 2) + '-' + value.slice(2, 5) + '-' + value.slice(5, 7);
                 }
-                
+
                 e.target.value = value;
             });
 
@@ -298,7 +298,7 @@
                 try {
                     const response = await fetch(`../backend/vehicules/detail.php?id=${vehicleId}`);
                     const data = await response.json();
-                    
+
                     if (data.success && data.vehicule) {
                         const vehicle = data.vehicule;
                         document.getElementById('marque').value = vehicle.marque;
@@ -319,11 +319,11 @@
             function validateForm() {
                 let isValid = true;
                 const requiredFields = ['marque', 'modele', 'couleur', 'immatriculation', 'places', 'energie', 'date_immatriculation'];
-                
+
                 requiredFields.forEach(fieldName => {
                     const field = document.getElementById(fieldName);
                     const errorDiv = field.parentNode.querySelector('.error-message');
-                    
+
                     if (!field.value.trim()) {
                         showFieldError(field, 'Ce champ est obligatoire');
                         isValid = false;
@@ -331,7 +331,7 @@
                         clearFieldError(field);
                     }
                 });
-                
+
                 // Validation spécifique de l'immatriculation
                 const immat = document.getElementById('immatriculation');
                 const immatPattern = /^[A-Z]{2}-[0-9]{3}-[A-Z]{2}$/;
@@ -339,7 +339,7 @@
                     showFieldError(immat, 'Format invalide (ex: AB-123-CD)');
                     isValid = false;
                 }
-                
+
                 // Validation de la date
                 const dateImmat = document.getElementById('date_immatriculation');
                 if (dateImmat.value) {
@@ -350,7 +350,7 @@
                         isValid = false;
                     }
                 }
-                
+
                 return isValid;
             }
 
@@ -371,7 +371,7 @@
                 feedback.textContent = message;
                 feedback.className = `form-feedback ${type}`;
                 feedback.style.display = 'block';
-                
+
                 if (type === 'success') {
                     feedback.innerHTML = '<i class="fas fa-check-circle"></i> ' + message;
                 } else {

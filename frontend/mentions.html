@@ -68,14 +68,14 @@
                             <p><strong>SIRET :</strong> 123 456 789 00012</p>
                             <p><strong>Code APE :</strong> 6312Z</p>
                             <p><strong>TVA intracommunautaire :</strong> FR12345678901</p>
-                            
+
                             <div class="address-block">
                                 <h3>Siège social :</h3>
                                 <p>123 Rue de l'Éco-mobilité<br>
                                 69000 Lyon<br>
                                 France</p>
                             </div>
-                            
+
                             <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
                             <p><strong>Email :</strong> contact@ecocovoit.fr</p>
                         </div>
@@ -199,7 +199,7 @@
                         <h2><i class="fas fa-copyright"></i> 6. Propriété intellectuelle</h2>
                         <div class="legal-info">
                             <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle.</p>
-                            
+
                             <h3>Contenus protégés</h3>
                             <ul>
                                 <li>Textes, images, graphismes, logos, icônes</li>
@@ -328,13 +328,13 @@
                     e.preventDefault();
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
-                    
+
                     if (targetElement) {
                         targetElement.scrollIntoView({
                             behavior: 'smooth',
                             block: 'start'
                         });
-                        
+
                         // Ajouter une classe pour highlighting temporaire
                         targetElement.classList.add('highlight');
                         setTimeout(() => {
@@ -355,7 +355,7 @@
             // Navigation sticky pour le sommaire
             const summary = document.querySelector('.legal-summary');
             const summaryTop = summary.offsetTop;
-            
+
             window.addEventListener('scroll', function() {
                 if (window.pageYOffset >= summaryTop - 100) {
                     summary.classList.add('sticky');

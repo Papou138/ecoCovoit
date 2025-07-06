@@ -102,7 +102,7 @@
             confirmPasswordInput.addEventListener('input', function() {
                 const password = passwordInput.value;
                 const confirmPassword = this.value;
-                
+
                 if (confirmPassword && password !== confirmPassword) {
                     this.setCustomValidity('Les mots de passe ne correspondent pas');
                 } else {
@@ -113,12 +113,12 @@
             // Soumission du formulaire
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
+
                 if (!validateForm()) return;
 
                 const submitBtn = document.getElementById('register-btn');
                 const originalText = submitBtn.innerHTML;
-                
+
                 // Affichage du loading
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Création en cours...';
                 submitBtn.disabled = true;
@@ -176,7 +176,7 @@
         function updatePasswordStrength(strength) {
             const indicator = document.getElementById('password-strength');
             const { score, feedback } = strength;
-            
+
             let className = '';
             let text = '';
 
@@ -236,7 +236,7 @@
             messageBox.textContent = text;
             messageBox.className = `message-box ${type}`;
             messageBox.style.display = 'block';
-            
+
             // Auto-hide après 5 secondes pour les messages de succès
             if (type === 'success') {
                 setTimeout(() => {

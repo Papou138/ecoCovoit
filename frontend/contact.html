@@ -98,7 +98,7 @@
                 <form id="contact-form" class="auth-form">
                     <div class="form-section">
                         <h3><i class="fas fa-paper-plane"></i> Envoyez-nous un message</h3>
-                        
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="nom">
@@ -152,7 +152,7 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="navigateur">Navigateur utilisé</label>
-                                    <input type="text" id="navigateur" name="navigateur" 
+                                    <input type="text" id="navigateur" name="navigateur"
                                            placeholder="Ex: Chrome 120, Firefox 121">
                                 </div>
                                 <div class="form-group">
@@ -274,7 +274,7 @@
             function setupEventListeners() {
                 // Soumission du formulaire
                 form.addEventListener('submit', handleSubmit);
-                
+
                 // Bouton annuler
                 cancelBtn.addEventListener('click', () => {
                     if (confirm('Êtes-vous sûr de vouloir annuler ? Le message ne sera pas envoyé.')) {
@@ -305,11 +305,11 @@
             function detectBrowserInfo() {
                 const navigateurField = document.getElementById('navigateur');
                 const appareilField = document.getElementById('appareil');
-                
+
                 // Détection du navigateur
                 const userAgent = navigator.userAgent;
                 let browserInfo = 'Inconnu';
-                
+
                 if (userAgent.includes('Chrome')) {
                     const version = userAgent.match(/Chrome\/([0-9]+)/);
                     browserInfo = `Chrome ${version ? version[1] : ''}`;
@@ -323,9 +323,9 @@
                     const version = userAgent.match(/Edge\/([0-9]+)/);
                     browserInfo = `Edge ${version ? version[1] : ''}`;
                 }
-                
+
                 navigateurField.value = browserInfo;
-                
+
                 // Détection du type d'appareil
                 if (/Mobi|Android/i.test(userAgent)) {
                     appareilField.value = 'smartphone';
@@ -339,24 +339,24 @@
             // Gestion de la soumission du formulaire
             async function handleSubmit(e) {
                 e.preventDefault();
-                
+
                 if (!validateForm()) return;
-                
+
                 const formData = new FormData(form);
-                
+
                 // Animation de chargement
                 const originalText = submitText.textContent;
                 submitText.textContent = 'Envoi en cours...';
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + submitText.textContent;
                 submitBtn.disabled = true;
-                
+
                 try {
                     // Simulation d'envoi (à remplacer par l'endpoint réel)
                     await new Promise(resolve => setTimeout(resolve, 2000));
-                    
+
                     // Simuler une réponse positive
                     const success = Math.random() > 0.1; // 90% de chance de succès
-                    
+
                     if (success) {
                         showFeedback('Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.', 'success');
                         form.reset();
@@ -364,7 +364,7 @@
                     } else {
                         showFeedback('Erreur lors de l\'envoi. Veuillez réessayer.', 'error');
                     }
-                    
+
                 } catch (error) {
                     console.error('Erreur:', error);
                     showFeedback('Erreur de connexion. Veuillez réessayer plus tard.', 'error');
@@ -379,14 +379,14 @@
             function validateForm() {
                 let isValid = true;
                 const requiredFields = ['nom', 'email', 'sujet', 'message'];
-                
+
                 requiredFields.forEach(fieldName => {
                     const field = document.getElementById(fieldName);
                     if (!validateField(field)) {
                         isValid = false;
                     }
                 });
-                
+
                 return isValid;
             }
 
@@ -440,7 +440,7 @@
                 feedback.textContent = message;
                 feedback.className = `form-feedback ${type}`;
                 feedback.style.display = 'block';
-                
+
                 if (type === 'success') {
                     feedback.innerHTML = '<i class="fas fa-check-circle"></i> ' + message;
                 } else if (type === 'error') {
