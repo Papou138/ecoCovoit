@@ -1,0 +1,652 @@
+/* ============================= */
+/* =      PAGE DE DÉTAILS       = */
+/* ============================= */
+
+.breadcrumb {
+  background-color: var(--color-bg-tertiary);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.breadcrumb ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: '>';
+  margin-left: var(--space-sm);
+  color: var(--color-text-secondary);
+}
+
+.breadcrumb a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb li[aria-current="page"] {
+  color: var(--color-text-secondary);
+}
+
+/* ============================= */
+/* =    SECTION DÉTAIL TRAJET   = */
+/* ============================= */
+
+.trip-detail-section {
+  padding: var(--space-xl) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.trip-detail-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-xxl);
+  margin-bottom: var(--space-xxl);
+}
+
+/* ============================= */
+/* =   INFORMATIONS PRINCIPALES = */
+/* ============================= */
+
+.trip-header {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  color: var(--color-text-light);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.route-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin: 0 0 var(--space-md) 0;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.route-title i {
+  font-size: 1.2em;
+  opacity: 0.8;
+}
+
+.trip-date-time {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  font-size: var(--font-size-lg);
+  opacity: 0.9;
+}
+
+.time-range {
+  font-weight: 600;
+}
+
+.eco-status .eco-badge {
+  background: var(--color-success-light);
+  color: var(--color-success-dark);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+/* ============================= */
+/* =     CARTES INFORMATIONS    = */
+/* ============================= */
+
+.trip-info-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.info-card {
+  background: var(--color-bg-secondary);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.info-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-lg);
+}
+
+.info-content {
+  flex: 1;
+}
+
+.info-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.info-value {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* ============================= */
+/* =        VÉHICULE            = */
+/* ============================= */
+
+.vehicle-section {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.vehicle-section h2 {
+  margin: 0 0 var(--space-lg) 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-xl);
+}
+
+.vehicle-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.vehicle-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+}
+
+.vehicle-name {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.vehicle-details {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.energy-badge {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.energy-badge.electric {
+  background: var(--color-success-light);
+  color: var(--color-success-dark);
+}
+
+.energy-badge.fuel {
+  background: var(--color-warning-light);
+  color: var(--color-warning);
+}
+
+.vehicle-color {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* ============================= */
+/* =         SIDEBAR            = */
+/* ============================= */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* Profil du conducteur */
+.driver-section {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.driver-section h2 {
+  margin: 0 0 var(--space-lg) 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-xl);
+}
+
+.driver-header {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.driver-avatar {
+  width: 80px;
+  height: 80px;
+  background: var(--color-primary-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  border: 3px solid var(--color-primary);
+}
+
+.driver-name {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.driver-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.stars {
+  color: var(--color-warning);
+}
+
+.rating-value {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.rating-count {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+/* Préférences */
+.preferences-section {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.preferences-section h3 {
+  margin: 0 0 var(--space-md) 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-lg);
+}
+
+.preferences-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.preference-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+}
+
+.preference-item i {
+  color: var(--color-success);
+  width: 16px;
+}
+
+/* Section participation */
+.participation-section {
+  background: var(--color-bg-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  text-align: center;
+}
+
+.price-display {
+  margin-bottom: var(--space-lg);
+}
+
+.total-price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+.price-label {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.btn-large {
+  width: 100%;
+  padding: var(--space-lg);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.credit-info {
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ============================= */
+/* =        SECTION AVIS        = */
+/* ============================= */
+
+.reviews-section {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.reviews-section h2 {
+  margin: 0 0 var(--space-xl) 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-xl);
+}
+
+.reviews-summary {
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+.rating-overview {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.average-rating {
+  text-align: center;
+}
+
+.big-rating {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: block;
+  line-height: 1;
+}
+
+.stars-large {
+  color: var(--color-warning);
+  font-size: var(--font-size-lg);
+  margin: var(--space-sm) 0;
+}
+
+.total-reviews {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.review-item {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-tertiary);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.review-rating {
+  color: var(--color-warning);
+}
+
+.review-date {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.review-comment {
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}
+
+.show-more-reviews {
+  width: 100%;
+  padding: var(--space-md);
+}
+
+/* ============================= */
+/* =         MODAL              = */
+/* ============================= */
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  padding: var(--space-lg);
+  overflow-y: auto;
+}
+
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-lg);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+  padding: var(--space-xl);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-xl);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: var(--font-size-xl);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-base);
+}
+
+.modal-close:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+}
+
+.modal-body {
+  padding: var(--space-xl);
+}
+
+.confirmation-details {
+  margin-bottom: var(--space-xl);
+}
+
+.confirmation-details h4 {
+  margin: 0 0 var(--space-lg) 0;
+  color: var(--color-text-primary);
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.credit-warning {
+  background: var(--color-warning-light);
+  border: 1px solid var(--color-warning);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.credit-warning i {
+  color: var(--color-warning);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.modal-footer {
+  padding: var(--space-xl);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  gap: var(--space-md);
+  justify-content: flex-end;
+}
+
+/* ============================= */
+/* =       RESPONSIVITÉ         = */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .trip-detail-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .trip-header {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-lg);
+  }
+
+  .route-title {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .trip-date-time {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .trip-info-cards {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .vehicle-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .driver-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .rating-overview {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .breadcrumb ol {
+    flex-wrap: wrap;
+  }
+
+  .total-price {
+    font-size: 2rem;
+  }
+
+  .modal {
+    padding: var(--space-md);
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding: var(--space-lg);
+  }
+}

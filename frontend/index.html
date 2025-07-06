@@ -49,6 +49,210 @@
           <span class="hamburger-line" aria-hidden="true"></span>
           <span class="hamburger-line" aria-hidden="true"></span>
         </button>
+
+        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal de navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link active">Accueil</a></li>
+            <li><a href="rechercher-covoiturage.html" class="nav-link">Covoiturages</a></li>
+            <li><a href="login.html" class="nav-link">Connexion</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- SECTION PRESENTATION -->
+      <section class="presentation-section">
+        <div class="presentation-content">
+          <div class="text-content">
+            <h2>Covoiturage écoresponsable</h2>
+            <p>
+              EcoCovoit est la plateforme qui vous permet de partager vos trajets
+              tout en réduisant votre empreinte carbone. Rejoignez notre communauté
+              de conducteurs responsables et économisez sur vos déplacements !
+            </p>
+            <p>
+              🌱 Optez pour des véhicules électriques<br>
+              💰 Réduisez vos coûts de transport<br>
+              🤝 Rencontrez de nouvelles personnes<br>
+              🌍 Protégez l'environnement
+            </p>
+          </div>
+          <div class="image-container">
+            <img
+              src="assets/img/covoit-ecoresponsable.jpg"
+              alt="Illustration covoiturage écologique"
+              class="responsive-image"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION RECHERCHE -->
+      <section class="search-section">
+        <div class="search-container">
+          <h2>Trouvez votre itinéraire</h2>
+          <form id="search-form" class="search-form">
+            <div class="search-main-fields">
+              <div class="form-group">
+                <label for="departure">Ville de départ</label>
+                <input
+                  type="text"
+                  id="departure"
+                  name="departure"
+                  placeholder="D'où partez-vous ?"
+                  required
+                  class="form-input"
+                />
+              </div>
+              <div class="form-group">
+                <label for="arrival">Ville d'arrivée</label>
+                <input
+                  type="text"
+                  id="arrival"
+                  name="arrival"
+                  placeholder="Où allez-vous ?"
+                  required
+                  class="form-input"
+                />
+              </div>
+              <div class="form-group">
+                <label for="date">Date de départ</label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  required
+                  class="form-input"
+                />
+              </div>
+            </div>
+
+            <!-- Filtres avancés -->
+            <div class="advanced-filters">
+              <button type="button" class="toggle-filters" id="toggle-filters">
+                <i class="fas fa-filter"></i>
+                Filtres avancés
+              </button>
+
+              <div class="filters-content" id="filters-content">
+                <div class="filters-grid">
+                  <div class="form-group">
+                    <label for="eco-filter">
+                      <input type="checkbox" id="eco-filter" name="eco-filter" />
+                      Véhicules électriques uniquement
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label for="max-price">Prix maximum (€)</label>
+                    <input
+                      type="number"
+                      id="max-price"
+                      name="max-price"
+                      placeholder="Ex: 25"
+                      min="0"
+                      class="form-input"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="max-duration">Durée maximum (heures)</label>
+                    <input
+                      type="number"
+                      id="max-duration"
+                      name="max-duration"
+                      placeholder="Ex: 4"
+                      min="0"
+                      step="0.5"
+                      class="form-input"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="min-rating">Note minimum</label>
+                    <select id="min-rating" name="min-rating" class="form-select">
+                      <option value="">Toutes les notes</option>
+                      <option value="1">1 étoile et plus</option>
+                      <option value="2">2 étoiles et plus</option>
+                      <option value="3">3 étoiles et plus</option>
+                      <option value="4">4 étoiles et plus</option>
+                      <option value="5">5 étoiles uniquement</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="search-button">
+              <i class="fas fa-search"></i>
+              Rechercher des covoiturages
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- SECTION AVANTAGES -->
+      <section class="benefits-section">
+        <div class="container">
+          <h2>Pourquoi choisir EcoCovoit ?</h2>
+          <div class="benefits-grid">
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <h3>Écologique</h3>
+              <p>Réduisez votre empreinte carbone en partageant vos trajets avec des véhicules électriques.</p>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <i class="fas fa-euro-sign"></i>
+              </div>
+              <h3>Économique</h3>
+              <p>Partagez les coûts de vos déplacements et économisez sur vos frais de transport.</p>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3>Convivial</h3>
+              <p>Rencontrez de nouvelles personnes et voyagez dans une ambiance détendue.</p>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3>Sécurisé</h3>
+              <p>Système d'évaluation et profils vérifiés pour des trajets en toute confiance.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: contact@ecocovoit.fr</p>
+        </div>
+        <div class="footer-section">
+          <h3>Informations</h3>
+          <ul>
+            <li><a href="mentions.html">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EcoCovoit. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/search.js"></script>
+  </body>
+</html>
+        </button>
       </div>
       <nav id="main-nav" role="navigation" aria-label="Menu Principal">
         <ul>
@@ -114,7 +318,7 @@
             </div>
             <div class="image-container">
               <img
-                src="assets/img/covoit-ecoresponsable..jpg"
+                src="assets/img/covoit-ecoresponsable.jpg"
                 alt="Voiture écologique"
                 class="responsive-image"
                 loading="lazy"
