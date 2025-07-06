@@ -1,59 +1,835 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Espace Employé – Validation des avis</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
-  <body>
-    <main>
-      <h1>Avis en attente de validation</h1>
-      <div id="avis-container">Chargement...</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Avis - Employé ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/_commun.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .employee-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .employee-header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .employee-header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+        }
+
+        .stats-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 1rem;
+        }
+
+        .filters-panel {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-group label {
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            padding: 12px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .filter-group select:focus,
+        .filter-group input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .search-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-success {
+            background: #27ae60;
+            color: white;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-warning {
+            background: #f39c12;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .avis-container {
+            display: grid;
+            gap: 20px;
+        }
+
+        .avis-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .avis-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .avis-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .avis-meta {
+            flex: 1;
+        }
+
+        .avis-trajet {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .avis-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .avis-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .stars {
+            color: #f39c12;
+            font-size: 1.2rem;
+        }
+
+        .rating-value {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-left: 5px;
+        }
+
+        .avis-status {
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .status-en-attente {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-valide {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-rejete {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .avis-content {
+            margin: 20px 0;
+        }
+
+        .avis-comment {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .avis-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .detail-icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+        .avis-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding-top: 20px;
+            border-top: 1px solid #ecf0f1;
+        }
+
+        .moderate-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .moderate-textarea {
+            width: 100%;
+            min-height: 80px;
+            padding: 12px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            resize: vertical;
+            font-family: inherit;
+            margin-bottom: 15px;
+        }
+
+        .moderate-textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .no-results-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .employee-container {
+                padding: 10px;
+            }
+
+            .employee-header h1 {
+                font-size: 2rem;
+            }
+
+            .stats-dashboard {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .filters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .avis-header {
+                flex-direction: column;
+                align-items: start;
+            }
+
+            .avis-details {
+                grid-template-columns: 1fr;
+            }
+
+            .avis-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Employé -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="assets/img/logo_ecoCovoit.jpg" alt="ecoCovoit">
+                <span>ecoCovoit - Employé</span>
+            </div>
+            <nav class="nav">
+                <a href="employe-avis.html" class="active">Gestion des Avis</a>
+                <a href="employe-incidents.html">Incidents</a>
+                <a href="admin-dashboard.html">Dashboard</a>
+            </nav>
+            <div class="auth-buttons">
+                <span class="user-name">👨‍💼 Employé</span>
+                <a href="index.html" class="btn-logout">Déconnexion</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="employee-container">
+        <!-- En-tête -->
+        <div class="employee-header">
+            <h1>⭐ Gestion des Avis</h1>
+            <p>Modération et validation des avis clients</p>
+        </div>
+
+        <!-- Statistiques -->
+        <div class="stats-dashboard" id="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">⏳</div>
+                <div class="stat-value" id="stat-attente">-</div>
+                <div class="stat-label">En attente</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-value" id="stat-valides">-</div>
+                <div class="stat-label">Validés</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">❌</div>
+                <div class="stat-value" id="stat-rejetes">-</div>
+                <div class="stat-label">Rejetés</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-value" id="stat-moyenne">-</div>
+                <div class="stat-label">Note moyenne</div>
+            </div>
+        </div>
+
+        <!-- Filtres -->
+        <div class="filters-panel">
+            <h3>🔍 Filtres de recherche</h3>
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label for="filter-status">Statut</label>
+                    <select id="filter-status">
+                        <option value="tous">Tous les statuts</option>
+                        <option value="en-attente" selected>En attente</option>
+                        <option value="valide">Validés</option>
+                        <option value="rejete">Rejetés</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-rating">Note</label>
+                    <select id="filter-rating">
+                        <option value="tous">Toutes les notes</option>
+                        <option value="5">5 étoiles</option>
+                        <option value="4">4 étoiles</option>
+                        <option value="3">3 étoiles</option>
+                        <option value="2">2 étoiles</option>
+                        <option value="1">1 étoile</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-date-debut">Du</label>
+                    <input type="date" id="filter-date-debut">
+                </div>
+                <div class="filter-group">
+                    <label for="filter-date-fin">Au</label>
+                    <input type="date" id="filter-date-fin">
+                </div>
+            </div>
+            <div class="search-actions">
+                <button onclick="applyFilters()" class="btn btn-primary">
+                    🔍 Rechercher
+                </button>
+                <button onclick="resetFilters()" class="btn btn-warning">
+                    🔄 Réinitialiser
+                </button>
+                <button onclick="validateAll()" class="btn btn-success">
+                    ✅ Valider en lot
+                </button>
+            </div>
+        </div>
+
+        <!-- Liste des avis -->
+        <div id="avis-container">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Chargement des avis...</p>
+            </div>
+        </div>
     </main>
 
     <script>
-      // Récupérer les avis en attente
-      fetch("../backend/avis/lister_non_valides.php")
-        .then((res) => res.json())
-        .then((data) => {
-          const container = document.getElementById("avis-container");
-          container.innerHTML = "";
+        // État de l'application
+        let allAvis = [];
+        let filteredAvis = [];
 
-          if (data.length === 0) {
-            container.innerHTML = "<p>Aucun avis à valider.</p>";
-            return;
-          }
+        // Éléments du DOM
+        const avisContainer = document.getElementById('avis-container');
+        const filterStatus = document.getElementById('filter-status');
+        const filterRating = document.getElementById('filter-rating');
+        const filterDateDebut = document.getElementById('filter-date-debut');
+        const filterDateFin = document.getElementById('filter-date-fin');
 
-          data.forEach((avis) => {
-            const div = document.createElement("div");
-            div.classList.add("avis-card");
-
-            div.innerHTML = `
-            <p><strong>Note :</strong> ${avis.note} ⭐</p>
-            <p><strong>Commentaire :</strong> ${avis.commentaire}</p>
-            <p><strong>Passager :</strong> ${avis.passager_id}</p>
-            <p><strong>Chauffeur :</strong> ${avis.chauffeur_id}</p>
-            <button onclick="validerAvis('${avis._id}', true)">✅ Valider</button>
-            <button onclick="validerAvis('${avis._id}', false)">❌ Refuser</button>
-            <hr />
-          `;
-
-            container.appendChild(div);
-          });
+        // Chargement initial
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAvis();
         });
 
-      function validerAvis(id, accepte) {
-        fetch("../backend/avis/valider.php", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: `id=${id}&accepte=${accepte}`,
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            alert(data.message);
-            location.reload();
-          });
-      }
+        // Chargement des avis
+        async function loadAvis() {
+            try {
+                const response = await fetch('../backend/avis/lister_non_valides.php');
+                
+                if (!response.ok) {
+                    throw new Error('Erreur lors du chargement');
+                }
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    allAvis = data.avis || [];
+                    updateStats(data.stats || {});
+                    applyFilters();
+                } else {
+                    showError(data.message || 'Erreur lors du chargement des avis');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                showError('Impossible de charger les avis. Veuillez réessayer.');
+            }
+        }
+
+        // Mise à jour des statistiques
+        function updateStats(stats) {
+            document.getElementById('stat-attente').textContent = stats.en_attente || 0;
+            document.getElementById('stat-valides').textContent = stats.valides || 0;
+            document.getElementById('stat-rejetes').textContent = stats.rejetes || 0;
+            document.getElementById('stat-moyenne').textContent = (stats.moyenne || 0).toFixed(1);
+        }
+
+        // Application des filtres
+        function applyFilters() {
+            const statusFilter = filterStatus.value;
+            const ratingFilter = filterRating.value;
+            const dateDebutFilter = filterDateDebut.value;
+            const dateFinFilter = filterDateFin.value;
+
+            filteredAvis = allAvis.filter(avis => {
+                // Filtre par statut
+                if (statusFilter !== 'tous' && avis.statut !== statusFilter) {
+                    return false;
+                }
+
+                // Filtre par note
+                if (ratingFilter !== 'tous' && avis.note != ratingFilter) {
+                    return false;
+                }
+
+                // Filtre par date de début
+                if (dateDebutFilter && avis.date_creation < dateDebutFilter) {
+                    return false;
+                }
+
+                // Filtre par date de fin
+                if (dateFinFilter && avis.date_creation > dateFinFilter) {
+                    return false;
+                }
+
+                return true;
+            });
+
+            renderAvis();
+        }
+
+        // Réinitialisation des filtres
+        function resetFilters() {
+            filterStatus.value = 'en-attente';
+            filterRating.value = 'tous';
+            filterDateDebut.value = '';
+            filterDateFin.value = '';
+            applyFilters();
+        }
+
+        // Rendu des avis
+        function renderAvis() {
+            if (filteredAvis.length === 0) {
+                avisContainer.innerHTML = `
+                    <div class="no-results">
+                        <div class="no-results-icon">📝</div>
+                        <h3>Aucun avis trouvé</h3>
+                        <p>Aucun avis ne correspond à vos critères de recherche</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const avisHTML = filteredAvis.map(avis => createAvisCard(avis)).join('');
+            avisContainer.innerHTML = `<div class="avis-container">${avisHTML}</div>`;
+        }
+
+        // Création d'une carte d'avis
+        function createAvisCard(avis) {
+            const statusClass = `status-${avis.statut.replace('_', '-')}`;
+            const stars = '⭐'.repeat(avis.note) + '☆'.repeat(5 - avis.note);
+            
+            return `
+                <div class="avis-card">
+                    <div class="avis-header">
+                        <div class="avis-meta">
+                            <div class="avis-trajet">
+                                ${avis.ville_depart || 'N/A'} → ${avis.ville_arrivee || 'N/A'}
+                            </div>
+                            <div class="avis-date">
+                                Publié le ${formatDate(avis.date_creation)}
+                            </div>
+                            <div class="avis-rating">
+                                <span class="stars">${stars}</span>
+                                <span class="rating-value">${avis.note}/5</span>
+                            </div>
+                        </div>
+                        <span class="avis-status ${statusClass}">
+                            ${getStatusText(avis.statut)}
+                        </span>
+                    </div>
+                    
+                    <div class="avis-content">
+                        <div class="avis-comment">
+                            "${avis.commentaire || 'Aucun commentaire'}"
+                        </div>
+                        
+                        <div class="avis-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">👤</span>
+                                <span>Par ${avis.nom_evaluateur || 'Utilisateur'}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🎯</span>
+                                <span>Évalue ${avis.nom_evalue || 'Utilisateur'}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">📅</span>
+                                <span>Trajet du ${formatDate(avis.date_trajet)}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="avis-actions">
+                        ${generateActionButtons(avis)}
+                    </div>
+                    
+                    ${avis.statut === 'en-attente' ? generateModerateSection(avis.id) : ''}
+                </div>
+            `;
+        }
+
+        // Génération des boutons d'action
+        function generateActionButtons(avis) {
+            let buttons = [];
+
+            if (avis.statut === 'en-attente') {
+                buttons.push(`
+                    <button onclick="validateAvis(${avis.id})" class="btn btn-success">
+                        ✅ Valider
+                    </button>
+                    <button onclick="rejectAvis(${avis.id})" class="btn btn-danger">
+                        ❌ Rejeter
+                    </button>
+                `);
+            }
+
+            buttons.push(`
+                <a href="detail.html?id=${avis.trajet_id}" class="btn btn-primary">
+                    👁️ Voir trajet
+                </a>
+            `);
+
+            return buttons.join('');
+        }
+
+        // Section de modération
+        function generateModerateSection(avisId) {
+            return `
+                <div class="moderate-section" id="moderate-${avisId}" style="display: none;">
+                    <h4>💬 Commentaire de modération</h4>
+                    <textarea 
+                        id="comment-${avisId}" 
+                        class="moderate-textarea" 
+                        placeholder="Ajoutez un commentaire de modération (optionnel)..."
+                    ></textarea>
+                    <div style="display: flex; gap: 10px;">
+                        <button onclick="confirmValidation(${avisId})" class="btn btn-success">
+                            ✅ Confirmer validation
+                        </button>
+                        <button onclick="confirmRejection(${avisId})" class="btn btn-danger">
+                            ❌ Confirmer rejet
+                        </button>
+                        <button onclick="hideModerateSection(${avisId})" class="btn btn-warning">
+                            🔙 Annuler
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Actions de modération
+        function validateAvis(avisId) {
+            showModerateSection(avisId);
+        }
+
+        function rejectAvis(avisId) {
+            showModerateSection(avisId);
+        }
+
+        function showModerateSection(avisId) {
+            const section = document.getElementById(`moderate-${avisId}`);
+            if (section) {
+                section.style.display = 'block';
+                section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function hideModerateSection(avisId) {
+            const section = document.getElementById(`moderate-${avisId}`);
+            if (section) {
+                section.style.display = 'none';
+            }
+        }
+
+        async function confirmValidation(avisId) {
+            const comment = document.getElementById(`comment-${avisId}`).value;
+            
+            try {
+                const response = await fetch('../backend/avis/valider.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `avis_id=${avisId}&commentaire_moderation=${encodeURIComponent(comment)}`
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Avis validé avec succès');
+                    loadAvis(); // Recharger la liste
+                } else {
+                    alert(result.message || 'Erreur lors de la validation');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                alert('Erreur lors de la validation de l\'avis');
+            }
+        }
+
+        async function confirmRejection(avisId) {
+            const comment = document.getElementById(`comment-${avisId}`).value;
+            
+            if (!comment.trim()) {
+                alert('Un commentaire de modération est requis pour rejeter un avis');
+                return;
+            }
+            
+            try {
+                const response = await fetch('../backend/avis/rejeter.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `avis_id=${avisId}&commentaire_moderation=${encodeURIComponent(comment)}`
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Avis rejeté avec succès');
+                    loadAvis(); // Recharger la liste
+                } else {
+                    alert(result.message || 'Erreur lors du rejet');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                alert('Erreur lors du rejet de l\'avis');
+            }
+        }
+
+        // Validation en lot
+        async function validateAll() {
+            const pendingAvis = filteredAvis.filter(avis => avis.statut === 'en-attente');
+            
+            if (pendingAvis.length === 0) {
+                alert('Aucun avis en attente à valider');
+                return;
+            }
+
+            if (!confirm(`Valider ${pendingAvis.length} avis en attente ?`)) {
+                return;
+            }
+
+            try {
+                const promises = pendingAvis.map(avis => 
+                    fetch('../backend/avis/valider.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `avis_id=${avis.id}`
+                    })
+                );
+
+                await Promise.all(promises);
+                alert(`${pendingAvis.length} avis validés avec succès`);
+                loadAvis(); // Recharger la liste
+            } catch (error) {
+                console.error('Erreur:', error);
+                alert('Erreur lors de la validation en lot');
+            }
+        }
+
+        // Utilitaires
+        function formatDate(dateString) {
+            if (!dateString) return 'N/A';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('fr-FR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function getStatusText(statut) {
+            const statusTexts = {
+                'en-attente': 'En attente',
+                'valide': 'Validé',
+                'rejete': 'Rejeté'
+            };
+            return statusTexts[statut] || statut;
+        }
+
+        function showError(message) {
+            avisContainer.innerHTML = `
+                <div class="no-results">
+                    <div class="no-results-icon">❌</div>
+                    <h3>Erreur</h3>
+                    <p>${message}</p>
+                    <button onclick="loadAvis()" class="btn btn-primary">
+                        🔄 Réessayer
+                    </button>
+                </div>
+            `;
+        }
     </script>
-  </body>
+</body>
 </html>

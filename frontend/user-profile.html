@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mon profil – ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/user-profile.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -12,94 +14,221 @@
   </head>
   <body>
     <header>
-      <h1>Bienvenue sur votre espace utilisateur</h1>
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="nav-logo">
+            <img src="assets/img/logo_ecoCovoit.jpg" alt="ecoCovoit" />
+            <span>ecoCovoit</span>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="rechercher-covoiturage.html">Rechercher</a></li>
+            <li><a href="add-voyage.html">Proposer un trajet</a></li>
+            <li><a href="historique.html">Historique</a></li>
+            <li><a href="user-profile.html" class="active">Mon profil</a></li>
+            <li><a href="#" id="logout-nav">Déconnexion</a></li>
+          </ul>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main>
-      <section class="profile-section">
-        <div class="container">
-          <h2>Mon Profil</h2>
-          <div id="user-info" class="form-card">
-            <p>Chargement en cours...</p>
-          </div>
+      <div class="container">
+        <div class="profile-header">
+          <h1><i class="fas fa-user-circle"></i> Mon Profil</h1>
+          <p class="profile-subtitle">Gérez vos informations et vos trajets</p>
+        </div>
 
-          <!-- Nouvelle section pour les trajets -->
-          <section class="mes-trajets">
-            <h2>Mes Trajets en cours</h2>
-            <div class="trajets-list">
-              <div class="trajet form-card" data-trajet-id="12">
-                <div class="trajet-header">
-                  <h3><i class="fas fa-route"></i> Lyon → Paris</h3>
-                  <span class="trajet-date">15/06/2025</span>
+        <div class="profile-grid">
+          <!-- Informations personnelles -->
+          <section class="profile-card">
+            <div class="card-header">
+              <h2><i class="fas fa-user"></i> Informations personnelles</h2>
+              <button class="edit-btn" id="edit-profile-btn">
+                <i class="fas fa-edit"></i> Modifier
+              </button>
+            </div>
+            <div id="user-info" class="card-content">
+              <div class="loading">
+                <i class="fas fa-spinner fa-spin"></i> Chargement en cours...
+              </div>
+            </div>
+          </section>
+
+          <!-- Solde de crédits -->
+          <section class="profile-card credits-card">
+            <div class="card-header">
+              <h2><i class="fas fa-coins"></i> Mes crédits</h2>
+            </div>
+            <div class="card-content">
+              <div class="credits-display">
+                <span class="credits-amount" id="credits-amount">0</span>
+                <span class="credits-label">crédits</span>
+              </div>
+              <div class="credits-actions">
+                <button class="btn-secondary" id="add-credits-btn">
+                  <i class="fas fa-plus"></i> Recharger
+                </button>
+                <button class="btn-secondary" id="credits-history-btn">
+                  <i class="fas fa-history"></i> Historique
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Mes véhicules -->
+          <section class="profile-card">
+            <div class="card-header">
+              <h2><i class="fas fa-car"></i> Mes véhicules</h2>
+              <button class="edit-btn" id="add-vehicle-btn">
+                <i class="fas fa-plus"></i> Ajouter
+              </button>
+            </div>
+            <div id="vehicles-list" class="card-content">
+              <div class="loading">
+                <i class="fas fa-spinner fa-spin"></i> Chargement en cours...
+              </div>
+            </div>
+          </section>
+
+          <!-- Mes préférences -->
+          <section class="profile-card">
+            <div class="card-header">
+              <h2><i class="fas fa-cog"></i> Mes préférences</h2>
+              <button class="edit-btn" id="edit-preferences-btn">
+                <i class="fas fa-edit"></i> Modifier
+              </button>
+            </div>
+            <div id="preferences-list" class="card-content">
+              <div class="loading">
+                <i class="fas fa-spinner fa-spin"></i> Chargement en cours...
+              </div>
+            </div>
+          </section>
+
+          <!-- Statistiques -->
+          <section class="profile-card stats-card">
+            <div class="card-header">
+              <h2><i class="fas fa-chart-bar"></i> Mes statistiques</h2>
+            </div>
+            <div class="card-content">
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <div class="stat-value" id="trips-count">0</div>
+                  <div class="stat-label">Trajets réalisés</div>
                 </div>
-                <div class="trajet-actions">
-                  <button class="terminer-btn">
-                    <i class="fas fa-flag-checkered"></i> Arrivée à destination
-                  </button>
-                  <div class="message-zone"></div>
+                <div class="stat-item">
+                  <div class="stat-value" id="kilometers-saved">0</div>
+                  <div class="stat-label">km économisés</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value" id="co2-saved">0</div>
+                  <div class="stat-label">kg CO₂ évités</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value" id="rating-average">0</div>
+                  <div class="stat-label">Note moyenne</div>
                 </div>
               </div>
             </div>
           </section>
 
-          <button id="logout-btn" class="search-button">Se déconnecter</button>
+          <!-- Mes trajets en cours -->
+          <section class="profile-card full-width">
+            <div class="card-header">
+              <h2><i class="fas fa-route"></i> Mes trajets en cours</h2>
+              <button class="edit-btn" id="view-all-trips-btn">
+                <i class="fas fa-eye"></i> Voir tout
+              </button>
+            </div>
+            <div class="card-content">
+              <div id="current-trips" class="trips-container">
+                <div class="loading">
+                  <i class="fas fa-spinner fa-spin"></i> Chargement en cours...
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+
+        <!-- Actions rapides -->
+        <div class="quick-actions">
+          <h2>Actions rapides</h2>
+          <div class="actions-grid">
+            <a href="add-voyage.html" class="action-card">
+              <i class="fas fa-plus-circle"></i>
+              <span>Proposer un trajet</span>
+            </a>
+            <a href="rechercher-covoiturage.html" class="action-card">
+              <i class="fas fa-search"></i>
+              <span>Rechercher un trajet</span>
+            </a>
+            <a href="mes-reservations.html" class="action-card">
+              <i class="fas fa-calendar-check"></i>
+              <span>Mes réservations</span>
+            </a>
+            <a href="historique.html" class="action-card">
+              <i class="fas fa-history"></i>
+              <span>Historique complet</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer>
-      <p>&copy; 2025 ecoCovoit – Tous droits réservés</p>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>ecoCovoit</h3>
+          <p>La plateforme de covoiturage éco-responsable</p>
+        </div>
+        <div class="footer-section">
+          <h4>Liens utiles</h4>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="mentions.html">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ecoCovoit – Tous droits réservés</p>
+      </div>
     </footer>
 
-    <script>
-      // Récupérer les infos utilisateur via PHP
-      fetch("../backend/auth/get-user.php")
-        .then((res) => res.json())
-        .then((data) => {
-          const container = document.getElementById("user-info");
+    <!-- Modals -->
+    <div id="edit-profile-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Modifier mes informations</h3>
+          <span class="close">&times;</span>
+        </div>
+        <form id="edit-profile-form">
+          <div class="form-group">
+            <label for="edit-pseudo">Pseudo</label>
+            <input type="text" id="edit-pseudo" name="pseudo" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-email">Email</label>
+            <input type="email" id="edit-email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="edit-password">Nouveau mot de passe (optionnel)</label>
+            <input type="password" id="edit-password" name="password">
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary cancel-btn">Annuler</button>
+            <button type="submit" class="btn-primary">Enregistrer</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
-          if (!data.success) {
-            container.innerHTML = `<p>${data.message}</p>`;
-            return;
-          }
-
-          container.innerHTML = `
-          <p><strong>Pseudo :</strong> ${data.user.pseudo}</p>
-          <p><strong>Email :</strong> ${data.user.email}</p>
-          <p><strong>Rôle :</strong> ${data.user.role}</p>
-          <p><strong>Crédits :</strong> ${data.user.credit} 💰</p>
-        `;
-        });
-
-      // Gestion des boutons "Terminer trajet"
-      document.querySelectorAll(".terminer-btn").forEach((button) => {
-        button.addEventListener("click", function () {
-          const trajetId = this.closest(".trajet").dataset.trajetId;
-          if (!confirm("Confirmez-vous la fin de ce trajet ?")) return;
-
-          fetch("../backend/trajets/terminer.php", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: "trajet_id=" + encodeURIComponent(trajetId),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              const msg = this.nextElementSibling;
-              msg.textContent = data.message;
-              msg.style.color = data.success ? "green" : "red";
-              if (data.success) this.remove(); // On peut retirer le bouton
-            });
-        });
-      });
-
-      // Déconnexion
-      document.getElementById("logout-btn").addEventListener("click", () => {
-        fetch("../backend/auth/logout.php").then(
-          () => (window.location.href = "login.html")
-        );
-      });
-    </script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/user-profile.js"></script>
   </body>
 </html>

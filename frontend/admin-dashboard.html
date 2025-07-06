@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administrateur - ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/_commun.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .admin-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .admin-header {
+            background: linear-gradient(135deg, #8e44ad, #3498db);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .admin-header h1 {
+            margin: 0 0 15px 0;
+            font-size: 3rem;
+        }
+
+        .admin-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .stats-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #8e44ad;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .chart-placeholder {
+            height: 300px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+
+        .quick-actions {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .action-card {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        .action-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .action-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .action-desc {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .recent-activity {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .activity-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .activity-item {
+            padding: 15px;
+            border-bottom: 1px solid #ecf0f1;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .activity-icon.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .activity-icon.warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .activity-icon.info {
+            background: #cce7ff;
+            color: #004085;
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .activity-desc {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .activity-time {
+            font-size: 0.8rem;
+            color: #95a5a6;
+        }
+
+        .alerts-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .alert-item {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .alert-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .alert-critical {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-success {
+            background: #27ae60;
+            color: white;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-warning {
+            background: #f39c12;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .admin-container {
+                padding: 10px;
+            }
+
+            .admin-header h1 {
+                font-size: 2rem;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Administrateur -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="assets/img/logo_ecoCovoit.jpg" alt="ecoCovoit">
+                <span>ecoCovoit - Admin</span>
+            </div>
+            <nav class="nav">
+                <a href="admin-dashboard.html" class="active">Dashboard</a>
+                <a href="admin-comptes.html">Comptes</a>
+                <a href="employe-avis.html">Avis</a>
+                <a href="employe-incidents.html">Incidents</a>
+            </nav>
+            <div class="auth-buttons">
+                <span class="user-name">👨‍💼 Administrateur</span>
+                <a href="index.html" class="btn-logout">Déconnexion</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="admin-container">
+        <!-- En-tête -->
+        <div class="admin-header">
+            <h1>🎛️ Dashboard Administrateur</h1>
+            <p>Vue d'ensemble de la plateforme ecoCovoit</p>
+        </div>
+
+        <!-- Alertes importantes -->
+        <div class="alerts-section">
+            <h3 class="section-title">🚨 Alertes importantes</h3>
+            <div id="alerts-container">
+                <div class="alert-item alert-critical">
+                    <div class="activity-icon">⚠️</div>
+                    <div>
+                        <div class="activity-title">Serveur de paiement instable</div>
+                        <div class="activity-desc">Plusieurs échecs de paiement détectés dans la dernière heure</div>
+                    </div>
+                    <button class="btn btn-danger">Résoudre</button>
+                </div>
+                <div class="alert-item alert-warning">
+                    <div class="activity-icon">📈</div>
+                    <div>
+                        <div class="activity-title">Pic d'utilisation</div>
+                        <div class="activity-desc">Trafic 150% supérieur à la normale ce soir</div>
+                    </div>
+                    <button class="btn btn-warning">Surveiller</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistiques principales -->
+        <div class="dashboard-grid">
+            <div class="stats-section">
+                <h3 class="section-title">👥 Utilisateurs</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="total-users">2,847</div>
+                        <div class="stat-label">Total</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="new-users">127</div>
+                        <div class="stat-label">Ce mois</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="active-users">1,623</div>
+                        <div class="stat-label">Actifs</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="verified-users">2,341</div>
+                        <div class="stat-label">Vérifiés</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <h3 class="section-title">🚗 Trajets</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="total-trips">8,412</div>
+                        <div class="stat-label">Total</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="completed-trips">7,891</div>
+                        <div class="stat-label">Terminés</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="active-trips">89</div>
+                        <div class="stat-label">En cours</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="cancelled-trips">432</div>
+                        <div class="stat-label">Annulés</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <h3 class="section-title">💰 Finances</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="revenue">€24.7k</div>
+                        <div class="stat-label">Revenus</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="commission">€4.2k</div>
+                        <div class="stat-label">Commission</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="refunds">€847</div>
+                        <div class="stat-label">Remboursements</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="pending">€1.2k</div>
+                        <div class="stat-label">En attente</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <h3 class="section-title">🌱 Impact écologique</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="co2-saved">12.4t</div>
+                        <div class="stat-label">CO₂ économisé</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="km-shared">89.2k</div>
+                        <div class="stat-label">km partagés</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="fuel-saved">€6.8k</div>
+                        <div class="stat-label">Carburant économisé</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="trees-equivalent">847</div>
+                        <div class="stat-label">Arbres équivalents</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Graphiques -->
+        <div class="chart-container">
+            <h3 class="section-title">📊 Évolution des inscriptions</h3>
+            <div class="chart-placeholder">
+                📈 Graphique des inscriptions sur les 12 derniers mois
+                <br><small>(Intégration Chart.js à venir)</small>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h3 class="section-title">🚗 Répartition des trajets par région</h3>
+            <div class="chart-placeholder">
+                🗺️ Carte de répartition géographique des trajets
+                <br><small>(Intégration carte interactive à venir)</small>
+            </div>
+        </div>
+
+        <!-- Actions rapides -->
+        <div class="quick-actions">
+            <h3 class="section-title">⚡ Actions rapides</h3>
+            <div class="actions-grid">
+                <a href="admin-comptes.html" class="action-card">
+                    <div class="action-icon">👥</div>
+                    <div class="action-title">Gérer les comptes</div>
+                    <div class="action-desc">Voir et modérer les utilisateurs</div>
+                </a>
+                <a href="employe-avis.html" class="action-card">
+                    <div class="action-icon">⭐</div>
+                    <div class="action-title">Valider les avis</div>
+                    <div class="action-desc">Modérer les commentaires</div>
+                </a>
+                <a href="employe-incidents.html" class="action-card">
+                    <div class="action-icon">🚨</div>
+                    <div class="action-title">Support client</div>
+                    <div class="action-desc">Résoudre les incidents</div>
+                </a>
+                <div class="action-card" onclick="generateReport()">
+                    <div class="action-icon">📊</div>
+                    <div class="action-title">Générer rapport</div>
+                    <div class="action-desc">Rapport d'activité mensuel</div>
+                </div>
+                <div class="action-card" onclick="sendNewsletter()">
+                    <div class="action-icon">📧</div>
+                    <div class="action-title">Newsletter</div>
+                    <div class="action-desc">Envoyer communication</div>
+                </div>
+                <div class="action-card" onclick="systemMaintenance()">
+                    <div class="action-icon">🔧</div>
+                    <div class="action-title">Maintenance</div>
+                    <div class="action-desc">Gestion système</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activité récente -->
+        <div class="recent-activity">
+            <h3 class="section-title">📋 Activité récente</h3>
+            <div class="activity-list" id="activity-list">
+                <div class="activity-item">
+                    <div class="activity-icon success">✅</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Nouveau trajet publié</div>
+                        <div class="activity-desc">Paris → Lyon par Marie Dupont</div>
+                    </div>
+                    <div class="activity-time">Il y a 5 min</div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon info">👤</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Nouvel utilisateur</div>
+                        <div class="activity-desc">Jean Martin a créé son compte</div>
+                    </div>
+                    <div class="activity-time">Il y a 12 min</div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon warning">⚠️</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Incident signalé</div>
+                        <div class="activity-desc">Problème de paiement #1247</div>
+                    </div>
+                    <div class="activity-time">Il y a 23 min</div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon success">⭐</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Avis validé</div>
+                        <div class="activity-desc">Avis 5 étoiles pour trajet #8891</div>
+                    </div>
+                    <div class="activity-time">Il y a 45 min</div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon info">🚗</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Trajet terminé</div>
+                        <div class="activity-desc">Bordeaux → Toulouse avec 3 passagers</div>
+                    </div>
+                    <div class="activity-time">Il y a 1h</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Chargement des données du dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDashboardData();
+            startRealTimeUpdates();
+        });
+
+        // Chargement des données
+        async function loadDashboardData() {
+            try {
+                // Simulation du chargement des données (à remplacer par des appels API réels)
+                updateStats();
+                loadRecentActivity();
+            } catch (error) {
+                console.error('Erreur lors du chargement du dashboard:', error);
+            }
+        }
+
+        // Mise à jour des statistiques
+        function updateStats() {
+            // Simulation de données dynamiques
+            const stats = {
+                totalUsers: Math.floor(Math.random() * 100) + 2800,
+                newUsers: Math.floor(Math.random() * 50) + 100,
+                activeUsers: Math.floor(Math.random() * 200) + 1500,
+                verifiedUsers: Math.floor(Math.random() * 100) + 2300,
+                totalTrips: Math.floor(Math.random() * 100) + 8400,
+                completedTrips: Math.floor(Math.random() * 50) + 7850,
+                activeTrips: Math.floor(Math.random() * 20) + 80,
+                cancelledTrips: Math.floor(Math.random() * 10) + 430
+            };
+
+            // Mise à jour des éléments (les autres sont statiques pour la démo)
+            if (document.getElementById('total-users')) {
+                document.getElementById('total-users').textContent = stats.totalUsers.toLocaleString();
+            }
+            if (document.getElementById('active-trips')) {
+                document.getElementById('active-trips').textContent = stats.activeTrips;
+            }
+        }
+
+        // Chargement de l'activité récente
+        function loadRecentActivity() {
+            // Les activités sont déjà en dur dans le HTML pour la démo
+            // En production, elles seraient chargées depuis l'API
+        }
+
+        // Mise à jour en temps réel
+        function startRealTimeUpdates() {
+            // Mise à jour toutes les 30 secondes
+            setInterval(updateStats, 30000);
+        }
+
+        // Actions rapides
+        function generateReport() {
+            if (confirm('Générer le rapport mensuel ?')) {
+                alert('🎉 Rapport généré avec succès !\nLe fichier sera envoyé par email dans quelques minutes.');
+            }
+        }
+
+        function sendNewsletter() {
+            if (confirm('Envoyer la newsletter à tous les utilisateurs actifs ?')) {
+                alert('📧 Newsletter programmée !\nEnvoi en cours vers 1,623 utilisateurs actifs.');
+            }
+        }
+
+        function systemMaintenance() {
+            if (confirm('Programmer une maintenance système ?')) {
+                alert('🔧 Maintenance programmée !\nLa maintenance aura lieu dimanche à 2h du matin.');
+            }
+        }
+
+        // Gestion des alertes
+        function resolveAlert(alertType) {
+            if (confirm('Marquer cette alerte comme résolue ?')) {
+                alert('✅ Alerte résolue avec succès !');
+                // En production: supprimer l'alerte de l'interface
+            }
+        }
+
+        function monitorAlert(alertType) {
+            alert('👁️ Surveillance renforcée activée pour cette alerte.');
+        }
+
+        // Fonction pour rafraîchir le dashboard
+        function refreshDashboard() {
+            location.reload();
+        }
+
+        // Raccourci clavier pour rafraîchir
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
+                e.preventDefault();
+                refreshDashboard();
+            }
+        });
+    </script>
+</body>
+</html>

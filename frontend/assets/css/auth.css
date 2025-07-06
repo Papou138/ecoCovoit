@@ -242,45 +242,32 @@
 }
 
 .password-strength {
-  margin-top: var(--space-xs);
-  height: 4px;
-  background: var(--color-bg-secondary);
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.5rem;
   border-radius: var(--radius-sm);
-  overflow: hidden;
-}
-
-.password-strength-bar {
-  height: 100%;
+  font-size: 0.8rem;
+  font-weight: 500;
   transition: var(--transition-base);
-  border-radius: var(--radius-sm);
 }
 
-.password-strength.weak .password-strength-bar {
-  width: 33%;
-  background: var(--color-error);
+.password-strength.weak {
+  background: #fee;
+  color: #c53030;
 }
 
-.password-strength.medium .password-strength-bar {
-  width: 66%;
-  background: var(--color-warning);
+.password-strength.medium {
+  background: #fef5e7;
+  color: #dd6b20;
 }
 
-.password-strength.strong .password-strength-bar {
-  width: 100%;
-  background: var(--color-success);
+.password-strength.strong {
+  background: #f0fff4;
+  color: #38a169;
 }
 
-.password-match {
-  font-size: var(--font-size-xs);
-  margin-top: var(--space-xs);
-}
-
-.password-match.match {
-  color: var(--color-success);
-}
-
-.password-match.no-match {
-  color: var(--color-error);
+.password-strength.very-strong {
+  background: #e6fffa;
+  color: #319795;
 }
 
 /* ============================= */
@@ -450,6 +437,11 @@
   .auth-tab {
     padding: var(--space-sm) var(--space-md);
     font-size: var(--font-size-sm);
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 }
 
