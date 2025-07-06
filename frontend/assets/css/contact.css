@@ -1,0 +1,210 @@
+/* =============================================== */
+/* =  STYLES SPECIFIQUES A LA PAGE CONTACT.HTML  = */
+/* =============================================== */
+
+.contact-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--color-secondary), #1976d2);
+  border-radius: 10px;
+  color: white;
+}
+
+.contact-header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+}
+
+.contact-header p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.contact-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.info-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.info-content h3 {
+  margin: 0 0 0.25rem 0;
+  color: var(--color-text-primary);
+}
+
+.info-content p {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-btn {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: var(--color-secondary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.contact-btn:hover {
+  background: #1976d2;
+  transform: translateY(-2px);
+}
+
+.faq-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.faq-section h2 {
+  margin-bottom: 1.5rem;
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e1e8ed;
+  padding: 1rem 0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.faq-question:hover {
+  color: var(--color-secondary);
+}
+
+.faq-answer {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  padding-left: 1.5rem;
+}
+
+/* ====================== */
+/* =  RESPONSIVE DESIGN  = */
+/* ======================= */
+
+@media (max-width: 768px) {
+  .contact-container {
+    margin: 1rem auto;
+    padding: 0 0.5rem;
+  }
+
+  .contact-header {
+    padding: 1.5rem;
+  }
+
+  .contact-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .contact-form,
+  .contact-info,
+  .faq-section {
+    padding: 1.5rem;
+  }
+
+  .info-item {
+    flex-direction: column;
+    text-align: center;
+  }
+}

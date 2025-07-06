@@ -1,0 +1,219 @@
+/* ================================================== */
+/* =  STYLES SPECIFIQUES A LA PAGE ADD-VOYAGE.HTML  = */
+/* ================================================== */
+
+.add-voyage-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.add-voyage-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  border-radius: 10px;
+  color: white;
+}
+
+.add-voyage-header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+}
+
+.add-voyage-header p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.voyage-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: #f8f9fa;
+  color: #6c757d;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.step.active {
+  background: var(--color-primary);
+  color: white;
+}
+
+.step.completed {
+  background: var(--color-success);
+  color: white;
+}
+
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.vehicle-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.vehicle-option {
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.vehicle-option:hover {
+  border-color: var(--color-primary);
+  background: #f8fff8;
+}
+
+.vehicle-option.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.price-calculator {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.price-display {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.form-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.btn-nav {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-prev {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-prev:hover {
+  background: #5a6268;
+}
+
+.btn-next {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-next:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-submit {
+  background: var(--color-success);
+  color: white;
+}
+
+.btn-submit:hover {
+  background: var(--color-success-dark);
+}
+
+/* ================ */
+/* =  ANIMATIONS  = */
+/* ================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ======================= */
+/* =  RESPONSIVE DESIGN  = */
+/* ======================= */
+
+@media (max-width: 768px) {
+  .add-voyage-container {
+    margin: 1rem auto;
+    padding: 0 0.5rem;
+  }
+
+  .add-voyage-header {
+    padding: 1.5rem;
+  }
+
+  .voyage-form {
+    padding: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .vehicle-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .step-indicator {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .step {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .form-navigation {
+    flex-direction: column;
+  }
+}

@@ -1,9 +1,9 @@
-/* ---------------------------------------------------------------------------------------
- *  Styles du header et de la navigation
- * ---------------------------------------------------------------------------------------
- */
+/* ==================================== */
+/* =  STYLES DU HEADER ET NAVIGATION  = */
+/* ==================================== */
 
-/* Header principal */
+/* ===== HEADER PRINCIPALE ===== */
+
 header {
   background-color: var(--color-primary);
   padding: var(--space-xs);
@@ -19,7 +19,7 @@ header {
   margin: 0 auto;
 }
 
-/* Logo */
+/* ===== LOGO ===== */
 .logo-container {
   display: flex;
   align-items: center;
@@ -53,7 +53,8 @@ header {
   vertical-align: middle;
 }
 
-/* Navigation */
+/* ===== NAVIGATION ===== */
+
 nav ul {
   list-style: none;
   padding: 0;
@@ -82,7 +83,8 @@ nav ul li a:hover {
   border-radius: var(--radius-sm);
 }
 
-/* Menu hamburger */
+/* ===== MENU HAMBURGER ===== */
+
 .menu-toggle {
   display: none;
   background: none;
@@ -101,7 +103,8 @@ nav ul li a:hover {
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-/* État actif du menu */
+/* ===== ETAT ACTIF DU MENU ===== */
+
 .menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
@@ -112,7 +115,8 @@ nav ul li a:hover {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Dropdown - Menu déroulant */
+/* ===== DROPDOWN (Menu déroulant) ===== */
+
 .dropdown {
   position: relative;
 }
@@ -179,14 +183,18 @@ nav ul li a:hover {
   display: inline-block;
 }
 
-/* Etats actifs */
+/* ===== ETATS ACTIFS ===== */
+
 .active {
   background-color: var(--color-bg-tertiary);
   color: var(--color-text-primary);
   border-radius: var(--radius-sm);
 }
 
-/* Media query pour l'affichage mobile */
+/* ============================================= */
+/* =  RESPONSIVE DESIGN POUR AFFICHAGE MOBILE  = */
+/* ============================================= */
+
 @media screen and (max-width: 768px) {
   .menu-toggle {
     display: flex;
@@ -262,7 +270,8 @@ nav ul li a:hover {
     font-weight: 700;
   }
 
-  /* Dropdown mobile : affichage en colonne et ouverture fluide */
+  /* ===== DROPDOWN MOBILE : AFFICHAGE EN COLONNE ET OUVERTURE FLUIDE  ===== */
+
   .dropdown-menu {
     position: static;
     display: none;

@@ -1,13 +1,17 @@
-/* user-profile.css - Styles pour la page de profil utilisateur */
+/* ==================================================== */
+/* =  STYLES SPECIFIQUES A LA PAGE USER-PROFILE.HTML  = */
+/* ==================================================== */
 
-/* Conteneur principal */
+/* ===== CONTENEUR PRINCIPAL ===== */
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
 
-/* En-tête du profil */
+/* ===== EN-TÊTE DU PROFIL ===== */
+
 .profile-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -35,7 +39,8 @@
   margin: 0;
 }
 
-/* Grille du profil */
+/* ===== GRILLE DU PROFIL ===== */
+
 .profile-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -47,7 +52,8 @@
   grid-column: 1 / -1;
 }
 
-/* Cartes du profil */
+/* ===== CARTES DU PROFIL ===== */
+
 .profile-card {
   background: white;
   border-radius: 15px;
@@ -106,7 +112,8 @@
   padding: 1.5rem;
 }
 
-/* États de chargement */
+/* ===== ETATS DE CHARGEMENT ===== */
+
 .loading {
   text-align: center;
   color: #6c757d;
@@ -121,7 +128,8 @@
   display: block;
 }
 
-/* Informations utilisateur */
+/* ===== INFORMATIONS UTILISATEURS ===== */
+
 .user-info {
   display: grid;
   gap: 1rem;
@@ -149,7 +157,8 @@
   font-weight: 500;
 }
 
-/* Carte des crédits */
+/* ===== CARTE DES CREDITS ===== */
+
 .credits-card {
   background: linear-gradient(135deg, #28a745, #20c997);
   color: white;
@@ -197,7 +206,8 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* Statistiques */
+/* ===== STATISTIQUES ===== */
+
 .stats-card {
   background: linear-gradient(135deg, #6f42c1, #e83e8c);
   color: white;
@@ -237,7 +247,8 @@
   opacity: 0.9;
 }
 
-/* Liste des véhicules */
+/* ===== LISTE DES VEHICULES ===== */
+
 .vehicle-item {
   display: flex;
   align-items: center;
@@ -296,7 +307,8 @@
   color: white;
 }
 
-/* Préférences */
+/* ===== PREFERENCES ===== */
+
 .preference-item {
   display: flex;
   justify-content: space-between;
@@ -339,7 +351,8 @@
   transform: translateX(25px);
 }
 
-/* Trajets en cours */
+/* ===== TRAJETS EN COURS ===== */
+
 .trips-container {
   display: grid;
   gap: 1rem;
@@ -426,7 +439,8 @@
   background: #c82333;
 }
 
-/* Actions rapides */
+/* ===== ACTIONS RAPIDES ===== */
+
 .quick-actions {
   margin-top: 3rem;
   text-align: center;
@@ -478,7 +492,8 @@
   font-size: 1.1rem;
 }
 
-/* Modal */
+/* ===== MODAL ===== */
+
 .modal {
   display: none;
   position: fixed;
@@ -502,6 +517,8 @@
   overflow-y: auto;
   animation: modalSlideIn 0.3s ease;
 }
+
+/* ===== ANIMATIONS ===== */
 
 @keyframes modalSlideIn {
   from {
@@ -605,7 +622,8 @@
   background: #5a6268;
 }
 
-/* États vides */
+/* ===== ETATS VIDES ===== */
+
 .empty-state {
   text-align: center;
   padding: 3rem 2rem;
@@ -642,7 +660,10 @@
   background: var(--primary-hover);
 }
 
-/* Responsive */
+/* ======================= */
+/* =  RESPONSIVE DESIGN  = */
+/* ======================= */
+
 @media (max-width: 768px) {
   .container {
     padding: 1rem;

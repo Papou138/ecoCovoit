@@ -1,130 +1,473 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Mon historique – ecoCovoit</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
-  <body>
-    <main>
-      <h1>🕓 Mon historique de covoiturages</h1>
-      <label for="filtre-statut"><strong>Afficher :</strong></label>
-      <select id="filtre-statut">
-        <option value="tous">Tous les trajets</option>
-        <option value="avenir">Trajets à venir</option>
-        <option value="termine">Trajets terminés</option>
-      </select>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historique des Trajets - ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/_commun.css">
+    <link rel="stylesheet" href="assets/css/_header.css">
+    <link rel="stylesheet" href="assets/css/_footer.css">
+    <link rel="stylesheet" href="assets/css/historique.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- MENU NAVIGATION -->
+    <header>
+      <div class="header-content">
+        <div class="logo-container">
+          <img
+            src="assets/img/logo-ecoRide.png"
+            alt="Logo ecoCovoit"
+            class="logo"
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <h1 class="app-title">ecoCovoit</h1>
+        </div>
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Ouvrir le menu Principal"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          type="button"
+        >
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
 
-      <div id="historique-container">Chargement...</div>
+        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal de navigation">
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Accueil</a></li>
+            <li><a href="rechercher-covoiturage.html" class="nav-link">Covoiturages</a></li>
+            <li><a href="add-voyage.html" class="nav-link">Proposer</a></li>
+            <li><a href="mes-reservations.html" class="nav-link">Mes réservations</a></li>
+            <li><a href="historique.html" class="nav-link active">Historique</a></li>
+            <li><a href="user-profile.html" class="nav-link">Mon profil</a></li>
+            <li><a href="login.html" class="nav-link">Connexion</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="historique-container">
+        <!-- En-tête de la page -->
+        <div class="historique-header">
+            <h1>📚 Mon Historique de Trajets</h1>
+            <p>Retrouvez tous vos covoiturages passés et à venir</p>
+        </div>
+
+        <!-- Statistiques -->
+        <div class="historique-stats" id="stats-container">
+            <div class="stat-card">
+                <div class="stat-value" id="stat-total">-</div>
+                <div class="stat-label">Trajets totaux</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="stat-km">-</div>
+                <div class="stat-label">Kilomètres parcourus</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="stat-co2">-</div>
+                <div class="stat-label">kg CO₂ économisés</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="stat-credits">-</div>
+                <div class="stat-label">Crédits gagnés</div>
+            </div>
+        </div>
+
+        <!-- Filtres -->
+        <div class="filters-section">
+            <h3>🔍 Filtrer mes trajets</h3>
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label for="filter-status">Statut</label>
+                    <select id="filter-status">
+                        <option value="tous">Tous les statuts</option>
+                        <option value="a-venir">À venir</option>
+                        <option value="en-cours">En cours</option>
+                        <option value="termine">Terminés</option>
+                        <option value="annule">Annulés</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-role">Rôle</label>
+                    <select id="filter-role">
+                        <option value="tous">Tous les rôles</option>
+                        <option value="chauffeur">Chauffeur</option>
+                        <option value="passager">Passager</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-date-debut">Du</label>
+                    <input type="date" id="filter-date-debut">
+                </div>
+                <div class="filter-group">
+                    <label for="filter-date-fin">Au</label>
+                    <input type="date" id="filter-date-fin">
+                </div>
+            </div>
+        </div>
+
+        <!-- Liste des trajets -->
+        <div id="trajets-container">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Chargement de votre historique...</p>
+            </div>
+        </div>
     </main>
 
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: contact@ecocovoit.fr</p>
+        </div>
+        <div class="footer-section">
+          <h3>Informations</h3>
+          <ul>
+            <li><a href="mentions.html">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EcoCovoit. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/menu.js"></script>
     <script>
-      const selectFiltre = document.getElementById("filtre-statut");
-      const container = document.getElementById("historique-container");
-      let trajetsGlobal = [];
+        // État de l'application
+        let allTrajets = [];
+        let filteredTrajets = [];
 
-      // Charger tous les trajets
-      fetch("../backend/trajets/historique.php")
-        .then((res) => res.json())
-        .then((data) => {
-          trajetsGlobal = data;
-          afficherTrajets(); // Appel initial pour afficher tous les trajets
+        // Éléments du DOM
+        const trajetsContainer = document.getElementById('trajets-container');
+        const filterStatus = document.getElementById('filter-status');
+        const filterRole = document.getElementById('filter-role');
+        const filterDateDebut = document.getElementById('filter-date-debut');
+        const filterDateFin = document.getElementById('filter-date-fin');
+
+        // Chargement initial
+        document.addEventListener('DOMContentLoaded', function() {
+            loadHistorique();
+            setupEventListeners();
         });
 
-      // Afficher les trajets filtrés
-      function afficherTrajets() {
-        const filtre = selectFiltre.value;
-        container.innerHTML = "";
-
-        const trajetsFiltres = trajetsGlobal.filter((trajet) => {
-          if (filtre === "tous") return true; // Tous les trajets
-          if (filtre === "avenir") return trajet.statut !== "termine"; // Trajets à venir
-          if (filtre === "termine") return trajet.statut === "terminé"; // Trajets terminés
-        });
-
-        if (trajetsFiltres.length === 0) {
-          container.innerHTML = "<p>Aucun trajet trouvé pour ce filtre.</p>";
-          return;
+        // Configuration des écouteurs d'événements
+        function setupEventListeners() {
+            filterStatus.addEventListener('change', applyFilters);
+            filterRole.addEventListener('change', applyFilters);
+            filterDateDebut.addEventListener('change', applyFilters);
+            filterDateFin.addEventListener('change', applyFilters);
         }
 
-        trajetsFiltres.forEach((trajet) => {
-          const div = document.createElement("div");
-          div.classList.add("trajet");
+        // Chargement de l'historique
+        async function loadHistorique() {
+            try {
+                const response = await fetch('../backend/trajets/historique.php');
 
-          let html = `
-            <h3>${trajet.ville_depart} → ${trajet.ville_arrivee}</h3>
-            <p><strong>Date :</strong> ${trajet.date}</p>
-            <p><strong>Rôle :</strong> ${
-              trajet.est_chauffeur ? "Chauffeur" : "Passager"
-            }</p>
-            <p><strong>Statut :</strong> ${trajet.statut}</p>
-          `;
+                if (!response.ok) {
+                    throw new Error('Erreur lors du chargement');
+                }
 
-          if (trajet.annulable) {
-            html += `<button onclick="annulerTrajet(${trajet.id})">❌ Annuler</button>`;
-          }
+                const data = await response.json();
 
-          if (trajet.est_chauffeur && trajet.statut === "en_cours") {
-            html += `<button onclick="cloreTrajet(${trajet.id})">🛑 Arrivée à destination</button>`;
-          }
+                if (data.success) {
+                    allTrajets = data.trajets || [];
+                    updateStats(data.stats || {});
+                    applyFilters();
+                } else {
+                    showError(data.message || 'Erreur lors du chargement de l\'historique');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                showError('Impossible de charger l\'historique. Veuillez réessayer.');
+            }
+        }
 
-          // ➕ Si passager et trajet terminé, proposer d’évaluer
-          if (!trajet.est_chauffeur && trajet.statut === "termine") {
-            html += `<p><a href="laisser-avis.html?trajet_id=${trajet.id}" class="btn-link">📝 Évaluer ce trajet</a></p>`;
-          }
+        // Mise à jour des statistiques
+        function updateStats(stats) {
+            document.getElementById('stat-total').textContent = stats.total_trajets || 0;
+            document.getElementById('stat-km').textContent = (stats.total_km || 0) + ' km';
+            document.getElementById('stat-co2').textContent = (stats.co2_economise || 0) + ' kg';
+            document.getElementById('stat-credits').textContent = stats.credits_gagnes || 0;
+        }
 
-          div.innerHTML = html;
+        // Application des filtres
+        function applyFilters() {
+            const statusFilter = filterStatus.value;
+            const roleFilter = filterRole.value;
+            const dateDebutFilter = filterDateDebut.value;
+            const dateFinFilter = filterDateFin.value;
 
-          container.appendChild(div);
-        });
-      }
+            filteredTrajets = allTrajets.filter(trajet => {
+                // Filtre par statut
+                if (statusFilter !== 'tous' && trajet.statut !== statusFilter) {
+                    return false;
+                }
 
-      selectFiltre.addEventListener("change", afficherTrajets);
+                // Filtre par rôle
+                if (roleFilter !== 'tous') {
+                    const isDriverRole = roleFilter === 'chauffeur';
+                    if (trajet.est_chauffeur !== isDriverRole) {
+                        return false;
+                    }
+                }
 
-      function annulerTrajet(id) {
-        if (!confirm("Confirmer l’annulation de ce trajet ?")) return;
+                // Filtre par date de début
+                if (dateDebutFilter && trajet.date < dateDebutFilter) {
+                    return false;
+                }
 
-        fetch("../backend/trajets/annuler.php", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: "trajet_id=" + id,
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            alert(data.message);
-            location.reload();
-          });
-      }
+                // Filtre par date de fin
+                if (dateFinFilter && trajet.date > dateFinFilter) {
+                    return false;
+                }
 
-      function demarrerTrajet(id) {
-        if (!confirm("Démarrer ce trajet maintenant ?")) return;
+                return true;
+            });
 
-        fetch("../backend/trajets/demarrer.php", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: "trajet_id=" + id,
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            alert(data.message);
-            location.reload();
-          });
-      }
+            renderTrajets();
+        }
 
-      function cloreTrajet(id) {
-        if (!confirm("Confirmer la fin de ce trajet ?")) return;
+        // Rendu des trajets
+        function renderTrajets() {
+            if (filteredTrajets.length === 0) {
+                trajetsContainer.innerHTML = `
+                    <div class="no-results">
+                        <div class="no-results-icon">🔍</div>
+                        <h3>Aucun trajet trouvé</h3>
+                        <p>Essayez de modifier vos filtres ou <a href="add-voyage.html">proposez un nouveau trajet</a></p>
+                    </div>
+                `;
+                return;
+            }
 
-        fetch("../backend/trajets/arriver.php", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: "trajet_id=" + id,
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            alert(data.message);
-            location.reload();
-          });
-      }
+            const trajetsHTML = filteredTrajets.map(trajet => createTrajetCard(trajet)).join('');
+            trajetsContainer.innerHTML = `<div class="trajets-grid">${trajetsHTML}</div>`;
+        }
+
+        // Création d'une carte de trajet
+        function createTrajetCard(trajet) {
+            const statusClass = `status-${trajet.statut.replace('_', '-')}`;
+            const roleClass = trajet.est_chauffeur ? 'role-chauffeur' : 'role-passager';
+            const roleText = trajet.est_chauffeur ? '🚗 Chauffeur' : '🪑 Passager';
+
+            return `
+                <div class="trajet-card">
+                    <div class="trajet-header">
+                        <h3 class="trajet-route">
+                            ${trajet.ville_depart} → ${trajet.ville_arrivee}
+                        </h3>
+                        <span class="trajet-status ${statusClass}">
+                            ${getStatusText(trajet.statut)}
+                        </span>
+                    </div>
+
+                    <div class="trajet-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span>${formatDate(trajet.date)} à ${trajet.heure}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">👥</span>
+                            <span class="role-badge ${roleClass}">${roleText}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💰</span>
+                            <span>${trajet.prix_total || trajet.prix}€</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span>${trajet.distance || 'N/A'} km</span>
+                        </div>
+                    </div>
+
+                    <div class="trajet-actions">
+                        ${generateActionButtons(trajet)}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Génération des boutons d'action
+        function generateActionButtons(trajet) {
+            let buttons = [];
+
+            // Bouton voir détails (toujours disponible)
+            buttons.push(`
+                <a href="detail.html?id=${trajet.id}" class="btn btn-secondary">
+                    👁️ Voir détails
+                </a>
+            `);
+
+            // Actions selon le statut et le rôle
+            if (trajet.statut === 'a-venir') {
+                // Trajet à venir - possibilité d'annuler
+                if (trajet.annulable) {
+                    buttons.push(`
+                        <button onclick="annulerTrajet(${trajet.id})" class="btn btn-danger">
+                            ❌ Annuler
+                        </button>
+                    `);
+                }
+
+                // Si chauffeur, possibilité de démarrer
+                if (trajet.est_chauffeur) {
+                    buttons.push(`
+                        <button onclick="demarrerTrajet(${trajet.id})" class="btn btn-success">
+                            🚀 Démarrer
+                        </button>
+                    `);
+                }
+            } else if (trajet.statut === 'en-cours' && trajet.est_chauffeur) {
+                // Trajet en cours - chauffeur peut terminer
+                buttons.push(`
+                    <button onclick="terminerTrajet(${trajet.id})" class="btn btn-warning">
+                        🏁 Terminer
+                    </button>
+                `);
+            } else if (trajet.statut === 'termine') {
+                // Trajet terminé - possibilité de laisser un avis
+                if (!trajet.avis_laisse) {
+                    buttons.push(`
+                        <a href="laisser-avis.html?trajet_id=${trajet.id}" class="btn btn-primary">
+                            ⭐ Laisser un avis
+                        </a>
+                    `);
+                }
+            }
+
+            return buttons.join('');
+        }
+
+        // Formatage de la date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('fr-FR', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // Texte du statut
+        function getStatusText(statut) {
+            const statusTexts = {
+                'a-venir': 'À venir',
+                'en-cours': 'En cours',
+                'termine': 'Terminé',
+                'annule': 'Annulé'
+            };
+            return statusTexts[statut] || statut;
+        }
+
+        // Actions sur les trajets
+        async function annulerTrajet(trajetId) {
+            if (!confirm('Êtes-vous sûr de vouloir annuler ce trajet ?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch('../backend/trajets/annuler.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `trajet_id=${trajetId}`
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Trajet annulé avec succès');
+                    loadHistorique(); // Recharger la liste
+                } else {
+                    alert(result.message || 'Erreur lors de l\'annulation');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                alert('Erreur lors de l\'annulation du trajet');
+            }
+        }
+
+        async function demarrerTrajet(trajetId) {
+            if (!confirm('Démarrer ce trajet maintenant ?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch('../backend/trajets/demarrer.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `trajet_id=${trajetId}`
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Trajet démarré avec succès');
+                    loadHistorique(); // Recharger la liste
+                } else {
+                    alert(result.message || 'Erreur lors du démarrage');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                alert('Erreur lors du démarrage du trajet');
+            }
+        }
+
+        async function terminerTrajet(trajetId) {
+            if (!confirm('Confirmer l\'arrivée à destination ?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch('../backend/trajets/terminer.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `trajet_id=${trajetId}`
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Trajet terminé avec succès');
+                    loadHistorique(); // Recharger la liste
+                } else {
+                    alert(result.message || 'Erreur lors de la finalisation');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                alert('Erreur lors de la finalisation du trajet');
+            }
+        }
+
+        // Affichage des erreurs
+        function showError(message) {
+            trajetsContainer.innerHTML = `
+                <div class="no-results">
+                    <div class="no-results-icon">❌</div>
+                    <h3>Erreur</h3>
+                    <p>${message}</p>
+                    <button onclick="loadHistorique()" class="btn btn-primary">
+                        🔄 Réessayer
+                    </button>
+                </div>
+            `;
+        }
     </script>
-  </body>
+</body>
 </html>

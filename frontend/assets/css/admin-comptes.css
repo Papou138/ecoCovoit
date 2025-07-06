@@ -1,0 +1,154 @@
+/* ===================================================== */
+/* =  STYLES SPECIFIQUES A LA PAGE ADMIN-COMPTES.HTML  = */
+/* ===================================================== */
+
+/* ===== CONTENEUR PRINCIPAL POUR LA GESTION DES COMPTES (admin) ===== */
+
+.admin-comptes-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.admin-comptes-title {
+    text-align: center;
+    color: #27ae60;
+    margin-bottom: 2rem;
+}
+
+.comptes-filters {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.comptes-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #27ae60;
+    display: block;
+}
+
+.stat-label {
+    color: #7f8c8d;
+    margin-top: 0.5rem;
+}
+
+.comptes-table-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.comptes-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.comptes-table th,
+.comptes-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.comptes-table th {
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.comptes-table tr:hover {
+    background: #f8f9fa;
+}
+
+.user-status {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+.user-status.active {
+    background: #27ae60;
+}
+
+.user-status.suspended {
+    background: #e74c3c;
+}
+
+.user-status.pending {
+    background: #f39c12;
+}
+
+.user-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-edit {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.btn-suspend {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.btn-activate {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.btn-edit:hover {
+    background: #2980b9;
+}
+
+.btn-suspend:hover {
+    background: #c0392b;
+}
+
+.btn-activate:hover {
+    background: #229954;
+}

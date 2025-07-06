@@ -1,7 +1,7 @@
-/* ---------------------------------------------------------------------------------------
- *  Styles du footer
- * ---------------------------------------------------------------------------------------
- */
+/* ===================== */
+/* =  STYLES DU FOOTER  = */
+/* ====================== */
+
 footer {
   background-color: var(--color-primary);
   color: var(--color-bg-primary);
@@ -48,7 +48,8 @@ footer {
   padding: var(--space-xs);
 }
 
-/* Optimisation de la section Contact */
+/* ===== OPTIMISATION DE LA SECTION CONTACT ===== */
+
 .footer-section.contact-section {
   display: flex;
   flex-direction: column;
@@ -86,7 +87,7 @@ footer {
 .footer-bottom {
   text-align: center;
   margin-top: var(--space-md);
-  background-color: #45a049;
+  background-color: var(--color-primary-dark);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: var(--space-md) 0;
 }

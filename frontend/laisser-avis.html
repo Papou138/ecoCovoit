@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laisser un avis – ecoCovoit</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/_commun.css">
+    <link rel="stylesheet" href="assets/css/_header.css">
+    <link rel="stylesheet" href="assets/css/_footer.css">
+    <link rel="stylesheet" href="assets/css/laisser-avis.css">
     <style>
         /* Styles spécifiques pour la page d'avis */
         .avis-container {
@@ -325,7 +328,7 @@
 
         <form id="avis-form" class="avis-form">
             <input type="hidden" id="trajet_id" name="trajet_id" />
-            
+
             <div class="trajet-info" id="trajet-info">
                 <h3>Informations du trajet</h3>
                 <p id="trajet-details">Chargement des détails du trajet...</p>
@@ -395,9 +398,9 @@
 
             <div class="comment-section">
                 <label for="commentaire">Commentaire détaillé</label>
-                <textarea 
-                    id="commentaire" 
-                    name="commentaire" 
+                <textarea
+                    id="commentaire"
+                    name="commentaire"
                     class="comment-textarea"
                     placeholder="Partagez votre expérience pour aider les autres utilisateurs..."
                     maxlength="500"
@@ -482,11 +485,11 @@
         function setupEventListeners() {
             // Gestion des étoiles
             setupStarRatings();
-            
+
             // Compteur de caractères
             const textarea = document.getElementById('commentaire');
             const charCount = document.getElementById('char-count');
-            
+
             textarea.addEventListener('input', function() {
                 charCount.textContent = this.value.length;
             });
@@ -535,7 +538,7 @@
 
         function setRating(type, rating) {
             ratings[type] = rating;
-            
+
             if (type === 'main') {
                 document.getElementById('note').value = rating;
             } else {
@@ -559,7 +562,7 @@
         function handlePhotoUpload(event) {
             const files = Array.from(event.target.files);
             const preview = document.getElementById('photo-preview');
-            
+
             files.forEach(file => {
                 if (selectedPhotos.length >= 5) {
                     showMessage('Maximum 5 photos autorisées', 'error');
@@ -572,7 +575,7 @@
                 }
 
                 selectedPhotos.push(file);
-                
+
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     const photoItem = document.createElement('div');
@@ -595,12 +598,12 @@
 
         function submitAvis(event) {
             event.preventDefault();
-            
+
             if (!validateForm()) return;
 
             const submitBtn = document.getElementById('submit-btn');
             const originalText = submitBtn.textContent;
-            
+
             // Affichage du loading
             submitBtn.innerHTML = '<span class="spinner"></span>Envoi en cours...';
             submitBtn.disabled = true;
@@ -610,7 +613,7 @@
             formData.append('trajet_id', document.getElementById('trajet_id').value);
             formData.append('note', document.getElementById('note').value);
             formData.append('commentaire', document.getElementById('commentaire').value);
-            
+
             // Ajout des ratings détaillés
             Object.keys(ratings).forEach(key => {
                 if (key !== 'main' && ratings[key] > 0) {
@@ -676,7 +679,7 @@
             messageBox.textContent = text;
             messageBox.className = `message-box ${type}`;
             messageBox.style.display = 'block';
-            
+
             // Auto-hide après 5 secondes pour les messages de succès
             if (type === 'success') {
                 setTimeout(() => {

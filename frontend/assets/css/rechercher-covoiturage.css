@@ -1,6 +1,6 @@
-/* ============================= */
-/* =    RECHERCHE COVOITURAGE   = */
-/* ============================= */
+/* ========================================================= */
+/* =  STYLES SPECIFIQUES A LA RECHERCHER-COVOITURAGE.HTML  = */
+/* ========================================================= */
 
 .search-header-section {
   background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
@@ -20,9 +20,7 @@
   opacity: 0.9;
 }
 
-/* ============================= */
-/* =    FORMULAIRE RECHERCHE    = */
-/* ============================= */
+/* ===== FORMULAIRE RECHERCHE ===== */
 
 .search-form-section {
   background-color: var(--color-bg-secondary);
@@ -54,9 +52,7 @@
   white-space: nowrap;
 }
 
-/* ============================= */
-/* =         FILTRES            = */
-/* ============================= */
+/* ===== FILTRES ===== */
 
 .filters-section {
   background-color: var(--color-bg-tertiary);
@@ -97,7 +93,8 @@
   gap: var(--space-sm);
 }
 
-/* Checkbox personnalisé */
+/* ===== CHECKBOX PERSONNALISE ===== */
+
 .filter-group label input[type="checkbox"] {
   appearance: none;
   width: 20px;
@@ -123,7 +120,8 @@
   font-size: 14px;
 }
 
-/* Slider de prix */
+/* ===== SLIDER DE PRIX ===== */
+
 .price-slider {
   width: 100%;
   margin: var(--space-sm) 0;
@@ -135,7 +133,8 @@
   font-size: var(--font-size-lg);
 }
 
-/* Filtres de rating */
+/* ===== FILTRES DE RATING ===== */
+
 .rating-filter {
   display: flex;
   gap: var(--space-md);
@@ -161,9 +160,7 @@
   border-color: var(--color-primary);
 }
 
-/* ============================= */
-/* =        RÉSULTATS           = */
-/* ============================= */
+/* ===== RÉSULTATS ===== */
 
 .results-section {
   background-color: var(--color-bg-primary);
@@ -191,7 +188,8 @@
   font-size: var(--font-size-lg);
 }
 
-/* Messages d'état */
+/* ===== MESSAGES D'ETAT ===== */
+
 .no-search-message,
 .no-results-message {
   text-align: center;
@@ -217,7 +215,8 @@
   font-size: var(--font-size-lg);
 }
 
-/* Suggestion alternative */
+/* ===== SUGGESTION ALTERNATIVE ===== */
+
 .alternative-suggestion {
   margin-top: var(--space-lg);
   padding: var(--space-lg);
@@ -226,9 +225,7 @@
   border-left: 4px solid var(--color-warning);
 }
 
-/* ============================= */
-/* =    LISTE COVOITURAGES     = */
-/* ============================= */
+/* ===== LISTE COVOITURAGES ===== */
 
 .covoiturages-list {
   display: grid;
@@ -253,7 +250,8 @@
   transform: translateY(-2px);
 }
 
-/* Profil du chauffeur */
+/* ===== PROFIL DU CHAUFFEUR ===== */
+
 .driver-profile {
   display: flex;
   flex-direction: column;
@@ -288,7 +286,8 @@
   color: var(--color-warning);
 }
 
-/* Détails du trajet */
+/* ===== DETAILS DU TRAJET ===== */
+
 .trip-details {
   display: grid;
   gap: var(--space-md);
@@ -327,7 +326,8 @@
   width: 16px;
 }
 
-/* Badges */
+/* ===== BADGES ===== */
+
 .eco-badge {
   display: inline-flex;
   align-items: center;
@@ -341,7 +341,8 @@
   margin-top: var(--space-sm);
 }
 
-/* Actions */
+/* ===== ACTIONS ===== */
+
 .trip-actions {
   display: flex;
   flex-direction: column;
@@ -369,9 +370,9 @@
   width: 100%;
 }
 
-/* ============================= */
-/* =       RESPONSIVITÉ         = */
-/* ============================= */
+/* ======================= */
+/* =  RESPONSIVE DESIGN  = */
+/* ======================= */
 
 @media (max-width: 768px) {
   .search-fields {
