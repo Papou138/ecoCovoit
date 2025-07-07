@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestion des Comptes - Admin ecoCovoit</title>
-    <link rel="stylesheet" href="assets/css/_commun.css">
-    <link rel="stylesheet" href="assets/css/_header.css">
-    <link rel="stylesheet" href="assets/css/_footer.css">
-    <link rel="stylesheet" href="assets/css/admin-comptes.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
+    <link rel="stylesheet" href="assets/css/_header.css" />
+    <link rel="stylesheet" href="assets/css/_footer.css" />
+    <link rel="stylesheet" href="assets/css/admin-comptes.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
     <header>
       <div class="header-content">
         <div class="logo-container">
@@ -37,12 +40,23 @@
           <span class="hamburger-line" aria-hidden="true"></span>
         </button>
 
-        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal de navigation">
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
           <ul class="nav-list">
-            <li><a href="admin-dashboard.html" class="nav-link">Dashboard</a></li>
-            <li><a href="admin-comptes.html" class="nav-link active">Comptes</a></li>
+            <li>
+              <a href="admin-dashboard.html" class="nav-link">Dashboard</a>
+            </li>
+            <li>
+              <a href="admin-comptes.html" class="nav-link active">Comptes</a>
+            </li>
             <li><a href="employe-avis.html" class="nav-link">Avis</a></li>
-            <li><a href="employe-incidents.html" class="nav-link">Incidents</a></li>
+            <li>
+              <a href="employe-incidents.html" class="nav-link">Incidents</a>
+            </li>
             <li><a href="index.html" class="nav-link">Déconnexion</a></li>
           </ul>
         </nav>
@@ -50,168 +64,183 @@
     </header>
 
     <main class="admin-container">
-        <!-- En-tête -->
-        <div class="admin-header">
-            <h1>👥 Gestion des Comptes</h1>
-            <p>Administration des utilisateurs de la plateforme</p>
+      <!-- En-tête -->
+      <div class="admin-header">
+        <h1>👥 Gestion des Comptes</h1>
+        <p>Administration des utilisateurs de la plateforme</p>
+      </div>
+
+      <!-- Statistiques des comptes -->
+      <div class="stats-overview">
+        <div class="stat-card">
+          <div class="stat-icon"></div>
+          <div class="stat-value" id="total-accounts">2,847</div>
+          <div class="stat-label">Total comptes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"></div>
+          <div class="stat-value" id="active-accounts">2,341</div>
+          <div class="stat-label">Comptes actifs</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"></div>
+          <div class="stat-value" id="suspended-accounts">12</div>
+          <div class="stat-label">Suspendus</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"></div>
+          <div class="stat-value" id="new-accounts">127</div>
+          <div class="stat-label">Ce mois</div>
+        </div>
+      </div>
+
+      <!-- Filtres -->
+      <div class="filters-section">
+        <h3>Filtres de recherche</h3>
+        <div class="filters-grid">
+          <div class="filter-group">
+            <label for="filter-status">Statut</label>
+            <select id="filter-status">
+              <option value="tous">Tous les statuts</option>
+              <option value="actif">Actifs</option>
+              <option value="inactif">Inactifs</option>
+              <option value="suspendu">Suspendus</option>
+              <option value="verifie">Vérifiés</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-role">Rôle</label>
+            <select id="filter-role">
+              <option value="tous">Tous les rôles</option>
+              <option value="utilisateur">Utilisateur</option>
+              <option value="chauffeur">Chauffeur</option>
+              <option value="employe">Employé</option>
+              <option value="admin">Administrateur</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-date-debut">Inscrit après le</label>
+            <input type="date" id="filter-date-debut" />
+          </div>
+          <div class="filter-group">
+            <label for="filter-search">Recherche</label>
+            <input type="text" id="filter-search" placeholder="Nom, email..." />
+          </div>
+        </div>
+        <div class="search-actions">
+          <button onclick="applyFilters()" class="btn btn-primary">
+            Rechercher
+          </button>
+          <button onclick="resetFilters()" class="btn btn-warning">
+            Réinitialiser
+          </button>
+          <button onclick="exportUsers()" class="btn btn-success">
+            Exporter
+          </button>
+          <button onclick="showCreateUserModal()" class="btn btn-primary">
+            Nouveau compte
+          </button>
+        </div>
+      </div>
+
+      <!-- Tableau des utilisateurs -->
+      <div class="users-table">
+        <div class="table-header">
+          <div class="table-title">Liste des utilisateurs</div>
+          <div class="table-controls">
+            <button onclick="refreshUsers()" class="btn btn-primary btn-small">
+              Actualiser
+            </button>
+          </div>
         </div>
 
-        <!-- Statistiques des comptes -->
-        <div class="stats-overview">
-            <div class="stat-card">
-                <div class="stat-icon">👥</div>
-                <div class="stat-value" id="total-accounts">2,847</div>
-                <div class="stat-label">Total comptes</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">✅</div>
-                <div class="stat-value" id="active-accounts">2,341</div>
-                <div class="stat-label">Comptes actifs</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">🔒</div>
-                <div class="stat-value" id="suspended-accounts">12</div>
-                <div class="stat-label">Suspendus</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">🆕</div>
-                <div class="stat-value" id="new-accounts">127</div>
-                <div class="stat-label">Ce mois</div>
-            </div>
+        <div id="users-container">
+          <div class="loading">
+            <div class="spinner"></div>
+            <p>Chargement des utilisateurs...</p>
+          </div>
         </div>
+      </div>
 
-        <!-- Filtres -->
-        <div class="filters-section">
-            <h3>🔍 Filtres de recherche</h3>
-            <div class="filters-grid">
-                <div class="filter-group">
-                    <label for="filter-status">Statut</label>
-                    <select id="filter-status">
-                        <option value="tous">Tous les statuts</option>
-                        <option value="actif">Actifs</option>
-                        <option value="inactif">Inactifs</option>
-                        <option value="suspendu">Suspendus</option>
-                        <option value="verifie">Vérifiés</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="filter-role">Rôle</label>
-                    <select id="filter-role">
-                        <option value="tous">Tous les rôles</option>
-                        <option value="utilisateur">Utilisateur</option>
-                        <option value="chauffeur">Chauffeur</option>
-                        <option value="employe">Employé</option>
-                        <option value="admin">Administrateur</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="filter-date-debut">Inscrit après le</label>
-                    <input type="date" id="filter-date-debut">
-                </div>
-                <div class="filter-group">
-                    <label for="filter-search">Recherche</label>
-                    <input type="text" id="filter-search" placeholder="Nom, email...">
-                </div>
-            </div>
-            <div class="search-actions">
-                <button onclick="applyFilters()" class="btn btn-primary">
-                    🔍 Rechercher
-                </button>
-                <button onclick="resetFilters()" class="btn btn-warning">
-                    🔄 Réinitialiser
-                </button>
-                <button onclick="exportUsers()" class="btn btn-success">
-                    📊 Exporter
-                </button>
-                <button onclick="showCreateUserModal()" class="btn btn-primary">
-                    ➕ Nouveau compte
-                </button>
-            </div>
-        </div>
-
-        <!-- Tableau des utilisateurs -->
-        <div class="users-table">
-            <div class="table-header">
-                <div class="table-title">📋 Liste des utilisateurs</div>
-                <div class="table-controls">
-                    <button onclick="refreshUsers()" class="btn btn-primary btn-small">
-                        🔄 Actualiser
-                    </button>
-                </div>
-            </div>
-
-            <div id="users-container">
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p>Chargement des utilisateurs...</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pagination -->
-        <div class="pagination" id="pagination-container">
-            <!-- Pagination générée dynamiquement -->
-        </div>
+      <!-- Pagination -->
+      <div class="pagination" id="pagination-container">
+        <!-- Pagination générée dynamiquement -->
+      </div>
     </main>
 
     <!-- Modal de création/édition d'utilisateur -->
     <div id="userModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="modal-title">Créer un utilisateur</h2>
-                <button type="button" class="close" onclick="closeUserModal()" onkeydown="if(event.key==='Enter') closeUserModal()" aria-label="Fermer">&times;</button>
-            </div>
-            <form id="userForm">
-                <div class="form-group">
-                    <label for="user-nom">Nom *</label>
-                    <input type="text" id="user-nom" name="nom" required>
-                </div>
-                <div class="form-group">
-                    <label for="user-prenom">Prénom *</label>
-                    <input type="text" id="user-prenom" name="prenom" required>
-                </div>
-                <div class="form-group">
-                    <label for="user-email">Email *</label>
-                    <input type="email" id="user-email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="user-telephone">Téléphone</label>
-                    <input type="tel" id="user-telephone" name="telephone">
-                </div>
-                <div class="form-group">
-                    <label for="user-role">Rôle</label>
-                    <select id="user-role" name="role">
-                        <option value="utilisateur">Utilisateur</option>
-                        <option value="chauffeur">Chauffeur</option>
-                        <option value="employe">Employé</option>
-                        <option value="admin">Administrateur</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="user-status">Statut</label>
-                    <select id="user-status" name="status">
-                        <option value="actif">Actif</option>
-                        <option value="inactif">Inactif</option>
-                        <option value="suspendu">Suspendu</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="user-notes">Notes administratives</label>
-                    <textarea id="user-notes" name="notes" rows="3" placeholder="Notes internes (optionnel)"></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">
-                        💾 Enregistrer
-                    </button>
-                    <button type="button" onclick="closeUserModal()" class="btn btn-warning">
-                        ❌ Annuler
-                    </button>
-                </div>
-            </form>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="modal-title">Créer un utilisateur</h2>
+          <button
+            type="button"
+            class="close"
+            onclick="closeUserModal()"
+            onkeydown="if(event.key==='Enter') closeUserModal()"
+            aria-label="Fermer"
+          >
+            &times;
+          </button>
         </div>
+        <form id="userForm">
+          <div class="form-group">
+            <label for="user-nom">Nom *</label>
+            <input type="text" id="user-nom" name="nom" required />
+          </div>
+          <div class="form-group">
+            <label for="user-prenom">Prénom *</label>
+            <input type="text" id="user-prenom" name="prenom" required />
+          </div>
+          <div class="form-group">
+            <label for="user-email">Email *</label>
+            <input type="email" id="user-email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="user-telephone">Téléphone</label>
+            <input type="tel" id="user-telephone" name="telephone" />
+          </div>
+          <div class="form-group">
+            <label for="user-role">Rôle</label>
+            <select id="user-role" name="role">
+              <option value="utilisateur">Utilisateur</option>
+              <option value="chauffeur">Chauffeur</option>
+              <option value="employe">Employé</option>
+              <option value="admin">Administrateur</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="user-status">Statut</label>
+            <select id="user-status" name="status">
+              <option value="actif">Actif</option>
+              <option value="inactif">Inactif</option>
+              <option value="suspendu">Suspendu</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="user-notes">Notes administratives</label>
+            <textarea
+              id="user-notes"
+              name="notes"
+              rows="3"
+              placeholder="Notes internes (optionnel)"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <button
+              type="button"
+              onclick="closeUserModal()"
+              class="btn btn-warning"
+            >
+              Annuler
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
 
-    <!-- FOOTER STANDARDISÉ -->
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
@@ -232,185 +261,201 @@
 
     <script src="assets/js/menu.js"></script>
     <script>
-        // État de l'application
-        let allUsers = [];
-        let filteredUsers = [];
-        let currentPage = 1;
-        let usersPerPage = 10;
-        let currentEditingUser = null;
+      // État de l'application
+      let allUsers = [];
+      let filteredUsers = [];
+      let currentPage = 1;
+      let usersPerPage = 10;
+      let currentEditingUser = null;
 
-        // Éléments du DOM
-        const usersContainer = document.getElementById('users-container');
-        const paginationContainer = document.getElementById('pagination-container');
-        const userModal = document.getElementById('userModal');
-        const userForm = document.getElementById('userForm');
+      // Éléments du DOM
+      const usersContainer = document.getElementById('users-container');
+      const paginationContainer = document.getElementById(
+        'pagination-container'
+      );
+      const userModal = document.getElementById('userModal');
+      const userForm = document.getElementById('userForm');
 
-        // Chargement initial
-        document.addEventListener('DOMContentLoaded', function() {
-            loadUsers();
-            setupEventListeners();
+      // Chargement initial
+      document.addEventListener('DOMContentLoaded', function () {
+        loadUsers();
+        setupEventListeners();
+      });
+
+      // Configuration des écouteurs d'événements
+      function setupEventListeners() {
+        userForm.addEventListener('submit', handleUserSubmit);
+
+        // Fermer le modal en cliquant à l'extérieur
+        window.addEventListener('click', function (event) {
+          if (event.target === userModal) {
+            closeUserModal();
+          }
+        });
+      }
+
+      // Chargement des utilisateurs
+      async function loadUsers() {
+        try {
+          // Simulation des données utilisateurs
+          const mockUsers = [
+            {
+              id: 1,
+              nom: 'Dupont',
+              prenom: 'Jean',
+              email: 'jean.dupont@email.com',
+              telephone: '0123456789',
+              role: 'utilisateur',
+              status: 'actif',
+              date_inscription: '2024-12-15',
+              derniere_connexion: '2025-01-06',
+              nb_trajets: 15,
+              note_moyenne: 4.8,
+              credits: 120,
+            },
+            {
+              id: 2,
+              nom: 'Martin',
+              prenom: 'Marie',
+              email: 'marie.martin@email.com',
+              telephone: '0987654321',
+              role: 'chauffeur',
+              status: 'actif',
+              date_inscription: '2024-11-20',
+              derniere_connexion: '2025-01-05',
+              nb_trajets: 42,
+              note_moyenne: 4.9,
+              credits: 340,
+            },
+            {
+              id: 3,
+              nom: 'Durand',
+              prenom: 'Pierre',
+              email: 'pierre.durand@email.com',
+              telephone: '0147258369',
+              role: 'utilisateur',
+              status: 'suspendu',
+              date_inscription: '2024-10-10',
+              derniere_connexion: '2024-12-20',
+              nb_trajets: 3,
+              note_moyenne: 2.1,
+              credits: 25,
+            },
+          ];
+
+          allUsers = mockUsers;
+          applyFilters();
+        } catch (error) {
+          console.error('Erreur:', error);
+          showError(
+            'Impossible de charger les utilisateurs. Veuillez réessayer.'
+          );
+        }
+      }
+
+      // Application des filtres
+      function applyFilters() {
+        const statusFilter = document.getElementById('filter-status').value;
+        const roleFilter = document.getElementById('filter-role').value;
+        const dateFilter = document.getElementById('filter-date-debut').value;
+        const searchFilter = document
+          .getElementById('filter-search')
+          .value.toLowerCase();
+
+        filteredUsers = allUsers.filter((user) => {
+          // Filtre par statut
+          if (statusFilter !== 'tous' && user.status !== statusFilter) {
+            return false;
+          }
+
+          // Filtre par rôle
+          if (roleFilter !== 'tous' && user.role !== roleFilter) {
+            return false;
+          }
+
+          // Filtre par date d'inscription
+          if (dateFilter && user.date_inscription < dateFilter) {
+            return false;
+          }
+
+          // Filtre par recherche
+          if (
+            searchFilter &&
+            !user.nom.toLowerCase().includes(searchFilter) &&
+            !user.prenom.toLowerCase().includes(searchFilter) &&
+            !user.email.toLowerCase().includes(searchFilter)
+          ) {
+            return false;
+          }
+
+          return true;
         });
 
-        // Configuration des écouteurs d'événements
-        function setupEventListeners() {
-            userForm.addEventListener('submit', handleUserSubmit);
+        currentPage = 1;
+        renderUsers();
+        renderPagination();
+      }
 
-            // Fermer le modal en cliquant à l'extérieur
-            window.addEventListener('click', function(event) {
-                if (event.target === userModal) {
-                    closeUserModal();
-                }
-            });
-        }
+      // Réinitialisation des filtres
+      function resetFilters() {
+        document.getElementById('filter-status').value = 'tous';
+        document.getElementById('filter-role').value = 'tous';
+        document.getElementById('filter-date-debut').value = '';
+        document.getElementById('filter-search').value = '';
+        applyFilters();
+      }
 
-        // Chargement des utilisateurs
-        async function loadUsers() {
-            try {
-                // Simulation des données utilisateurs
-                const mockUsers = [
-                    {
-                        id: 1,
-                        nom: 'Dupont',
-                        prenom: 'Jean',
-                        email: 'jean.dupont@email.com',
-                        telephone: '0123456789',
-                        role: 'utilisateur',
-                        status: 'actif',
-                        date_inscription: '2024-12-15',
-                        derniere_connexion: '2025-01-06',
-                        nb_trajets: 15,
-                        note_moyenne: 4.8,
-                        credits: 120
-                    },
-                    {
-                        id: 2,
-                        nom: 'Martin',
-                        prenom: 'Marie',
-                        email: 'marie.martin@email.com',
-                        telephone: '0987654321',
-                        role: 'chauffeur',
-                        status: 'actif',
-                        date_inscription: '2024-11-20',
-                        derniere_connexion: '2025-01-05',
-                        nb_trajets: 42,
-                        note_moyenne: 4.9,
-                        credits: 340
-                    },
-                    {
-                        id: 3,
-                        nom: 'Durand',
-                        prenom: 'Pierre',
-                        email: 'pierre.durand@email.com',
-                        telephone: '0147258369',
-                        role: 'utilisateur',
-                        status: 'suspendu',
-                        date_inscription: '2024-10-10',
-                        derniere_connexion: '2024-12-20',
-                        nb_trajets: 3,
-                        note_moyenne: 2.1,
-                        credits: 25
-                    }
-                ];
+      // Rendu des utilisateurs
+      function renderUsers() {
+        const startIndex = (currentPage - 1) * usersPerPage;
+        const endIndex = startIndex + usersPerPage;
+        const pageUsers = filteredUsers.slice(startIndex, endIndex);
 
-                allUsers = mockUsers;
-                applyFilters();
-            } catch (error) {
-                console.error('Erreur:', error);
-                showError('Impossible de charger les utilisateurs. Veuillez réessayer.');
-            }
-        }
-
-        // Application des filtres
-        function applyFilters() {
-            const statusFilter = document.getElementById('filter-status').value;
-            const roleFilter = document.getElementById('filter-role').value;
-            const dateFilter = document.getElementById('filter-date-debut').value;
-            const searchFilter = document.getElementById('filter-search').value.toLowerCase();
-
-            filteredUsers = allUsers.filter(user => {
-                // Filtre par statut
-                if (statusFilter !== 'tous' && user.status !== statusFilter) {
-                    return false;
-                }
-
-                // Filtre par rôle
-                if (roleFilter !== 'tous' && user.role !== roleFilter) {
-                    return false;
-                }
-
-                // Filtre par date d'inscription
-                if (dateFilter && user.date_inscription < dateFilter) {
-                    return false;
-                }
-
-                // Filtre par recherche
-                if (searchFilter &&
-                    !user.nom.toLowerCase().includes(searchFilter) &&
-                    !user.prenom.toLowerCase().includes(searchFilter) &&
-                    !user.email.toLowerCase().includes(searchFilter)) {
-                    return false;
-                }
-
-                return true;
-            });
-
-            currentPage = 1;
-            renderUsers();
-            renderPagination();
-        }
-
-        // Réinitialisation des filtres
-        function resetFilters() {
-            document.getElementById('filter-status').value = 'tous';
-            document.getElementById('filter-role').value = 'tous';
-            document.getElementById('filter-date-debut').value = '';
-            document.getElementById('filter-search').value = '';
-            applyFilters();
-        }
-
-        // Rendu des utilisateurs
-        function renderUsers() {
-            const startIndex = (currentPage - 1) * usersPerPage;
-            const endIndex = startIndex + usersPerPage;
-            const pageUsers = filteredUsers.slice(startIndex, endIndex);
-
-            if (pageUsers.length === 0) {
-                usersContainer.innerHTML = `
+        if (pageUsers.length === 0) {
+          usersContainer.innerHTML = `
                     <div class="empty-state">
-                        <div class="empty-state-icon">👤</div>
+                        <div class="empty-state-icon"></div>
                         <h3>Aucun utilisateur trouvé</h3>
                         <p>Aucun utilisateur ne correspond à vos critères de recherche</p>
                     </div>
                 `;
-                return;
-            }
-
-            const usersHTML = pageUsers.map(user => createUserRow(user)).join('');
-            usersContainer.innerHTML = `<div class="users-grid">${usersHTML}</div>`;
+          return;
         }
 
-        // Création d'une ligne utilisateur
-        function createUserRow(user) {
-            const statusClass = `status-${user.status}`;
-            const initials = (user.prenom[0] + user.nom[0]).toUpperCase();
+        const usersHTML = pageUsers.map((user) => createUserRow(user)).join('');
+        usersContainer.innerHTML = `<div class="users-grid">${usersHTML}</div>`;
+      }
 
-            return `
+      // Création d'une ligne utilisateur
+      function createUserRow(user) {
+        const statusClass = `status-${user.status}`;
+        const initials = (user.prenom[0] + user.nom[0]).toUpperCase();
+
+        return `
                 <div class="user-row">
                     <div class="user-avatar">${initials}</div>
                     <div class="user-info">
                         <div class="user-name">${user.prenom} ${user.nom}</div>
                         <div class="user-email">${user.email}</div>
-                        <div class="user-join-date">Inscrit le ${formatDate(user.date_inscription)}</div>
+                        <div class="user-join-date">Inscrit le ${formatDate(
+                          user.date_inscription
+                        )}</div>
                     </div>
                     <div class="user-stats">
                         <div class="stat-item">
-                            <span class="stat-value">${user.nb_trajets}</span> trajets
+                            <span class="stat-value">${
+                              user.nb_trajets
+                            }</span> trajets
                         </div>
                         <div class="stat-item">
-                            <span class="stat-value">${user.note_moyenne}/5</span> ⭐
+                            <span class="stat-value">${
+                              user.note_moyenne
+                            }/5</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-value">${user.credits}</span> crédits
+                            <span class="stat-value">${
+                              user.credits
+                            }</span> crédits
                         </div>
                     </div>
                     <div class="user-status ${statusClass}">
@@ -420,209 +465,228 @@
                         ${getRoleText(user.role)}
                     </div>
                     <div class="user-actions">
-                        <button onclick="editUser(${user.id})" class="btn btn-primary btn-small">
-                            ✏️ Éditer
+                        <button onclick="editUser(${
+                          user.id
+                        })" class="btn btn-primary btn-small">
+                            Éditer
                         </button>
-                        ${user.status === 'actif' ?
-                            `<button onclick="suspendUser(${user.id})" class="btn btn-warning btn-small">
-                                🔒 Suspendre
-                            </button>` :
-                            `<button onclick="activateUser(${user.id})" class="btn btn-success btn-small">
-                                ✅ Activer
+                        ${
+                          user.status === 'actif'
+                            ? `<button onclick="suspendUser(${user.id})" class="btn btn-warning btn-small">
+                                Suspendre
+                            </button>`
+                            : `<button onclick="activateUser(${user.id})" class="btn btn-success btn-small">
+                                Activer
                             </button>`
                         }
-                        <button onclick="deleteUser(${user.id})" class="btn btn-danger btn-small">
-                            🗑️ Supprimer
+                        <button onclick="deleteUser(${
+                          user.id
+                        })" class="btn btn-danger btn-small">
+                            Supprimer
                         </button>
                     </div>
                 </div>
             `;
+      }
+
+      // Rendu de la pagination
+      function renderPagination() {
+        const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
+
+        if (totalPages <= 1) {
+          paginationContainer.innerHTML = '';
+          return;
         }
 
-        // Rendu de la pagination
-        function renderPagination() {
-            const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
+        let paginationHTML = '';
 
-            if (totalPages <= 1) {
-                paginationContainer.innerHTML = '';
-                return;
-            }
-
-            let paginationHTML = '';
-
-            // Bouton précédent
-            paginationHTML += `
-                <button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>
+        // Bouton précédent
+        paginationHTML += `
+                <button onclick="changePage(${currentPage - 1})" ${
+          currentPage === 1 ? 'disabled' : ''
+        }>
                     « Précédent
                 </button>
             `;
 
-            // Numéros de page
-            for (let i = 1; i <= totalPages; i++) {
-                if (i === currentPage) {
-                    paginationHTML += `<button class="active">${i}</button>`;
-                } else {
-                    paginationHTML += `<button onclick="changePage(${i})">${i}</button>`;
-                }
-            }
+        // Numéros de page
+        for (let i = 1; i <= totalPages; i++) {
+          if (i === currentPage) {
+            paginationHTML += `<button class="active">${i}</button>`;
+          } else {
+            paginationHTML += `<button onclick="changePage(${i})">${i}</button>`;
+          }
+        }
 
-            // Bouton suivant
-            paginationHTML += `
-                <button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>
+        // Bouton suivant
+        paginationHTML += `
+                <button onclick="changePage(${currentPage + 1})" ${
+          currentPage === totalPages ? 'disabled' : ''
+        }>
                     Suivant »
                 </button>
             `;
 
-            paginationContainer.innerHTML = paginationHTML;
+        paginationContainer.innerHTML = paginationHTML;
+      }
+
+      // Changement de page
+      function changePage(page) {
+        const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
+        if (page >= 1 && page <= totalPages) {
+          currentPage = page;
+          renderUsers();
+          renderPagination();
+        }
+      }
+
+      // Gestion des modals
+      function showCreateUserModal() {
+        currentEditingUser = null;
+        document.getElementById('modal-title').textContent =
+          'Créer un utilisateur';
+        userForm.reset();
+        userModal.style.display = 'block';
+      }
+
+      function editUser(userId) {
+        currentEditingUser = allUsers.find((u) => u.id === userId);
+        if (currentEditingUser) {
+          document.getElementById('modal-title').textContent =
+            'Éditer un utilisateur';
+          document.getElementById('user-nom').value = currentEditingUser.nom;
+          document.getElementById('user-prenom').value =
+            currentEditingUser.prenom;
+          document.getElementById('user-email').value =
+            currentEditingUser.email;
+          document.getElementById('user-telephone').value =
+            currentEditingUser.telephone;
+          document.getElementById('user-role').value = currentEditingUser.role;
+          document.getElementById('user-status').value =
+            currentEditingUser.status;
+          userModal.style.display = 'block';
+        }
+      }
+
+      function closeUserModal() {
+        userModal.style.display = 'none';
+        userForm.reset();
+        currentEditingUser = null;
+      }
+
+      // Soumission du formulaire
+      function handleUserSubmit(e) {
+        e.preventDefault();
+
+        const formData = new FormData(userForm);
+        const userData = Object.fromEntries(formData.entries());
+
+        if (currentEditingUser) {
+          // Mise à jour
+          Object.assign(currentEditingUser, userData);
+          alert('Utilisateur mis à jour avec succès');
+        } else {
+          // Création
+          userData.id = Math.max(...allUsers.map((u) => u.id)) + 1;
+          userData.date_inscription = new Date().toISOString().split('T')[0];
+          userData.derniere_connexion = 'Jamais';
+          userData.nb_trajets = 0;
+          userData.note_moyenne = 0;
+          userData.credits = 0;
+          allUsers.push(userData);
+          alert('Utilisateur créé avec succès');
         }
 
-        // Changement de page
-        function changePage(page) {
-            const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
-            if (page >= 1 && page <= totalPages) {
-                currentPage = page;
-                renderUsers();
-                renderPagination();
-            }
-        }
+        closeUserModal();
+        applyFilters();
+      }
 
-        // Gestion des modals
-        function showCreateUserModal() {
-            currentEditingUser = null;
-            document.getElementById('modal-title').textContent = 'Créer un utilisateur';
-            userForm.reset();
-            userModal.style.display = 'block';
-        }
-
-        function editUser(userId) {
-            currentEditingUser = allUsers.find(u => u.id === userId);
-            if (currentEditingUser) {
-                document.getElementById('modal-title').textContent = 'Éditer un utilisateur';
-                document.getElementById('user-nom').value = currentEditingUser.nom;
-                document.getElementById('user-prenom').value = currentEditingUser.prenom;
-                document.getElementById('user-email').value = currentEditingUser.email;
-                document.getElementById('user-telephone').value = currentEditingUser.telephone;
-                document.getElementById('user-role').value = currentEditingUser.role;
-                document.getElementById('user-status').value = currentEditingUser.status;
-                userModal.style.display = 'block';
-            }
-        }
-
-        function closeUserModal() {
-            userModal.style.display = 'none';
-            userForm.reset();
-            currentEditingUser = null;
-        }
-
-        // Soumission du formulaire
-        function handleUserSubmit(e) {
-            e.preventDefault();
-
-            const formData = new FormData(userForm);
-            const userData = Object.fromEntries(formData.entries());
-
-            if (currentEditingUser) {
-                // Mise à jour
-                Object.assign(currentEditingUser, userData);
-                alert('Utilisateur mis à jour avec succès');
-            } else {
-                // Création
-                userData.id = Math.max(...allUsers.map(u => u.id)) + 1;
-                userData.date_inscription = new Date().toISOString().split('T')[0];
-                userData.derniere_connexion = 'Jamais';
-                userData.nb_trajets = 0;
-                userData.note_moyenne = 0;
-                userData.credits = 0;
-                allUsers.push(userData);
-                alert('Utilisateur créé avec succès');
-            }
-
-            closeUserModal();
+      // Actions sur les utilisateurs
+      function suspendUser(userId) {
+        if (confirm('Êtes-vous sûr de vouloir suspendre cet utilisateur ?')) {
+          const user = allUsers.find((u) => u.id === userId);
+          if (user) {
+            user.status = 'suspendu';
+            alert('Utilisateur suspendu avec succès');
             applyFilters();
+          }
         }
+      }
 
-        // Actions sur les utilisateurs
-        function suspendUser(userId) {
-            if (confirm('Êtes-vous sûr de vouloir suspendre cet utilisateur ?')) {
-                const user = allUsers.find(u => u.id === userId);
-                if (user) {
-                    user.status = 'suspendu';
-                    alert('Utilisateur suspendu avec succès');
-                    applyFilters();
-                }
-            }
+      function activateUser(userId) {
+        if (confirm('Êtes-vous sûr de vouloir activer cet utilisateur ?')) {
+          const user = allUsers.find((u) => u.id === userId);
+          if (user) {
+            user.status = 'actif';
+            alert('Utilisateur activé avec succès');
+            applyFilters();
+          }
         }
+      }
 
-        function activateUser(userId) {
-            if (confirm('Êtes-vous sûr de vouloir activer cet utilisateur ?')) {
-                const user = allUsers.find(u => u.id === userId);
-                if (user) {
-                    user.status = 'actif';
-                    alert('Utilisateur activé avec succès');
-                    applyFilters();
-                }
-            }
+      function deleteUser(userId) {
+        if (
+          confirm(
+            'Êtes-vous sûr de vouloir supprimer définitivement cet utilisateur ?'
+          )
+        ) {
+          const index = allUsers.findIndex((u) => u.id === userId);
+          if (index !== -1) {
+            allUsers.splice(index, 1);
+            alert('Utilisateur supprimé avec succès');
+            applyFilters();
+          }
         }
+      }
 
-        function deleteUser(userId) {
-            if (confirm('Êtes-vous sûr de vouloir supprimer définitivement cet utilisateur ?')) {
-                const index = allUsers.findIndex(u => u.id === userId);
-                if (index !== -1) {
-                    allUsers.splice(index, 1);
-                    alert('Utilisateur supprimé avec succès');
-                    applyFilters();
-                }
-            }
-        }
+      // Autres actions
+      function refreshUsers() {
+        loadUsers();
+      }
 
-        // Autres actions
-        function refreshUsers() {
-            loadUsers();
-        }
+      function exportUsers() {
+        alert('Export des utilisateurs en cours...');
+      }
 
-        function exportUsers() {
-            alert('Export des utilisateurs en cours...');
-        }
+      // Utilitaires
+      function formatDate(dateString) {
+        if (!dateString) return 'N/A';
+        const date = new Date(dateString);
+        return date.toLocaleDateString('fr-FR');
+      }
 
-        // Utilitaires
-        function formatDate(dateString) {
-            if (!dateString) return 'N/A';
-            const date = new Date(dateString);
-            return date.toLocaleDateString('fr-FR');
-        }
+      function getStatusText(status) {
+        const statusTexts = {
+          actif: 'Actif',
+          inactif: 'Inactif',
+          suspendu: 'Suspendu',
+          verifie: 'Vérifié',
+        };
+        return statusTexts[status] || status;
+      }
 
-        function getStatusText(status) {
-            const statusTexts = {
-                'actif': 'Actif',
-                'inactif': 'Inactif',
-                'suspendu': 'Suspendu',
-                'verifie': 'Vérifié'
-            };
-            return statusTexts[status] || status;
-        }
+      function getRoleText(role) {
+        const roleTexts = {
+          utilisateur: 'Utilisateur',
+          chauffeur: 'Chauffeur',
+          employe: 'Employé',
+          admin: 'Admin',
+        };
+        return roleTexts[role] || role;
+      }
 
-        function getRoleText(role) {
-            const roleTexts = {
-                'utilisateur': '👤 Utilisateur',
-                'chauffeur': '🚗 Chauffeur',
-                'employe': '👨‍💼 Employé',
-                'admin': '👨‍💻 Admin'
-            };
-            return roleTexts[role] || role;
-        }
-
-        function showError(message) {
-            usersContainer.innerHTML = `
+      function showError(message) {
+        usersContainer.innerHTML = `
                 <div class="error-state">
-                    <div class="error-state-icon">❌</div>
+                    <div class="error-state-icon"></div>
                     <h3>Erreur</h3>
                     <p>${message}</p>
                     <button onclick="loadUsers()" class="btn btn-primary">
-                        🔄 Réessayer
+                        Réessayer
                     </button>
                 </div>
             `;
-        }
+      }
     </script>
-</body>
+  </body>
 </html>

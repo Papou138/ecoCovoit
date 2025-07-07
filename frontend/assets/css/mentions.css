@@ -2,53 +2,354 @@
 /* =  STYLES SPECIFIQUES A LA PAGE MENTIONS.HTML  = */
 /* ================================================ */
 
+/* Styles spécifiques aux mentions légales */
+.legal-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.legal-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-radius: 15px;
+  color: white;
+}
+
+.legal-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.legal-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.legal-content {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.legal-summary {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.legal-summary.sticky {
+  position: sticky;
+  top: 20px;
+  z-index: 100;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.legal-summary h2 {
+  margin: 0 0 1rem 0;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+}
+
+.legal-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legal-summary li {
+  margin-bottom: 0.5rem;
+}
+
+.legal-summary a {
+  color: var(--text-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.legal-summary a:hover {
+  background: white;
+  color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+.legal-section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e9ecef;
+  scroll-margin-top: 100px;
+  transition: all 0.3s ease;
+}
+
+.legal-section.highlight {
+  background: #fff3cd;
+  padding: 1rem;
+  border-radius: 8px;
+  border-color: var(--primary-color);
+}
+
+.legal-section:last-child {
+  border-bottom: none;
+}
+
+.legal-section h2 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.legal-section h3 {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  margin: 1.5rem 0 1rem 0;
+}
+
+.legal-section h4 {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  margin: 1rem 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legal-info {
+  line-height: 1.6;
+}
+
+.legal-info p {
+  margin-bottom: 1rem;
+}
+
+.legal-info ul {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.legal-info li {
+  margin-bottom: 0.5rem;
+}
+
+.address-block {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.address-block h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.cookie-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.cookie-type {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.cookie-type h4 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.cookie-settings {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #e7f3ff;
+  border-radius: 10px;
+}
+
+.cookie-preferences {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.cookie-preferences:hover {
+  background: var(--primary-hover);
+  transform: scale(1.05);
+}
+
+.mediator-info {
+  background: #e7f3ff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  border-left: 4px solid var(--primary-color);
+}
+
+.legal-footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+}
+
+.legal-footer p {
+  margin-bottom: 0.5rem;
+  color: #6c757d;
+}
+
+.legal-footer p:first-child {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .legal-container {
+    padding: 1rem;
+  }
+
+  .legal-header h1 {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .legal-content {
+    padding: 1rem;
+  }
+
+  .legal-summary.sticky {
+    position: relative;
+    top: auto;
+  }
+
+  .cookie-types {
+    grid-template-columns: 1fr;
+  }
+
+  .legal-section h2 {
+    font-size: 1.3rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+/* Animations */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Liens */
+.legal-info a {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.legal-info a:hover {
+  border-bottom-color: var(--primary-color);
+}
+
+.legal-info a[target='_blank']::after {
+  content: ' ↗';
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+
 /* ===== CONTENEUR PRINCIPAL DES MENTIONS LÉGALES ===== */
 
 .mentions-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    line-height: 1.6;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  line-height: 1.6;
 }
 
 .mentions-title {
-    color: #27ae60;
-    text-align: center;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid #ecf0f1;
-    padding-bottom: 1rem;
+  color: #27ae60;
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 1rem;
 }
 
 .mentions-section {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .mentions-section h2 {
-    color: #2c3e50;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
 .mentions-section h3 {
-    color: #34495e;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
+  color: #34495e;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
 }
 
 .mentions-section p {
-    margin-bottom: 1rem;
-    text-align: justify;
+  margin-bottom: 1rem;
+  text-align: justify;
 }
 
 .mentions-list {
-    list-style-type: disc;
-    margin-left: 2rem;
-    margin-bottom: 1rem;
+  list-style-type: disc;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
 }
 
 .mentions-list li {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }

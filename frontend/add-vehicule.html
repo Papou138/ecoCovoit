@@ -1,420 +1,501 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ajouter un véhicule – ecoCovoit</title>
-    <link rel="stylesheet" href="assets/css/_commun.css">
-    <link rel="stylesheet" href="assets/css/_header.css">
-    <link rel="stylesheet" href="assets/css/_footer.css">
-    <link rel="stylesheet" href="assets/css/add-vehicule.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
+    <link rel="stylesheet" href="assets/css/_header.css" />
+    <link rel="stylesheet" href="assets/css/_footer.css" />
+    <link rel="stylesheet" href="assets/css/add-vehicule.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
     <header>
-        <div class="header-content">
-            <div class="logo-container">
-                <img
-                    src="assets/img/logo-ecoRide.png"
-                    alt="Logo ecoCovoit"
-                    class="logo"
-                    width="50"
-                    height="50"
-                    loading="lazy"
-                />
-                <h1 class="app-title">ecoCovoit</h1>
-            </div>
-
-            <button
-                id="menu-toggle"
-                class="menu-toggle"
-                aria-label="Ouvrir le menu Principal"
-                aria-expanded="false"
-                aria-controls="main-nav"
-                type="button"
-            >
-                <span class="hamburger-line" aria-hidden="true"></span>
-                <span class="hamburger-line" aria-hidden="true"></span>
-                <span class="hamburger-line" aria-hidden="true"></span>
-            </button>
-
-            <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal de navigation">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">🏠 Accueil</a></li>
-                    <li><a href="rechercher-covoiturage.html" class="nav-link">🔍 Rechercher</a></li>
-                    <li><a href="add-voyage.html" class="nav-link">➕ Publier</a></li>
-                    <li><a href="mes-reservations.html" class="nav-link">📅 Mes réservations</a></li>
-                    <li><a href="historique.html" class="nav-link">📋 Historique</a></li>
-                    <li><a href="user-profile.html" class="nav-link">👤 Mon profil</a></li>
-                    <li><a href="add-vehicule.html" class="nav-link active">🚗 Mes véhicules</a></li>
-                    <li><a href="add-preferences.html" class="nav-link">⚙️ Préférences</a></li>
-                    <li><a href="#" class="nav-link logout-btn" onclick="logout()">🚪 Déconnexion</a></li>
-                </ul>
-            </nav>
+      <div class="header-content">
+        <div class="logo-container">
+          <img
+            src="assets/img/logo-ecoRide.png"
+            alt="Logo ecoCovoit"
+            class="logo"
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <h1 class="app-title">ecoCovoit</h1>
         </div>
+
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Ouvrir le menu Principal"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          type="button"
+        >
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Accueil</a></li>
+            <li>
+              <a href="rechercher-covoiturage.html" class="nav-link"
+                >Rechercher</a
+              >
+            </li>
+            <li><a href="add-voyage.html" class="nav-link">Publier</a></li>
+            <li>
+              <a href="mes-reservations.html" class="nav-link"
+                >Mes réservations</a
+              >
+            </li>
+            <li><a href="historique.html" class="nav-link">Historique</a></li>
+            <li><a href="user-profile.html" class="nav-link">Mon profil</a></li>
+            <li>
+              <a href="add-vehicule.html" class="nav-link active"
+                >Mes véhicules</a
+              >
+            </li>
+            <li>
+              <a href="add-preferences.html" class="nav-link">Préférences</a>
+            </li>
+            <li>
+              <a href="#" class="nav-link logout-btn" onclick="logout()"
+                >Déconnexion</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-        <div class="auth-container">
-            <div class="auth-card vehicle-form">
-                <div class="auth-header">
-                    <div class="auth-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h1 id="form-title">Ajouter un véhicule</h1>
-                    <p class="auth-subtitle">Renseignez les informations de votre véhicule</p>
-                </div>
-
-                <form id="vehicle-form" class="auth-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="marque">
-                                <i class="fas fa-industry"></i>
-                                Marque
-                            </label>
-                            <select id="marque" name="marque" required>
-                                <option value="">Sélectionner une marque</option>
-                                <option value="Audi">Audi</option>
-                                <option value="BMW">BMW</option>
-                                <option value="Citroën">Citroën</option>
-                                <option value="Fiat">Fiat</option>
-                                <option value="Ford">Ford</option>
-                                <option value="Mercedes">Mercedes</option>
-                                <option value="Opel">Opel</option>
-                                <option value="Peugeot">Peugeot</option>
-                                <option value="Renault">Renault</option>
-                                <option value="Toyota">Toyota</option>
-                                <option value="Volkswagen">Volkswagen</option>
-                                <option value="Autre">Autre</option>
-                            </select>
-                            <div class="error-message"></div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="modele">
-                                <i class="fas fa-car-side"></i>
-                                Modèle
-                            </label>
-                            <input type="text" id="modele" name="modele" required>
-                            <div class="error-message"></div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="couleur">
-                                <i class="fas fa-palette"></i>
-                                Couleur
-                            </label>
-                            <select id="couleur" name="couleur" required>
-                                <option value="">Sélectionner une couleur</option>
-                                <option value="Blanc">Blanc</option>
-                                <option value="Noir">Noir</option>
-                                <option value="Gris">Gris</option>
-                                <option value="Rouge">Rouge</option>
-                                <option value="Bleu">Bleu</option>
-                                <option value="Vert">Vert</option>
-                                <option value="Jaune">Jaune</option>
-                                <option value="Orange">Orange</option>
-                                <option value="Violet">Violet</option>
-                                <option value="Marron">Marron</option>
-                                <option value="Beige">Beige</option>
-                                <option value="Autre">Autre</option>
-                            </select>
-                            <div class="error-message"></div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="immatriculation">
-                                <i class="fas fa-id-card"></i>
-                                Immatriculation
-                            </label>
-                            <input type="text" id="immatriculation" name="immatriculation"
-                                   placeholder="AB-123-CD" pattern="[A-Z]{2}-[0-9]{3}-[A-Z]{2}" required>
-                            <div class="error-message"></div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="places">
-                                <i class="fas fa-users"></i>
-                                Nombre de places
-                            </label>
-                            <select id="places" name="places" required>
-                                <option value="">Sélectionner</option>
-                                <option value="2">2 places</option>
-                                <option value="4">4 places</option>
-                                <option value="5">5 places</option>
-                                <option value="7">7 places</option>
-                                <option value="9">9 places</option>
-                            </select>
-                            <div class="error-message"></div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="energie">
-                                <i class="fas fa-gas-pump"></i>
-                                Type d'énergie
-                            </label>
-                            <select id="energie" name="energie" required>
-                                <option value="">Sélectionner</option>
-                                <option value="essence">Essence</option>
-                                <option value="diesel">Diesel</option>
-                                <option value="électrique">Électrique</option>
-                                <option value="hybride">Hybride</option>
-                                <option value="gpl">GPL</option>
-                                <option value="gnv">GNV</option>
-                            </select>
-                            <div class="error-message"></div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="date_immatriculation">
-                            <i class="fas fa-calendar"></i>
-                            Date de première immatriculation
-                        </label>
-                        <input type="date" id="date_immatriculation" name="date_immatriculation" required>
-                        <div class="error-message"></div>
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="button" id="cancel-btn" class="btn-secondary">
-                            <i class="fas fa-times"></i>
-                            Annuler
-                        </button>
-                        <button type="submit" class="btn-primary">
-                            <i class="fas fa-save"></i>
-                            <span id="submit-text">Enregistrer le véhicule</span>
-                        </button>
-                    </div>
-
-                    <div id="form-feedback" class="form-feedback"></div>
-                </form>
+      <div class="auth-container">
+        <div class="auth-card vehicle-form">
+          <div class="auth-header">
+            <div class="auth-icon">
+              <i class="fas fa-car"></i>
             </div>
+            <h1 id="form-title">Ajouter un véhicule</h1>
+            <p class="auth-subtitle">
+              Renseignez les informations de votre véhicule
+            </p>
+          </div>
+
+          <form id="vehicle-form" class="auth-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="marque">
+                  <i class="fas fa-industry"></i>
+                  Marque
+                </label>
+                <select id="marque" name="marque" required>
+                  <option value="">Sélectionner une marque</option>
+                  <option value="Audi">Audi</option>
+                  <option value="BMW">BMW</option>
+                  <option value="Citroën">Citroën</option>
+                  <option value="Fiat">Fiat</option>
+                  <option value="Ford">Ford</option>
+                  <option value="Mercedes">Mercedes</option>
+                  <option value="Opel">Opel</option>
+                  <option value="Peugeot">Peugeot</option>
+                  <option value="Renault">Renault</option>
+                  <option value="Toyota">Toyota</option>
+                  <option value="Volkswagen">Volkswagen</option>
+                  <option value="Autre">Autre</option>
+                </select>
+                <div class="error-message"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="modele">
+                  <i class="fas fa-car-side"></i>
+                  Modèle
+                </label>
+                <input type="text" id="modele" name="modele" required />
+                <div class="error-message"></div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="couleur">
+                  <i class="fas fa-palette"></i>
+                  Couleur
+                </label>
+                <select id="couleur" name="couleur" required>
+                  <option value="">Sélectionner une couleur</option>
+                  <option value="Blanc">Blanc</option>
+                  <option value="Noir">Noir</option>
+                  <option value="Gris">Gris</option>
+                  <option value="Rouge">Rouge</option>
+                  <option value="Bleu">Bleu</option>
+                  <option value="Vert">Vert</option>
+                  <option value="Jaune">Jaune</option>
+                  <option value="Orange">Orange</option>
+                  <option value="Violet">Violet</option>
+                  <option value="Marron">Marron</option>
+                  <option value="Beige">Beige</option>
+                  <option value="Autre">Autre</option>
+                </select>
+                <div class="error-message"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="immatriculation">
+                  <i class="fas fa-id-card"></i>
+                  Immatriculation
+                </label>
+                <input
+                  type="text"
+                  id="immatriculation"
+                  name="immatriculation"
+                  placeholder="AB-123-CD"
+                  pattern="[A-Z]{2}-[0-9]{3}-[A-Z]{2}"
+                  required
+                />
+                <div class="error-message"></div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="places">
+                  <i class="fas fa-users"></i>
+                  Nombre de places
+                </label>
+                <select id="places" name="places" required>
+                  <option value="">Sélectionner</option>
+                  <option value="2">2 places</option>
+                  <option value="4">4 places</option>
+                  <option value="5">5 places</option>
+                  <option value="7">7 places</option>
+                  <option value="9">9 places</option>
+                </select>
+                <div class="error-message"></div>
+              </div>
+
+              <div class="form-group">
+                <label for="energie">
+                  <i class="fas fa-gas-pump"></i>
+                  Type d'énergie
+                </label>
+                <select id="energie" name="energie" required>
+                  <option value="">Sélectionner</option>
+                  <option value="essence">Essence</option>
+                  <option value="diesel">Diesel</option>
+                  <option value="électrique">Électrique</option>
+                  <option value="hybride">Hybride</option>
+                  <option value="gpl">GPL</option>
+                  <option value="gnv">GNV</option>
+                </select>
+                <div class="error-message"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="date_immatriculation">
+                <i class="fas fa-calendar"></i>
+                Date de première immatriculation
+              </label>
+              <input
+                type="date"
+                id="date_immatriculation"
+                name="date_immatriculation"
+                required
+              />
+              <div class="error-message"></div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" id="cancel-btn" class="btn-secondary">
+                <i class="fas fa-times"></i>
+                Annuler
+              </button>
+              <button type="submit" class="btn-primary">
+                <i class="fas fa-save"></i>
+                <span id="submit-text">Enregistrer le véhicule</span>
+              </button>
+            </div>
+
+            <div id="form-feedback" class="form-feedback"></div>
+          </form>
         </div>
+      </div>
     </main>
 
-    <!-- FOOTER STANDARDISÉ -->
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>🌱 ecoCovoit</h3>
+          <h3>ecoCovoit</h3>
           <p>La plateforme de covoiturage écoresponsable</p>
           <p>Réduisons ensemble notre empreinte carbone</p>
         </div>
         <div class="footer-section">
-          <h3>📞 Contact</h3>
-          <p>Email: <a href="mailto:contact@ecocovoit.fr">contact@ecocovoit.fr</a></p>
+          <h3>Contact</h3>
+          <p>
+            Email:
+            <a href="mailto:contact@ecocovoit.fr">contact@ecocovoit.fr</a>
+          </p>
           <p>Tél: +33 1 23 45 67 89</p>
         </div>
         <div class="footer-section">
-          <h3>📋 Informations</h3>
+          <h3>Informations</h3>
           <ul>
             <li><a href="mentions.html">Mentions légales</a></li>
             <li><a href="contact.html">Nous contacter</a></li>
           </ul>
         </div>
         <div class="footer-section">
-          <h3>🔗 Suivez-nous</h3>
+          <h3>Suivez-nous</h3>
           <div class="social-links">
-            <a href="#" class="social-link" title="Facebook">📘</a>
-            <a href="#" class="social-link" title="Twitter">🐦</a>
-            <a href="#" class="social-link" title="LinkedIn">💼</a>
+            <a href="#" class="social-link" title="Facebook"></a>
+            <a href="#" class="social-link" title="Twitter"></a>
+            <a href="#" class="social-link" title="LinkedIn"></a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 EcoCovoit. Tous droits réservés.</p>
-        <p>🌍 Pour une mobilité plus verte</p>
+        <p>Pour une mobilité plus verte</p>
       </div>
     </footer>
 
     <script src="assets/js/menu.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('vehicle-form');
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const submitText = document.getElementById('submit-text');
-            const feedback = document.getElementById('form-feedback');
-            const cancelBtn = document.getElementById('cancel-btn');
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('vehicle-form');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const submitText = document.getElementById('submit-text');
+        const feedback = document.getElementById('form-feedback');
+        const cancelBtn = document.getElementById('cancel-btn');
 
-            // Vérifier si on est en mode édition
-            const urlParams = new URLSearchParams(window.location.search);
-            const editId = urlParams.get('edit');
+        // Vérifier si on est en mode édition
+        const urlParams = new URLSearchParams(window.location.search);
+        const editId = urlParams.get('edit');
 
-            if (editId) {
-                document.getElementById('form-title').textContent = 'Modifier le véhicule';
-                submitText.textContent = 'Mettre à jour le véhicule';
-                loadVehicleData(editId);
-            }
+        if (editId) {
+          document.getElementById('form-title').textContent =
+            'Modifier le véhicule';
+          submitText.textContent = 'Mettre à jour le véhicule';
+          loadVehicleData(editId);
+        }
 
-            // Gestion du formulaire
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
+        // Gestion du formulaire
+        form.addEventListener('submit', async function (e) {
+          e.preventDefault();
 
-                if (!validateForm()) return;
+          if (!validateForm()) return;
 
-                const formData = new FormData(form);
-                if (editId) {
-                    formData.append('vehicule_id', editId);
-                }
+          const formData = new FormData(form);
+          if (editId) {
+            formData.append('vehicule_id', editId);
+          }
 
-                // Animation de chargement
-                const originalText = submitText.textContent;
-                submitText.textContent = editId ? 'Mise à jour...' : 'Enregistrement...';
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ' + submitText.textContent;
-                submitBtn.disabled = true;
+          // Animation de chargement
+          const originalText = submitText.textContent;
+          submitText.textContent = editId
+            ? 'Mise à jour...'
+            : 'Enregistrement...';
+          submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> ' + submitText.textContent;
+          submitBtn.disabled = true;
 
-                try {
-                    const response = await fetch('../backend/vehicules/ajouter.php', {
-                        method: 'POST',
-                        body: formData
-                    });
-
-                    const data = await response.json();
-
-                    if (data.success) {
-                        showFeedback(
-                            editId ? 'Véhicule mis à jour avec succès !' : 'Véhicule ajouté avec succès !',
-                            'success'
-                        );
-                        setTimeout(() => {
-                            window.location.href = 'user-profile.html';
-                        }, 2000);
-                    } else {
-                        showFeedback(data.message || 'Erreur lors de l\'enregistrement', 'error');
-                    }
-                } catch (error) {
-                    console.error('Erreur:', error);
-                    showFeedback('Erreur de connexion', 'error');
-                } finally {
-                    submitBtn.innerHTML = '<i class="fas fa-save"></i> ' + originalText;
-                    submitText.textContent = originalText;
-                    submitBtn.disabled = false;
-                }
+          try {
+            const response = await fetch('../backend/vehicules/ajouter.php', {
+              method: 'POST',
+              body: formData,
             });
 
-            // Bouton annuler
-            cancelBtn.addEventListener('click', function() {
-                if (confirm('Êtes-vous sûr de vouloir annuler ? Les modifications ne seront pas sauvegardées.')) {
-                    window.location.href = 'user-profile.html';
-                }
-            });
+            const data = await response.json();
 
-            // Validation de l'immatriculation en temps réel
-            document.getElementById('immatriculation').addEventListener('input', function(e) {
-                let value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
-
-                if (value.length > 2 && value.length <= 5) {
-                    value = value.slice(0, 2) + '-' + value.slice(2);
-                } else if (value.length > 5) {
-                    value = value.slice(0, 2) + '-' + value.slice(2, 5) + '-' + value.slice(5, 7);
-                }
-
-                e.target.value = value;
-            });
-
-            // Déconnexion
-            document.getElementById('logout-nav').addEventListener('click', async function(e) {
-                e.preventDefault();
-                if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
-                    try {
-                        await fetch('../backend/auth/logout.php');
-                        window.location.href = 'login.html';
-                    } catch (error) {
-                        window.location.href = 'login.html';
-                    }
-                }
-            });
-
-            // Charger les données du véhicule en mode édition
-            async function loadVehicleData(vehicleId) {
-                try {
-                    const response = await fetch(`../backend/vehicules/detail.php?id=${vehicleId}`);
-                    const data = await response.json();
-
-                    if (data.success && data.vehicule) {
-                        const vehicle = data.vehicule;
-                        document.getElementById('marque').value = vehicle.marque;
-                        document.getElementById('modele').value = vehicle.modele;
-                        document.getElementById('couleur').value = vehicle.couleur;
-                        document.getElementById('immatriculation').value = vehicle.immatriculation;
-                        document.getElementById('places').value = vehicle.places;
-                        document.getElementById('energie').value = vehicle.energie;
-                        document.getElementById('date_immatriculation').value = vehicle.date_immatriculation;
-                    }
-                } catch (error) {
-                    console.error('Erreur lors du chargement du véhicule:', error);
-                    showFeedback('Erreur lors du chargement des données', 'error');
-                }
+            if (data.success) {
+              showFeedback(
+                editId
+                  ? 'Véhicule mis à jour avec succès !'
+                  : 'Véhicule ajouté avec succès !',
+                'success'
+              );
+              setTimeout(() => {
+                window.location.href = 'user-profile.html';
+              }, 2000);
+            } else {
+              showFeedback(
+                data.message || "Erreur lors de l'enregistrement",
+                'error'
+              );
             }
-
-            // Validation du formulaire
-            function validateForm() {
-                let isValid = true;
-                const requiredFields = ['marque', 'modele', 'couleur', 'immatriculation', 'places', 'energie', 'date_immatriculation'];
-
-                requiredFields.forEach(fieldName => {
-                    const field = document.getElementById(fieldName);
-                    const errorDiv = field.parentNode.querySelector('.error-message');
-
-                    if (!field.value.trim()) {
-                        showFieldError(field, 'Ce champ est obligatoire');
-                        isValid = false;
-                    } else {
-                        clearFieldError(field);
-                    }
-                });
-
-                // Validation spécifique de l'immatriculation
-                const immat = document.getElementById('immatriculation');
-                const immatPattern = /^[A-Z]{2}-[0-9]{3}-[A-Z]{2}$/;
-                if (immat.value && !immatPattern.test(immat.value)) {
-                    showFieldError(immat, 'Format invalide (ex: AB-123-CD)');
-                    isValid = false;
-                }
-
-                // Validation de la date
-                const dateImmat = document.getElementById('date_immatriculation');
-                if (dateImmat.value) {
-                    const selectedDate = new Date(dateImmat.value);
-                    const today = new Date();
-                    if (selectedDate > today) {
-                        showFieldError(dateImmat, 'La date ne peut pas être dans le futur');
-                        isValid = false;
-                    }
-                }
-
-                return isValid;
-            }
-
-            function showFieldError(field, message) {
-                field.classList.add('error');
-                const errorDiv = field.parentNode.querySelector('.error-message');
-                errorDiv.textContent = message;
-                errorDiv.style.display = 'block';
-            }
-
-            function clearFieldError(field) {
-                field.classList.remove('error');
-                const errorDiv = field.parentNode.querySelector('.error-message');
-                errorDiv.style.display = 'none';
-            }
-
-            function showFeedback(message, type) {
-                feedback.textContent = message;
-                feedback.className = `form-feedback ${type}`;
-                feedback.style.display = 'block';
-
-                if (type === 'success') {
-                    feedback.innerHTML = '<i class="fas fa-check-circle"></i> ' + message;
-                } else {
-                    feedback.innerHTML = '<i class="fas fa-exclamation-triangle"></i> ' + message;
-                }
-            }
+          } catch (error) {
+            console.error('Erreur:', error);
+            showFeedback('Erreur de connexion', 'error');
+          } finally {
+            submitBtn.innerHTML = '<i class="fas fa-save"></i> ' + originalText;
+            submitText.textContent = originalText;
+            submitBtn.disabled = false;
+          }
         });
+
+        // Bouton annuler
+        cancelBtn.addEventListener('click', function () {
+          if (
+            confirm(
+              'Êtes-vous sûr de vouloir annuler ? Les modifications ne seront pas sauvegardées.'
+            )
+          ) {
+            window.location.href = 'user-profile.html';
+          }
+        });
+
+        // Validation de l'immatriculation en temps réel
+        document
+          .getElementById('immatriculation')
+          .addEventListener('input', function (e) {
+            let value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+
+            if (value.length > 2 && value.length <= 5) {
+              value = value.slice(0, 2) + '-' + value.slice(2);
+            } else if (value.length > 5) {
+              value =
+                value.slice(0, 2) +
+                '-' +
+                value.slice(2, 5) +
+                '-' +
+                value.slice(5, 7);
+            }
+
+            e.target.value = value;
+          });
+
+        // Déconnexion
+        document
+          .getElementById('logout-nav')
+          .addEventListener('click', async function (e) {
+            e.preventDefault();
+            if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+              try {
+                await fetch('../backend/auth/logout.php');
+                window.location.href = 'login.html';
+              } catch (error) {
+                window.location.href = 'login.html';
+              }
+            }
+          });
+
+        // Charger les données du véhicule en mode édition
+        async function loadVehicleData(vehicleId) {
+          try {
+            const response = await fetch(
+              `../backend/vehicules/detail.php?id=${vehicleId}`
+            );
+            const data = await response.json();
+
+            if (data.success && data.vehicule) {
+              const vehicle = data.vehicule;
+              document.getElementById('marque').value = vehicle.marque;
+              document.getElementById('modele').value = vehicle.modele;
+              document.getElementById('couleur').value = vehicle.couleur;
+              document.getElementById('immatriculation').value =
+                vehicle.immatriculation;
+              document.getElementById('places').value = vehicle.places;
+              document.getElementById('energie').value = vehicle.energie;
+              document.getElementById('date_immatriculation').value =
+                vehicle.date_immatriculation;
+            }
+          } catch (error) {
+            console.error('Erreur lors du chargement du véhicule:', error);
+            showFeedback('Erreur lors du chargement des données', 'error');
+          }
+        }
+
+        // Validation du formulaire
+        function validateForm() {
+          let isValid = true;
+          const requiredFields = [
+            'marque',
+            'modele',
+            'couleur',
+            'immatriculation',
+            'places',
+            'energie',
+            'date_immatriculation',
+          ];
+
+          requiredFields.forEach((fieldName) => {
+            const field = document.getElementById(fieldName);
+            const errorDiv = field.parentNode.querySelector('.error-message');
+
+            if (!field.value.trim()) {
+              showFieldError(field, 'Ce champ est obligatoire');
+              isValid = false;
+            } else {
+              clearFieldError(field);
+            }
+          });
+
+          // Validation spécifique de l'immatriculation
+          const immat = document.getElementById('immatriculation');
+          const immatPattern = /^[A-Z]{2}-[0-9]{3}-[A-Z]{2}$/;
+          if (immat.value && !immatPattern.test(immat.value)) {
+            showFieldError(immat, 'Format invalide (ex: AB-123-CD)');
+            isValid = false;
+          }
+
+          // Validation de la date
+          const dateImmat = document.getElementById('date_immatriculation');
+          if (dateImmat.value) {
+            const selectedDate = new Date(dateImmat.value);
+            const today = new Date();
+            if (selectedDate > today) {
+              showFieldError(
+                dateImmat,
+                'La date ne peut pas être dans le futur'
+              );
+              isValid = false;
+            }
+          }
+
+          return isValid;
+        }
+
+        function showFieldError(field, message) {
+          field.classList.add('error');
+          const errorDiv = field.parentNode.querySelector('.error-message');
+          errorDiv.textContent = message;
+          errorDiv.style.display = 'block';
+        }
+
+        function clearFieldError(field) {
+          field.classList.remove('error');
+          const errorDiv = field.parentNode.querySelector('.error-message');
+          errorDiv.style.display = 'none';
+        }
+
+        function showFeedback(message, type) {
+          feedback.textContent = message;
+          feedback.className = `form-feedback ${type}`;
+          feedback.style.display = 'block';
+
+          if (type === 'success') {
+            feedback.innerHTML =
+              '<i class="fas fa-check-circle"></i> ' + message;
+          } else {
+            feedback.innerHTML =
+              '<i class="fas fa-exclamation-triangle"></i> ' + message;
+          }
+        }
+      });
     </script>
-</body>
+  </body>
 </html>

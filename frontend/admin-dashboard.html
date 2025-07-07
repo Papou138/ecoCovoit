@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Administrateur - ecoCovoit</title>
-    <link rel="stylesheet" href="assets/css/_commun.css">
-    <link rel="stylesheet" href="assets/css/_header.css">
-    <link rel="stylesheet" href="assets/css/_footer.css">
-    <link rel="stylesheet" href="assets/css/admin-dashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
+    <link rel="stylesheet" href="assets/css/_header.css" />
+    <link rel="stylesheet" href="assets/css/_footer.css" />
+    <link rel="stylesheet" href="assets/css/admin-dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
     <header>
       <div class="header-content">
         <div class="logo-container">
@@ -37,12 +40,23 @@
           <span class="hamburger-line" aria-hidden="true"></span>
         </button>
 
-        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal de navigation">
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
           <ul class="nav-list">
-            <li><a href="admin-dashboard.html" class="nav-link active">Dashboard</a></li>
+            <li>
+              <a href="admin-dashboard.html" class="nav-link active"
+                >Dashboard</a
+              >
+            </li>
             <li><a href="admin-comptes.html" class="nav-link">Comptes</a></li>
             <li><a href="employe-avis.html" class="nav-link">Avis</a></li>
-            <li><a href="employe-incidents.html" class="nav-link">Incidents</a></li>
+            <li>
+              <a href="employe-incidents.html" class="nav-link">Incidents</a>
+            </li>
             <li><a href="index.html" class="nav-link">Déconnexion</a></li>
           </ul>
         </nav>
@@ -50,229 +64,235 @@
     </header>
 
     <main class="admin-container">
-        <!-- En-tête -->
-        <div class="admin-header">
-            <h1>🎛️ Dashboard Administrateur</h1>
-            <p>Vue d'ensemble de la plateforme ecoCovoit</p>
+      <!-- En-tête -->
+      <div class="admin-header">
+        <h1>Dashboard Administrateur</h1>
+        <p>Vue d'ensemble de la plateforme ecoCovoit</p>
+      </div>
+
+      <!-- Alertes importantes -->
+      <div class="alerts-section">
+        <h3 class="section-title">Alertes importantes</h3>
+        <div id="alerts-container">
+          <div class="alert-item alert-critical">
+            <div class="activity-icon"></div>
+            <div>
+              <div class="activity-title">Serveur de paiement instable</div>
+              <div class="activity-desc">
+                Plusieurs échecs de paiement détectés dans la dernière heure
+              </div>
+            </div>
+            <button class="btn btn-danger">Résoudre</button>
+          </div>
+          <div class="alert-item alert-warning">
+            <div class="activity-icon"></div>
+            <div>
+              <div class="activity-title">Pic d'utilisation</div>
+              <div class="activity-desc">
+                Trafic 150% supérieur à la normale ce soir
+              </div>
+            </div>
+            <button class="btn btn-warning">Surveiller</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statistiques principales -->
+      <div class="dashboard-grid">
+        <div class="stats-section">
+          <h3 class="section-title">Utilisateurs</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value" id="total-users">2,847</div>
+              <div class="stat-label">Total</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="new-users">127</div>
+              <div class="stat-label">Ce mois</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="active-users">1,623</div>
+              <div class="stat-label">Actifs</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="verified-users">2,341</div>
+              <div class="stat-label">Vérifiés</div>
+            </div>
+          </div>
         </div>
 
-        <!-- Alertes importantes -->
-        <div class="alerts-section">
-            <h3 class="section-title">🚨 Alertes importantes</h3>
-            <div id="alerts-container">
-                <div class="alert-item alert-critical">
-                    <div class="activity-icon">⚠️</div>
-                    <div>
-                        <div class="activity-title">Serveur de paiement instable</div>
-                        <div class="activity-desc">Plusieurs échecs de paiement détectés dans la dernière heure</div>
-                    </div>
-                    <button class="btn btn-danger">Résoudre</button>
-                </div>
-                <div class="alert-item alert-warning">
-                    <div class="activity-icon">📈</div>
-                    <div>
-                        <div class="activity-title">Pic d'utilisation</div>
-                        <div class="activity-desc">Trafic 150% supérieur à la normale ce soir</div>
-                    </div>
-                    <button class="btn btn-warning">Surveiller</button>
-                </div>
+        <div class="stats-section">
+          <h3 class="section-title">Trajets</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value" id="total-trips">8,412</div>
+              <div class="stat-label">Total</div>
             </div>
+            <div class="stat-item">
+              <div class="stat-value" id="completed-trips">7,891</div>
+              <div class="stat-label">Terminés</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="active-trips">89</div>
+              <div class="stat-label">En cours</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="cancelled-trips">432</div>
+              <div class="stat-label">Annulés</div>
+            </div>
+          </div>
         </div>
 
-        <!-- Statistiques principales -->
-        <div class="dashboard-grid">
-            <div class="stats-section">
-                <h3 class="section-title">👥 Utilisateurs</h3>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-value" id="total-users">2,847</div>
-                        <div class="stat-label">Total</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="new-users">127</div>
-                        <div class="stat-label">Ce mois</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="active-users">1,623</div>
-                        <div class="stat-label">Actifs</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="verified-users">2,341</div>
-                        <div class="stat-label">Vérifiés</div>
-                    </div>
-                </div>
+        <div class="stats-section">
+          <h3 class="section-title">Finances</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value" id="revenue">€24.7k</div>
+              <div class="stat-label">Revenus</div>
             </div>
-
-            <div class="stats-section">
-                <h3 class="section-title">🚗 Trajets</h3>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-value" id="total-trips">8,412</div>
-                        <div class="stat-label">Total</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="completed-trips">7,891</div>
-                        <div class="stat-label">Terminés</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="active-trips">89</div>
-                        <div class="stat-label">En cours</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="cancelled-trips">432</div>
-                        <div class="stat-label">Annulés</div>
-                    </div>
-                </div>
+            <div class="stat-item">
+              <div class="stat-value" id="commission">€4.2k</div>
+              <div class="stat-label">Commission</div>
             </div>
-
-            <div class="stats-section">
-                <h3 class="section-title">💰 Finances</h3>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-value" id="revenue">€24.7k</div>
-                        <div class="stat-label">Revenus</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="commission">€4.2k</div>
-                        <div class="stat-label">Commission</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="refunds">€847</div>
-                        <div class="stat-label">Remboursements</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="pending">€1.2k</div>
-                        <div class="stat-label">En attente</div>
-                    </div>
-                </div>
+            <div class="stat-item">
+              <div class="stat-value" id="refunds">€847</div>
+              <div class="stat-label">Remboursements</div>
             </div>
-
-            <div class="stats-section">
-                <h3 class="section-title">🌱 Impact écologique</h3>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-value" id="co2-saved">12.4t</div>
-                        <div class="stat-label">CO₂ économisé</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="km-shared">89.2k</div>
-                        <div class="stat-label">km partagés</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="fuel-saved">€6.8k</div>
-                        <div class="stat-label">Carburant économisé</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="trees-equivalent">847</div>
-                        <div class="stat-label">Arbres équivalents</div>
-                    </div>
-                </div>
+            <div class="stat-item">
+              <div class="stat-value" id="pending">€1.2k</div>
+              <div class="stat-label">En attente</div>
             </div>
+          </div>
         </div>
 
-        <!-- Graphiques -->
-        <div class="chart-container">
-            <h3 class="section-title">📊 Évolution des inscriptions</h3>
-            <div class="chart-placeholder">
-                📈 Graphique des inscriptions sur les 12 derniers mois
-                <br><small>(Intégration Chart.js à venir)</small>
+        <div class="stats-section">
+          <h3 class="section-title">Impact écologique</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value" id="co2-saved">12.4t</div>
+              <div class="stat-label">CO₂ économisé</div>
             </div>
+            <div class="stat-item">
+              <div class="stat-value" id="km-shared">89.2k</div>
+              <div class="stat-label">km partagés</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="fuel-saved">€6.8k</div>
+              <div class="stat-label">Carburant économisé</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="trees-equivalent">847</div>
+              <div class="stat-label">Arbres équivalents</div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div class="chart-container">
-            <h3 class="section-title">🚗 Répartition des trajets par région</h3>
-            <div class="chart-placeholder">
-                🗺️ Carte de répartition géographique des trajets
-                <br><small>(Intégration carte interactive à venir)</small>
-            </div>
+      <!-- Graphiques -->
+      <div class="chart-container">
+        <h3 class="section-title">Évolution des inscriptions</h3>
+        <div class="chart-placeholder">
+          Graphique des inscriptions sur les 12 derniers mois
+          <br /><small>(Intégration Chart.js à venir)</small>
         </div>
+      </div>
 
-        <!-- Actions rapides -->
-        <div class="quick-actions">
-            <h3 class="section-title">⚡ Actions rapides</h3>
-            <div class="actions-grid">
-                <a href="admin-comptes.html" class="action-card">
-                    <div class="action-icon">👥</div>
-                    <div class="action-title">Gérer les comptes</div>
-                    <div class="action-desc">Voir et modérer les utilisateurs</div>
-                </a>
-                <a href="employe-avis.html" class="action-card">
-                    <div class="action-icon">⭐</div>
-                    <div class="action-title">Valider les avis</div>
-                    <div class="action-desc">Modérer les commentaires</div>
-                </a>
-                <a href="employe-incidents.html" class="action-card">
-                    <div class="action-icon">🚨</div>
-                    <div class="action-title">Support client</div>
-                    <div class="action-desc">Résoudre les incidents</div>
-                </a>
-                <div class="action-card" onclick="generateReport()">
-                    <div class="action-icon">📊</div>
-                    <div class="action-title">Générer rapport</div>
-                    <div class="action-desc">Rapport d'activité mensuel</div>
-                </div>
-                <div class="action-card" onclick="sendNewsletter()">
-                    <div class="action-icon">📧</div>
-                    <div class="action-title">Newsletter</div>
-                    <div class="action-desc">Envoyer communication</div>
-                </div>
-                <div class="action-card" onclick="systemMaintenance()">
-                    <div class="action-icon">🔧</div>
-                    <div class="action-title">Maintenance</div>
-                    <div class="action-desc">Gestion système</div>
-                </div>
-            </div>
+      <div class="chart-container">
+        <h3 class="section-title">Répartition des trajets par région</h3>
+        <div class="chart-placeholder">
+          Carte de répartition géographique des trajets
+          <br /><small>(Intégration carte interactive à venir)</small>
         </div>
+      </div>
 
-        <!-- Activité récente -->
-        <div class="recent-activity">
-            <h3 class="section-title">📋 Activité récente</h3>
-            <div class="activity-list" id="activity-list">
-                <div class="activity-item">
-                    <div class="activity-icon success">✅</div>
-                    <div class="activity-content">
-                        <div class="activity-title">Nouveau trajet publié</div>
-                        <div class="activity-desc">Paris → Lyon par Marie Dupont</div>
-                    </div>
-                    <div class="activity-time">Il y a 5 min</div>
-                </div>
-                <div class="activity-item">
-                    <div class="activity-icon info">👤</div>
-                    <div class="activity-content">
-                        <div class="activity-title">Nouvel utilisateur</div>
-                        <div class="activity-desc">Jean Martin a créé son compte</div>
-                    </div>
-                    <div class="activity-time">Il y a 12 min</div>
-                </div>
-                <div class="activity-item">
-                    <div class="activity-icon warning">⚠️</div>
-                    <div class="activity-content">
-                        <div class="activity-title">Incident signalé</div>
-                        <div class="activity-desc">Problème de paiement #1247</div>
-                    </div>
-                    <div class="activity-time">Il y a 23 min</div>
-                </div>
-                <div class="activity-item">
-                    <div class="activity-icon success">⭐</div>
-                    <div class="activity-content">
-                        <div class="activity-title">Avis validé</div>
-                        <div class="activity-desc">Avis 5 étoiles pour trajet #8891</div>
-                    </div>
-                    <div class="activity-time">Il y a 45 min</div>
-                </div>
-                <div class="activity-item">
-                    <div class="activity-icon info">🚗</div>
-                    <div class="activity-content">
-                        <div class="activity-title">Trajet terminé</div>
-                        <div class="activity-desc">Bordeaux → Toulouse avec 3 passagers</div>
-                    </div>
-                    <div class="activity-time">Il y a 1h</div>
-                </div>
-            </div>
+      <!-- Actions rapides -->
+      <div class="quick-actions">
+        <h3 class="section-title">Actions rapides</h3>
+        <div class="actions-grid">
+          <a href="admin-comptes.html" class="action-card">
+            <div class="action-icon"></div>
+            <div class="action-title">Gérer les comptes</div>
+            <div class="action-desc">Voir et modérer les utilisateurs</div>
+          </a>
+          <a href="employe-avis.html" class="action-card">
+            <div class="action-icon"></div>
+            <div class="action-title">Valider les avis</div>
+            <div class="action-desc">Modérer les commentaires</div>
+          </a>
+          <a href="employe-incidents.html" class="action-card">
+            <div class="action-icon"></div>
+            <div class="action-title">Support client</div>
+            <div class="action-desc">Résoudre les incidents</div>
+          </a>
+          <div class="action-card" onclick="generateReport()">
+            <div class="action-icon"></div>
+            <div class="action-title">Générer rapport</div>
+            <div class="action-desc">Rapport d'activité mensuel</div>
+          </div>
+          <div class="action-card" onclick="sendNewsletter()">
+            <div class="action-icon"></div>
+            <div class="action-title">Newsletter</div>
+            <div class="action-desc">Envoyer communication</div>
+          </div>
+          <div class="action-card" onclick="systemMaintenance()">
+            <div class="action-icon"></div>
+            <div class="action-title">Maintenance</div>
+            <div class="action-desc">Gestion système</div>
+          </div>
         </div>
+      </div>
+
+      <!-- Activité récente -->
+      <div class="recent-activity">
+        <h3 class="section-title">Activité récente</h3>
+        <div class="activity-list" id="activity-list">
+          <div class="activity-item">
+            <div class="activity-icon success"></div>
+            <div class="activity-content">
+              <div class="activity-title">Nouveau trajet publié</div>
+              <div class="activity-desc">Paris → Lyon par Marie Dupont</div>
+            </div>
+            <div class="activity-time">Il y a 5 min</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon info"></div>
+            <div class="activity-content">
+              <div class="activity-title">Nouvel utilisateur</div>
+              <div class="activity-desc">Jean Martin a créé son compte</div>
+            </div>
+            <div class="activity-time">Il y a 12 min</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon warning"></div>
+            <div class="activity-content">
+              <div class="activity-title">Incident signalé</div>
+              <div class="activity-desc">Problème de paiement #1247</div>
+            </div>
+            <div class="activity-time">Il y a 23 min</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon success"></div>
+            <div class="activity-content">
+              <div class="activity-title">Avis validé</div>
+              <div class="activity-desc">Avis 5 étoiles pour trajet #8891</div>
+            </div>
+            <div class="activity-time">Il y a 45 min</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon info"></div>
+            <div class="activity-content">
+              <div class="activity-title">Trajet terminé</div>
+              <div class="activity-desc">
+                Bordeaux → Toulouse avec 3 passagers
+              </div>
+            </div>
+            <div class="activity-time">Il y a 1h</div>
+          </div>
+        </div>
+      </div>
     </main>
 
-    <!-- FOOTER STANDARDISÉ -->
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
@@ -293,101 +313,109 @@
 
     <script src="assets/js/menu.js"></script>
     <script>
-        // Chargement des données du dashboard
-        document.addEventListener('DOMContentLoaded', function() {
-            loadDashboardData();
-            startRealTimeUpdates();
-        });
+      // Chargement des données du dashboard
+      document.addEventListener('DOMContentLoaded', function () {
+        loadDashboardData();
+        startRealTimeUpdates();
+      });
 
-        // Chargement des données
-        async function loadDashboardData() {
-            try {
-                // Simulation du chargement des données (à remplacer par des appels API réels)
-                updateStats();
-                loadRecentActivity();
-            } catch (error) {
-                console.error('Erreur lors du chargement du dashboard:', error);
-            }
+      // Chargement des données
+      async function loadDashboardData() {
+        try {
+          // Simulation du chargement des données (à remplacer par des appels API réels)
+          updateStats();
+          loadRecentActivity();
+        } catch (error) {
+          console.error('Erreur lors du chargement du dashboard:', error);
         }
+      }
 
-        // Mise à jour des statistiques
-        function updateStats() {
-            // Simulation de données dynamiques
-            const stats = {
-                totalUsers: Math.floor(Math.random() * 100) + 2800,
-                newUsers: Math.floor(Math.random() * 50) + 100,
-                activeUsers: Math.floor(Math.random() * 200) + 1500,
-                verifiedUsers: Math.floor(Math.random() * 100) + 2300,
-                totalTrips: Math.floor(Math.random() * 100) + 8400,
-                completedTrips: Math.floor(Math.random() * 50) + 7850,
-                activeTrips: Math.floor(Math.random() * 20) + 80,
-                cancelledTrips: Math.floor(Math.random() * 10) + 430
-            };
+      // Mise à jour des statistiques
+      function updateStats() {
+        // Simulation de données dynamiques
+        const stats = {
+          totalUsers: Math.floor(Math.random() * 100) + 2800,
+          newUsers: Math.floor(Math.random() * 50) + 100,
+          activeUsers: Math.floor(Math.random() * 200) + 1500,
+          verifiedUsers: Math.floor(Math.random() * 100) + 2300,
+          totalTrips: Math.floor(Math.random() * 100) + 8400,
+          completedTrips: Math.floor(Math.random() * 50) + 7850,
+          activeTrips: Math.floor(Math.random() * 20) + 80,
+          cancelledTrips: Math.floor(Math.random() * 10) + 430,
+        };
 
-            // Mise à jour des éléments (les autres sont statiques pour la démo)
-            if (document.getElementById('total-users')) {
-                document.getElementById('total-users').textContent = stats.totalUsers.toLocaleString();
-            }
-            if (document.getElementById('active-trips')) {
-                document.getElementById('active-trips').textContent = stats.activeTrips;
-            }
+        // Mise à jour des éléments (les autres sont statiques pour la démo)
+        if (document.getElementById('total-users')) {
+          document.getElementById('total-users').textContent =
+            stats.totalUsers.toLocaleString();
         }
-
-        // Chargement de l'activité récente
-        function loadRecentActivity() {
-            // Les activités sont déjà en dur dans le HTML pour la démo
-            // En production, elles seraient chargées depuis l'API
+        if (document.getElementById('active-trips')) {
+          document.getElementById('active-trips').textContent =
+            stats.activeTrips;
         }
+      }
 
-        // Mise à jour en temps réel
-        function startRealTimeUpdates() {
-            // Mise à jour toutes les 30 secondes
-            setInterval(updateStats, 30000);
+      // Chargement de l'activité récente
+      function loadRecentActivity() {
+        // Les activités sont déjà en dur dans le HTML pour la démo
+        // En production, elles seraient chargées depuis l'API
+      }
+
+      // Mise à jour en temps réel
+      function startRealTimeUpdates() {
+        // Mise à jour toutes les 30 secondes
+        setInterval(updateStats, 30000);
+      }
+
+      // Actions rapides
+      function generateReport() {
+        if (confirm('Générer le rapport mensuel ?')) {
+          alert(
+            '🎉 Rapport généré avec succès !\nLe fichier sera envoyé par email dans quelques minutes.'
+          );
         }
+      }
 
-        // Actions rapides
-        function generateReport() {
-            if (confirm('Générer le rapport mensuel ?')) {
-                alert('🎉 Rapport généré avec succès !\nLe fichier sera envoyé par email dans quelques minutes.');
-            }
+      function sendNewsletter() {
+        if (confirm('Envoyer la newsletter à tous les utilisateurs actifs ?')) {
+          alert(
+            '📧 Newsletter programmée !\nEnvoi en cours vers 1,623 utilisateurs actifs.'
+          );
         }
+      }
 
-        function sendNewsletter() {
-            if (confirm('Envoyer la newsletter à tous les utilisateurs actifs ?')) {
-                alert('📧 Newsletter programmée !\nEnvoi en cours vers 1,623 utilisateurs actifs.');
-            }
+      function systemMaintenance() {
+        if (confirm('Programmer une maintenance système ?')) {
+          alert(
+            '🔧 Maintenance programmée !\nLa maintenance aura lieu dimanche à 2h du matin.'
+          );
         }
+      }
 
-        function systemMaintenance() {
-            if (confirm('Programmer une maintenance système ?')) {
-                alert('🔧 Maintenance programmée !\nLa maintenance aura lieu dimanche à 2h du matin.');
-            }
+      // Gestion des alertes
+      function resolveAlert(alertType) {
+        if (confirm('Marquer cette alerte comme résolue ?')) {
+          alert('Alerte résolue avec succès !');
+          // En production: supprimer l'alerte de l'interface
         }
+      }
 
-        // Gestion des alertes
-        function resolveAlert(alertType) {
-            if (confirm('Marquer cette alerte comme résolue ?')) {
-                alert('✅ Alerte résolue avec succès !');
-                // En production: supprimer l'alerte de l'interface
-            }
+      function monitorAlert(alertType) {
+        alert('Surveillance renforcée activée pour cette alerte.');
+      }
+
+      // Fonction pour rafraîchir le dashboard
+      function refreshDashboard() {
+        location.reload();
+      }
+
+      // Raccourci clavier pour rafraîchir
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
+          e.preventDefault();
+          refreshDashboard();
         }
-
-        function monitorAlert(alertType) {
-            alert('👁️ Surveillance renforcée activée pour cette alerte.');
-        }
-
-        // Fonction pour rafraîchir le dashboard
-        function refreshDashboard() {
-            location.reload();
-        }
-
-        // Raccourci clavier pour rafraîchir
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
-                e.preventDefault();
-                refreshDashboard();
-            }
-        });
+      });
     </script>
-</body>
+  </body>
 </html>

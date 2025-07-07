@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Laisser un avis – ecoCovoit</title>
-    <link rel="stylesheet" href="assets/css/_commun.css">
-    <link rel="stylesheet" href="assets/css/_header.css">
-    <link rel="stylesheet" href="assets/css/_footer.css">
-    <link rel="stylesheet" href="assets/css/laisser-avis.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
+    <link rel="stylesheet" href="assets/css/_header.css" />
+    <link rel="stylesheet" href="assets/css/_footer.css" />
+    <link rel="stylesheet" href="assets/css/laisser-avis.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
     <!-- HEADER -->
     <header>
       <div class="header-content">
@@ -38,13 +41,28 @@
           <span class="hamburger-line" aria-hidden="true"></span>
         </button>
 
-        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal de navigation">
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
           <ul class="nav-list">
             <li><a href="index.html" class="nav-link">Accueil</a></li>
-            <li><a href="rechercher-covoiturage.html" class="nav-link">Covoiturages</a></li>
+            <li>
+              <a href="rechercher-covoiturage.html" class="nav-link"
+                >Covoiturages</a
+              >
+            </li>
             <li><a href="add-voyage.html" class="nav-link">Publier</a></li>
-            <li><a href="mes-reservations.html" class="nav-link">Mes réservations</a></li>
-            <li><a href="historique.html" class="nav-link active">Historique</a></li>
+            <li>
+              <a href="mes-reservations.html" class="nav-link"
+                >Mes réservations</a
+              >
+            </li>
+            <li>
+              <a href="historique.html" class="nav-link active">Historique</a>
+            </li>
             <li><a href="user-profile.html" class="nav-link">Mon profil</a></li>
           </ul>
         </nav>
@@ -52,122 +70,132 @@
     </header>
 
     <main>
-    <div class="avis-container">
+      <div class="avis-container">
         <div class="avis-header">
-            <h1>Évaluez votre expérience</h1>
-            <p>Votre avis aide à améliorer la communauté ecoCovoit</p>
+          <h1>Évaluez votre expérience</h1>
+          <p>Votre avis aide à améliorer la communauté ecoCovoit</p>
         </div>
 
         <form id="avis-form" class="avis-form">
-            <input type="hidden" id="trajet_id" name="trajet_id" />
+          <input type="hidden" id="trajet_id" name="trajet_id" />
 
-            <div class="trajet-info" id="trajet-info">
-                <h3>Informations du trajet</h3>
-                <p id="trajet-details">Chargement des détails du trajet...</p>
+          <div class="trajet-info" id="trajet-info">
+            <h3>Informations du trajet</h3>
+            <p id="trajet-details">Chargement des détails du trajet...</p>
+          </div>
+
+          <div class="rating-section">
+            <h3>Note générale</h3>
+            <div class="star-rating" id="main-rating">
+              <span class="star" data-rating="1"><i></i></span>
+              <span class="star" data-rating="2"><i></i></span>
+              <span class="star" data-rating="3"><i></i></span>
+              <span class="star" data-rating="4"><i></i></span>
+              <span class="star" data-rating="5"><i></i></span>
+            </div>
+            <input type="hidden" id="note" name="note" required />
+          </div>
+
+          <div class="rating-criteria">
+            <div class="criteria-item">
+              <h4>Ponctualité</h4>
+              <div class="criteria-rating" data-criteria="ponctualite">
+                <span class="star" data-rating="1"><i></i></span>
+                <span class="star" data-rating="2"><i></i></span>
+                <span class="star" data-rating="3"><i></i></span>
+                <span class="star" data-rating="4"><i></i></span>
+                <span class="star" data-rating="5"><i></i></span>
+              </div>
+              <input type="hidden" name="ponctualite" />
             </div>
 
-            <div class="rating-section">
-                <h3>Note générale</h3>
-                <div class="star-rating" id="main-rating">
-                    <span class="star" data-rating="1">⭐</span>
-                    <span class="star" data-rating="2">⭐</span>
-                    <span class="star" data-rating="3">⭐</span>
-                    <span class="star" data-rating="4">⭐</span>
-                    <span class="star" data-rating="5">⭐</span>
-                </div>
-                <input type="hidden" id="note" name="note" required />
+            <div class="criteria-item">
+              <h4>Conduite</h4>
+              <div class="criteria-rating" data-criteria="conduite">
+                <span class="star" data-rating="1"><i></i></span>
+                <span class="star" data-rating="2"><i></i></span>
+                <span class="star" data-rating="3"><i></i></span>
+                <span class="star" data-rating="4"><i></i></span>
+                <span class="star" data-rating="5"><i></i></span>
+              </div>
+              <input type="hidden" name="conduite" />
             </div>
 
-            <div class="rating-criteria">
-                <div class="criteria-item">
-                    <h4>Ponctualité</h4>
-                    <div class="criteria-rating" data-criteria="ponctualite">
-                        <span class="star" data-rating="1">⭐</span>
-                        <span class="star" data-rating="2">⭐</span>
-                        <span class="star" data-rating="3">⭐</span>
-                        <span class="star" data-rating="4">⭐</span>
-                        <span class="star" data-rating="5">⭐</span>
-                    </div>
-                    <input type="hidden" name="ponctualite" />
-                </div>
-
-                <div class="criteria-item">
-                    <h4>Conduite</h4>
-                    <div class="criteria-rating" data-criteria="conduite">
-                        <span class="star" data-rating="1">⭐</span>
-                        <span class="star" data-rating="2">⭐</span>
-                        <span class="star" data-rating="3">⭐</span>
-                        <span class="star" data-rating="4">⭐</span>
-                        <span class="star" data-rating="5">⭐</span>
-                    </div>
-                    <input type="hidden" name="conduite" />
-                </div>
-
-                <div class="criteria-item">
-                    <h4>Communication</h4>
-                    <div class="criteria-rating" data-criteria="communication">
-                        <span class="star" data-rating="1">⭐</span>
-                        <span class="star" data-rating="2">⭐</span>
-                        <span class="star" data-rating="3">⭐</span>
-                        <span class="star" data-rating="4">⭐</span>
-                        <span class="star" data-rating="5">⭐</span>
-                    </div>
-                    <input type="hidden" name="communication" />
-                </div>
-
-                <div class="criteria-item">
-                    <h4>Confort du véhicule</h4>
-                    <div class="criteria-rating" data-criteria="confort">
-                        <span class="star" data-rating="1">⭐</span>
-                        <span class="star" data-rating="2">⭐</span>
-                        <span class="star" data-rating="3">⭐</span>
-                        <span class="star" data-rating="4">⭐</span>
-                        <span class="star" data-rating="5">⭐</span>
-                    </div>
-                    <input type="hidden" name="confort" />
-                </div>
+            <div class="criteria-item">
+              <h4>Communication</h4>
+              <div class="criteria-rating" data-criteria="communication">
+                <span class="star" data-rating="1"><i></i></span>
+                <span class="star" data-rating="2"><i></i></span>
+                <span class="star" data-rating="3"><i></i></span>
+                <span class="star" data-rating="4"><i></i></span>
+                <span class="star" data-rating="5"><i></i></span>
+              </div>
+              <input type="hidden" name="communication" />
             </div>
 
-            <div class="comment-section">
-                <label for="commentaire">Commentaire détaillé</label>
-                <textarea
-                    id="commentaire"
-                    name="commentaire"
-                    class="comment-textarea"
-                    placeholder="Partagez votre expérience pour aider les autres utilisateurs..."
-                    maxlength="500"
-                    required
-                ></textarea>
-                <div class="character-count">
-                    <span id="char-count">0</span>/500 caractères
-                </div>
+            <div class="criteria-item">
+              <h4>Confort du véhicule</h4>
+              <div class="criteria-rating" data-criteria="confort">
+                <span class="star" data-rating="1"><i></i></span>
+                <span class="star" data-rating="2"><i></i></span>
+                <span class="star" data-rating="3"><i></i></span>
+                <span class="star" data-rating="4"><i></i></span>
+                <span class="star" data-rating="5"><i></i></span>
+              </div>
+              <input type="hidden" name="confort" />
             </div>
+          </div>
 
-            <div class="photo-section">
-                <h3>Photos (optionnel)</h3>
-                <label class="photo-upload" for="photos">
-                    <span>📷</span>
-                    <span>Ajouter des photos de votre trajet</span>
-                    <input type="file" id="photos" name="photos[]" multiple accept="image/*" />
-                </label>
-                <div class="photo-preview" id="photo-preview"></div>
+          <div class="comment-section">
+            <label for="commentaire">Commentaire détaillé</label>
+            <textarea
+              id="commentaire"
+              name="commentaire"
+              class="comment-textarea"
+              placeholder="Partagez votre expérience pour aider les autres utilisateurs..."
+              maxlength="500"
+              required
+            ></textarea>
+            <div class="character-count">
+              <span id="char-count">0</span>/500 caractères
             </div>
+          </div>
 
-            <div class="form-actions">
-                <button type="button" class="btn btn-secondary" onclick="history.back()">
-                    Annuler
-                </button>
-                <button type="submit" class="btn btn-primary" id="submit-btn">
-                    Publier mon avis
-                </button>
-            </div>
+          <div class="photo-section">
+            <h3>Photos (optionnel)</h3>
+            <label class="photo-upload" for="photos">
+              <span><i></i></span>
+              <span>Ajouter des photos de votre trajet</span>
+              <input
+                type="file"
+                id="photos"
+                name="photos[]"
+                multiple
+                accept="image/*"
+              />
+            </label>
+            <div class="photo-preview" id="photo-preview"></div>
+          </div>
 
-            <div id="avis-message" class="message-box hidden"></div>
+          <div class="form-actions">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="history.back()"
+            >
+              Annuler
+            </button>
+            <button type="submit" class="btn btn-primary" id="submit-btn">
+              Publier mon avis
+            </button>
+          </div>
+
+          <div id="avis-message" class="message-box hidden"></div>
         </form>
-    </div>
+      </div>
     </main>
 
-    <!-- FOOTER STANDARDISÉ -->
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
@@ -188,258 +216,281 @@
 
     <script src="assets/js/menu.js"></script>
     <script>
-        // Variables globales
-        let selectedPhotos = [];
-        let ratings = {
-            main: 0,
-            ponctualite: 0,
-            conduite: 0,
-            communication: 0,
-            confort: 0
-        };
+      // Variables globales
+      let selectedPhotos = [];
+      let ratings = {
+        main: 0,
+        ponctualite: 0,
+        conduite: 0,
+        communication: 0,
+        confort: 0,
+      };
 
-        // Initialisation
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeAvisForm();
-            loadTrajetInfo();
-            setupEventListeners();
-        });
+      // Initialisation
+      document.addEventListener('DOMContentLoaded', function () {
+        initializeAvisForm();
+        loadTrajetInfo();
+        setupEventListeners();
+      });
 
-        function initializeAvisForm() {
-            // Récupérer l'ID du trajet depuis l'URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const trajetId = urlParams.get('trajet_id');
+      function initializeAvisForm() {
+        // Récupérer l'ID du trajet depuis l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const trajetId = urlParams.get('trajet_id');
 
-            if (!trajetId) {
-                showMessage('Aucun trajet spécifié. Redirection...', 'error');
-                setTimeout(() => {
-                    window.location.href = 'historique.html';
-                }, 2000);
-                return;
-            }
-
-            document.getElementById('trajet_id').value = trajetId;
+        if (!trajetId) {
+          showMessage('Aucun trajet spécifié. Redirection...', 'error');
+          setTimeout(() => {
+            window.location.href = 'historique.html';
+          }, 2000);
+          return;
         }
 
-        function loadTrajetInfo() {
-            const trajetId = document.getElementById('trajet_id').value;
-            if (!trajetId) return;
+        document.getElementById('trajet_id').value = trajetId;
+      }
 
-            // Simulation du chargement des détails du trajet
-            setTimeout(() => {
-                document.getElementById('trajet-details').innerHTML = `
+      function loadTrajetInfo() {
+        const trajetId = document.getElementById('trajet_id').value;
+        if (!trajetId) return;
+
+        // Simulation du chargement des détails du trajet
+        setTimeout(() => {
+          document.getElementById('trajet-details').innerHTML = `
                     <strong>De:</strong> Paris <strong>À:</strong> Lyon<br>
                     <strong>Date:</strong> 15 janvier 2024<br>
                     <strong>Chauffeur:</strong> Marie Dupont
                 `;
-            }, 500);
+        }, 500);
+      }
+
+      function setupEventListeners() {
+        // Gestion des étoiles
+        setupStarRatings();
+
+        // Compteur de caractères
+        const textarea = document.getElementById('commentaire');
+        const charCount = document.getElementById('char-count');
+
+        textarea.addEventListener('input', function () {
+          charCount.textContent = this.value.length;
+        });
+
+        // Gestion des photos
+        document
+          .getElementById('photos')
+          .addEventListener('change', handlePhotoUpload);
+
+        // Soumission du formulaire
+        document
+          .getElementById('avis-form')
+          .addEventListener('submit', submitAvis);
+      }
+
+      function setupStarRatings() {
+        // Rating principal
+        const mainStars = document.querySelectorAll('#main-rating .star');
+        setupStarGroup(mainStars, 'main');
+
+        // Ratings des critères
+        document
+          .querySelectorAll('.criteria-rating')
+          .forEach((criteriaGroup) => {
+            const stars = criteriaGroup.querySelectorAll('.star');
+            const criteriaName = criteriaGroup.dataset.criteria;
+            setupStarGroup(stars, criteriaName);
+          });
+      }
+
+      function setupStarGroup(stars, ratingType) {
+        stars.forEach((star, index) => {
+          star.addEventListener('click', () => {
+            const rating = parseInt(star.dataset.rating);
+            setRating(ratingType, rating);
+            updateStarDisplay(stars, rating);
+          });
+
+          star.addEventListener('mouseenter', () => {
+            const rating = parseInt(star.dataset.rating);
+            highlightStars(stars, rating);
+          });
+        });
+
+        // Reset highlight on mouse leave
+        const container = stars[0].parentElement;
+        container.addEventListener('mouseleave', () => {
+          const currentRating = ratings[ratingType];
+          updateStarDisplay(stars, currentRating);
+        });
+      }
+
+      function setRating(type, rating) {
+        ratings[type] = rating;
+
+        if (type === 'main') {
+          document.getElementById('note').value = rating;
+        } else {
+          const input = document.querySelector(`input[name="${type}"]`);
+          if (input) input.value = rating;
         }
+      }
 
-        function setupEventListeners() {
-            // Gestion des étoiles
-            setupStarRatings();
+      function updateStarDisplay(stars, rating) {
+        stars.forEach((star, index) => {
+          star.classList.toggle('active', index < rating);
+        });
+      }
 
-            // Compteur de caractères
-            const textarea = document.getElementById('commentaire');
-            const charCount = document.getElementById('char-count');
+      function highlightStars(stars, rating) {
+        stars.forEach((star, index) => {
+          star.style.color = index < rating ? '#f39c12' : '#ddd';
+        });
+      }
 
-            textarea.addEventListener('input', function() {
-                charCount.textContent = this.value.length;
-            });
+      function handlePhotoUpload(event) {
+        const files = Array.from(event.target.files);
+        const preview = document.getElementById('photo-preview');
 
-            // Gestion des photos
-            document.getElementById('photos').addEventListener('change', handlePhotoUpload);
+        files.forEach((file) => {
+          if (selectedPhotos.length >= 5) {
+            showMessage('Maximum 5 photos autorisées', 'error');
+            return;
+          }
 
-            // Soumission du formulaire
-            document.getElementById('avis-form').addEventListener('submit', submitAvis);
-        }
+          if (file.size > 5 * 1024 * 1024) {
+            showMessage('Fichier trop volumineux (max 5MB)', 'error');
+            return;
+          }
 
-        function setupStarRatings() {
-            // Rating principal
-            const mainStars = document.querySelectorAll('#main-rating .star');
-            setupStarGroup(mainStars, 'main');
+          selectedPhotos.push(file);
 
-            // Ratings des critères
-            document.querySelectorAll('.criteria-rating').forEach(criteriaGroup => {
-                const stars = criteriaGroup.querySelectorAll('.star');
-                const criteriaName = criteriaGroup.dataset.criteria;
-                setupStarGroup(stars, criteriaName);
-            });
-        }
-
-        function setupStarGroup(stars, ratingType) {
-            stars.forEach((star, index) => {
-                star.addEventListener('click', () => {
-                    const rating = parseInt(star.dataset.rating);
-                    setRating(ratingType, rating);
-                    updateStarDisplay(stars, rating);
-                });
-
-                star.addEventListener('mouseenter', () => {
-                    const rating = parseInt(star.dataset.rating);
-                    highlightStars(stars, rating);
-                });
-            });
-
-            // Reset highlight on mouse leave
-            const container = stars[0].parentElement;
-            container.addEventListener('mouseleave', () => {
-                const currentRating = ratings[ratingType];
-                updateStarDisplay(stars, currentRating);
-            });
-        }
-
-        function setRating(type, rating) {
-            ratings[type] = rating;
-
-            if (type === 'main') {
-                document.getElementById('note').value = rating;
-            } else {
-                const input = document.querySelector(`input[name="${type}"]`);
-                if (input) input.value = rating;
-            }
-        }
-
-        function updateStarDisplay(stars, rating) {
-            stars.forEach((star, index) => {
-                star.classList.toggle('active', index < rating);
-            });
-        }
-
-        function highlightStars(stars, rating) {
-            stars.forEach((star, index) => {
-                star.style.color = index < rating ? '#f39c12' : '#ddd';
-            });
-        }
-
-        function handlePhotoUpload(event) {
-            const files = Array.from(event.target.files);
-            const preview = document.getElementById('photo-preview');
-
-            files.forEach(file => {
-                if (selectedPhotos.length >= 5) {
-                    showMessage('Maximum 5 photos autorisées', 'error');
-                    return;
-                }
-
-                if (file.size > 5 * 1024 * 1024) {
-                    showMessage('Fichier trop volumineux (max 5MB)', 'error');
-                    return;
-                }
-
-                selectedPhotos.push(file);
-
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const photoItem = document.createElement('div');
-                    photoItem.className = 'photo-item';
-                    photoItem.innerHTML = `
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const photoItem = document.createElement('div');
+            photoItem.className = 'photo-item';
+            photoItem.innerHTML = `
                         <img src="${e.target.result}" alt="Photo du trajet">
-                        <button type="button" class="photo-remove" onclick="removePhoto(${selectedPhotos.length - 1})">×</button>
+                        <button type="button" class="photo-remove" onclick="removePhoto(${
+                          selectedPhotos.length - 1
+                        })">×</button>
                     `;
-                    preview.appendChild(photoItem);
-                };
-                reader.readAsDataURL(file);
-            });
-        }
+            preview.appendChild(photoItem);
+          };
+          reader.readAsDataURL(file);
+        });
+      }
 
-        function removePhoto(index) {
-            selectedPhotos.splice(index, 1);
-            const preview = document.getElementById('photo-preview');
-            preview.children[index].remove();
-        }
+      function removePhoto(index) {
+        selectedPhotos.splice(index, 1);
+        const preview = document.getElementById('photo-preview');
+        preview.children[index].remove();
+      }
 
-        function submitAvis(event) {
-            event.preventDefault();
+      function submitAvis(event) {
+        event.preventDefault();
 
-            if (!validateForm()) return;
+        if (!validateForm()) return;
 
-            const submitBtn = document.getElementById('submit-btn');
-            const originalText = submitBtn.textContent;
+        const submitBtn = document.getElementById('submit-btn');
+        const originalText = submitBtn.textContent;
 
-            // Affichage du loading
-            submitBtn.innerHTML = '<span class="spinner"></span>Envoi en cours...';
-            submitBtn.disabled = true;
-            document.querySelector('.avis-form').classList.add('loading');
+        // Affichage du loading
+        submitBtn.innerHTML = '<span class="spinner"></span>Envoi en cours...';
+        submitBtn.disabled = true;
+        document.querySelector('.avis-form').classList.add('loading');
 
-            const formData = new FormData();
-            formData.append('trajet_id', document.getElementById('trajet_id').value);
-            formData.append('note', document.getElementById('note').value);
-            formData.append('commentaire', document.getElementById('commentaire').value);
+        const formData = new FormData();
+        formData.append(
+          'trajet_id',
+          document.getElementById('trajet_id').value
+        );
+        formData.append('note', document.getElementById('note').value);
+        formData.append(
+          'commentaire',
+          document.getElementById('commentaire').value
+        );
 
-            // Ajout des ratings détaillés
-            Object.keys(ratings).forEach(key => {
-                if (key !== 'main' && ratings[key] > 0) {
-                    formData.append(key, ratings[key]);
-                }
-            });
+        // Ajout des ratings détaillés
+        Object.keys(ratings).forEach((key) => {
+          if (key !== 'main' && ratings[key] > 0) {
+            formData.append(key, ratings[key]);
+          }
+        });
 
-            // Ajout des photos
-            selectedPhotos.forEach((photo, index) => {
-                formData.append(`photos[${index}]`, photo);
-            });
+        // Ajout des photos
+        selectedPhotos.forEach((photo, index) => {
+          formData.append(`photos[${index}]`, photo);
+        });
 
-            fetch('../backend/avis/enregistrer.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    showMessage('Votre avis a été publié avec succès ! 🎉', 'success');
-                    setTimeout(() => {
-                        window.location.href = 'historique.html';
-                    }, 2000);
-                } else {
-                    showMessage(data.message || 'Erreur lors de l\'envoi de l\'avis', 'error');
-                }
-            })
-            .catch(error => {
-                console.error('Erreur:', error);
-                showMessage('Erreur réseau. Veuillez réessayer.', 'error');
-            })
-            .finally(() => {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                document.querySelector('.avis-form').classList.remove('loading');
-            });
-        }
-
-        function validateForm() {
-            const note = document.getElementById('note').value;
-            const commentaire = document.getElementById('commentaire').value.trim();
-
-            if (!note) {
-                showMessage('Veuillez donner une note générale', 'error');
-                return false;
+        fetch('../backend/avis/enregistrer.php', {
+          method: 'POST',
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              showMessage(
+                'Votre avis a été publié avec succès ! 🎉',
+                'success'
+              );
+              setTimeout(() => {
+                window.location.href = 'historique.html';
+              }, 2000);
+            } else {
+              showMessage(
+                data.message || "Erreur lors de l'envoi de l'avis",
+                'error'
+              );
             }
+          })
+          .catch((error) => {
+            console.error('Erreur:', error);
+            showMessage('Erreur réseau. Veuillez réessayer.', 'error');
+          })
+          .finally(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+            document.querySelector('.avis-form').classList.remove('loading');
+          });
+      }
 
-            if (!commentaire) {
-                showMessage('Veuillez rédiger un commentaire', 'error');
-                return false;
-            }
+      function validateForm() {
+        const note = document.getElementById('note').value;
+        const commentaire = document.getElementById('commentaire').value.trim();
 
-            if (commentaire.length < 10) {
-                showMessage('Le commentaire doit contenir au moins 10 caractères', 'error');
-                return false;
-            }
-
-            return true;
+        if (!note) {
+          showMessage('Veuillez donner une note générale', 'error');
+          return false;
         }
 
-        function showMessage(text, type) {
-            const messageBox = document.getElementById('avis-message');
-            messageBox.textContent = text;
-            messageBox.className = `message-box ${type}`;
-            messageBox.style.display = 'block';
-
-            // Auto-hide après 5 secondes pour les messages de succès
-            if (type === 'success') {
-                setTimeout(() => {
-                    messageBox.style.display = 'none';
-                }, 5000);
-            }
+        if (!commentaire) {
+          showMessage('Veuillez rédiger un commentaire', 'error');
+          return false;
         }
+
+        if (commentaire.length < 10) {
+          showMessage(
+            'Le commentaire doit contenir au moins 10 caractères',
+            'error'
+          );
+          return false;
+        }
+
+        return true;
+      }
+
+      function showMessage(text, type) {
+        const messageBox = document.getElementById('avis-message');
+        messageBox.textContent = text;
+        messageBox.className = `message-box ${type}`;
+        messageBox.style.display = 'block';
+
+        // Auto-hide après 5 secondes pour les messages de succès
+        if (type === 'success') {
+          setTimeout(() => {
+            messageBox.style.display = 'none';
+          }, 5000);
+        }
+      }
     </script>
-</body>
+  </body>
 </html>

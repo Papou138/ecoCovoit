@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestion des Avis - Employé ecoCovoit</title>
-    <link rel="stylesheet" href="assets/css/_commun.css">
-    <link rel="stylesheet" href="assets/css/_header.css">
-    <link rel="stylesheet" href="assets/css/_footer.css">
-    <link rel="stylesheet" href="assets/css/employe-avis.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
+    <link rel="stylesheet" href="assets/css/_header.css" />
+    <link rel="stylesheet" href="assets/css/_footer.css" />
+    <link rel="stylesheet" href="assets/css/employe-avis.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
     <!-- HEADER -->
     <header>
       <div class="header-content">
@@ -38,12 +41,23 @@
           <span class="hamburger-line" aria-hidden="true"></span>
         </button>
 
-        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal de navigation">
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
           <ul class="nav-list">
-            <li><a href="admin-dashboard.html" class="nav-link">Dashboard</a></li>
+            <li>
+              <a href="admin-dashboard.html" class="nav-link">Dashboard</a>
+            </li>
             <li><a href="admin-comptes.html" class="nav-link">Comptes</a></li>
-            <li><a href="employe-avis.html" class="nav-link active">Avis</a></li>
-            <li><a href="employe-incidents.html" class="nav-link">Incidents</a></li>
+            <li>
+              <a href="employe-avis.html" class="nav-link active">Avis</a>
+            </li>
+            <li>
+              <a href="employe-incidents.html" class="nav-link">Incidents</a>
+            </li>
             <li><a href="index.html" class="nav-link">Déconnexion</a></li>
           </ul>
         </nav>
@@ -51,92 +65,92 @@
     </header>
 
     <main class="employee-container">
-        <!-- En-tête -->
-        <div class="employee-header">
-            <h1>⭐ Gestion des Avis</h1>
-            <p>Modération et validation des avis clients</p>
-        </div>
+      <!-- En-tête -->
+      <div class="employee-header">
+        <h1>Gestion des Avis</h1>
+        <p>Modération et validation des avis clients</p>
+      </div>
 
-        <!-- Statistiques -->
-        <div class="stats-dashboard" id="stats-container">
-            <div class="stat-card">
-                <div class="stat-icon">⏳</div>
-                <div class="stat-value" id="stat-attente">-</div>
-                <div class="stat-label">En attente</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">✅</div>
-                <div class="stat-value" id="stat-valides">-</div>
-                <div class="stat-label">Validés</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">❌</div>
-                <div class="stat-value" id="stat-rejetes">-</div>
-                <div class="stat-label">Rejetés</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">⭐</div>
-                <div class="stat-value" id="stat-moyenne">-</div>
-                <div class="stat-label">Note moyenne</div>
-            </div>
+      <!-- Statistiques -->
+      <div class="stats-dashboard" id="stats-container">
+        <div class="stat-card">
+          <div class="stat-icon"></div>
+          <div class="stat-value" id="stat-attente">-</div>
+          <div class="stat-label">En attente</div>
         </div>
+        <div class="stat-card">
+          <div class="stat-icon"></div>
+          <div class="stat-value" id="stat-valides">-</div>
+          <div class="stat-label">Validés</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"></div>
+          <div class="stat-value" id="stat-rejetes">-</div>
+          <div class="stat-label">Rejetés</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"></div>
+          <div class="stat-value" id="stat-moyenne">-</div>
+          <div class="stat-label">Note moyenne</div>
+        </div>
+      </div>
 
-        <!-- Filtres -->
-        <div class="filters-panel">
-            <h3>🔍 Filtres de recherche</h3>
-            <div class="filters-grid">
-                <div class="filter-group">
-                    <label for="filter-status">Statut</label>
-                    <select id="filter-status">
-                        <option value="tous">Tous les statuts</option>
-                        <option value="en-attente" selected>En attente</option>
-                        <option value="valide">Validés</option>
-                        <option value="rejete">Rejetés</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="filter-rating">Note</label>
-                    <select id="filter-rating">
-                        <option value="tous">Toutes les notes</option>
-                        <option value="5">5 étoiles</option>
-                        <option value="4">4 étoiles</option>
-                        <option value="3">3 étoiles</option>
-                        <option value="2">2 étoiles</option>
-                        <option value="1">1 étoile</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="filter-date-debut">Du</label>
-                    <input type="date" id="filter-date-debut">
-                </div>
-                <div class="filter-group">
-                    <label for="filter-date-fin">Au</label>
-                    <input type="date" id="filter-date-fin">
-                </div>
-            </div>
-            <div class="search-actions">
-                <button onclick="applyFilters()" class="btn btn-primary">
-                    🔍 Rechercher
-                </button>
-                <button onclick="resetFilters()" class="btn btn-warning">
-                    🔄 Réinitialiser
-                </button>
-                <button onclick="validateAll()" class="btn btn-success">
-                    ✅ Valider en lot
-                </button>
-            </div>
+      <!-- Filtres -->
+      <div class="filters-panel">
+        <h3>Filtres de recherche</h3>
+        <div class="filters-grid">
+          <div class="filter-group">
+            <label for="filter-status">Statut</label>
+            <select id="filter-status">
+              <option value="tous">Tous les statuts</option>
+              <option value="en-attente" selected>En attente</option>
+              <option value="valide">Validés</option>
+              <option value="rejete">Rejetés</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-rating">Note</label>
+            <select id="filter-rating">
+              <option value="tous">Toutes les notes</option>
+              <option value="5">5 étoiles</option>
+              <option value="4">4 étoiles</option>
+              <option value="3">3 étoiles</option>
+              <option value="2">2 étoiles</option>
+              <option value="1">1 étoile</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="filter-date-debut">Du</label>
+            <input type="date" id="filter-date-debut" />
+          </div>
+          <div class="filter-group">
+            <label for="filter-date-fin">Au</label>
+            <input type="date" id="filter-date-fin" />
+          </div>
         </div>
+        <div class="search-actions">
+          <button onclick="applyFilters()" class="btn btn-primary">
+            Rechercher
+          </button>
+          <button onclick="resetFilters()" class="btn btn-warning">
+            Réinitialiser
+          </button>
+          <button onclick="validateAll()" class="btn btn-success">
+            Valider en lot
+          </button>
+        </div>
+      </div>
 
-        <!-- Liste des avis -->
-        <div id="avis-container">
-            <div class="loading">
-                <div class="spinner"></div>
-                <p>Chargement des avis...</p>
-            </div>
+      <!-- Liste des avis -->
+      <div id="avis-container">
+        <div class="loading">
+          <div class="spinner"></div>
+          <p>Chargement des avis...</p>
         </div>
+      </div>
     </main>
 
-    <!-- FOOTER STANDARDISÉ -->
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
@@ -157,125 +171,136 @@
 
     <script src="assets/js/menu.js"></script>
     <script>
-        // État de l'application
-        let allAvis = [];
-        let filteredAvis = [];
+      // État de l'application
+      let allAvis = [];
+      let filteredAvis = [];
 
-        // Éléments du DOM
-        const avisContainer = document.getElementById('avis-container');
-        const filterStatus = document.getElementById('filter-status');
-        const filterRating = document.getElementById('filter-rating');
-        const filterDateDebut = document.getElementById('filter-date-debut');
-        const filterDateFin = document.getElementById('filter-date-fin');
+      // Éléments du DOM
+      const avisContainer = document.getElementById('avis-container');
+      const filterStatus = document.getElementById('filter-status');
+      const filterRating = document.getElementById('filter-rating');
+      const filterDateDebut = document.getElementById('filter-date-debut');
+      const filterDateFin = document.getElementById('filter-date-fin');
 
-        // Chargement initial
-        document.addEventListener('DOMContentLoaded', function() {
-            loadAvis();
+      // Chargement initial
+      document.addEventListener('DOMContentLoaded', function () {
+        loadAvis();
+      });
+
+      // Chargement des avis
+      async function loadAvis() {
+        try {
+          const response = await fetch(
+            '../backend/avis/lister_non_valides.php'
+          );
+
+          if (!response.ok) {
+            throw new Error('Erreur lors du chargement');
+          }
+
+          const data = await response.json();
+
+          if (data.success) {
+            allAvis = data.avis || [];
+            updateStats(data.stats || {});
+            applyFilters();
+          } else {
+            showError(data.message || 'Erreur lors du chargement des avis');
+          }
+        } catch (error) {
+          console.error('Erreur:', error);
+          showError('Impossible de charger les avis. Veuillez réessayer.');
+        }
+      }
+
+      // Mise à jour des statistiques
+      function updateStats(stats) {
+        document.getElementById('stat-attente').textContent =
+          stats.en_attente || 0;
+        document.getElementById('stat-valides').textContent =
+          stats.valides || 0;
+        document.getElementById('stat-rejetes').textContent =
+          stats.rejetes || 0;
+        document.getElementById('stat-moyenne').textContent = (
+          stats.moyenne || 0
+        ).toFixed(1);
+      }
+
+      // Application des filtres
+      function applyFilters() {
+        const statusFilter = filterStatus.value;
+        const ratingFilter = filterRating.value;
+        const dateDebutFilter = filterDateDebut.value;
+        const dateFinFilter = filterDateFin.value;
+
+        filteredAvis = allAvis.filter((avis) => {
+          // Filtre par statut
+          if (statusFilter !== 'tous' && avis.statut !== statusFilter) {
+            return false;
+          }
+
+          // Filtre par note
+          if (ratingFilter !== 'tous' && avis.note != ratingFilter) {
+            return false;
+          }
+
+          // Filtre par date de début
+          if (dateDebutFilter && avis.date_creation < dateDebutFilter) {
+            return false;
+          }
+
+          // Filtre par date de fin
+          if (dateFinFilter && avis.date_creation > dateFinFilter) {
+            return false;
+          }
+
+          return true;
         });
 
-        // Chargement des avis
-        async function loadAvis() {
-            try {
-                const response = await fetch('../backend/avis/lister_non_valides.php');
+        renderAvis();
+      }
 
-                if (!response.ok) {
-                    throw new Error('Erreur lors du chargement');
-                }
+      // Réinitialisation des filtres
+      function resetFilters() {
+        filterStatus.value = 'en-attente';
+        filterRating.value = 'tous';
+        filterDateDebut.value = '';
+        filterDateFin.value = '';
+        applyFilters();
+      }
 
-                const data = await response.json();
-
-                if (data.success) {
-                    allAvis = data.avis || [];
-                    updateStats(data.stats || {});
-                    applyFilters();
-                } else {
-                    showError(data.message || 'Erreur lors du chargement des avis');
-                }
-            } catch (error) {
-                console.error('Erreur:', error);
-                showError('Impossible de charger les avis. Veuillez réessayer.');
-            }
-        }
-
-        // Mise à jour des statistiques
-        function updateStats(stats) {
-            document.getElementById('stat-attente').textContent = stats.en_attente || 0;
-            document.getElementById('stat-valides').textContent = stats.valides || 0;
-            document.getElementById('stat-rejetes').textContent = stats.rejetes || 0;
-            document.getElementById('stat-moyenne').textContent = (stats.moyenne || 0).toFixed(1);
-        }
-
-        // Application des filtres
-        function applyFilters() {
-            const statusFilter = filterStatus.value;
-            const ratingFilter = filterRating.value;
-            const dateDebutFilter = filterDateDebut.value;
-            const dateFinFilter = filterDateFin.value;
-
-            filteredAvis = allAvis.filter(avis => {
-                // Filtre par statut
-                if (statusFilter !== 'tous' && avis.statut !== statusFilter) {
-                    return false;
-                }
-
-                // Filtre par note
-                if (ratingFilter !== 'tous' && avis.note != ratingFilter) {
-                    return false;
-                }
-
-                // Filtre par date de début
-                if (dateDebutFilter && avis.date_creation < dateDebutFilter) {
-                    return false;
-                }
-
-                // Filtre par date de fin
-                if (dateFinFilter && avis.date_creation > dateFinFilter) {
-                    return false;
-                }
-
-                return true;
-            });
-
-            renderAvis();
-        }
-
-        // Réinitialisation des filtres
-        function resetFilters() {
-            filterStatus.value = 'en-attente';
-            filterRating.value = 'tous';
-            filterDateDebut.value = '';
-            filterDateFin.value = '';
-            applyFilters();
-        }
-
-        // Rendu des avis
-        function renderAvis() {
-            if (filteredAvis.length === 0) {
-                avisContainer.innerHTML = `
+      // Rendu des avis
+      function renderAvis() {
+        if (filteredAvis.length === 0) {
+          avisContainer.innerHTML = `
                     <div class="no-results">
-                        <div class="no-results-icon">📝</div>
+                        <div class="no-results-icon"></div>
                         <h3>Aucun avis trouvé</h3>
                         <p>Aucun avis ne correspond à vos critères de recherche</p>
                     </div>
                 `;
-                return;
-            }
-
-            const avisHTML = filteredAvis.map(avis => createAvisCard(avis)).join('');
-            avisContainer.innerHTML = `<div class="avis-container">${avisHTML}</div>`;
+          return;
         }
 
-        // Création d'une carte d'avis
-        function createAvisCard(avis) {
-            const statusClass = `status-${avis.statut.replace('_', '-')}`;
-            const stars = '⭐'.repeat(avis.note) + '☆'.repeat(5 - avis.note);
+        const avisHTML = filteredAvis
+          .map((avis) => createAvisCard(avis))
+          .join('');
+        avisContainer.innerHTML = `<div class="avis-container">${avisHTML}</div>`;
+      }
 
-            return `
+      // Création d'une carte d'avis
+      function createAvisCard(avis) {
+        const statusClass = `status-${avis.statut.replace('_', '-')}`;
+        const stars = '⭐'.repeat(avis.note) + '☆'.repeat(5 - avis.note);
+
+        return `
                 <div class="avis-card">
                     <div class="avis-header">
                         <div class="avis-meta">
                             <div class="avis-trajet">
-                                ${avis.ville_depart || 'N/A'} → ${avis.ville_arrivee || 'N/A'}
+                                ${avis.ville_depart || 'N/A'} → ${
+          avis.ville_arrivee || 'N/A'
+        }
                             </div>
                             <div class="avis-date">
                                 Publié le ${formatDate(avis.date_creation)}
@@ -297,16 +322,22 @@
 
                         <div class="avis-details">
                             <div class="detail-item">
-                                <span class="detail-icon">👤</span>
-                                <span>Par ${avis.nom_evaluateur || 'Utilisateur'}</span>
+                                <span class="detail-icon"></span>
+                                <span>Par ${
+                                  avis.nom_evaluateur || 'Utilisateur'
+                                }</span>
                             </div>
                             <div class="detail-item">
-                                <span class="detail-icon">🎯</span>
-                                <span>Évalue ${avis.nom_evalue || 'Utilisateur'}</span>
+                                <span class="detail-icon"></span>
+                                <span>Évalue ${
+                                  avis.nom_evalue || 'Utilisateur'
+                                }</span>
                             </div>
                             <div class="detail-item">
-                                <span class="detail-icon">📅</span>
-                                <span>Trajet du ${formatDate(avis.date_trajet)}</span>
+                                <span class="detail-icon"></span>
+                                <span>Trajet du ${formatDate(
+                                  avis.date_trajet
+                                )}</span>
                             </div>
                         </div>
                     </div>
@@ -315,40 +346,44 @@
                         ${generateActionButtons(avis)}
                     </div>
 
-                    ${avis.statut === 'en-attente' ? generateModerateSection(avis.id) : ''}
+                    ${
+                      avis.statut === 'en-attente'
+                        ? generateModerateSection(avis.id)
+                        : ''
+                    }
                 </div>
             `;
-        }
+      }
 
-        // Génération des boutons d'action
-        function generateActionButtons(avis) {
-            let buttons = [];
+      // Génération des boutons d'action
+      function generateActionButtons(avis) {
+        let buttons = [];
 
-            if (avis.statut === 'en-attente') {
-                buttons.push(`
+        if (avis.statut === 'en-attente') {
+          buttons.push(`
                     <button onclick="validateAvis(${avis.id})" class="btn btn-success">
-                        ✅ Valider
+                        Valider
                     </button>
                     <button onclick="rejectAvis(${avis.id})" class="btn btn-danger">
-                        ❌ Rejeter
+                        Rejeter
                     </button>
                 `);
-            }
+        }
 
-            buttons.push(`
+        buttons.push(`
                 <a href="detail.html?id=${avis.trajet_id}" class="btn btn-primary">
-                    👁️ Voir trajet
+                    Voir trajet
                 </a>
             `);
 
-            return buttons.join('');
-        }
+        return buttons.join('');
+      }
 
-        // Section de modération
-        function generateModerateSection(avisId) {
-            return `
+      // Section de modération
+      function generateModerateSection(avisId) {
+        return `
                 <div class="moderate-section hidden" id="moderate-${avisId}">
-                    <h4>💬 Commentaire de modération</h4>
+                    <h4>Commentaire de modération</h4>
                     <textarea
                         id="comment-${avisId}"
                         class="moderate-textarea"
@@ -356,167 +391,173 @@
                     ></textarea>
                     <div class="flex-gap">
                         <button onclick="confirmValidation(${avisId})" class="btn btn-success">
-                            ✅ Confirmer validation
+                            Confirmer validation
                         </button>
                         <button onclick="confirmRejection(${avisId})" class="btn btn-danger">
-                            ❌ Confirmer rejet
+                            Confirmer rejet
                         </button>
                         <button onclick="hideModerateSection(${avisId})" class="btn btn-warning">
-                            🔙 Annuler
+                            Annuler
                         </button>
                     </div>
                 </div>
             `;
+      }
+
+      // Actions de modération
+      function validateAvis(avisId) {
+        showModerateSection(avisId);
+      }
+
+      function rejectAvis(avisId) {
+        showModerateSection(avisId);
+      }
+
+      function showModerateSection(avisId) {
+        const section = document.getElementById(`moderate-${avisId}`);
+        if (section) {
+          section.style.display = 'block';
+          section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+
+      function hideModerateSection(avisId) {
+        const section = document.getElementById(`moderate-${avisId}`);
+        if (section) {
+          section.style.display = 'none';
+        }
+      }
+
+      async function confirmValidation(avisId) {
+        const comment = document.getElementById(`comment-${avisId}`).value;
+
+        try {
+          const response = await fetch('../backend/avis/valider.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `avis_id=${avisId}&commentaire_moderation=${encodeURIComponent(
+              comment
+            )}`,
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            alert('Avis validé avec succès');
+            loadAvis(); // Recharger la liste
+          } else {
+            alert(result.message || 'Erreur lors de la validation');
+          }
+        } catch (error) {
+          console.error('Erreur:', error);
+          alert("Erreur lors de la validation de l'avis");
+        }
+      }
+
+      async function confirmRejection(avisId) {
+        const comment = document.getElementById(`comment-${avisId}`).value;
+
+        if (!comment.trim()) {
+          alert('Un commentaire de modération est requis pour rejeter un avis');
+          return;
         }
 
-        // Actions de modération
-        function validateAvis(avisId) {
-            showModerateSection(avisId);
+        try {
+          const response = await fetch('../backend/avis/rejeter.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `avis_id=${avisId}&commentaire_moderation=${encodeURIComponent(
+              comment
+            )}`,
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            alert('Avis rejeté avec succès');
+            loadAvis(); // Recharger la liste
+          } else {
+            alert(result.message || 'Erreur lors du rejet');
+          }
+        } catch (error) {
+          console.error('Erreur:', error);
+          alert("Erreur lors du rejet de l'avis");
+        }
+      }
+
+      // Validation en lot
+      async function validateAll() {
+        const pendingAvis = filteredAvis.filter(
+          (avis) => avis.statut === 'en-attente'
+        );
+
+        if (pendingAvis.length === 0) {
+          alert('Aucun avis en attente à valider');
+          return;
         }
 
-        function rejectAvis(avisId) {
-            showModerateSection(avisId);
+        if (!confirm(`Valider ${pendingAvis.length} avis en attente ?`)) {
+          return;
         }
 
-        function showModerateSection(avisId) {
-            const section = document.getElementById(`moderate-${avisId}`);
-            if (section) {
-                section.style.display = 'block';
-                section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
+        try {
+          const promises = pendingAvis.map((avis) =>
+            fetch('../backend/avis/valider.php', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: `avis_id=${avis.id}`,
+            })
+          );
+
+          await Promise.all(promises);
+          alert(`${pendingAvis.length} avis validés avec succès`);
+          loadAvis(); // Recharger la liste
+        } catch (error) {
+          console.error('Erreur:', error);
+          alert('Erreur lors de la validation en lot');
         }
+      }
 
-        function hideModerateSection(avisId) {
-            const section = document.getElementById(`moderate-${avisId}`);
-            if (section) {
-                section.style.display = 'none';
-            }
-        }
+      // Utilitaires
+      function formatDate(dateString) {
+        if (!dateString) return 'N/A';
+        const date = new Date(dateString);
+        return date.toLocaleDateString('fr-FR', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+        });
+      }
 
-        async function confirmValidation(avisId) {
-            const comment = document.getElementById(`comment-${avisId}`).value;
+      function getStatusText(statut) {
+        const statusTexts = {
+          'en-attente': 'En attente',
+          valide: 'Validé',
+          rejete: 'Rejeté',
+        };
+        return statusTexts[statut] || statut;
+      }
 
-            try {
-                const response = await fetch('../backend/avis/valider.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: `avis_id=${avisId}&commentaire_moderation=${encodeURIComponent(comment)}`
-                });
-
-                const result = await response.json();
-
-                if (result.success) {
-                    alert('Avis validé avec succès');
-                    loadAvis(); // Recharger la liste
-                } else {
-                    alert(result.message || 'Erreur lors de la validation');
-                }
-            } catch (error) {
-                console.error('Erreur:', error);
-                alert('Erreur lors de la validation de l\'avis');
-            }
-        }
-
-        async function confirmRejection(avisId) {
-            const comment = document.getElementById(`comment-${avisId}`).value;
-
-            if (!comment.trim()) {
-                alert('Un commentaire de modération est requis pour rejeter un avis');
-                return;
-            }
-
-            try {
-                const response = await fetch('../backend/avis/rejeter.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: `avis_id=${avisId}&commentaire_moderation=${encodeURIComponent(comment)}`
-                });
-
-                const result = await response.json();
-
-                if (result.success) {
-                    alert('Avis rejeté avec succès');
-                    loadAvis(); // Recharger la liste
-                } else {
-                    alert(result.message || 'Erreur lors du rejet');
-                }
-            } catch (error) {
-                console.error('Erreur:', error);
-                alert('Erreur lors du rejet de l\'avis');
-            }
-        }
-
-        // Validation en lot
-        async function validateAll() {
-            const pendingAvis = filteredAvis.filter(avis => avis.statut === 'en-attente');
-
-            if (pendingAvis.length === 0) {
-                alert('Aucun avis en attente à valider');
-                return;
-            }
-
-            if (!confirm(`Valider ${pendingAvis.length} avis en attente ?`)) {
-                return;
-            }
-
-            try {
-                const promises = pendingAvis.map(avis =>
-                    fetch('../backend/avis/valider.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: `avis_id=${avis.id}`
-                    })
-                );
-
-                await Promise.all(promises);
-                alert(`${pendingAvis.length} avis validés avec succès`);
-                loadAvis(); // Recharger la liste
-            } catch (error) {
-                console.error('Erreur:', error);
-                alert('Erreur lors de la validation en lot');
-            }
-        }
-
-        // Utilitaires
-        function formatDate(dateString) {
-            if (!dateString) return 'N/A';
-            const date = new Date(dateString);
-            return date.toLocaleDateString('fr-FR', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-        }
-
-        function getStatusText(statut) {
-            const statusTexts = {
-                'en-attente': 'En attente',
-                'valide': 'Validé',
-                'rejete': 'Rejeté'
-            };
-            return statusTexts[statut] || statut;
-        }
-
-        function showError(message) {
-            avisContainer.innerHTML = `
+      function showError(message) {
+        avisContainer.innerHTML = `
                 <div class="no-results">
-                    <div class="no-results-icon">❌</div>
+                    <div class="no-results-icon"></div>
                     <h3>Erreur</h3>
                     <p>${message}</p>
                     <button onclick="loadAvis()" class="btn btn-primary">
-                        🔄 Réessayer
+                        Réessayer
                     </button>
                 </div>
             `;
-        }
+      }
     </script>
-</body>
+  </body>
 </html>

@@ -1,184 +1,283 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Recherchez et trouvez des covoiturages écoresponsables sur EcoCovoit">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Recherchez et trouvez des covoiturages écoresponsables sur EcoCovoit"
+    />
     <title>Rechercher un covoiturage - EcoCovoit</title>
-    <link rel="stylesheet" href="assets/css/_commun.css">
-    <link rel="stylesheet" href="assets/css/_header.css">
-    <link rel="stylesheet" href="assets/css/_footer.css">
-    <link rel="stylesheet" href="assets/css/rechercher-covoiturage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
+    <link rel="stylesheet" href="assets/css/_header.css" />
+    <link rel="stylesheet" href="assets/css/_footer.css" />
+    <link rel="stylesheet" href="assets/css/rechercher-covoiturage.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
     <header>
-        <div class="header-content">
-            <div class="logo-container">
-                <img src="assets/img/logo-ecoRide.png" alt="Logo ecoCovoit" class="logo" width="50" height="50" loading="lazy">
-                <h1 class="app-title">ecoCovoit</h1>
-            </div>
-            <button id="menu-toggle" class="menu-toggle" aria-label="Ouvrir le menu Principal" aria-expanded="false" aria-controls="main-nav" type="button">
-                <span class="hamburger-line" aria-hidden="true"></span>
-                <span class="hamburger-line" aria-hidden="true"></span>
-                <span class="hamburger-line" aria-hidden="true"></span>
-            </button>
-
-            <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal de navigation">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">🏠 Accueil</a></li>
-                    <li><a href="rechercher-covoiturage.html" class="nav-link active">🔍 Rechercher</a></li>
-                    <li><a href="add-voyage.html" class="nav-link">➕ Publier</a></li>
-                    <li><a href="mes-reservations.html" class="nav-link">📅 Mes réservations</a></li>
-                    <li><a href="historique.html" class="nav-link">📋 Historique</a></li>
-                    <li><a href="user-profile.html" class="nav-link">👤 Mon profil</a></li>
-                    <li><a href="add-vehicule.html" class="nav-link">🚗 Mes véhicules</a></li>
-                    <li><a href="add-preferences.html" class="nav-link">⚙️ Préférences</a></li>
-                    <li><a href="#" class="nav-link logout-btn" onclick="logout()">🚪 Déconnexion</a></li>
-                </ul>
-            </nav>
+      <div class="header-content">
+        <div class="logo-container">
+          <img
+            src="assets/img/logo-ecoRide.png"
+            alt="Logo ecoCovoit"
+            class="logo"
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <h1 class="app-title">ecoCovoit</h1>
         </div>
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Ouvrir le menu Principal"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          type="button"
+        >
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
+          <ul class="nav-list">
+            <li>
+              <a href="index.html" class="nav-link"><i></i> Accueil</a>
+            </li>
+            <li>
+              <a href="rechercher-covoiturage.html" class="nav-link active"
+                ><i></i> Rechercher</a
+              >
+            </li>
+            <li>
+              <a href="add-voyage.html" class="nav-link"><i></i> Publier</a>
+            </li>
+            <li>
+              <a href="mes-reservations.html" class="nav-link"
+                ><i></i> Mes réservations</a
+              >
+            </li>
+            <li>
+              <a href="historique.html" class="nav-link"><i></i> Historique</a>
+            </li>
+            <li>
+              <a href="user-profile.html" class="nav-link"
+                ><i></i> Mon profil</a
+              >
+            </li>
+            <li>
+              <a href="add-vehicule.html" class="nav-link"
+                ><i></i> Mes véhicules</a
+              >
+            </li>
+            <li>
+              <a href="add-preferences.html" class="nav-link"
+                ><i></i> Préférences</a
+              >
+            </li>
+            <li>
+              <a href="#" class="nav-link logout-btn" onclick="logout()"
+                ><i></i> Déconnexion</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-        <!-- SECTION RECHERCHE -->
-        <section class="search-header-section">
-            <div class="container">
-                <h1>Rechercher un covoiturage</h1>
-                <p>Trouvez le trajet parfait pour vos déplacements écoresponsables</p>
+      <!-- SECTION RECHERCHE -->
+      <section class="search-header-section">
+        <div class="container">
+          <h1>Rechercher un covoiturage</h1>
+          <p>Trouvez le trajet parfait pour vos déplacements écoresponsables</p>
+        </div>
+      </section>
+
+      <!-- FORMULAIRE DE RECHERCHE -->
+      <section class="search-form-section">
+        <div class="container">
+          <form id="search-form" class="search-form-main">
+            <div class="search-fields">
+              <div class="form-group">
+                <label for="departure"><i></i> Ville de départ</label>
+                <input
+                  type="text"
+                  id="departure"
+                  name="departure"
+                  placeholder="D'où partez-vous ?"
+                  required
+                  class="form-input"
+                />
+              </div>
+              <div class="form-group">
+                <label for="arrival"><i></i> Ville d'arrivée</label>
+                <input
+                  type="text"
+                  id="arrival"
+                  name="arrival"
+                  placeholder="Où allez-vous ?"
+                  required
+                  class="form-input"
+                />
+              </div>
+              <div class="form-group">
+                <label for="date"><i></i> Date de départ</label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  required
+                  class="form-input"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary search-btn">
+                <i class="fas fa-search"></i>
+                Rechercher
+              </button>
             </div>
-        </section>
+          </form>
+        </div>
+      </section>
 
-        <!-- FORMULAIRE DE RECHERCHE -->
-        <section class="search-form-section">
-            <div class="container">
-                <form id="search-form" class="search-form-main">
-                    <div class="search-fields">
-                        <div class="form-group">
-                            <label for="departure">Ville de départ</label>
-                            <input type="text" id="departure" name="departure" placeholder="D'où partez-vous ?" required class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label for="arrival">Ville d'arrivée</label>
-                            <input type="text" id="arrival" name="arrival" placeholder="Où allez-vous ?" required class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Date de départ</label>
-                            <input type="date" id="date" name="date" required class="form-input">
-                        </div>
-                        <button type="submit" class="btn btn-primary search-btn">
-                            <i class="fas fa-search"></i>
-                            Rechercher
-                        </button>
-                    </div>
-                </form>
+      <!-- FILTRES -->
+      <section class="filters-section">
+        <div class="container">
+          <div class="filters-header">
+            <h2>Filtres</h2>
+            <button
+              type="button"
+              class="btn btn-outline reset-filters"
+              id="reset-filters"
+            >
+              Réinitialiser
+            </button>
+          </div>
+          <div class="filters-grid">
+            <div class="filter-group">
+              <label>
+                <input type="checkbox" id="eco-filter" name="eco-filter" />
+                <span class="checkmark"></span>
+                Véhicules électriques uniquement
+              </label>
             </div>
-        </section>
-
-        <!-- FILTRES -->
-        <section class="filters-section">
-            <div class="container">
-                <div class="filters-header">
-                    <h2>Filtres</h2>
-                    <button type="button" class="btn btn-outline reset-filters" id="reset-filters">
-                        Réinitialiser
-                    </button>
-                </div>
-                <div class="filters-grid">
-                    <div class="filter-group">
-                        <label>
-                            <input type="checkbox" id="eco-filter" name="eco-filter">
-                            <span class="checkmark"></span>
-                            Véhicules électriques uniquement
-                        </label>
-                    </div>
-                    <div class="filter-group">
-                        <label for="max-price">Prix maximum</label>
-                        <input type="range" id="max-price" name="max-price" min="0" max="100" value="50" class="price-slider">
-                        <span class="price-display">50€</span>
-                    </div>
-                    <div class="filter-group">
-                        <label for="max-duration">Durée maximum</label>
-                        <select id="max-duration" name="max-duration" class="form-select">
-                            <option value="">Toutes durées</option>
-                            <option value="1">1 heure max</option>
-                            <option value="2">2 heures max</option>
-                            <option value="4">4 heures max</option>
-                            <option value="8">8 heures max</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label for="min-rating">Note minimum</label>
-                        <div class="rating-filter">
-                            <input type="radio" id="rating-all" name="min-rating" value="" checked>
-                            <label for="rating-all">Toutes</label>
-                            <input type="radio" id="rating-3" name="min-rating" value="3">
-                            <label for="rating-3">3⭐+</label>
-                            <input type="radio" id="rating-4" name="min-rating" value="4">
-                            <label for="rating-4">4⭐+</label>
-                            <input type="radio" id="rating-5" name="min-rating" value="5">
-                            <label for="rating-5">5⭐</label>
-                        </div>
-                    </div>
-                </div>
+            <div class="filter-group">
+              <label for="max-price">Prix maximum</label>
+              <input
+                type="range"
+                id="max-price"
+                name="max-price"
+                min="0"
+                max="100"
+                value="50"
+                class="price-slider"
+              />
+              <span class="price-display">50€</span>
             </div>
-        </section>
-
-        <!-- RÉSULTATS -->
-        <section class="results-section">
-            <div class="container">
-                <div class="results-header">
-                    <h2 id="results-title">Covoiturages disponibles</h2>
-                    <div class="results-count" id="results-count">0 trajet trouvé</div>
-                </div>
-
-                <!-- MESSAGE D'INSTRUCTION -->
-                <div class="no-search-message" id="no-search-message">
-                    <div class="message-content">
-                        <i class="fas fa-search fa-3x"></i>
-                        <h3>Commencez votre recherche</h3>
-                        <p>Remplissez le formulaire ci-dessus pour voir les covoiturages disponibles</p>
-                    </div>
-                </div>
-
-                <!-- MESSAGE PAS DE RÉSULTATS -->
-                <div class="no-results-message hidden" id="no-results-message">
-                    <div class="message-content">
-                        <i class="fas fa-car fa-3x"></i>
-                        <h3>Aucun covoiturage trouvé</h3>
-                        <p>Aucun trajet ne correspond à vos critères pour cette date.</p>
-                        <div class="alternative-suggestion" id="alternative-suggestion"></div>
-                    </div>
-                </div>
-
-                <!-- LISTE DES COVOITURAGES -->
-                <div class="covoiturages-list" id="covoiturages-list">
-                    <!-- Les résultats seront injectés ici par JavaScript -->
-                </div>
+            <div class="filter-group">
+              <label for="max-duration">Durée maximum</label>
+              <select id="max-duration" name="max-duration" class="form-select">
+                <option value="">Toutes durées</option>
+                <option value="1">1 heure max</option>
+                <option value="2">2 heures max</option>
+                <option value="4">4 heures max</option>
+                <option value="8">8 heures max</option>
+              </select>
             </div>
-        </section>
+            <div class="filter-group">
+              <label for="min-rating">Note minimum</label>
+              <div class="rating-filter">
+                <input
+                  type="radio"
+                  id="rating-all"
+                  name="min-rating"
+                  value=""
+                  checked
+                />
+                <label for="rating-all">Toutes</label>
+                <input type="radio" id="rating-3" name="min-rating" value="3" />
+                <label for="rating-3">3⭐+</label>
+                <input type="radio" id="rating-4" name="min-rating" value="4" />
+                <label for="rating-4">4⭐+</label>
+                <input type="radio" id="rating-5" name="min-rating" value="5" />
+                <label for="rating-5">5⭐</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULTATS -->
+      <section class="results-section">
+        <div class="container">
+          <div class="results-header">
+            <h2 id="results-title">Covoiturages disponibles</h2>
+            <div class="results-count" id="results-count">0 trajet trouvé</div>
+          </div>
+
+          <!-- MESSAGE D'INSTRUCTION -->
+          <div class="no-search-message" id="no-search-message">
+            <div class="message-content">
+              <i class="fas fa-search fa-3x"></i>
+              <h3>Commencez votre recherche</h3>
+              <p>
+                Remplissez le formulaire ci-dessus pour voir les covoiturages
+                disponibles
+              </p>
+            </div>
+          </div>
+
+          <!-- MESSAGE PAS DE RÉSULTATS -->
+          <div class="no-results-message hidden" id="no-results-message">
+            <div class="message-content">
+              <i class="fas fa-car fa-3x"></i>
+              <h3>Aucun covoiturage trouvé</h3>
+              <p>Aucun trajet ne correspond à vos critères pour cette date.</p>
+              <div
+                class="alternative-suggestion"
+                id="alternative-suggestion"
+              ></div>
+            </div>
+          </div>
+
+          <!-- LISTE DES COVOITURAGES -->
+          <div class="covoiturages-list" id="covoiturages-list">
+            <!-- Les résultats seront injectés ici par JavaScript -->
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: contact@ecocovoit.fr</p>
-            </div>
-            <div class="footer-section">
-                <h3>Informations</h3>
-                <ul>
-                    <li><a href="mentions.html">Mentions légales</a></li>
-                </ul>
-            </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: contact@ecocovoit.fr</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 EcoCovoit. Tous droits réservés.</p>
+        <div class="footer-section">
+          <h3>Informations</h3>
+          <ul>
+            <li><a href="mentions.html">Mentions légales</a></li>
+          </ul>
         </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EcoCovoit. Tous droits réservés.</p>
+      </div>
     </footer>
 
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/covoiturage-search.js"></script>
-</body>
+  </body>
 </html>

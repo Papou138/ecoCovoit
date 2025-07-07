@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="assets/css/_header.css" />
     <link rel="stylesheet" href="assets/css/_footer.css" />
     <link rel="stylesheet" href="assets/css/mes-reservations.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   </head>
   <body>
     <header>
@@ -38,42 +41,57 @@
           <span class="hamburger-line" aria-hidden="true"></span>
         </button>
 
-        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal de navigation">
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
           <ul class="nav-list">
             <li><a href="index.html" class="nav-link">Accueil</a></li>
-            <li><a href="rechercher-covoiturage.html" class="nav-link">Rechercher</a></li>
+            <li>
+              <a href="rechercher-covoiturage.html" class="nav-link"
+                >Rechercher</a
+              >
+            </li>
             <li><a href="add-voyage.html" class="nav-link">Proposer</a></li>
-            <li><a href="mes-reservations.html" class="nav-link active">Mes réservations</a></li>
+            <li>
+              <a href="mes-reservations.html" class="nav-link active"
+                >Mes réservations</a
+              >
+            </li>
             <li><a href="historique.html" class="nav-link">Historique</a></li>
             <li><a href="user-profile.html" class="nav-link">Mon profil</a></li>
-            <li><a href="#" class="nav-link" id="logout-nav">Déconnexion</a></li>
+            <li>
+              <a href="#" class="nav-link" id="logout-nav">Déconnexion</a>
+            </li>
           </ul>
         </nav>
       </div>
     </header>
 
     <main>
-      <h1>📅 Mes trajets réservés</h1>
+      <h1><i></i> Mes trajets réservés</h1>
       <div id="reservations-container">Chargement...</div>
     </main>
 
     <script>
-      const container = document.getElementById("reservations-container");
+      const container = document.getElementById('reservations-container');
 
-      fetch("../backend/reservations/mes_reservations.php")
+      fetch('../backend/reservations/mes_reservations.php')
         .then((res) => res.json())
         .then((data) => {
-          container.innerHTML = "";
+          container.innerHTML = '';
 
           if (data.length === 0) {
             container.innerHTML =
-              "<p>Vous n’avez encore réservé aucun trajet.</p>";
+              '<p>Vous n’avez encore réservé aucun trajet.</p>';
             return;
           }
 
           data.forEach((trajet) => {
-            const div = document.createElement("div");
-            div.classList.add("trajet");
+            const div = document.createElement('div');
+            div.classList.add('trajet');
 
             div.innerHTML = `
             <h3>${trajet.ville_depart} → ${trajet.ville_arrivee}</h3>
@@ -81,9 +99,9 @@
             <p><strong>Chauffeur :</strong> ${trajet.pseudo_chauffeur}</p>
             <p><strong>Statut :</strong> ${trajet.statut}</p>
             ${
-              trajet.statut !== "termine"
+              trajet.statut !== 'termine'
                 ? `<button onclick="annuler(${trajet.id})">❌ Annuler</button>`
-                : ""
+                : ''
             }
           `;
 
@@ -92,12 +110,12 @@
         });
 
       function annuler(trajetId) {
-        if (!confirm("Annuler votre réservation pour ce trajet ?")) return;
+        if (!confirm('Annuler votre réservation pour ce trajet ?')) return;
 
-        fetch("../backend/trajets/annuler.php", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: "trajet_id=" + trajetId,
+        fetch('../backend/trajets/annuler.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: 'trajet_id=' + trajetId,
         })
           .then((res) => res.json())
           .then((data) => {
