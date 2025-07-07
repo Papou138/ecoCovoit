@@ -1,331 +1,434 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mes préférences – ecoCovoit</title>
-    <link rel="stylesheet" href="assets/css/_commun.css">
-    <link rel="stylesheet" href="assets/css/_header.css">
-    <link rel="stylesheet" href="assets/css/_footer.css">
-    <link rel="stylesheet" href="assets/css/add-preferences.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
+    <link rel="stylesheet" href="assets/css/_header.css" />
+    <link rel="stylesheet" href="assets/css/_footer.css" />
+    <link rel="stylesheet" href="assets/css/add-preferences.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
     <header>
-        <div class="header-content">
-            <div class="logo-container">
-                <img
-                    src="assets/img/logo-ecoRide.png"
-                    alt="Logo ecoCovoit"
-                    class="logo"
-                    width="50"
-                    height="50"
-                    loading="lazy"
-                />
-                <h1 class="app-title">ecoCovoit</h1>
-            </div>
-
-            <button
-                id="menu-toggle"
-                class="menu-toggle"
-                aria-label="Ouvrir le menu Principal"
-                aria-expanded="false"
-                aria-controls="main-nav"
-                type="button"
-            >
-                <span class="hamburger-line" aria-hidden="true"></span>
-                <span class="hamburger-line" aria-hidden="true"></span>
-                <span class="hamburger-line" aria-hidden="true"></span>
-            </button>
-
-            <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal de navigation">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Accueil</a></li>
-                    <li><a href="rechercher-covoiturage.html" class="nav-link">Rechercher</a></li>
-                    <li><a href="add-voyage.html" class="nav-link">Proposer</a></li>
-                    <li><a href="mes-reservations.html" class="nav-link">Mes réservations</a></li>
-                    <li><a href="historique.html" class="nav-link">Historique</a></li>
-                    <li><a href="user-profile.html" class="nav-link">Mon profil</a></li>
-                    <li><a href="add-preferences.html" class="nav-link active">Préférences</a></li>
-                    <li><a href="#" class="nav-link" id="logout-nav">Déconnexion</a></li>
-                </ul>
-            </nav>
+      <div class="header-content">
+        <div class="logo-container">
+          <img
+            src="assets/img/logo-ecoRide.png"
+            alt="Logo ecoCovoit"
+            class="logo"
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <h1 class="app-title">ecoCovoit</h1>
         </div>
+
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Ouvrir le menu Principal"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          type="button"
+        >
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
+          <ul class="nav-list">
+            <li><a href="index.html" class="nav-link">Accueil</a></li>
+            <li>
+              <a href="rechercher-covoiturage.html" class="nav-link"
+                >Rechercher</a
+              >
+            </li>
+            <li><a href="add-voyage.html" class="nav-link">Proposer</a></li>
+            <li>
+              <a href="mes-reservations.html" class="nav-link"
+                >Mes réservations</a
+              >
+            </li>
+            <li><a href="historique.html" class="nav-link">Historique</a></li>
+            <li><a href="user-profile.html" class="nav-link">Mon profil</a></li>
+            <li>
+              <a href="add-preferences.html" class="nav-link active"
+                >Préférences</a
+              >
+            </li>
+            <li>
+              <a href="#" class="nav-link" id="logout-nav">Déconnexion</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-    <div class="preferences-container">
+      <div class="preferences-container">
         <div class="preferences-header">
-            <h1><i class="fas fa-cog"></i> Mes préférences de covoiturage</h1>
-            <p>Personnalisez votre expérience ecoCovoit selon vos goûts</p>
+          <h1><i class="fas fa-cog"></i> Mes préférences de covoiturage</h1>
+          <p>Personnalisez votre expérience ecoCovoit selon vos goûts</p>
         </div>
 
         <form id="preferences-form" class="preferences-form">
-            <div class="preference-section">
-                <h3 class="section-title">
-                    <i class="fas fa-users"></i>
-                    Préférences de voyage
-                </h3>
-                <div class="preference-grid">
-                    <div class="preference-item">
-                        <label class="checkbox-custom">
-                            <input type="checkbox" name="fumeur" id="fumeur">
-                            <span class="checkmark"></span>
-                            <div>
-                                <div class="preference-label">J'accepte les fumeurs</div>
-                                <div class="preference-description">Voyages avec des passagers fumeurs</div>
-                            </div>
-                        </label>
+          <div class="preference-section">
+            <h3 class="section-title">
+              <i class="fas fa-users"></i>
+              Préférences de voyage
+            </h3>
+            <div class="preference-grid">
+              <div class="preference-item">
+                <label class="checkbox-custom">
+                  <input type="checkbox" name="fumeur" id="fumeur" />
+                  <span class="checkmark"></span>
+                  <div>
+                    <div class="preference-label">J'accepte les fumeurs</div>
+                    <div class="preference-description">
+                      Voyages avec des passagers fumeurs
                     </div>
+                  </div>
+                </label>
+              </div>
 
-                    <div class="preference-item">
-                        <label class="checkbox-custom">
-                            <input type="checkbox" name="animaux" id="animaux">
-                            <span class="checkmark"></span>
-                            <div>
-                                <div class="preference-label">J'accepte les animaux</div>
-                                <div class="preference-description">Voyage avec des animaux de compagnie</div>
-                            </div>
-                        </label>
+              <div class="preference-item">
+                <label class="checkbox-custom">
+                  <input type="checkbox" name="animaux" id="animaux" />
+                  <span class="checkmark"></span>
+                  <div>
+                    <div class="preference-label">J'accepte les animaux</div>
+                    <div class="preference-description">
+                      Voyage avec des animaux de compagnie
                     </div>
+                  </div>
+                </label>
+              </div>
 
-                    <div class="preference-item">
-                        <label class="checkbox-custom">
-                            <input type="checkbox" name="musique" id="musique">
-                            <span class="checkmark"></span>
-                            <div>
-                                <div class="preference-label">J'autorise la musique</div>
-                                <div class="preference-description">Écoute de musique pendant le trajet</div>
-                            </div>
-                        </label>
+              <div class="preference-item">
+                <label class="checkbox-custom">
+                  <input type="checkbox" name="musique" id="musique" />
+                  <span class="checkmark"></span>
+                  <div>
+                    <div class="preference-label">J'autorise la musique</div>
+                    <div class="preference-description">
+                      Écoute de musique pendant le trajet
                     </div>
+                  </div>
+                </label>
+              </div>
 
-                    <div class="preference-item">
-                        <label class="checkbox-custom">
-                            <input type="checkbox" name="conversation" id="conversation">
-                            <span class="checkmark"></span>
-                            <div>
-                                <div class="preference-label">J'aime la conversation</div>
-                                <div class="preference-description">Discussions pendant le voyage</div>
-                            </div>
-                        </label>
+              <div class="preference-item">
+                <label class="checkbox-custom">
+                  <input
+                    type="checkbox"
+                    name="conversation"
+                    id="conversation"
+                  />
+                  <span class="checkmark"></span>
+                  <div>
+                    <div class="preference-label">J'aime la conversation</div>
+                    <div class="preference-description">
+                      Discussions pendant le voyage
                     </div>
+                  </div>
+                </label>
+              </div>
 
-                    <div class="preference-item">
-                        <label class="checkbox-custom">
-                            <input type="checkbox" name="bagages" id="bagages">
-                            <span class="checkmark"></span>
-                            <div>
-                                <div class="preference-label">J'accepte les gros bagages</div>
-                                <div class="preference-description">Valises et sacs volumineux</div>
-                            </div>
-                        </label>
+              <div class="preference-item">
+                <label class="checkbox-custom">
+                  <input type="checkbox" name="bagages" id="bagages" />
+                  <span class="checkmark"></span>
+                  <div>
+                    <div class="preference-label">
+                      J'accepte les gros bagages
                     </div>
-
-                    <div class="preference-item">
-                        <label class="checkbox-custom">
-                            <input type="checkbox" name="climatisation" id="climatisation">
-                            <span class="checkmark"></span>
-                            <div>
-                                <div class="preference-label">Climatisation disponible</div>
-                                <div class="preference-description">Véhicule avec climatisation</div>
-                            </div>
-                        </label>
+                    <div class="preference-description">
+                      Valises et sacs volumineux
                     </div>
-                </div>
+                  </div>
+                </label>
+              </div>
 
-                <div class="textarea-group">
-                    <label for="autres">Préférences personnalisées</label>
-                    <textarea
-                        id="autres"
-                        name="autres"
-                        class="custom-textarea"
-                        placeholder="Décrivez vos préférences spécifiques (ex: arrêts autorisés, type de musique, etc.)"
-                        maxlength="300"
-                    ></textarea>
-                </div>
+              <div class="preference-item">
+                <label class="checkbox-custom">
+                  <input
+                    type="checkbox"
+                    name="climatisation"
+                    id="climatisation"
+                  />
+                  <span class="checkmark"></span>
+                  <div>
+                    <div class="preference-label">Climatisation disponible</div>
+                    <div class="preference-description">
+                      Véhicule avec climatisation
+                    </div>
+                  </div>
+                </label>
+              </div>
             </div>
 
-            <div class="preference-section">
-                <h3 class="section-title">
-                    <i class="fas fa-bell"></i>
-                    Notifications
-                </h3>
-                <div class="notification-section">
-                    <div class="notification-item">
-                        <div>
-                            <div class="preference-label">Nouvelles demandes de réservation</div>
-                            <div class="preference-description">Recevoir un email lors d'une nouvelle demande</div>
-                        </div>
-                        <button type="button" class="toggle-switch" onclick="toggleNotification(this, 'nouvelles_demandes')" onkeydown="if(event.key==='Enter') toggleNotification(this, 'nouvelles_demandes')" role="switch" aria-checked="false" aria-label="Activer les notifications de nouvelles demandes"></button>
-                    </div>
+            <div class="textarea-group">
+              <label for="autres">Préférences personnalisées</label>
+              <textarea
+                id="autres"
+                name="autres"
+                class="custom-textarea"
+                placeholder="Décrivez vos préférences spécifiques (ex: arrêts autorisés, type de musique, etc.)"
+                maxlength="300"
+              ></textarea>
+            </div>
+          </div>
 
-                    <div class="notification-item">
-                        <div>
-                            <div class="preference-label">Confirmations de réservation</div>
-                            <div class="preference-description">Notifications lors de confirmations</div>
-                        </div>
-                        <button type="button" class="toggle-switch" onclick="toggleNotification(this, 'confirmations')" onkeydown="if(event.key==='Enter') toggleNotification(this, 'confirmations')" role="switch" aria-checked="false" aria-label="Activer les notifications de confirmation"></button>
-                    </div>
-
-                    <div class="notification-item">
-                        <div>
-                            <div class="preference-label">Rappels de trajets</div>
-                            <div class="preference-description">Rappel 24h avant le départ</div>
-                        </div>
-                        <button type="button" class="toggle-switch active" onclick="toggleNotification(this, 'rappels')" onkeydown="if(event.key==='Enter') toggleNotification(this, 'rappels')" role="switch" aria-checked="true" aria-label="Activer les rappels de trajet"></button>
-                    </div>
-
-                    <div class="notification-item">
-                        <div>
-                            <div class="preference-label">Newsletter ecoCovoit</div>
-                            <div class="preference-description">Conseils et actualités écologiques</div>
-                        </div>
-                        <button type="button" class="toggle-switch" onclick="toggleNotification(this, 'newsletter')" onkeydown="if(event.key==='Enter') toggleNotification(this, 'newsletter')" role="switch" aria-checked="false" aria-label="Activer la newsletter"></button>
-                    </div>
+          <div class="preference-section">
+            <h3 class="section-title">
+              <i class="fas fa-bell"></i>
+              Notifications
+            </h3>
+            <div class="notification-section">
+              <div class="notification-item">
+                <div>
+                  <div class="preference-label">
+                    Nouvelles demandes de réservation
+                  </div>
+                  <div class="preference-description">
+                    Recevoir un email lors d'une nouvelle demande
+                  </div>
                 </div>
-            </div>
+                <button
+                  type="button"
+                  class="toggle-switch"
+                  onclick="toggleNotification(this, 'nouvelles_demandes')"
+                  onkeydown="if(event.key==='Enter') toggleNotification(this, 'nouvelles_demandes')"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="Activer les notifications de nouvelles demandes"
+                ></button>
+              </div>
 
-            <div class="form-actions">
-                <button type="button" class="btn btn-secondary" onclick="history.back()">
-                    <i class="fas fa-arrow-left"></i>
-                    Retour
-                </button>
-                <button type="submit" class="btn btn-primary" id="save-btn">
-                    <i class="fas fa-save"></i>
-                    Sauvegarder mes préférences
-                </button>
-            </div>
+              <div class="notification-item">
+                <div>
+                  <div class="preference-label">
+                    Confirmations de réservation
+                  </div>
+                  <div class="preference-description">
+                    Notifications lors de confirmations
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="toggle-switch"
+                  onclick="toggleNotification(this, 'confirmations')"
+                  onkeydown="if(event.key==='Enter') toggleNotification(this, 'confirmations')"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="Activer les notifications de confirmation"
+                ></button>
+              </div>
 
-            <div id="preferences-message" class="message-box hidden"></div>
+              <div class="notification-item">
+                <div>
+                  <div class="preference-label">Rappels de trajets</div>
+                  <div class="preference-description">
+                    Rappel 24h avant le départ
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="toggle-switch active"
+                  onclick="toggleNotification(this, 'rappels')"
+                  onkeydown="if(event.key==='Enter') toggleNotification(this, 'rappels')"
+                  role="switch"
+                  aria-checked="true"
+                  aria-label="Activer les rappels de trajet"
+                ></button>
+              </div>
+
+              <div class="notification-item">
+                <div>
+                  <div class="preference-label">Newsletter ecoCovoit</div>
+                  <div class="preference-description">
+                    Conseils et actualités écologiques
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  class="toggle-switch"
+                  onclick="toggleNotification(this, 'newsletter')"
+                  onkeydown="if(event.key==='Enter') toggleNotification(this, 'newsletter')"
+                  role="switch"
+                  aria-checked="false"
+                  aria-label="Activer la newsletter"
+                ></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="history.back()"
+            >
+              <i class="fas fa-arrow-left"></i>
+              Retour
+            </button>
+            <button type="submit" class="btn btn-primary" id="save-btn">
+              <i class="fas fa-save"></i>
+              Sauvegarder mes préférences
+            </button>
+          </div>
+
+          <div id="preferences-message" class="message-box hidden"></div>
         </form>
-    </div>
+      </div>
 
-    <script>
+      <script>
         let notifications = {
-            nouvelles_demandes: false,
-            confirmations: false,
-            rappels: true,
-            newsletter: false
+          nouvelles_demandes: false,
+          confirmations: false,
+          rappels: true,
+          newsletter: false,
         };
 
-        document.addEventListener('DOMContentLoaded', function() {
-            loadPreferences();
-            setupEventListeners();
+        document.addEventListener('DOMContentLoaded', function () {
+          loadPreferences();
+          setupEventListeners();
         });
 
         function loadPreferences() {
-            // Simulation du chargement des préférences depuis le serveur
-            // En réalité, ces données viendraient d'une API
-            setTimeout(() => {
-                // Exemple de préférences pré-chargées
-                document.getElementById('musique').checked = true;
-                document.getElementById('conversation').checked = true;
-                document.getElementById('climatisation').checked = true;
-            }, 300);
+          // Simulation du chargement des préférences depuis le serveur
+          // En réalité, ces données viendraient d'une API
+          setTimeout(() => {
+            // Exemple de préférences pré-chargées
+            document.getElementById('musique').checked = true;
+            document.getElementById('conversation').checked = true;
+            document.getElementById('climatisation').checked = true;
+          }, 300);
         }
 
         function setupEventListeners() {
-            const form = document.getElementById('preferences-form');
+          const form = document.getElementById('preferences-form');
 
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                savePreferences();
-            });
+          form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            savePreferences();
+          });
 
-            // Compteur de caractères pour le textarea
-            const textarea = document.getElementById('autres');
-            textarea.addEventListener('input', function() {
-                // Possibilité d'ajouter un compteur de caractères plus tard
-            });
+          // Compteur de caractères pour le textarea
+          const textarea = document.getElementById('autres');
+          textarea.addEventListener('input', function () {
+            // Possibilité d'ajouter un compteur de caractères plus tard
+          });
         }
 
         function toggleNotification(toggle, type) {
-            toggle.classList.toggle('active');
-            notifications[type] = toggle.classList.contains('active');
+          toggle.classList.toggle('active');
+          notifications[type] = toggle.classList.contains('active');
         }
 
         function savePreferences() {
-            const submitBtn = document.getElementById('save-btn');
-            const originalText = submitBtn.innerHTML;
+          const submitBtn = document.getElementById('save-btn');
+          const originalText = submitBtn.innerHTML;
 
-            // Affichage du loading
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sauvegarde...';
-            submitBtn.disabled = true;
+          // Affichage du loading
+          submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Sauvegarde...';
+          submitBtn.disabled = true;
 
-            const formData = new FormData();
+          const formData = new FormData();
 
-            // Collecter les préférences de voyage
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]:not([type="hidden"])');
-            checkboxes.forEach(checkbox => {
-                formData.append(checkbox.name, checkbox.checked ? '1' : '0');
-            });
+          // Collecter les préférences de voyage
+          const checkboxes = document.querySelectorAll(
+            'input[type="checkbox"]:not([type="hidden"])'
+          );
+          checkboxes.forEach((checkbox) => {
+            formData.append(checkbox.name, checkbox.checked ? '1' : '0');
+          });
 
-            // Ajouter les préférences personnalisées
-            formData.append('autres', document.getElementById('autres').value);
+          // Ajouter les préférences personnalisées
+          formData.append('autres', document.getElementById('autres').value);
 
-            // Ajouter les notifications
-            Object.keys(notifications).forEach(key => {
-                formData.append(`notification_${key}`, notifications[key] ? '1' : '0');
-            });
+          // Ajouter les notifications
+          Object.keys(notifications).forEach((key) => {
+            formData.append(
+              `notification_${key}`,
+              notifications[key] ? '1' : '0'
+            );
+          });
 
-            fetch('../backend/preferences/enregistrer.php', {
-                method: 'POST',
-                body: formData
+          fetch('../backend/preferences/enregistrer.php', {
+            method: 'POST',
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                showMessage(
+                  'Préférences sauvegardées avec succès ! 🎉',
+                  'success'
+                );
+              } else {
+                showMessage(
+                  data.message || 'Erreur lors de la sauvegarde',
+                  'error'
+                );
+              }
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    showMessage('Préférences sauvegardées avec succès ! 🎉', 'success');
-                } else {
-                    showMessage(data.message || 'Erreur lors de la sauvegarde', 'error');
-                }
-            })
-            .catch(error => {
-                console.error('Erreur:', error);
-                showMessage('Erreur réseau. Veuillez réessayer.', 'error');
+            .catch((error) => {
+              console.error('Erreur:', error);
+              showMessage('Erreur réseau. Veuillez réessayer.', 'error');
             })
             .finally(() => {
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
+              submitBtn.innerHTML = originalText;
+              submitBtn.disabled = false;
             });
         }
 
         function showMessage(text, type) {
-            const messageBox = document.getElementById('preferences-message');
-            messageBox.textContent = text;
-            messageBox.className = `message-box ${type}`;
-            messageBox.style.display = 'block';
+          const messageBox = document.getElementById('preferences-message');
+          messageBox.textContent = text;
+          messageBox.className = `message-box ${type}`;
+          messageBox.style.display = 'block';
 
-            // Auto-hide après 3 secondes pour les messages de succès
-            if (type === 'success') {
-                setTimeout(() => {
-                    messageBox.style.display = 'none';
-                }, 3000);
-            }
+          // Auto-hide après 3 secondes pour les messages de succès
+          if (type === 'success') {
+            setTimeout(() => {
+              messageBox.style.display = 'none';
+            }, 3000);
+          }
         }
-    </script>
-
+      </script>
     </main>
 
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>Email: contact@ecocovoit.fr</p>
-            </div>
-            <div class="footer-section">
-                <h3>Informations</h3>
-                <ul>
-                    <li><a href="mentions.html">Mentions légales</a></li>
-                </ul>
-            </div>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: contact@ecoride.fr</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 EcoCovoit. Tous droits réservés.</p>
+        <div class="footer-section">
+          <h3>Informations</h3>
+          <ul>
+            <li><a href="mentions.html">Mentions légales</a></li>
+          </ul>
         </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+      </div>
     </footer>
 
     <script src="assets/js/menu.js"></script>
-</body>
+  </body>
 </html>
