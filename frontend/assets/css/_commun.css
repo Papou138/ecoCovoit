@@ -4,7 +4,7 @@
 
 :root {
   /* FAMILLES DE POLICES */
-  --font-mono: "Consolas", "Monaco", monospace;
+  --font-mono: 'Consolas', 'Monaco', monospace;
 
   /* PALETTE DE COULEURS */
   --color-primary: #4caf50; /* Vert - Couleur principale */
@@ -18,6 +18,7 @@
   /* COULEURS DE TEXTE */
   --color-text-primary: #333333; /* Texte principal */
   --color-text-secondary: #666666; /* Texte secondaire */
+  --color-text-tertiary: #2196f3; /* Texte tertiaire */
   --color-text-light: #ffffff; /* Texte clair */
 
   /* COULEURS DE FOND */
@@ -553,12 +554,12 @@ select[disabled] {
   opacity: 0.7;
 }
 
-input[type="date"].form-input {
+input[type='date'].form-input {
   padding-right: var(--space-lg);
 }
 
-input[type="checkbox"],
-input[type="radio"] {
+input[type='checkbox'],
+input[type='radio'] {
   accent-color: var(--color-primary);
   margin-right: var(--space-xs);
 }

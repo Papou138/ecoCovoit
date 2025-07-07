@@ -58,21 +58,29 @@
         >
           <ul class="nav-list">
             <li>
-              <a href="index.html" class="nav-link active"><i></i> Accueil</a>
-            </li>
-            <li>
-              <a href="rechercher-covoiturage.html" class="nav-link"
-                >Covoiturages</a
+              <a href="index.html" class="nav-link active"
+                ><i class="fas fa-home"></i> Accueil</a
               >
             </li>
             <li>
-              <a href="contact.html" class="nav-link"><i></i> Contact</a>
+              <a href="rechercher-covoiturage.html" class="nav-link"
+                ><i class="fas fa-car"></i> Covoiturages</a
+              >
             </li>
             <li>
-              <a href="login.html" class="nav-link"><i></i> Connexion</a>
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
             </li>
             <li>
-              <a href="register.html" class="nav-link"><i></i> Inscription</a>
+              <a href="login.html" class="nav-link"
+                ><i class="fas fa-sign-in-alt"></i> Connexion</a
+              >
+            </li>
+            <li>
+              <a href="register.html" class="nav-link"
+                ><i class="fas fa-user-plus"></i> Inscription</a
+              >
             </li>
           </ul>
         </nav>
@@ -92,10 +100,12 @@
               déplacements !
             </p>
             <p>
-              <i></i> Optez pour des véhicules électriques<br />
-              <i></i> Réduisez vos coûts de transport<br />
-              <i></i> Rencontrez de nouvelles personnes<br />
-              <i></i> Protégez l'environnement
+              <i class="fas fa-battery-full"></i> Optez pour des véhicules
+              électriques<br />
+              <i class="fas fa-piggy-bank"></i> Réduisez vos coûts de
+              transport<br />
+              <i class="fas fa-users"></i> Rencontrez de nouvelles personnes<br />
+              <i class="fas fa-leaf"></i> Protégez l'environnement
             </p>
           </div>
           <div class="image-container">
@@ -116,7 +126,9 @@
           <form id="search-form" class="search-form">
             <div class="search-main-fields">
               <div class="form-group">
-                <label for="departure">Ville de départ</label>
+                <label for="departure"
+                  ><i class="fas fa-map-marker-alt"></i> Ville de départ</label
+                >
                 <input
                   type="text"
                   id="departure"
@@ -127,7 +139,9 @@
                 />
               </div>
               <div class="form-group">
-                <label for="arrival">Ville d'arrivée</label>
+                <label for="arrival"
+                  ><i class="fas fa-map-pin"></i> Ville d'arrivée</label
+                >
                 <input
                   type="text"
                   id="arrival"
@@ -138,7 +152,9 @@
                 />
               </div>
               <div class="form-group">
-                <label for="date">Date de départ</label>
+                <label for="date"
+                  ><i class="fas fa-calendar-days"></i>Date de départ</label
+                >
                 <input
                   type="date"
                   id="date"
@@ -157,19 +173,27 @@
               </button>
 
               <div class="filters-content" id="filters-content">
-                <div class="filters-grid">
-                  <div class="form-group">
-                    <label for="eco-filter">
+                <!-- Section checkbox véhicules électriques -->
+                <div class="filters-checkbox-section">
+                  <div class="form-group form-group-checkbox">
+                    <label for="eco-filter" class="checkbox-label">
                       <input
                         type="checkbox"
                         id="eco-filter"
                         name="eco-filter"
                       />
-                      Véhicules électriques uniquement
+                      <i class="fas fa-bolt"></i> Véhicules électriques uniquement
                     </label>
                   </div>
+                </div>
+
+                <!-- Grille des filtres numériques -->
+                <div class="filters-grid">
+                  <!-- Filtre prix maximum -->
                   <div class="form-group">
-                    <label for="max-price">Prix maximum (€)</label>
+                    <label for="max-price"
+                      ><i class="fas fa-euro-sign"></i> Prix maximum</label
+                    >
                     <input
                       type="number"
                       id="max-price"
@@ -179,20 +203,28 @@
                       class="form-input"
                     />
                   </div>
+
+                  <!-- Filtre durée maximum -->
                   <div class="form-group">
-                    <label for="max-duration">Durée maximum (heures)</label>
+                    <label for="max-duration"
+                      ><i class="fa-regular fa-clock"></i> Durée maximum</label
+                    >
                     <input
                       type="number"
                       id="max-duration"
                       name="max-duration"
-                      placeholder="Ex: 4"
+                      placeholder="Ex: 4h"
                       min="0"
                       step="0.5"
                       class="form-input"
                     />
                   </div>
+
+                  <!-- Filtre note minimum -->
                   <div class="form-group">
-                    <label for="min-rating">Note minimum</label>
+                    <label for="min-rating"
+                      ><i class="fa-regular fa-star"></i> Note minimum</label
+                    >
                     <select
                       id="min-rating"
                       name="min-rating"
@@ -272,41 +304,81 @@
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h3><i></i> ecoCovoit</h3>
-          <p><i></i> La plateforme de covoiturage écoresponsable</p>
-          <p><i></i> Réduisons ensemble notre empreinte carbone</p>
-        </div>
-        <div class="footer-section">
-          <h3><i></i> Contact</h3>
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
-            Email:
-            <a href="mailto:contact@ecocovoit.fr">contact@ecocovoit.fr</a>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
           </p>
-          <p>Tél: +33 1 23 45 67 89</p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
+          </p>
         </div>
         <div class="footer-section">
-          <h3><i></i> Informations</h3>
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:contact@ecocovoit.fr"> contact@ecocovoit.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
           <ul>
-            <li><a href="mentions.html">Mentions légales</a></li>
-            <li><a href="contact.html">Nous contacter</a></li>
+            <li>
+              <i class="fas fa-gavel"></i
+              ><a href="mentions.html"> Mentions légales</a>
+            </li>
           </ul>
         </div>
         <div class="footer-section">
-          <h3><i></i> Suivez-nous</h3>
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
           <div class="social-links">
-            <a href="#" class="social-link" title="Facebook"><i></i></a>
-            <a href="#" class="social-link" title="Twitter"><i></i></a>
-            <a href="#" class="social-link" title="LinkedIn"><i></i></a>
+            <a href="#" class="social-link" title="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" title="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" title="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 EcoCovoit. Tous droits réservés.</p>
-        <p><i></i> Pour une mobilité plus verte</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf text-green"></i>
+        </p>
       </div>
     </footer>
 
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/search.js"></script>
+    <script>
+      // Gestion des filtres avancés
+      document.addEventListener('DOMContentLoaded', function () {
+        const toggleButton = document.getElementById('toggle-filters');
+        const filtersContent = document.getElementById('filters-content');
+
+        if (toggleButton && filtersContent) {
+          toggleButton.addEventListener('click', function () {
+            const isActive = filtersContent.classList.contains('active');
+
+            if (isActive) {
+              filtersContent.classList.remove('active');
+              toggleButton.classList.remove('active');
+              toggleButton.setAttribute('aria-expanded', 'false');
+            } else {
+              filtersContent.classList.add('active');
+              toggleButton.classList.add('active');
+              toggleButton.setAttribute('aria-expanded', 'true');
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>
