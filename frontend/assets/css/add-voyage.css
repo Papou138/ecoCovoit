@@ -217,3 +217,9 @@
     flex-direction: column;
   }
 }
+
+/* ===== CLASSES UTILITAIRES ===== */
+
+.hidden {
+    display: none;
+}

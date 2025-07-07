@@ -370,6 +370,12 @@
   width: 100%;
 }
 
+/* ===== CLASSES UTILITAIRES ===== */
+
+.hidden {
+    display: none;
+}
+
 /* ======================= */
 /* =  RESPONSIVE DESIGN  = */
 /* ======================= */

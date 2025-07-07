@@ -1,18 +1,83 @@
 /* ================================================== */
-/* =  STYLES SPECIFIQUES A LA PAGE EMPLOYEE.HTML    = */
+/* =  STYLES SPECIFIQUES A LA PAGE EMPLOYEE-AVIS.HTML    = */
 /* ================================================== */
 
-/* ===== CONTENEUR PRINCIPALE POUR LA GESTION DES AVIS (employé) ===== */
-.employe-avis-container {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 2rem;
+/* ===== CONTENEUR PRINCIPAL POUR LA GESTION DES AVIS (employé) ===== */
+
+.employee-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.employe-avis-title {
+.employee-header {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
     text-align: center;
-    color: #27ae60;
-    margin-bottom: 2rem;
+}
+
+.employee-header h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5rem;
+}
+
+/* ===== TABLEAU DE BORD ET STATISTIQUES ===== */
+
+.stats-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #7f8c8d;
+    font-size: 1rem;
+}
+
+/* ===== PANNEAU DE FILTRES ===== */
+
+.filters-panel {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.filters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
 .avis-filters {
@@ -24,62 +89,78 @@
 
 .filter-group {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.avis-list {
-    display: flex;
     flex-direction: column;
-    gap: 1rem;
-}
-
-.avis-item {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid #3498db;
-}
-
-.avis-item.pending {
-    border-left-color: #f39c12;
-}
-
-.avis-item.validated {
-    border-left-color: #27ae60;
-}
-
-.avis-item.rejected {
-    border-left-color: #e74c3c;
-}
-
-.avis-header {
-    display: flex;
-    justify-content: between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.avis-rating {
-    display: flex;
-    gap: 0.2rem;
-    color: #f39c12;
-}
-
-.avis-date {
-    color: #7f8c8d;
-    font-size: 0.9rem;
-}
-
-.avis-content {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-
-.avis-actions {
-    display: flex;
+    align-items: start;
     gap: 0.5rem;
+}
+
+.filter-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.filter-group select,
+.filter-group input {
+    padding: 12px;
+    border: 2px solid #ecf0f1;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.search-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* ===== BOUTONS ===== */
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: #3498db;
+    color: white;
+}
+
+.btn-success {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-danger {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-warning {
+    background: #f39c12;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
 }
 
 .btn-validate {
@@ -108,4 +189,262 @@
 
 .btn-reject:hover {
     background: #c0392b;
+}
+
+/* ===== LISTE ET CARTES D'AVIS ===== */
+
+.avis-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.avis-container {
+    display: grid;
+    gap: 20px;
+}
+
+.avis-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #3498db;
+}
+
+.avis-item.pending {
+    border-left-color: #f39c12;
+}
+
+.avis-item.validated {
+    border-left-color: #27ae60;
+}
+
+.avis-item.rejected {
+    border-left-color: #e74c3c;
+}
+
+.avis-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.avis-card:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.avis-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.avis-meta {
+    flex: 1;
+}
+
+.avis-trajet {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.avis-date {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.avis-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+    color: #f39c12;
+}
+
+.stars {
+    color: #f39c12;
+    font-size: 1.2rem;
+}
+
+.rating-value {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-left: 5px;
+}
+
+.avis-status {
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.status-en-attente {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-valide {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-rejete {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.avis-content {
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+.avis-comment {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.avis-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detail-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+}
+
+.avis-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    border-top: 1px solid #ecf0f1;
+}
+
+/* ===== SECTION DE MODÉRATION ===== */
+
+.moderate-section {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.moderate-textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border: 2px solid #ecf0f1;
+    border-radius: 8px;
+    resize: vertical;
+    font-family: inherit;
+    margin-bottom: 15px;
+}
+
+.moderate-textarea:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* ===== ÉTATS ET ANIMATIONS ===== */
+
+.loading {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.no-results-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+/* ===== CLASSES UTILITAIRES ===== */
+
+.hidden {
+    display: none;
+}
+
+.flex-gap {
+    display: flex;
+    gap: 10px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 768px) {
+    .employee-container {
+        padding: 10px;
+    }
+
+    .employee-header h1 {
+        font-size: 2rem;
+    }
+
+    .stats-dashboard {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .filters-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .avis-header {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .avis-details {
+        grid-template-columns: 1fr;
+    }
+
+    .avis-actions {
+        flex-direction: column;
+    }
 }

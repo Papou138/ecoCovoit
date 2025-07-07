@@ -568,6 +568,12 @@
   justify-content: flex-end;
 }
 
+/* ===== CLASSES UTILITAIRES ===== */
+
+.hidden {
+    display: none;
+}
+
 /* ======================= */
 /* =  RESPONSIVE DESIGN  = */
 /* ======================= */
