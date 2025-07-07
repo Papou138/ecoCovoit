@@ -182,7 +182,8 @@
                         id="eco-filter"
                         name="eco-filter"
                       />
-                      <i class="fas fa-bolt"></i> Véhicules électriques uniquement
+                      <i class="fas fa-bolt"></i> Véhicules électriques
+                      uniquement
                     </label>
                   </div>
                 </div>
@@ -357,28 +358,5 @@
 
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/search.js"></script>
-    <script>
-      // Gestion des filtres avancés
-      document.addEventListener('DOMContentLoaded', function () {
-        const toggleButton = document.getElementById('toggle-filters');
-        const filtersContent = document.getElementById('filters-content');
-
-        if (toggleButton && filtersContent) {
-          toggleButton.addEventListener('click', function () {
-            const isActive = filtersContent.classList.contains('active');
-
-            if (isActive) {
-              filtersContent.classList.remove('active');
-              toggleButton.classList.remove('active');
-              toggleButton.setAttribute('aria-expanded', 'false');
-            } else {
-              filtersContent.classList.add('active');
-              toggleButton.classList.add('active');
-              toggleButton.setAttribute('aria-expanded', 'true');
-            }
-          });
-        }
-      });
-    </script>
   </body>
 </html>

@@ -4,11 +4,38 @@ const selectNote = document.getElementById("filtre-note");
 const resultats = document.getElementById("resultats");
 const formRecherche = document.getElementById("formRecherche");
 
-// Écouteur pour le formulaire de recherche
-formRecherche.addEventListener("submit", function (e) {
-  e.preventDefault();
-  chargerTrajets(new FormData(this));
-});
+// Gestion des filtres avancés - Doit être exécuté immédiatement
+(function() {
+  const toggleButton = document.getElementById('toggle-filters');
+  const filtersContent = document.getElementById('filters-content');
+
+  if (toggleButton && filtersContent) {
+    toggleButton.addEventListener('click', function () {
+      const isActive = filtersContent.classList.contains('active');
+
+      if (isActive) {
+        filtersContent.classList.remove('active');
+        toggleButton.classList.remove('active');
+        toggleButton.setAttribute('aria-expanded', 'false');
+      } else {
+        filtersContent.classList.add('active');
+        toggleButton.classList.add('active');
+        toggleButton.setAttribute('aria-expanded', 'true');
+      }
+    });
+    
+    // Initialiser l'attribut aria-expanded
+    toggleButton.setAttribute('aria-expanded', 'false');
+  }
+})();
+
+// Écouteur pour le formulaire de recherche (si présent)
+if (formRecherche) {
+  formRecherche.addEventListener("submit", function (e) {
+    e.preventDefault();
+    chargerTrajets(new FormData(this));
+  });
+}
 
 // Fonction pour charger les trajets
 async function chargerTrajets(formData) {
@@ -150,18 +177,40 @@ function afficherTrajets(trajets) {
   });
 }
 
-// Initialisation des écouteurs d'événements
-selectTri.addEventListener("change", trierEtAfficher);
-selectNote.addEventListener("change", trierEtAfficher);
-
-// Gestion de l'affichage des filtres avancés
-const toggleFiltersBtn = document.getElementById("toggle-filters");
-const filtersContent = document.getElementById("filters-content");
-
-if (toggleFiltersBtn && filtersContent) {
-  toggleFiltersBtn.addEventListener("click", function () {
-    const isActive = filtersContent.classList.toggle("active");
-    toggleFiltersBtn.setAttribute("aria-expanded", isActive);
-    filtersContent.setAttribute("aria-hidden", !isActive);
+// Gestion du formulaire de recherche pour index.html
+const searchForm = document.getElementById('search-form');
+if (searchForm) {
+  searchForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Récupérer les valeurs du formulaire
+    const departure = document.getElementById('departure').value;
+    const arrival = document.getElementById('arrival').value;
+    const date = document.getElementById('date').value;
+    const ecoFilter = document.getElementById('eco-filter').checked;
+    const maxPrice = document.getElementById('max-price').value;
+    const maxDuration = document.getElementById('max-duration').value;
+    const minRating = document.getElementById('min-rating').value;
+    
+    // Construire l'URL avec les paramètres de recherche
+    const params = new URLSearchParams();
+    if (departure) params.append('depart', departure);
+    if (arrival) params.append('arrivee', arrival);
+    if (date) params.append('date', date);
+    if (ecoFilter) params.append('eco', '1');
+    if (maxPrice) params.append('max_prix', maxPrice);
+    if (maxDuration) params.append('max_duree', maxDuration);
+    if (minRating) params.append('min_note', minRating);
+    
+    // Rediriger vers la page de résultats
+    window.location.href = `rechercher-covoiturage.html?${params.toString()}`;
   });
+}
+
+// Initialisation des écouteurs d'événements (si les éléments existent)
+if (selectTri) {
+  selectTri.addEventListener("change", trierEtAfficher);
+}
+if (selectNote) {
+  selectNote.addEventListener("change", trierEtAfficher);
 }
