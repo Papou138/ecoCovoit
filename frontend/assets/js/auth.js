@@ -496,6 +496,21 @@ class AuthManager {
   }
 }
 
+/**
+ * Fonction globale de déconnexion
+ */
+async function logout() {
+  if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+    try {
+      await fetch('../backend/auth/logout.php');
+      window.location.href = 'login.html';
+    } catch (error) {
+      console.error('Erreur lors de la déconnexion:', error);
+      window.location.href = 'login.html';
+    }
+  }
+}
+
 // Initialisation
 document.addEventListener('DOMContentLoaded', () => {
   // Vérifier si l'utilisateur est déjà connecté

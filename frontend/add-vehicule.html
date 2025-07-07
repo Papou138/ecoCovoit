@@ -48,31 +48,49 @@
           aria-label="Menu principal de navigation"
         >
           <ul class="nav-list">
-            <li><a href="index.html" class="nav-link">Accueil</a></li>
+            <li>
+              <a href="index.html" class="nav-link"
+                ><i class="fas fa-home"></i> Accueil</a
+              >
+            </li>
             <li>
               <a href="rechercher-covoiturage.html" class="nav-link"
-                >Rechercher</a
+                ><i class="fas fa-search"></i> Rechercher</a
               >
             </li>
-            <li><a href="add-voyage.html" class="nav-link">Publier</a></li>
+            <li>
+              <a href="add-voyage.html" class="nav-link"
+                ><i class="fas fa-plus-circle"></i> Publier</a
+              >
+            </li>
             <li>
               <a href="mes-reservations.html" class="nav-link"
-                >Mes réservations</a
+                ><i class="fas fa-calendar-check"></i> Mes réservations</a
               >
             </li>
-            <li><a href="historique.html" class="nav-link">Historique</a></li>
-            <li><a href="user-profile.html" class="nav-link">Mon profil</a></li>
+            <li>
+              <a href="historique.html" class="nav-link"
+                ><i class="fas fa-history"></i> Historique</a
+              >
+            </li>
+            <li>
+              <a href="user-profile.html" class="nav-link"
+                ><i class="fas fa-user"></i> Mon profil</a
+              >
+            </li>
             <li>
               <a href="add-vehicule.html" class="nav-link active"
-                >Mes véhicules</a
+                ><i class="fas fa-car"></i> Mes véhicules</a
               >
             </li>
             <li>
-              <a href="add-preferences.html" class="nav-link">Préférences</a>
+              <a href="add-preferences.html" class="nav-link"
+                ><i class="fas fa-cog"></i> Préférences</a
+              >
             </li>
             <li>
               <a href="#" class="nav-link logout-btn" onclick="logout()"
-                >Déconnexion</a
+                ><i class="fas fa-sign-out-alt"></i> Déconnexion</a
               >
             </li>
           </ul>
@@ -81,17 +99,35 @@
     </header>
 
     <main>
-      <div class="auth-container">
-        <div class="auth-card vehicle-form">
-          <div class="auth-header">
-            <div class="auth-icon">
-              <i class="fas fa-car"></i>
-            </div>
-            <h1 id="form-title">Ajouter un véhicule</h1>
-            <p class="auth-subtitle">
-              Renseignez les informations de votre véhicule
+      <!-- SECTION PRESENTATION -->
+      <section class="presentation-section">
+        <div class="presentation-content">
+          <div class="text-content">
+            <h2 id="form-title">Ajouter un véhicule</h2>
+            <p>
+              <i class="fas fa-car"></i> Enregistrez votre véhicule pour proposer des covoiturages
+            </p>
+            <p>
+              <i class="fas fa-shield-alt"></i> Informations sécurisées<br />
+              <i class="fas fa-leaf"></i> Participez à l'éco-mobilité<br />
+              <i class="fas fa-users"></i> Partagez vos trajets<br />
+              <i class="fas fa-heart"></i> Réduisons l'empreinte carbone
             </p>
           </div>
+          <div class="image-container">
+            <div class="vehicle-hero-icon">
+              <i class="fas fa-car-side"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION FORMULAIRE -->
+      <section class="vehicle-form-section">
+        <div class="container">
+          <h2>Informations du véhicule</h2>
+          <div class="auth-container">
+            <div class="auth-card vehicle-form">
 
           <form id="vehicle-form" class="auth-form">
             <div class="form-row">
@@ -233,47 +269,66 @@
           </form>
         </div>
       </div>
-    </main>
+    </section>
+  </main>
 
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>ecoCovoit</h3>
-          <p>La plateforme de covoiturage écoresponsable</p>
-          <p>Réduisons ensemble notre empreinte carbone</p>
-        </div>
-        <div class="footer-section">
-          <h3>Contact</h3>
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
-            Email:
-            <a href="mailto:contact@ecoride.fr">contact@ecoride.fr</a>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
           </p>
-          <p>Tél: +33 1 23 45 67 89</p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
+          </p>
         </div>
         <div class="footer-section">
-          <h3>Informations</h3>
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
           <ul>
-            <li><a href="mentions.html">Mentions légales</a></li>
-            <li><a href="contact.html">Nous contacter</a></li>
+            <li>
+              <i class="fas fa-gavel"></i
+              ><a href="mentions.html"> Mentions légales</a>
+            </li>
           </ul>
         </div>
         <div class="footer-section">
-          <h3>Suivez-nous</h3>
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
           <div class="social-links">
-            <a href="#" class="social-link" title="Facebook"></a>
-            <a href="#" class="social-link" title="Twitter"></a>
-            <a href="#" class="social-link" title="LinkedIn"></a>
+            <a href="#" class="social-link" title="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" title="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" title="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
-        <p>Pour une mobilité plus verte</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf text-green"></i>
+        </p>
       </div>
     </footer>
 
     <script src="assets/js/menu.js"></script>
+    <script src="assets/js/auth.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const form = document.getElementById('vehicle-form');
@@ -380,7 +435,7 @@
 
         // Déconnexion
         document
-          .getElementById('logout-nav')
+          .querySelector('.logout-btn')
           .addEventListener('click', async function (e) {
             e.preventDefault();
             if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
@@ -388,6 +443,7 @@
                 await fetch('../backend/auth/logout.php');
                 window.location.href = 'login.html';
               } catch (error) {
+                console.error('Erreur lors de la déconnexion:', error);
                 window.location.href = 'login.html';
               }
             }
@@ -434,7 +490,6 @@
 
           requiredFields.forEach((fieldName) => {
             const field = document.getElementById(fieldName);
-            const errorDiv = field.parentNode.querySelector('.error-message');
 
             if (!field.value.trim()) {
               showFieldError(field, 'Ce champ est obligatoire');
@@ -446,7 +501,7 @@
 
           // Validation spécifique de l'immatriculation
           const immat = document.getElementById('immatriculation');
-          const immatPattern = /^[A-Z]{2}-[0-9]{3}-[A-Z]{2}$/;
+          const immatPattern = /^[A-Z]{2}-\d{3}-[A-Z]{2}$/;
           if (immat.value && !immatPattern.test(immat.value)) {
             showFieldError(immat, 'Format invalide (ex: AB-123-CD)');
             isValid = false;
