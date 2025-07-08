@@ -70,89 +70,171 @@
     </header>
 
     <main>
+      <!-- SECTION PRESENTATION -->
+      <section class="presentation-section">
+        <div class="presentation-content">
+          <div class="text-content">
+            <h2>Évaluez votre expérience</h2>
+            <p>
+              <i class="fas fa-star"></i> Votre avis compte pour la communauté
+            </p>
+            <p>
+              <i class="fas fa-heart"></i> Partagez votre expérience de
+              covoiturage<br />
+              <i class="fas fa-users"></i> Aidez les autres utilisateurs<br />
+              <i class="fas fa-thumbs-up"></i> Améliorez la qualité du
+              service<br />
+              <i class="fas fa-award"></i> Contribuez à l'évaluation des
+              chauffeurs
+            </p>
+          </div>
+          <div class="image-container">
+            <div class="avis-hero-icon">
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div class="avis-container">
-        <div class="avis-header">
-          <h1>Évaluez votre expérience</h1>
-          <p>Votre avis aide à améliorer la communauté ecoCovoit</p>
+        <!-- Section informations du trajet -->
+        <div class="trajet-info-section">
+          <h3><i class="fas fa-route"></i> Informations du trajet</h3>
+          <div class="trajet-info" id="trajet-info">
+            <h4>Détails du trajet</h4>
+            <p id="trajet-details">Chargement des détails du trajet...</p>
+          </div>
         </div>
 
         <form id="avis-form" class="avis-form">
           <input type="hidden" id="trajet_id" name="trajet_id" />
 
-          <div class="trajet-info" id="trajet-info">
-            <h3>Informations du trajet</h3>
-            <p id="trajet-details">Chargement des détails du trajet...</p>
-          </div>
-
+          <!-- Section notation générale -->
           <div class="rating-section">
             <h3>Note générale</h3>
             <div class="star-rating" id="main-rating">
-              <span class="star" data-rating="1"><i></i></span>
-              <span class="star" data-rating="2"><i></i></span>
-              <span class="star" data-rating="3"><i></i></span>
-              <span class="star" data-rating="4"><i></i></span>
-              <span class="star" data-rating="5"><i></i></span>
+              <span class="star" data-rating="1"
+                ><i class="fas fa-star"></i
+              ></span>
+              <span class="star" data-rating="2"
+                ><i class="fas fa-star"></i
+              ></span>
+              <span class="star" data-rating="3"
+                ><i class="fas fa-star"></i
+              ></span>
+              <span class="star" data-rating="4"
+                ><i class="fas fa-star"></i
+              ></span>
+              <span class="star" data-rating="5"
+                ><i class="fas fa-star"></i
+              ></span>
             </div>
             <input type="hidden" id="note" name="note" required />
           </div>
 
+          <!-- Section critères de notation -->
           <div class="rating-criteria">
-            <div class="criteria-item">
-              <h4>Ponctualité</h4>
-              <div class="criteria-rating" data-criteria="ponctualite">
-                <span class="star" data-rating="1"><i></i></span>
-                <span class="star" data-rating="2"><i></i></span>
-                <span class="star" data-rating="3"><i></i></span>
-                <span class="star" data-rating="4"><i></i></span>
-                <span class="star" data-rating="5"><i></i></span>
+            <h3>Notation détaillée</h3>
+            <div class="criteria-grid">
+              <div class="criteria-item">
+                <h4><i class="fas fa-clock"></i> Ponctualité</h4>
+                <div class="criteria-rating" data-criteria="ponctualite">
+                  <span class="star" data-rating="1"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="2"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="3"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="4"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="5"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                </div>
+                <input type="hidden" name="ponctualite" />
               </div>
-              <input type="hidden" name="ponctualite" />
-            </div>
 
-            <div class="criteria-item">
-              <h4>Conduite</h4>
-              <div class="criteria-rating" data-criteria="conduite">
-                <span class="star" data-rating="1"><i></i></span>
-                <span class="star" data-rating="2"><i></i></span>
-                <span class="star" data-rating="3"><i></i></span>
-                <span class="star" data-rating="4"><i></i></span>
-                <span class="star" data-rating="5"><i></i></span>
+              <div class="criteria-item">
+                <h4><i class="fas fa-tachometer-alt"></i> Conduite</h4>
+                <div class="criteria-rating" data-criteria="conduite">
+                  <span class="star" data-rating="1"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="2"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="3"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="4"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="5"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                </div>
+                <input type="hidden" name="conduite" />
               </div>
-              <input type="hidden" name="conduite" />
-            </div>
 
-            <div class="criteria-item">
-              <h4>Communication</h4>
-              <div class="criteria-rating" data-criteria="communication">
-                <span class="star" data-rating="1"><i></i></span>
-                <span class="star" data-rating="2"><i></i></span>
-                <span class="star" data-rating="3"><i></i></span>
-                <span class="star" data-rating="4"><i></i></span>
-                <span class="star" data-rating="5"><i></i></span>
+              <div class="criteria-item">
+                <h4><i class="fas fa-comments"></i> Communication</h4>
+                <div class="criteria-rating" data-criteria="communication">
+                  <span class="star" data-rating="1"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="2"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="3"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="4"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="5"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                </div>
+                <input type="hidden" name="communication" />
               </div>
-              <input type="hidden" name="communication" />
-            </div>
 
-            <div class="criteria-item">
-              <h4>Confort du véhicule</h4>
-              <div class="criteria-rating" data-criteria="confort">
-                <span class="star" data-rating="1"><i></i></span>
-                <span class="star" data-rating="2"><i></i></span>
-                <span class="star" data-rating="3"><i></i></span>
-                <span class="star" data-rating="4"><i></i></span>
-                <span class="star" data-rating="5"><i></i></span>
+              <div class="criteria-item">
+                <h4><i class="fas fa-car"></i> Confort du véhicule</h4>
+                <div class="criteria-rating" data-criteria="confort">
+                  <span class="star" data-rating="1"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="2"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="3"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="4"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                  <span class="star" data-rating="5"
+                    ><i class="fas fa-star"></i
+                  ></span>
+                </div>
+                <input type="hidden" name="confort" />
               </div>
-              <input type="hidden" name="confort" />
             </div>
           </div>
 
+          <!-- Section commentaire -->
           <div class="comment-section">
-            <label for="commentaire">Commentaire détaillé</label>
+            <h3>Commentaire détaillé</h3>
+            <label for="commentaire">Partagez votre expérience</label>
             <textarea
               id="commentaire"
               name="commentaire"
               class="comment-textarea"
-              placeholder="Partagez votre expérience pour aider les autres utilisateurs..."
+              placeholder="Décrivez votre expérience de covoiturage pour aider les autres utilisateurs..."
               maxlength="500"
               required
             ></textarea>
@@ -161,11 +243,16 @@
             </div>
           </div>
 
+          <!-- Section photos -->
           <div class="photo-section">
-            <h3>Photos (optionnel)</h3>
+            <h3>Photos du trajet</h3>
             <label class="photo-upload" for="photos">
-              <span><i></i></span>
-              <span>Ajouter des photos de votre trajet</span>
+              <div class="photo-upload-icon">
+                <i class="fas fa-camera"></i>
+              </div>
+              <div class="photo-upload-text">
+                Ajouter des photos (optionnel)
+              </div>
               <input
                 type="file"
                 id="photos"
@@ -177,15 +264,18 @@
             <div class="photo-preview" id="photo-preview"></div>
           </div>
 
+          <!-- Actions du formulaire -->
           <div class="form-actions">
             <button
               type="button"
               class="btn btn-secondary"
               onclick="history.back()"
             >
+              <i class="fas fa-arrow-left"></i>
               Annuler
             </button>
             <button type="submit" class="btn btn-primary" id="submit-btn">
+              <i class="fas fa-paper-plane"></i>
               Publier mon avis
             </button>
           </div>
@@ -199,18 +289,54 @@
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Contact</h3>
-          <p>Email: contact@ecoride.fr</p>
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
+          <p>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
+          </p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
+          </p>
         </div>
         <div class="footer-section">
-          <h3>Informations</h3>
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
           <ul>
-            <li><a href="mentions.html">Mentions légales</a></li>
+            <li>
+              <i class="fas fa-gavel"></i
+              ><a href="mentions.html"> Mentions légales</a>
+            </li>
           </ul>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" title="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" title="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf text-green"></i>
+        </p>
       </div>
     </footer>
 
@@ -256,9 +382,11 @@
         // Simulation du chargement des détails du trajet
         setTimeout(() => {
           document.getElementById('trajet-details').innerHTML = `
-                    <strong>De:</strong> Paris <strong>À:</strong> Lyon<br>
-                    <strong>Date:</strong> 15 janvier 2024<br>
-                    <strong>Chauffeur:</strong> Marie Dupont
+                    <strong><i class="fas fa-map-marker-alt"></i> De:</strong> Paris
+                    <strong><i class="fas fa-flag-checkered"></i> À:</strong> Lyon<br>
+                    <strong><i class="fas fa-calendar-alt"></i> Date:</strong> 15 janvier 2024<br>
+                    <strong><i class="fas fa-user"></i> Chauffeur:</strong> Marie Dupont<br>
+                    <strong><i class="fas fa-euro-sign"></i> Prix:</strong> 35€
                 `;
         }, 500);
       }
@@ -482,12 +610,12 @@
         const messageBox = document.getElementById('avis-message');
         messageBox.textContent = text;
         messageBox.className = `message-box ${type}`;
-        messageBox.style.display = 'block';
+        messageBox.classList.remove('hidden');
 
         // Auto-hide après 5 secondes pour les messages de succès
         if (type === 'success') {
           setTimeout(() => {
-            messageBox.style.display = 'none';
+            messageBox.classList.add('hidden');
           }, 5000);
         }
       }
