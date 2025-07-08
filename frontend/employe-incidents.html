@@ -64,94 +64,130 @@
       </div>
     </header>
 
-    <main class="employee-container">
-      <!-- En-tête -->
-      <div class="employee-header">
-        <h1>Gestion des Incidents</h1>
-        <p>Support client et résolution des problèmes</p>
-      </div>
+    <main>
+      <!-- SECTION PRESENTATION -->
+      <section class="presentation-section">
+        <div class="presentation-content">
+          <div class="text-content">
+            <h2>Gestion des Incidents</h2>
+            <p>
+              <i class="fas fa-exclamation-triangle"></i> Support client et
+              résolution des problèmes
+            </p>
+            <p>
+              <i class="fas fa-headset"></i> Support 24/7<br />
+              <i class="fas fa-clock"></i> Résolution rapide<br />
+              <i class="fas fa-chart-line"></i> Suivi en temps réel<br />
+              <i class="fas fa-users-cog"></i> Escalade automatique
+            </p>
+          </div>
+          <div class="image-container">
+            <div class="admin-hero-icon">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <!-- Statistiques -->
-      <div class="stats-dashboard" id="stats-container">
-        <div class="stat-card">
-          <div class="stat-icon"></div>
-          <div class="stat-value" id="stat-ouverts">-</div>
-          <div class="stat-label">Incidents ouverts</div>
+      <div class="admin-container">
+        <!-- Statistiques -->
+        <div class="stats-overview" id="stats-container">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <div class="stat-value" id="stat-ouverts">-</div>
+            <div class="stat-label">Incidents ouverts</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-spinner"></i>
+            </div>
+            <div class="stat-value" id="stat-en-cours">-</div>
+            <div class="stat-label">En cours</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="stat-value" id="stat-resolus">-</div>
+            <div class="stat-label">Résolus</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-value" id="stat-temps-moyen">-</div>
+            <div class="stat-label">Temps moyen (h)</div>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-icon"></div>
-          <div class="stat-value" id="stat-en-cours">-</div>
-          <div class="stat-label">En cours</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon"></div>
-          <div class="stat-value" id="stat-resolus">-</div>
-          <div class="stat-label">Résolus</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon"></div>
-          <div class="stat-value" id="stat-temps-moyen">-</div>
-          <div class="stat-label">Temps moyen (h)</div>
-        </div>
-      </div>
 
-      <!-- Filtres -->
-      <div class="filters-panel">
-        <h3>🔍 Filtres de recherche</h3>
-        <div class="filters-grid">
-          <div class="filter-group">
-            <label for="filter-status">Statut</label>
-            <select id="filter-status">
-              <option value="tous">Tous les statuts</option>
-              <option value="ouvert" selected>Ouverts</option>
-              <option value="en-cours">En cours</option>
-              <option value="resolu">Résolus</option>
-              <option value="ferme">Fermés</option>
-            </select>
+        <!-- Filtres -->
+        <div class="filters-panel">
+          <div class="panel-header">
+            <h3><i class="fas fa-filter"></i> Filtres de recherche</h3>
           </div>
-          <div class="filter-group">
-            <label for="filter-priority">Priorité</label>
-            <select id="filter-priority">
-              <option value="tous">Toutes les priorités</option>
-              <option value="critique">Critique</option>
-              <option value="haute">Haute</option>
-              <option value="normale">Normale</option>
-              <option value="basse">Basse</option>
-            </select>
+          <div class="filters-grid">
+            <div class="filter-group">
+              <label for="filter-status"
+                ><i class="fas fa-list"></i> Statut</label
+              >
+              <select id="filter-status" class="form-input">
+                <option value="tous">Tous les statuts</option>
+                <option value="ouvert" selected>Ouverts</option>
+                <option value="en-cours">En cours</option>
+                <option value="resolu">Résolus</option>
+                <option value="ferme">Fermés</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-priority"
+                ><i class="fas fa-flag"></i> Priorité</label
+              >
+              <select id="filter-priority" class="form-input">
+                <option value="tous">Toutes les priorités</option>
+                <option value="critique">Critique</option>
+                <option value="haute">Haute</option>
+                <option value="normale">Normale</option>
+                <option value="basse">Basse</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-type"><i class="fas fa-tag"></i> Type</label>
+              <select id="filter-type" class="form-input">
+                <option value="tous">Tous les types</option>
+                <option value="technique">Problème technique</option>
+                <option value="paiement">Problème de paiement</option>
+                <option value="comportement">Comportement inapproprié</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-date-debut"
+                ><i class="fas fa-calendar-alt"></i> Du</label
+              >
+              <input type="date" id="filter-date-debut" class="form-input" />
+            </div>
           </div>
-          <div class="filter-group">
-            <label for="filter-type">Type</label>
-            <select id="filter-type">
-              <option value="tous">Tous les types</option>
-              <option value="technique">Problème technique</option>
-              <option value="paiement">Problème de paiement</option>
-              <option value="comportement">Comportement inapproprié</option>
-              <option value="autre">Autre</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label for="filter-date-debut">Du</label>
-            <input type="date" id="filter-date-debut" />
+          <div class="search-actions">
+            <button onclick="applyFilters()" class="btn btn-primary">
+              <i class="fas fa-search"></i> Rechercher
+            </button>
+            <button onclick="resetFilters()" class="btn btn-secondary">
+              <i class="fas fa-undo"></i> Réinitialiser
+            </button>
+            <button onclick="exportIncidents()" class="btn btn-success">
+              <i class="fas fa-download"></i> Exporter
+            </button>
           </div>
         </div>
-        <div class="search-actions">
-          <button onclick="applyFilters()" class="btn btn-primary">
-            Rechercher
-          </button>
-          <button onclick="resetFilters()" class="btn btn-warning">
-            Réinitialiser
-          </button>
-          <button onclick="exportIncidents()" class="btn btn-success">
-            Exporter
-          </button>
-        </div>
-      </div>
 
-      <!-- Liste des incidents -->
-      <div id="incidents-container">
-        <div class="loading">
-          <div class="spinner"></div>
-          <p>Chargement des incidents...</p>
+        <!-- Liste des incidents -->
+        <div id="incidents-container">
+          <div class="loading">
+            <div class="spinner"></div>
+            <p>Chargement des incidents...</p>
+          </div>
         </div>
       </div>
     </main>
@@ -160,18 +196,54 @@
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Contact</h3>
-          <p>Email: contact@ecoride.fr</p>
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
+          <p>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
+          </p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
+          </p>
         </div>
         <div class="footer-section">
-          <h3>Informations</h3>
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
           <ul>
-            <li><a href="mentions.html">Mentions légales</a></li>
+            <li>
+              <i class="fas fa-gavel"></i
+              ><a href="mentions.html"> Mentions légales</a>
+            </li>
           </ul>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" title="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" title="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf text-green"></i>
+        </p>
       </div>
     </footer>
 
