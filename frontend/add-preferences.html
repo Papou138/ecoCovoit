@@ -76,16 +76,36 @@
     </header>
 
     <main>
-      <div class="preferences-container">
-        <div class="preferences-header">
-          <h1><i class="fas fa-cog"></i> Mes préférences de covoiturage</h1>
-          <p>Personnalisez votre expérience ecoCovoit selon vos goûts</p>
+      <!-- SECTION PRESENTATION -->
+      <section class="presentation-section">
+        <div class="presentation-content">
+          <div class="text-content">
+            <h2>Mes préférences de covoiturage</h2>
+            <p>
+              <i class="fas fa-cog"></i> Personnalisez votre expérience
+              ecoCovoit selon vos goûts et préférences
+            </p>
+            <p>
+              <i class="fas fa-user-cog"></i> Préférences de voyage
+              personnalisées<br />
+              <i class="fas fa-bell"></i> Notifications sur mesure<br />
+              <i class="fas fa-shield-alt"></i> Contrôle total de vos données<br />
+              <i class="fas fa-heart"></i> Amélioration de votre expérience
+            </p>
+          </div>
+          <div class="image-container">
+            <div class="preferences-hero-icon">
+              <i class="fas fa-user-cog"></i>
+            </div>
+          </div>
         </div>
+      </section>
 
+      <div class="preferences-container">
         <form id="preferences-form" class="preferences-form">
           <div class="preference-section">
             <h3 class="section-title">
-              <i class="fas fa-users"></i>
+              <i class="fas fa-route"></i>
               Préférences de voyage
             </h3>
             <div class="preference-grid">
@@ -94,9 +114,11 @@
                   <input type="checkbox" name="fumeur" id="fumeur" />
                   <span class="checkmark"></span>
                   <div>
-                    <div class="preference-label">J'accepte les fumeurs</div>
+                    <div class="preference-label">
+                      <i class="fas fa-smoking"></i> J'accepte les fumeurs
+                    </div>
                     <div class="preference-description">
-                      Voyages avec des passagers fumeurs
+                      Voyages avec des passagers fumeurs autorisés
                     </div>
                   </div>
                 </label>
@@ -107,9 +129,11 @@
                   <input type="checkbox" name="animaux" id="animaux" />
                   <span class="checkmark"></span>
                   <div>
-                    <div class="preference-label">J'accepte les animaux</div>
+                    <div class="preference-label">
+                      <i class="fas fa-paw"></i> J'accepte les animaux
+                    </div>
                     <div class="preference-description">
-                      Voyage avec des animaux de compagnie
+                      Voyage avec des animaux de compagnie bien éduqués
                     </div>
                   </div>
                 </label>
@@ -120,9 +144,11 @@
                   <input type="checkbox" name="musique" id="musique" />
                   <span class="checkmark"></span>
                   <div>
-                    <div class="preference-label">J'autorise la musique</div>
+                    <div class="preference-label">
+                      <i class="fas fa-music"></i> J'autorise la musique
+                    </div>
                     <div class="preference-description">
-                      Écoute de musique pendant le trajet
+                      Écoute de musique pendant le trajet à volume raisonnable
                     </div>
                   </div>
                 </label>
@@ -137,9 +163,11 @@
                   />
                   <span class="checkmark"></span>
                   <div>
-                    <div class="preference-label">J'aime la conversation</div>
+                    <div class="preference-label">
+                      <i class="fas fa-comments"></i> J'aime la conversation
+                    </div>
                     <div class="preference-description">
-                      Discussions pendant le voyage
+                      Discussions amicales et échanges pendant le voyage
                     </div>
                   </div>
                 </label>
@@ -151,10 +179,10 @@
                   <span class="checkmark"></span>
                   <div>
                     <div class="preference-label">
-                      J'accepte les gros bagages
+                      <i class="fas fa-suitcase"></i> J'accepte les gros bagages
                     </div>
                     <div class="preference-description">
-                      Valises et sacs volumineux
+                      Valises et sacs volumineux dans les limites de l'espace
                     </div>
                   </div>
                 </label>
@@ -169,9 +197,11 @@
                   />
                   <span class="checkmark"></span>
                   <div>
-                    <div class="preference-label">Climatisation disponible</div>
+                    <div class="preference-label">
+                      <i class="fas fa-snowflake"></i> Climatisation disponible
+                    </div>
                     <div class="preference-description">
-                      Véhicule avec climatisation
+                      Véhicule équipé de la climatisation pour le confort
                     </div>
                   </div>
                 </label>
@@ -179,13 +209,15 @@
             </div>
 
             <div class="textarea-group">
-              <label for="autres">Préférences personnalisées</label>
+              <label for="autres">
+                <i class="fas fa-edit"></i> Préférences personnalisées
+              </label>
               <textarea
                 id="autres"
                 name="autres"
                 class="custom-textarea"
-                placeholder="Décrivez vos préférences spécifiques (ex: arrêts autorisés, type de musique, etc.)"
-                maxlength="300"
+                placeholder="Décrivez vos préférences spécifiques (ex: arrêts autorisés, type de musique, restrictions alimentaires, etc.)"
+                maxlength="500"
               ></textarea>
             </div>
           </div>
@@ -193,16 +225,18 @@
           <div class="preference-section">
             <h3 class="section-title">
               <i class="fas fa-bell"></i>
-              Notifications
+              Notifications et communications
             </h3>
             <div class="notification-section">
               <div class="notification-item">
                 <div>
                   <div class="preference-label">
+                    <i class="fas fa-user-plus"></i>
                     Nouvelles demandes de réservation
                   </div>
                   <div class="preference-description">
-                    Recevoir un email lors d'une nouvelle demande
+                    Recevoir un email instantané lors d'une nouvelle demande de
+                    réservation
                   </div>
                 </div>
                 <button
@@ -219,10 +253,11 @@
               <div class="notification-item">
                 <div>
                   <div class="preference-label">
+                    <i class="fas fa-check-circle"></i>
                     Confirmations de réservation
                   </div>
                   <div class="preference-description">
-                    Notifications lors de confirmations
+                    Notifications lors de confirmations et d'annulations
                   </div>
                 </div>
                 <button
@@ -238,9 +273,12 @@
 
               <div class="notification-item">
                 <div>
-                  <div class="preference-label">Rappels de trajets</div>
+                  <div class="preference-label">
+                    <i class="fas fa-clock"></i>
+                    Rappels de trajets
+                  </div>
                   <div class="preference-description">
-                    Rappel 24h avant le départ
+                    Rappel automatique 24h avant le départ du trajet
                   </div>
                 </div>
                 <button
@@ -256,9 +294,12 @@
 
               <div class="notification-item">
                 <div>
-                  <div class="preference-label">Newsletter ecoCovoit</div>
+                  <div class="preference-label">
+                    <i class="fas fa-newspaper"></i>
+                    Newsletter ecoCovoit
+                  </div>
                   <div class="preference-description">
-                    Conseils et actualités écologiques
+                    Conseils écologiques, actualités et promotions mensuelles
                   </div>
                 </div>
                 <button
@@ -289,7 +330,7 @@
             </button>
           </div>
 
-          <div id="preferences-message" class="message-box hidden"></div>
+          <div id="preferences-message" class="message-box"></div>
         </form>
       </div>
 
@@ -327,19 +368,60 @@
 
           // Compteur de caractères pour le textarea
           const textarea = document.getElementById('autres');
+          const maxLength = textarea.getAttribute('maxlength');
+
+          // Création d'un compteur de caractères
+          const charCounter = document.createElement('div');
+          charCounter.className = 'char-counter';
+          charCounter.textContent = `0/${maxLength} caractères`;
+          textarea.parentNode.appendChild(charCounter);
+
           textarea.addEventListener('input', function () {
-            // Possibilité d'ajouter un compteur de caractères plus tard
+            const currentLength = this.value.length;
+            charCounter.textContent = `${currentLength}/${maxLength} caractères`;
+
+            // Changement de couleur si proche de la limite
+            if (currentLength > maxLength * 0.8) {
+              charCounter.style.color = 'var(--color-warning)';
+            } else {
+              charCounter.style.color = 'var(--color-text-secondary)';
+            }
+          });
+
+          // Amélioration de l'accessibilité des toggles
+          const toggles = document.querySelectorAll('.toggle-switch');
+          toggles.forEach((toggle) => {
+            toggle.addEventListener('keydown', function (e) {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+              }
+            });
           });
         }
 
         function toggleNotification(toggle, type) {
           toggle.classList.toggle('active');
-          notifications[type] = toggle.classList.contains('active');
+          const isActive = toggle.classList.contains('active');
+          notifications[type] = isActive;
+
+          // Mise à jour de l'attribut aria-checked pour l'accessibilité
+          toggle.setAttribute('aria-checked', isActive);
         }
 
         function savePreferences() {
           const submitBtn = document.getElementById('save-btn');
           const originalText = submitBtn.innerHTML;
+
+          // Validation basique
+          const textarea = document.getElementById('autres');
+          if (textarea.value.length > 500) {
+            showMessage(
+              'Le texte des préférences personnalisées est trop long (maximum 500 caractères).',
+              'error'
+            );
+            return;
+          }
 
           // Affichage du loading
           submitBtn.innerHTML =
@@ -357,7 +439,7 @@
           });
 
           // Ajouter les préférences personnalisées
-          formData.append('autres', document.getElementById('autres').value);
+          formData.append('autres', textarea.value.trim());
 
           // Ajouter les notifications
           Object.keys(notifications).forEach((key) => {
@@ -367,65 +449,115 @@
             );
           });
 
-          fetch('../backend/preferences/enregistrer.php', {
-            method: 'POST',
-            body: formData,
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              if (data.success) {
+          // Simulation d'un délai de réseau pour améliorer l'UX
+          setTimeout(() => {
+            fetch('../backend/preferences/enregistrer.php', {
+              method: 'POST',
+              body: formData,
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.success) {
+                  showMessage(
+                    'Préférences sauvegardées avec succès ! 🎉',
+                    'success'
+                  );
+
+                  // Effet visuel de confirmation
+                  submitBtn.style.background =
+                    'linear-gradient(135deg, var(--color-success), var(--color-success-dark))';
+                  setTimeout(() => {
+                    submitBtn.style.background = '';
+                  }, 2000);
+                } else {
+                  showMessage(
+                    data.message ||
+                      'Erreur lors de la sauvegarde. Veuillez réessayer.',
+                    'error'
+                  );
+                }
+              })
+              .catch((error) => {
+                console.error('Erreur:', error);
                 showMessage(
-                  'Préférences sauvegardées avec succès ! 🎉',
-                  'success'
-                );
-              } else {
-                showMessage(
-                  data.message || 'Erreur lors de la sauvegarde',
+                  'Erreur de connexion. Vérifiez votre connexion internet et réessayez.',
                   'error'
                 );
-              }
-            })
-            .catch((error) => {
-              console.error('Erreur:', error);
-              showMessage('Erreur réseau. Veuillez réessayer.', 'error');
-            })
-            .finally(() => {
-              submitBtn.innerHTML = originalText;
-              submitBtn.disabled = false;
-            });
+              })
+              .finally(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+              });
+          }, 800);
         }
 
         function showMessage(text, type) {
           const messageBox = document.getElementById('preferences-message');
           messageBox.textContent = text;
-          messageBox.className = `message-box ${type}`;
-          messageBox.style.display = 'block';
+          messageBox.className = `message-box ${type} visible`;
 
-          // Auto-hide après 3 secondes pour les messages de succès
+          // Auto-hide après 4 secondes pour les messages de succès
           if (type === 'success') {
             setTimeout(() => {
-              messageBox.style.display = 'none';
-            }, 3000);
+              messageBox.classList.remove('visible');
+            }, 4000);
           }
         }
       </script>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Contact</h3>
-          <p>Email: contact@ecoride.fr</p>
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
+          <p>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
+          </p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
+          </p>
         </div>
         <div class="footer-section">
-          <h3>Informations</h3>
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
           <ul>
-            <li><a href="mentions.html">Mentions légales</a></li>
+            <li>
+              <i class="fas fa-gavel"></i
+              ><a href="mentions.html"> Mentions légales</a>
+            </li>
           </ul>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" title="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" title="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf text-green"></i>
+        </p>
       </div>
     </footer>
 
