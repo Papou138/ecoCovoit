@@ -53,21 +53,29 @@
         >
           <ul class="nav-list">
             <li>
-              <a href="index.html" class="nav-link"><i></i> Accueil</a>
+              <a href="index.html" class="nav-link">
+                <i class="fas fa-home"></i> Accueil
+              </a>
             </li>
             <li>
-              <a href="rechercher-covoiturage.html" class="nav-link"
-                ><i></i> Covoiturages</a
-              >
+              <a href="rechercher-covoiturage.html" class="nav-link">
+                <i class="fas fa-search"></i> Covoiturages
+              </a>
             </li>
             <li>
-              <a href="contact.html" class="nav-link"><i></i> Contact</a>
+              <a href="contact.html" class="nav-link">
+                <i class="fas fa-envelope"></i> Contact
+              </a>
             </li>
             <li>
-              <a href="login.html" class="nav-link active"><i></i> Connexion</a>
+              <a href="login.html" class="nav-link active">
+                <i class="fas fa-sign-in-alt"></i> Connexion
+              </a>
             </li>
             <li>
-              <a href="register.html" class="nav-link"><i></i> Inscription</a>
+              <a href="register.html" class="nav-link">
+                <i class="fas fa-user-plus"></i> Inscription
+              </a>
             </li>
           </ul>
         </nav>
@@ -75,15 +83,40 @@
     </header>
 
     <main>
+      <!-- SECTION PRESENTATION -->
+      <section class="presentation-section">
+        <div class="presentation-content">
+          <div class="text-content">
+            <h2>Bienvenue sur ecoCovoit</h2>
+            <p>
+              <i class="fas fa-user-circle"></i> Connectez-vous à votre espace
+              personnel
+            </p>
+            <p>
+              <i class="fas fa-car"></i> Accédez à vos trajets de covoiturage<br />
+              <i class="fas fa-users"></i> Rejoignez la communauté
+              écoresponsable<br />
+              <i class="fas fa-leaf"></i> Contribuez à un transport plus vert<br />
+              <i class="fas fa-gift"></i> Profitez de vos crédits gratuits
+            </p>
+          </div>
+          <div class="image-container">
+            <div class="auth-hero-icon">
+              <i class="fas fa-user-circle"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="auth-section">
         <div class="auth-container">
           <!-- Onglets -->
           <div class="auth-tabs">
             <button class="auth-tab active" id="login-tab">
-              <i></i> Connexion
+              <i class="fas fa-sign-in-alt"></i> Connexion
             </button>
             <button class="auth-tab" id="register-tab">
-              <i></i> Inscription
+              <i class="fas fa-user-plus"></i> Inscription
             </button>
           </div>
 
@@ -96,7 +129,9 @@
 
             <form id="login-form" class="auth-form">
               <div class="form-group">
-                <label for="login-email">Email</label>
+                <label for="login-email">
+                  <i class="fas fa-envelope"></i> Email
+                </label>
                 <div class="input-wrapper">
                   <i class="fas fa-envelope"></i>
                   <input
@@ -111,7 +146,9 @@
               </div>
 
               <div class="form-group">
-                <label for="login-password">Mot de passe</label>
+                <label for="login-password">
+                  <i class="fas fa-lock"></i> Mot de passe
+                </label>
                 <div class="input-wrapper">
                   <i class="fas fa-lock"></i>
                   <input
@@ -135,7 +172,6 @@
               <div class="form-options">
                 <label class="checkbox-label">
                   <input type="checkbox" id="remember-me" name="remember" />
-                  <span class="checkmark"></span>
                   Se souvenir de moi
                 </label>
                 <a href="#" class="forgot-password">Mot de passe oublié ?</a>
@@ -162,7 +198,9 @@
 
             <form id="register-form" class="auth-form">
               <div class="form-group">
-                <label for="register-pseudo">Pseudo</label>
+                <label for="register-pseudo">
+                  <i class="fas fa-user"></i> Pseudo
+                </label>
                 <div class="input-wrapper">
                   <i class="fas fa-user"></i>
                   <input
@@ -180,7 +218,9 @@
               </div>
 
               <div class="form-group">
-                <label for="register-email">Email</label>
+                <label for="register-email">
+                  <i class="fas fa-envelope"></i> Email
+                </label>
                 <div class="input-wrapper">
                   <i class="fas fa-envelope"></i>
                   <input
@@ -195,7 +235,9 @@
               </div>
 
               <div class="form-group">
-                <label for="register-password">Mot de passe</label>
+                <label for="register-password">
+                  <i class="fas fa-lock"></i> Mot de passe
+                </label>
                 <div class="input-wrapper">
                   <i class="fas fa-lock"></i>
                   <input
@@ -229,9 +271,9 @@
               </div>
 
               <div class="form-group">
-                <label for="register-password-confirm"
-                  >Confirmer le mot de passe</label
-                >
+                <label for="register-password-confirm">
+                  <i class="fas fa-lock"></i> Confirmer le mot de passe
+                </label>
                 <div class="input-wrapper">
                   <i class="fas fa-lock"></i>
                   <input
@@ -254,7 +296,6 @@
                     name="terms"
                     required
                   />
-                  <span class="checkmark"></span>
                   J'accepte les
                   <a href="mentions.html" target="_blank"
                     >conditions d'utilisation</a
@@ -290,37 +331,58 @@
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h3><i></i> ecoCovoit</h3>
-          <p>La plateforme de covoiturage écoresponsable</p>
-          <p>Réduisons ensemble notre empreinte carbone</p>
-        </div>
-        <div class="footer-section">
-          <h3><i></i> Contact</h3>
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
-            Email:
-            <a href="mailto:contact@ecoride.fr">contact@ecoride.fr</a>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
           </p>
-          <p>Tél: +33 1 23 45 67 89</p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
+          </p>
         </div>
         <div class="footer-section">
-          <h3><i></i> Informations</h3>
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
           <ul>
-            <li><a href="mentions.html">Mentions légales</a></li>
-            <li><a href="contact.html">Nous contacter</a></li>
+            <li>
+              <i class="fas fa-gavel"></i
+              ><a href="mentions.html"> Mentions légales</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i
+              ><a href="contact.html"> Nous contacter</a>
+            </li>
           </ul>
         </div>
         <div class="footer-section">
-          <h3><i></i> Suivez-nous</h3>
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
           <div class="social-links">
-            <a href="#" class="social-link" title="Facebook"><i></i> </a>
-            <a href="#" class="social-link" title="Twitter"><i></i> </a>
-            <a href="#" class="social-link" title="LinkedIn"><i></i> </a>
+            <a href="#" class="social-link" title="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link" title="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link" title="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
-        <p><i></i> Pour une mobilité plus verte</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf text-green"></i>
+        </p>
       </div>
     </footer>
 
