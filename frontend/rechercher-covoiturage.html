@@ -52,43 +52,53 @@
         >
           <ul class="nav-list">
             <li>
-              <a href="index.html" class="nav-link"><i></i> Accueil</a>
+              <a href="index.html" class="nav-link"
+                ><i class="fas fa-home"></i> Accueil</a
+              >
             </li>
             <li>
               <a href="rechercher-covoiturage.html" class="nav-link active"
-                ><i></i> Rechercher</a
+                ><i class="fas fa-search"></i> Rechercher</a
               >
             </li>
             <li>
-              <a href="add-voyage.html" class="nav-link"><i></i> Publier</a>
+              <a href="add-voyage.html" class="nav-link"
+                ><i class="fas fa-plus"></i> Publier</a
+              >
             </li>
             <li>
               <a href="mes-reservations.html" class="nav-link"
-                ><i></i> Mes réservations</a
+                ><i class="fas fa-calendar-check"></i> Mes réservations</a
               >
             </li>
             <li>
-              <a href="historique.html" class="nav-link"><i></i> Historique</a>
+              <a href="historique.html" class="nav-link"
+                ><i class="fas fa-history"></i> Historique</a
+              >
             </li>
             <li>
               <a href="user-profile.html" class="nav-link"
-                ><i></i> Mon profil</a
+                ><i class="fas fa-user-circle"></i> Mon profil</a
               >
             </li>
             <li>
               <a href="add-vehicule.html" class="nav-link"
-                ><i></i> Mes véhicules</a
+                ><i class="fas fa-car"></i> Mes véhicules</a
               >
             </li>
             <li>
               <a href="add-preferences.html" class="nav-link"
-                ><i></i> Préférences</a
+                ><i class="fas fa-cog"></i> Préférences</a
               >
             </li>
             <li>
-              <a href="#" class="nav-link logout-btn" onclick="logout()"
-                ><i></i> Déconnexion</a
+              <button
+                class="nav-link logout-btn"
+                onclick="logout()"
+                type="button"
               >
+                <i class="fas fa-sign-out-alt"></i> Déconnexion
+              </button>
             </li>
           </ul>
         </nav>
@@ -96,21 +106,40 @@
     </header>
 
     <main>
-      <!-- SECTION RECHERCHE -->
-      <section class="search-header-section">
-        <div class="container">
-          <h1>Rechercher un covoiturage</h1>
-          <p>Trouvez le trajet parfait pour vos déplacements écoresponsables</p>
+      <!-- SECTION PRESENTATION -->
+      <section class="presentation-section">
+        <div class="presentation-content">
+          <div class="text-content">
+            <h2>Rechercher un covoiturage</h2>
+            <p>
+              <i class="fas fa-search"></i> Trouvez le trajet parfait pour vos
+              déplacements écoresponsables
+            </p>
+            <p>
+              <i class="fas fa-route"></i> Trajets disponibles 24h/24<br />
+              <i class="fas fa-leaf"></i> Mobilité écoresponsable<br />
+              <i class="fas fa-euro-sign"></i> Prix avantageux<br />
+              <i class="fas fa-users"></i> Communauté de confiance
+            </p>
+          </div>
+          <div class="image-container">
+            <div class="search-hero-icon">
+              <i class="fas fa-search"></i>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- FORMULAIRE DE RECHERCHE -->
-      <section class="search-form-section">
-        <div class="container">
+      <div class="search-container">
+        <!-- Formulaire de recherche -->
+        <div class="search-form-section">
+          <h3><i class="fas fa-map-marker-alt"></i> Recherche rapide</h3>
           <form id="search-form" class="search-form-main">
             <div class="search-fields">
               <div class="form-group">
-                <label for="departure"><i></i> Ville de départ</label>
+                <label for="departure"
+                  ><i class="fas fa-map-marker-alt"></i> Ville de départ</label
+                >
                 <input
                   type="text"
                   id="departure"
@@ -121,7 +150,9 @@
                 />
               </div>
               <div class="form-group">
-                <label for="arrival"><i></i> Ville d'arrivée</label>
+                <label for="arrival"
+                  ><i class="fas fa-flag-checkered"></i> Ville d'arrivée</label
+                >
                 <input
                   type="text"
                   id="arrival"
@@ -132,7 +163,9 @@
                 />
               </div>
               <div class="form-group">
-                <label for="date"><i></i> Date de départ</label>
+                <label for="date"
+                  ><i class="fas fa-calendar-alt"></i> Date de départ</label
+                >
                 <input
                   type="date"
                   id="date"
@@ -148,31 +181,31 @@
             </div>
           </form>
         </div>
-      </section>
 
-      <!-- FILTRES -->
-      <section class="filters-section">
-        <div class="container">
+        <!-- Filtres -->
+        <div class="filters-section">
           <div class="filters-header">
-            <h2>Filtres</h2>
+            <h3><i class="fas fa-filter"></i> Filtres de recherche</h3>
             <button
               type="button"
-              class="btn btn-outline reset-filters"
+              class="btn btn-secondary btn-small reset-filters"
               id="reset-filters"
             >
-              Réinitialiser
+              <i class="fas fa-undo"></i> Réinitialiser
             </button>
           </div>
           <div class="filters-grid">
             <div class="filter-group">
               <label>
+                <i class="fas fa-leaf"></i>
                 <input type="checkbox" id="eco-filter" name="eco-filter" />
-                <span class="checkmark"></span>
                 Véhicules électriques uniquement
               </label>
             </div>
             <div class="filter-group">
-              <label for="max-price">Prix maximum</label>
+              <label for="max-price"
+                ><i class="fas fa-euro-sign"></i> Prix maximum</label
+              >
               <input
                 type="range"
                 id="max-price"
@@ -185,7 +218,9 @@
               <span class="price-display">50€</span>
             </div>
             <div class="filter-group">
-              <label for="max-duration">Durée maximum</label>
+              <label for="max-duration"
+                ><i class="fas fa-clock"></i> Durée maximum</label
+              >
               <select id="max-duration" name="max-duration" class="form-select">
                 <option value="">Toutes durées</option>
                 <option value="1">1 heure max</option>
@@ -195,7 +230,9 @@
               </select>
             </div>
             <div class="filter-group">
-              <label for="min-rating">Note minimum</label>
+              <label for="min-rating"
+                ><i class="fas fa-star"></i> Note minimum</label
+              >
               <div class="rating-filter">
                 <input
                   type="radio"
@@ -215,13 +252,13 @@
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- RESULTATS -->
-      <section class="results-section">
-        <div class="container">
+        <!-- Résultats -->
+        <div class="results-section">
           <div class="results-header">
-            <h2 id="results-title">Covoiturages disponibles</h2>
+            <h3 id="results-title">
+              <i class="fas fa-list"></i> Covoiturages disponibles
+            </h3>
             <div class="results-count" id="results-count">0 trajet trouvé</div>
           </div>
 
@@ -255,25 +292,61 @@
             <!-- Les résultats seront injectés ici par JavaScript -->
           </div>
         </div>
-      </section>
+      </div>
     </main>
 
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Contact</h3>
-          <p>Email: contact@ecoride.fr</p>
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
+          <p>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
+          </p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
+          </p>
         </div>
         <div class="footer-section">
-          <h3>Informations</h3>
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
           <ul>
-            <li><a href="mentions.html">Mentions légales</a></li>
+            <li>
+              <i class="fas fa-gavel"></i
+              ><a href="mentions.html"> Mentions légales</a>
+            </li>
           </ul>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" title="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" title="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf text-green"></i>
+        </p>
       </div>
     </footer>
 
