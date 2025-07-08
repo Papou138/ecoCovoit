@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Historique des Trajets - ecoCovoit</title>
+    <title>Historique des trajets - ecoCovoit</title>
     <link rel="stylesheet" href="assets/css/_commun.css" />
     <link rel="stylesheet" href="assets/css/_header.css" />
     <link rel="stylesheet" href="assets/css/_footer.css" />
@@ -71,65 +71,95 @@
       </div>
     </header>
 
-    <main class="historique-container">
-      <!-- En-tête de la page -->
-      <div class="historique-header">
-        <h1>Mon Historique de Trajets</h1>
-        <p>Retrouvez tous vos covoiturages passés et à venir</p>
-      </div>
+    <main>
+      <!-- SECTION PRESENTATION -->
+      <section class="presentation-section">
+        <div class="presentation-content">
+          <div class="text-content">
+            <h2>Historique des Trajets</h2>
+            <p>
+              <i class="fas fa-history"></i> Votre carnet de route personnel
+            </p>
+            <p>
+              <i class="fas fa-chart-line"></i> Statistiques détaillées<br />
+              <i class="fas fa-leaf"></i> Impact environnemental<br />
+              <i class="fas fa-coins"></i> Crédits accumulés<br />
+              <i class="fas fa-route"></i> Suivi de vos trajets
+            </p>
+          </div>
+          <div class="image-container">
+            <div class="admin-hero-icon">
+              <i class="fas fa-history"></i>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <!-- Statistiques -->
-      <div class="historique-stats" id="stats-container">
-        <div class="stat-card">
-          <div class="stat-value" id="stat-total">-</div>
-          <div class="stat-label">Trajets totaux</div>
+      <div class="historique-container">
+        <!-- Statistiques -->
+        <div class="stats-overview">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-route"></i></div>
+            <div class="stat-value" id="stat-total">-</div>
+            <div class="stat-label">Trajets totaux</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-road"></i></div>
+            <div class="stat-value" id="stat-km">-</div>
+            <div class="stat-label">Kilomètres parcourus</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-leaf"></i></div>
+            <div class="stat-value" id="stat-co2">-</div>
+            <div class="stat-label">kg CO₂ économisés</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-coins"></i></div>
+            <div class="stat-value" id="stat-credits">-</div>
+            <div class="stat-label">Crédits gagnés</div>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-value" id="stat-km">-</div>
-          <div class="stat-label">Kilomètres parcourus</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value" id="stat-co2">-</div>
-          <div class="stat-label">kg CO₂ économisés</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value" id="stat-credits">-</div>
-          <div class="stat-label">Crédits gagnés</div>
-        </div>
-      </div>
 
-      <!-- Filtres -->
-      <div class="filters-section">
-        <h3>Filtrer mes trajets</h3>
-        <div class="filters-grid">
-          <div class="filter-group">
-            <label for="filter-status">Statut</label>
-            <select id="filter-status">
-              <option value="tous">Tous les statuts</option>
-              <option value="a-venir">À venir</option>
-              <option value="en-cours">En cours</option>
-              <option value="termine">Terminés</option>
-              <option value="annule">Annulés</option>
-            </select>
+        <!-- Filtres -->
+        <div class="filters-section">
+          <h3>Filtres de recherche</h3>
+          <div class="filters-grid">
+            <div class="filter-group">
+              <label for="filter-status">Statut</label>
+              <select id="filter-status">
+                <option value="tous">Tous les statuts</option>
+                <option value="a-venir">À venir</option>
+                <option value="en-cours">En cours</option>
+                <option value="termine">Terminés</option>
+                <option value="annule">Annulés</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-role">Rôle</label>
+              <select id="filter-role">
+                <option value="tous">Tous les rôles</option>
+                <option value="chauffeur">Chauffeur</option>
+                <option value="passager">Passager</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-date-debut">Du</label>
+              <input type="date" id="filter-date-debut" />
+            </div>
+            <div class="filter-group">
+              <label for="filter-date-fin">Au</label>
+              <input type="date" id="filter-date-fin" />
+            </div>
           </div>
-          <div class="filter-group">
-            <label for="filter-role">Rôle</label>
-            <select id="filter-role">
-              <option value="tous">Tous les rôles</option>
-              <option value="chauffeur">Chauffeur</option>
-              <option value="passager">Passager</option>
-            </select>
-          </div>
-          <div class="filter-group">
-            <label for="filter-date-debut">Du</label>
-            <input type="date" id="filter-date-debut" />
-          </div>
-          <div class="filter-group">
-            <label for="filter-date-fin">Au</label>
-            <input type="date" id="filter-date-fin" />
+          <div class="filters-actions">
+            <button type="button" class="btn btn-primary" id="btn-filtrer">
+              <i class="fas fa-search"></i> Filtrer
+            </button>
+            <button type="button" class="btn btn-secondary" id="btn-reset">
+              <i class="fas fa-undo"></i> Réinitialiser
+            </button>
           </div>
         </div>
-      </div>
 
       <!-- Liste des trajets -->
       <div id="trajets-container">
@@ -144,18 +174,54 @@
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Contact</h3>
-          <p>Email: contact@ecoride.fr</p>
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
+          <p>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
+          </p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
+          </p>
         </div>
         <div class="footer-section">
-          <h3>Informations</h3>
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
           <ul>
-            <li><a href="mentions.html">Mentions légales</a></li>
+            <li>
+              <i class="fas fa-gavel"></i
+              ><a href="mentions.html"> Mentions légales</a>
+            </li>
           </ul>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" title="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" title="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf text-green"></i>
+        </p>
       </div>
     </footer>
 
@@ -184,6 +250,19 @@
         filterRole.addEventListener('change', applyFilters);
         filterDateDebut.addEventListener('change', applyFilters);
         filterDateFin.addEventListener('change', applyFilters);
+
+        // Boutons d'action des filtres
+        document.getElementById('btn-filtrer').addEventListener('click', applyFilters);
+        document.getElementById('btn-reset').addEventListener('click', resetFilters);
+      }
+
+      // Réinitialisation des filtres
+      function resetFilters() {
+        filterStatus.value = 'tous';
+        filterRole.value = 'tous';
+        filterDateDebut.value = '';
+        filterDateFin.value = '';
+        applyFilters();
       }
 
       // Chargement de l'historique
@@ -266,9 +345,11 @@
         if (filteredTrajets.length === 0) {
           trajetsContainer.innerHTML = `
                     <div class="no-results">
-                        <div class="no-results-icon"></div>
+                        <div class="no-results-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
                         <h3>Aucun trajet trouvé</h3>
-                        <p>Essayez de modifier vos filtres ou <a href="add-voyage.html">proposez un nouveau trajet</a></p>
+                        <p>Essayez de modifier vos filtres ou <a href="add-voyage.html" class="btn btn-primary">proposez un nouveau trajet</a></p>
                     </div>
                 `;
           return;
@@ -291,9 +372,10 @@
         return `
                 <div class="trajet-card">
                     <div class="trajet-header">
-                        <h3 class="trajet-route">
-                            ${trajet.ville_depart} → ${trajet.ville_arrivee}
-                        </h3>
+                        <div class="trajet-route">
+                            <i class="fas fa-route"></i>
+                            <span>${trajet.ville_depart} → ${trajet.ville_arrivee}</span>
+                        </div>
                         <span class="trajet-status ${statusClass}">
                             ${getStatusText(trajet.statut)}
                         </span>
@@ -301,21 +383,19 @@
 
                     <div class="trajet-details">
                         <div class="detail-item">
-                            <span class="detail-icon"></span>
-                            <span>${formatDate(trajet.date)} à ${
-          trajet.heure
-        }</span>
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>${formatDate(trajet.date)} à ${trajet.heure}</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-icon"></span>
+                            <i class="fas ${trajet.est_chauffeur ? 'fa-steering-wheel' : 'fa-user'}"></i>
                             <span class="role-badge ${roleClass}">${roleText}</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-icon"></span>
+                            <i class="fas fa-euro-sign"></i>
                             <span>${trajet.prix_total || trajet.prix}€</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-icon"></span>
+                            <i class="fas fa-road"></i>
                             <span>${trajet.distance || 'N/A'} km</span>
                         </div>
                     </div>
