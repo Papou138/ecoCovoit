@@ -69,47 +69,36 @@
     </header>
 
     <main>
-      <!-- FIL D'ARIANE -->
-      <nav class="breadcrumb" aria-label="Fil d'Ariane">
-        <div class="container">
-          <ol>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="rechercher-covoiturage.html">Covoiturages</a></li>
-            <li aria-current="page">Détails du trajet</li>
-          </ol>
+      <!-- SECTION PRÉSENTATION HERO -->
+      <section class="trip-detail-header">
+        <div class="trip-detail-header-content">
+          <div class="trip-hero-info">
+            <h1 id="route-title">
+              <span id="departure-city">Paris</span>
+              <i class="fas fa-arrow-right"></i>
+              <span id="arrival-city">Lyon</span>
+            </h1>
+            <div class="trip-date-time">
+              <i class="fas fa-calendar"></i>
+              <span id="trip-date">Samedi 8 juillet 2025</span>
+              <span class="time-range">
+                <span id="departure-time">08:30</span> -
+                <span id="arrival-time">10:45</span>
+              </span>
+            </div>
+          </div>
+          <div class="trip-hero-icon">
+            <i class="fas fa-route"></i>
+          </div>
         </div>
-      </nav>
+      </section>
 
       <!-- DÉTAILS DU TRAJET -->
       <section class="trip-detail-section">
-        <div class="container">
+        <div class="detail-container">
           <div class="trip-detail-grid">
             <!-- INFORMATIONS PRINCIPALES -->
             <div class="main-info">
-              <div class="trip-header">
-                <div class="route-info">
-                  <h1 class="route-title" id="route-title">
-                    <span id="departure-city">Paris</span>
-                    <i class="fas fa-arrow-right"></i>
-                    <span id="arrival-city">Lyon</span>
-                  </h1>
-                  <div class="trip-date-time">
-                    <i class="fas fa-calendar"></i>
-                    <span id="trip-date">Samedi 8 juillet 2025</span>
-                    <span class="time-range">
-                      <span id="departure-time">08:30</span> -
-                      <span id="arrival-time">10:45</span>
-                    </span>
-                  </div>
-                </div>
-                <div class="eco-status" id="eco-status">
-                  <div class="eco-badge">
-                    <i class="fas fa-leaf"></i>
-                    Voyage écologique
-                  </div>
-                </div>
-              </div>
-
               <!-- INFORMATIONS DU TRAJET -->
               <div class="trip-info-cards">
                 <div class="info-card">
@@ -138,7 +127,7 @@
                   </div>
                   <div class="info-content">
                     <div class="info-label">Prix par personne</div>
-                    <div class="info-value" id="trip-price">25€</div>
+                    <div class="info-value" id="trip-price">25 €</div>
                   </div>
                 </div>
               </div>
@@ -335,18 +324,54 @@
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Contact</h3>
-          <p>Email: contact@ecoride.fr</p>
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
+          <p>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
+          </p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
+          </p>
         </div>
         <div class="footer-section">
-          <h3>Informations</h3>
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
           <ul>
-            <li><a href="mentions.html">Mentions légales</a></li>
+            <li>
+              <i class="fas fa-gavel"></i
+              ><a href="mentions.html"> Mentions légales</a>
+            </li>
           </ul>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" title="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" title="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf text-green"></i>
+        </p>
       </div>
     </footer>
 

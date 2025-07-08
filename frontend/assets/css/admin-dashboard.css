@@ -43,7 +43,7 @@
   width: 20px;
 }
 
-.dashboard-hero-icon {
+.admin-hero-icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,7 +56,7 @@
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.dashboard-hero-icon i {
+.admin-hero-icon i {
   font-size: 4rem;
   color: white;
 }
@@ -660,12 +660,12 @@
     font-size: 2rem;
   }
 
-  .dashboard-hero-icon {
+  .admin-hero-icon {
     width: 150px;
     height: 150px;
   }
 
-  .dashboard-hero-icon i {
+  .admin-hero-icon i {
     font-size: 3rem;
   }
 
