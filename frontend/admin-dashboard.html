@@ -1,15 +1,15 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Dashboard Administrateur ecoCovoit - Interface d'administration pour gÃ©rer la plateforme de covoiturage Ã©coresponsable."
+      content="Dashboard Administrateur ecoCovoit - Interface d'administration pour gérer la plateforme de covoiturage écoresponsable."
     />
     <meta
       name="keywords"
-      content="administration, dashboard, gestion, covoiturage, statistiques, modÃ©ration"
+      content="administration, dashboard, gestion, covoiturage, statistiques, modération"
     />
     <meta name="author" content="ecoCovoit" />
     <meta name="robots" content="noindex, nofollow" />
@@ -89,7 +89,7 @@
                 onclick="logout()"
                 type="button"
               >
-                <i class="fas fa-sign-out-alt"></i> DÃ©connexion
+                <i class="fas fa-sign-out-alt"></i> Déconnexion
               </button>
             </li>
           </ul>
@@ -104,14 +104,14 @@
           <div class="text-content">
             <h2>Dashboard Administrateur</h2>
             <p>
-              <i class="fas fa-chart-line"></i> Vue d'ensemble complÃ¨te de la
+              <i class="fas fa-chart-line"></i> Vue d'ensemble complète de la
               plateforme ecoCovoit
             </p>
             <p>
-              <i class="fas fa-tachometer-alt"></i> Monitoring en temps rÃ©el<br />
-              <i class="fas fa-chart-bar"></i> Statistiques dÃ©taillÃ©es<br />
+              <i class="fas fa-tachometer-alt"></i> Monitoring en temps réel<br />
+              <i class="fas fa-chart-bar"></i> Statistiques détaillées<br />
               <i class="fas fa-bell"></i> Alertes et notifications<br />
-              <i class="fas fa-cogs"></i> Gestion avancÃ©e
+              <i class="fas fa-cogs"></i> Gestion avancée
             </p>
           </div>
           <div class="image-container">
@@ -132,18 +132,17 @@
               <div>
                 <div class="activity-title">Serveur de paiement instable</div>
                 <div class="activity-desc">
-                  Plusieurs Ã©checs de paiement dÃ©tectÃ©s dans la derniÃ¨re
-                  heure
+                  Plusieurs échecs de paiement détectés dans la dernière heure
                 </div>
               </div>
-              <button class="btn btn-danger">RÃ©soudre</button>
+              <button class="btn btn-danger">Résoudre</button>
             </div>
             <div class="alert-item alert-warning">
               <div class="activity-icon"></div>
               <div>
                 <div class="activity-title">Pic d'utilisation</div>
                 <div class="activity-desc">
-                  Trafic 150% supÃ©rieur Ã  la normale ce soir
+                  Trafic 150% supérieur à la normale ce soir
                 </div>
               </div>
               <button class="btn btn-warning">Surveiller</button>
@@ -170,7 +169,7 @@
               </div>
               <div class="stat-item">
                 <div class="stat-value" id="verified-users">2,341</div>
-                <div class="stat-label">VÃ©rifiÃ©s</div>
+                <div class="stat-label">Vérifiés</div>
               </div>
             </div>
           </div>
@@ -184,7 +183,7 @@
               </div>
               <div class="stat-item">
                 <div class="stat-value" id="completed-trips">7,891</div>
-                <div class="stat-label">TerminÃ©s</div>
+                <div class="stat-label">Terminés</div>
               </div>
               <div class="stat-item">
                 <div class="stat-value" id="active-trips">89</div>
@@ -192,7 +191,7 @@
               </div>
               <div class="stat-item">
                 <div class="stat-value" id="cancelled-trips">432</div>
-                <div class="stat-label">AnnulÃ©s</div>
+                <div class="stat-label">Annulés</div>
               </div>
             </div>
           </div>
@@ -201,42 +200,42 @@
             <h3 class="section-title">Finances</h3>
             <div class="stats-grid">
               <div class="stat-item">
-                <div class="stat-value" id="revenue">â‚¬ 24.7k</div>
+                <div class="stat-value" id="revenue">€ 24.7k</div>
                 <div class="stat-label">Revenus</div>
               </div>
               <div class="stat-item">
-                <div class="stat-value" id="commission">â‚¬ 4.2k</div>
+                <div class="stat-value" id="commission">€ 4.2k</div>
                 <div class="stat-label">Commission</div>
               </div>
               <div class="stat-item">
-                <div class="stat-value" id="refunds">â‚¬ 847</div>
+                <div class="stat-value" id="refunds">€ 847</div>
                 <div class="stat-label">Remboursements</div>
               </div>
               <div class="stat-item">
-                <div class="stat-value" id="pending">â‚¬ 1.2k</div>
+                <div class="stat-value" id="pending">€ 1.2k</div>
                 <div class="stat-label">En attente</div>
               </div>
             </div>
           </div>
 
           <div class="stats-section">
-            <h3 class="section-title">Impact Ã©cologique</h3>
+            <h3 class="section-title">Impact écologique</h3>
             <div class="stats-grid">
               <div class="stat-item">
                 <div class="stat-value" id="co2-saved">12.4 t</div>
-                <div class="stat-label">COâ‚‚ Ã©conomisÃ©</div>
+                <div class="stat-label">CO₂ économisé</div>
               </div>
               <div class="stat-item">
                 <div class="stat-value" id="km-shared">89.2 k</div>
-                <div class="stat-label">km partagÃ©s</div>
+                <div class="stat-label">km partagés</div>
               </div>
               <div class="stat-item">
-                <div class="stat-value" id="fuel-saved">â‚¬ 6.8 k</div>
-                <div class="stat-label">Carburant Ã©conomisÃ©</div>
+                <div class="stat-value" id="fuel-saved">€ 6.8 k</div>
+                <div class="stat-label">Carburant économisé</div>
               </div>
               <div class="stat-item">
                 <div class="stat-value" id="trees-equivalent">847</div>
-                <div class="stat-label">Arbres Ã©quivalents</div>
+                <div class="stat-label">Arbres équivalents</div>
               </div>
             </div>
           </div>
@@ -244,18 +243,18 @@
 
         <!-- Graphiques -->
         <div class="chart-container">
-          <h3 class="section-title">Ã‰volution des inscriptions</h3>
+          <h3 class="section-title">Évolution des inscriptions</h3>
           <div class="chart-placeholder">
             Graphique des inscriptions sur les 12 derniers mois
-            <br /><small>(IntÃ©gration Chart.js Ã  venir)</small>
+            <br /><small>(Intégration Chart.js à venir)</small>
           </div>
         </div>
 
         <div class="chart-container">
-          <h3 class="section-title">RÃ©partition des trajets par rÃ©gion</h3>
+          <h3 class="section-title">Répartition des trajets par région</h3>
           <div class="chart-placeholder">
-            Carte de rÃ©partition gÃ©ographique des trajets
-            <br /><small>(IntÃ©gration carte interactive Ã  venir)</small>
+            Carte de répartition géographique des trajets
+            <br /><small>(Intégration carte interactive à venir)</small>
           </div>
         </div>
 
@@ -265,23 +264,23 @@
           <div class="actions-grid">
             <a href="admin-comptes.html" class="action-card">
               <div class="action-icon"></div>
-              <div class="action-title">GÃ©rer les comptes</div>
-              <div class="action-desc">Voir et modÃ©rer les utilisateurs</div>
+              <div class="action-title">Gérer les comptes</div>
+              <div class="action-desc">Voir et modérer les utilisateurs</div>
             </a>
             <a href="employe-avis.html" class="action-card">
               <div class="action-icon"></div>
               <div class="action-title">Valider les avis</div>
-              <div class="action-desc">ModÃ©rer les commentaires</div>
+              <div class="action-desc">Modérer les commentaires</div>
             </a>
             <a href="employe-incidents.html" class="action-card">
               <div class="action-icon"></div>
               <div class="action-title">Support client</div>
-              <div class="action-desc">RÃ©soudre les incidents</div>
+              <div class="action-desc">Résoudre les incidents</div>
             </a>
             <div class="action-card" onclick="generateReport()">
               <div class="action-icon"></div>
-              <div class="action-title">GÃ©nÃ©rer rapport</div>
-              <div class="action-desc">Rapport d'activitÃ© mensuel</div>
+              <div class="action-title">Générer rapport</div>
+              <div class="action-desc">Rapport d'activité mensuel</div>
             </div>
             <div class="action-card" onclick="sendNewsletter()">
               <div class="action-icon"></div>
@@ -291,20 +290,22 @@
             <div class="action-card" onclick="systemMaintenance()">
               <div class="action-icon"></div>
               <div class="action-title">Maintenance</div>
-              <div class="action-desc">Gestion systÃ¨me</div>
+              <div class="action-desc">Gestion système</div>
             </div>
           </div>
         </div>
 
-        <!-- ActivitÃ© rÃ©cente -->
+        <!-- Activité récente -->
         <div class="recent-activity">
-          <h3 class="section-title">ActivitÃ© rÃ©cente</h3>
+          <h3 class="section-title">Activité récente</h3>
           <div class="activity-list" id="activity-list">
             <div class="activity-item">
               <div class="activity-icon success"></div>
               <div class="activity-content">
-                <div class="activity-title">Nouveau trajet publiÃ©</div>
-                <div class="activity-desc">Paris â†’ Lyon par Marie Dupont</div>
+                <div class="activity-title">Nouveau trajet publié</div>
+                <div class="activity-desc">
+                  Paris &rarr; Lyon par Marie Dupont
+                </div>
               </div>
               <div class="activity-time">Il y a 5 min</div>
             </div>
@@ -312,24 +313,24 @@
               <div class="activity-icon info"></div>
               <div class="activity-content">
                 <div class="activity-title">Nouvel utilisateur</div>
-                <div class="activity-desc">Jean Martin a crÃ©Ã© son compte</div>
+                <div class="activity-desc">Jean Martin a créé son compte</div>
               </div>
               <div class="activity-time">Il y a 12 min</div>
             </div>
             <div class="activity-item">
               <div class="activity-icon warning"></div>
               <div class="activity-content">
-                <div class="activity-title">Incident signalÃ©</div>
-                <div class="activity-desc">ProblÃ¨me de paiement #1247</div>
+                <div class="activity-title">Incident signalé</div>
+                <div class="activity-desc">Problème de paiement #1247</div>
               </div>
               <div class="activity-time">Il y a 23 min</div>
             </div>
             <div class="activity-item">
               <div class="activity-icon success"></div>
               <div class="activity-content">
-                <div class="activity-title">Avis validÃ©</div>
+                <div class="activity-title">Avis validé</div>
                 <div class="activity-desc">
-                  Avis 5 Ã©toiles pour trajet #8891
+                  Avis 5 étoiles pour trajet #8891
                 </div>
               </div>
               <div class="activity-time">Il y a 45 min</div>
@@ -337,9 +338,9 @@
             <div class="activity-item">
               <div class="activity-icon info"></div>
               <div class="activity-content">
-                <div class="activity-title">Trajet terminÃ©</div>
+                <div class="activity-title">Trajet terminé</div>
                 <div class="activity-desc">
-                  Bordeaux â†’ Toulouse avec 3 passagers
+                  Bordeaux &rarr; Toulouse avec 3 passagers
                 </div>
               </div>
               <div class="activity-time">Il y a 1h</div>
@@ -356,10 +357,10 @@
           <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
             <i class="fas fa-seedling"></i> La plateforme de covoiturage
-            Ã©coresponsable
+            écoresponsable
           </p>
           <p>
-            <i class="fas fa-handshake"></i> RÃ©duisons ensemble notre empreinte
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
             carbone
           </p>
         </div>
@@ -376,7 +377,7 @@
           <ul>
             <li>
               <i class="fas fa-gavel"></i>
-              <a href="mentions.html"> Mentions lÃ©gales</a>
+              <a href="mentions.html"> Mentions légales</a>
             </li>
             <li>
               <i class="fas fa-envelope"></i>
@@ -400,26 +401,26 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 EcoRide. Tous droits rÃ©servÃ©s.</p>
+        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
         <p>
-          <i class="fas fa-leaf"></i> Pour une mobilitÃ© plus verte
-          <i class="fas fa-leaf text-green"></i>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i>
         </p>
       </div>
     </footer>
 
     <script src="assets/js/menu.js"></script>
     <script>
-      // Chargement des donnÃ©es du dashboard
+      // Chargement des données du dashboard
       document.addEventListener('DOMContentLoaded', function () {
         loadDashboardData();
         startRealTimeUpdates();
       });
 
-      // Chargement des donnÃ©es
+      // Chargement des données
       async function loadDashboardData() {
         try {
-          // Simulation du chargement des donnÃ©es (Ã  remplacer par des appels API rÃ©els)
+          // Simulation du chargement des données (A remplacer par des appels API réels)
           updateStats();
           loadRecentActivity();
         } catch (error) {
@@ -427,9 +428,9 @@
         }
       }
 
-      // Mise Ã  jour des statistiques
+      // Mise à jour des statistiques
       function updateStats() {
-        // Simulation de donnÃ©es dynamiques
+        // Simulation de données dynamiques
         const stats = {
           totalUsers: Math.floor(Math.random() * 100) + 2800,
           newUsers: Math.floor(Math.random() * 50) + 100,
@@ -441,7 +442,7 @@
           cancelledTrips: Math.floor(Math.random() * 10) + 430,
         };
 
-        // Mise Ã  jour des Ã©lÃ©ments (les autres sont statiques pour la dÃ©mo)
+        // Mise à jour des éléments (les autres sont statiques pour la démo)
         if (document.getElementById('total-users')) {
           document.getElementById('total-users').textContent =
             stats.totalUsers.toLocaleString();
@@ -452,63 +453,61 @@
         }
       }
 
-      // Chargement de l'activitÃ© rÃ©cente
+      // Chargement de l'activité récente
       function loadRecentActivity() {
-        // Les activitÃ©s sont dÃ©jÃ  en dur dans le HTML pour la dÃ©mo
-        // En production, elles seraient chargÃ©es depuis l'API
+        // Les activités sont déjà en dur dans le HTML pour la démo
+        // En production, elles seraient chargées depuis l'API
       }
 
-      // Mise Ã  jour en temps rÃ©el
+      // Mise à jour en temps réel
       function startRealTimeUpdates() {
-        // Mise Ã  jour toutes les 30 secondes
+        // Mise à jour toutes les 30 secondes
         setInterval(updateStats, 30000);
       }
 
       // Actions rapides
       function generateReport() {
-        if (confirm('GÃ©nÃ©rer le rapport mensuel ?')) {
+        if (confirm('Générer le rapport mensuel ?')) {
           alert(
-            'ðŸŽ‰ Rapport gÃ©nÃ©rÃ© avec succÃ¨s !\nLe fichier sera envoyÃ© par email dans quelques minutes.'
+            'Rapport généré avec succès !\nLe fichier sera envoyé par email dans quelques minutes.'
           );
         }
       }
 
       function sendNewsletter() {
-        if (
-          confirm('Envoyer la newsletter Ã  tous les utilisateurs actifs ?')
-        ) {
+        if (confirm('Envoyer la newsletter à tous les utilisateurs actifs ?')) {
           alert(
-            'ðŸ“§ Newsletter programmÃ©e !\nEnvoi en cours vers 1,623 utilisateurs actifs.'
+            'Newsletter programmée !\nEnvoi en cours vers 1,623 utilisateurs actifs.'
           );
         }
       }
 
       function systemMaintenance() {
-        if (confirm('Programmer une maintenance systÃ¨me ?')) {
+        if (confirm('Programmer une maintenance système ?')) {
           alert(
-            'ðŸ”§ Maintenance programmÃ©e !\nLa maintenance aura lieu dimanche Ã  2h du matin.'
+            'Maintenance programmée !\nLa maintenance aura lieu dimanche à 2h du matin.'
           );
         }
       }
 
       // Gestion des alertes
       function resolveAlert(alertType) {
-        if (confirm('Marquer cette alerte comme rÃ©solue ?')) {
-          alert('Alerte rÃ©solue avec succÃ¨s !');
+        if (confirm('Marquer cette alerte comme résolue ?')) {
+          alert('Alerte résolue avec succès !');
           // En production: supprimer l'alerte de l'interface
         }
       }
 
       function monitorAlert(alertType) {
-        alert('Surveillance renforcÃ©e activÃ©e pour cette alerte.');
+        alert('Surveillance renforcée activée pour cette alerte.');
       }
 
-      // Fonction pour rafraÃ®chir le dashboard
+      // Fonction pour rafraîchir le dashboard
       function refreshDashboard() {
         location.reload();
       }
 
-      // Raccourci clavier pour rafraÃ®chir
+      // Raccourci clavier pour rafraîchir
       document.addEventListener('keydown', function (e) {
         if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
           e.preventDefault();

@@ -1,15 +1,15 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Gestion des comptes ecoCovoit - Interface administrateur pour gÃ©rer les utilisateurs de la plateforme de covoiturage."
+      content="Gestion des comptes ecoCovoit - Interface administrateur pour gérer les utilisateurs de la plateforme de covoiturage."
     />
     <meta
       name="keywords"
-      content="gestion comptes, utilisateurs, administration, modÃ©ration, covoiturage"
+      content="gestion comptes, utilisateurs, administration, modération, covoiturage"
     />
     <meta name="author" content="ecoCovoit" />
     <meta name="robots" content="noindex, nofollow" />
@@ -89,7 +89,7 @@
                 onclick="logout()"
                 type="button"
               >
-                <i class="fas fa-sign-out-alt"></i> DÃ©connexion
+                <i class="fas fa-sign-out-alt"></i> Déconnexion
               </button>
             </li>
           </ul>
@@ -104,12 +104,12 @@
           <div class="text-content">
             <h2>Gestion des Comptes</h2>
             <p>
-              <i class="fas fa-users-cog"></i> Administration complÃ¨te des
+              <i class="fas fa-users-cog"></i> Administration complète des
               utilisateurs de la plateforme
             </p>
             <p>
-              <i class="fas fa-shield-alt"></i> SÃ©curitÃ© et contrÃ´le<br />
-              <i class="fas fa-chart-bar"></i> Statistiques en temps rÃ©el<br />
+              <i class="fas fa-shield-alt"></i> Sécurité et contrôle<br />
+              <i class="fas fa-chart-bar"></i> Statistiques en temps réel<br />
               <i class="fas fa-tools"></i> Outils d'administration<br />
               <i class="fas fa-user-check"></i> Gestion des permissions
             </p>
@@ -158,21 +158,21 @@
                 <option value="actif">Actifs</option>
                 <option value="inactif">Inactifs</option>
                 <option value="suspendu">Suspendus</option>
-                <option value="verifie">VÃ©rifiÃ©s</option>
+                <option value="verifie">Vérifiés</option>
               </select>
             </div>
             <div class="filter-group">
-              <label for="filter-role">RÃ´le</label>
+              <label for="filter-role">Rôle</label>
               <select id="filter-role">
-                <option value="tous">Tous les rÃ´les</option>
+                <option value="tous">Tous les rôles</option>
                 <option value="utilisateur">Utilisateur</option>
                 <option value="chauffeur">Chauffeur</option>
-                <option value="employe">EmployÃ©</option>
+                <option value="employe">Employé</option>
                 <option value="admin">Administrateur</option>
               </select>
             </div>
             <div class="filter-group">
-              <label for="filter-date-debut">Inscrit aprÃ¨s le</label>
+              <label for="filter-date-debut">Inscrit après le</label>
               <input type="date" id="filter-date-debut" />
             </div>
             <div class="filter-group">
@@ -189,7 +189,7 @@
               Rechercher
             </button>
             <button onclick="resetFilters()" class="btn btn-warning">
-              RÃ©initialiser
+              Réinitialiser
             </button>
             <button onclick="exportUsers()" class="btn btn-success">
               Exporter
@@ -224,16 +224,16 @@
 
         <!-- Pagination -->
         <div class="pagination" id="pagination-container">
-          <!-- Pagination gÃ©nÃ©rÃ©e dynamiquement -->
+          <!-- Pagination générée dynamiquement -->
         </div>
       </div>
     </main>
 
-    <!-- Modal de crÃ©ation/Ã©dition d'utilisateur -->
+    <!-- Modal de création/édition d'utilisateur -->
     <div id="userModal" class="modal">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title" id="modal-title">CrÃ©er un utilisateur</h2>
+          <h2 class="modal-title" id="modal-title">Créer un utilisateur</h2>
           <button
             type="button"
             class="close"
@@ -250,7 +250,7 @@
             <input type="text" id="user-nom" name="nom" required />
           </div>
           <div class="form-group">
-            <label for="user-prenom">PrÃ©nom *</label>
+            <label for="user-prenom">Prénom *</label>
             <input type="text" id="user-prenom" name="prenom" required />
           </div>
           <div class="form-group">
@@ -258,15 +258,15 @@
             <input type="email" id="user-email" name="email" required />
           </div>
           <div class="form-group">
-            <label for="user-telephone">TÃ©lÃ©phone</label>
+            <label for="user-telephone">Téléphone</label>
             <input type="tel" id="user-telephone" name="telephone" />
           </div>
           <div class="form-group">
-            <label for="user-role">RÃ´le</label>
+            <label for="user-role">Rôle</label>
             <select id="user-role" name="role">
               <option value="utilisateur">Utilisateur</option>
               <option value="chauffeur">Chauffeur</option>
-              <option value="employe">EmployÃ©</option>
+              <option value="employe">Employé</option>
               <option value="admin">Administrateur</option>
             </select>
           </div>
@@ -308,10 +308,10 @@
           <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
             <i class="fas fa-seedling"></i> La plateforme de covoiturage
-            Ã©coresponsable
+            écoresponsable
           </p>
           <p>
-            <i class="fas fa-handshake"></i> RÃ©duisons ensemble notre empreinte
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
             carbone
           </p>
         </div>
@@ -328,7 +328,7 @@
           <ul>
             <li>
               <i class="fas fa-gavel"></i>
-              <a href="mentions.html"> Mentions lÃ©gales</a>
+              <a href="mentions.html"> Mentions légales</a>
             </li>
             <li>
               <i class="fas fa-envelope"></i>
@@ -352,24 +352,24 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 EcoRide. Tous droits rÃ©servÃ©s.</p>
+        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
         <p>
-          <i class="fas fa-leaf"></i> Pour une mobilitÃ© plus verte
-          <i class="fas fa-leaf text-green"></i>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i>
         </p>
       </div>
     </footer>
 
     <script src="assets/js/menu.js"></script>
     <script>
-      // Ã‰tat de l'application
+      // État de l'application
       let allUsers = [];
       let filteredUsers = [];
       let currentPage = 1;
       let usersPerPage = 10;
       let currentEditingUser = null;
 
-      // Ã‰lÃ©ments du DOM
+      // Éléments du DOM
       const usersContainer = document.getElementById('users-container');
       const paginationContainer = document.getElementById(
         'pagination-container'
@@ -383,11 +383,11 @@
         setupEventListeners();
       });
 
-      // Configuration des Ã©couteurs d'Ã©vÃ©nements
+      // Configuration des écouteurs d'événements
       function setupEventListeners() {
         userForm.addEventListener('submit', handleUserSubmit);
 
-        // Fermer le modal en cliquant Ã  l'extÃ©rieur
+        // Fermer le modal en cliquant à l'extérieur
         window.addEventListener('click', function (event) {
           if (event.target === userModal) {
             closeUserModal();
@@ -398,7 +398,7 @@
       // Chargement des utilisateurs
       async function loadUsers() {
         try {
-          // Simulation des donnÃ©es utilisateurs
+          // Simulation des données utilisateurs
           const mockUsers = [
             {
               id: 1,
@@ -449,7 +449,7 @@
         } catch (error) {
           console.error('Erreur:', error);
           showError(
-            'Impossible de charger les utilisateurs. Veuillez rÃ©essayer.'
+            'Impossible de charger les utilisateurs. Veuillez réessayer.'
           );
         }
       }
@@ -469,7 +469,7 @@
             return false;
           }
 
-          // Filtre par rÃ´le
+          // Filtre par rôle
           if (roleFilter !== 'tous' && user.role !== roleFilter) {
             return false;
           }
@@ -497,7 +497,7 @@
         renderPagination();
       }
 
-      // RÃ©initialisation des filtres
+      // Réinitialisation des filtres
       function resetFilters() {
         document.getElementById('filter-status').value = 'tous';
         document.getElementById('filter-role').value = 'tous';
@@ -516,8 +516,8 @@
           usersContainer.innerHTML = `
                     <div class="empty-state">
                         <div class="empty-state-icon"></div>
-                        <h3>Aucun utilisateur trouvÃ©</h3>
-                        <p>Aucun utilisateur ne correspond Ã  vos critÃ¨res de recherche</p>
+                        <h3>Aucun utilisateur trouvé</h3>
+                        <p>Aucun utilisateur ne correspond à vos critères de recherche</p>
                     </div>
                 `;
           return;
@@ -527,7 +527,7 @@
         usersContainer.innerHTML = `<div class="users-grid">${usersHTML}</div>`;
       }
 
-      // CrÃ©ation d'une ligne utilisateur
+      // Création d'une ligne utilisateur
       function createUserRow(user) {
         const statusClass = `status-${user.status}`;
         const initials = (user.prenom[0] + user.nom[0]).toUpperCase();
@@ -556,7 +556,7 @@
                         <div class="stat-item">
                             <span class="stat-value">${
                               user.credits
-                            }</span> crÃ©dits
+                            }</span> crédits
                         </div>
                     </div>
                     <div class="user-status ${statusClass}">
@@ -569,7 +569,7 @@
                         <button onclick="editUser(${
                           user.id
                         })" class="btn btn-primary btn-small">
-                            Ã‰diter
+                            Éditer
                         </button>
                         ${
                           user.status === 'actif'
@@ -601,16 +601,16 @@
 
         let paginationHTML = '';
 
-        // Bouton prÃ©cÃ©dent
+        // Bouton précédent
         paginationHTML += `
                 <button onclick="changePage(${currentPage - 1})" ${
           currentPage === 1 ? 'disabled' : ''
         }>
-                    Â« PrÃ©cÃ©dent
+                    « précédent
                 </button>
             `;
 
-        // NumÃ©ros de page
+        // Numéros de page
         for (let i = 1; i <= totalPages; i++) {
           if (i === currentPage) {
             paginationHTML += `<button class="active">${i}</button>`;
@@ -624,7 +624,7 @@
                 <button onclick="changePage(${currentPage + 1})" ${
           currentPage === totalPages ? 'disabled' : ''
         }>
-                    Suivant Â»
+                    Suivant »
                 </button>
             `;
 
@@ -645,7 +645,7 @@
       function showCreateUserModal() {
         currentEditingUser = null;
         document.getElementById('modal-title').textContent =
-          'CrÃ©er un utilisateur';
+          'créer un utilisateur';
         userForm.reset();
         userModal.style.display = 'block';
       }
@@ -654,7 +654,7 @@
         currentEditingUser = allUsers.find((u) => u.id === userId);
         if (currentEditingUser) {
           document.getElementById('modal-title').textContent =
-            'Ã‰diter un utilisateur';
+            'Éditer un utilisateur';
           document.getElementById('user-nom').value = currentEditingUser.nom;
           document.getElementById('user-prenom').value =
             currentEditingUser.prenom;
@@ -683,11 +683,11 @@
         const userData = Object.fromEntries(formData.entries());
 
         if (currentEditingUser) {
-          // Mise Ã  jour
+          // Mise Í  jour
           Object.assign(currentEditingUser, userData);
-          alert('Utilisateur mis Ã  jour avec succÃ¨s');
+          alert('Utilisateur mis Í  jour avec succès');
         } else {
-          // CrÃ©ation
+          // Création
           userData.id = Math.max(...allUsers.map((u) => u.id)) + 1;
           userData.date_inscription = new Date().toISOString().split('T')[0];
           userData.derniere_connexion = 'Jamais';
@@ -695,7 +695,7 @@
           userData.note_moyenne = 0;
           userData.credits = 0;
           allUsers.push(userData);
-          alert('Utilisateur crÃ©Ã© avec succÃ¨s');
+          alert('Utilisateur créé avec succès');
         }
 
         closeUserModal();
@@ -704,22 +704,22 @@
 
       // Actions sur les utilisateurs
       function suspendUser(userId) {
-        if (confirm('ÃŠtes-vous sÃ»r de vouloir suspendre cet utilisateur ?')) {
+        if (confirm('Etes-vous sûr de vouloir suspendre cet utilisateur ?')) {
           const user = allUsers.find((u) => u.id === userId);
           if (user) {
             user.status = 'suspendu';
-            alert('Utilisateur suspendu avec succÃ¨s');
+            alert('Utilisateur suspendu avec succès');
             applyFilters();
           }
         }
       }
 
       function activateUser(userId) {
-        if (confirm('ÃŠtes-vous sÃ»r de vouloir activer cet utilisateur ?')) {
+        if (confirm('Etes-vous sûr de vouloir activer cet utilisateur ?')) {
           const user = allUsers.find((u) => u.id === userId);
           if (user) {
             user.status = 'actif';
-            alert('Utilisateur activÃ© avec succÃ¨s');
+            alert('Utilisateur activé avec succès');
             applyFilters();
           }
         }
@@ -728,13 +728,13 @@
       function deleteUser(userId) {
         if (
           confirm(
-            'ÃŠtes-vous sÃ»r de vouloir supprimer dÃ©finitivement cet utilisateur ?'
+            'Etes-vous sûr de vouloir supprimer définitivement cet utilisateur ?'
           )
         ) {
           const index = allUsers.findIndex((u) => u.id === userId);
           if (index !== -1) {
             allUsers.splice(index, 1);
-            alert('Utilisateur supprimÃ© avec succÃ¨s');
+            alert('Utilisateur supprimé avec succès');
             applyFilters();
           }
         }
@@ -761,7 +761,7 @@
           actif: 'Actif',
           inactif: 'Inactif',
           suspendu: 'Suspendu',
-          verifie: 'VÃ©rifiÃ©',
+          verifie: 'Vérifié',
         };
         return statusTexts[status] || status;
       }
@@ -770,7 +770,7 @@
         const roleTexts = {
           utilisateur: 'Utilisateur',
           chauffeur: 'Chauffeur',
-          employe: 'EmployÃ©',
+          employe: 'Employé',
           admin: 'Admin',
         };
         return roleTexts[role] || role;
@@ -783,7 +783,7 @@
                     <h3>Erreur</h3>
                     <p>${message}</p>
                     <button onclick="loadUsers()" class="btn btn-primary">
-                        RÃ©essayer
+                        Réessayer
                     </button>
                 </div>
             `;
@@ -791,5 +791,3 @@
     </script>
   </body>
 </html>
-
-

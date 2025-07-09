@@ -1,18 +1,18 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Mon profil ecoCovoit - Consultez et modifiez vos informations personnelles, vos statistiques de covoiturage Ã©coresponsable."
+      content="Mon profil ecoCovoit - Consultez et modifiez vos informations personnelles, vos statistiques de covoiturage écoresponsable."
     />
     <meta
       name="keywords"
-      content="profil utilisateur, compte, informations personnelles, statistiques, covoiturage, Ã©cologique"
+      content="profil utilisateur, compte, informations personnelles, statistiques, covoiturage, écologique"
     />
     <meta name="author" content="ecoCovoit" />
-    <title>Mon profil â€“ ecoCovoit</title>
+    <title>Mon profil - ecoCovoit</title>
     <link rel="stylesheet" href="assets/css/_commun.css" />
     <link rel="stylesheet" href="assets/css/_header.css" />
     <link rel="stylesheet" href="assets/css/_footer.css" />
@@ -57,7 +57,7 @@
           aria-label="Menu principal de navigation"
         >
           <ul class="nav-list">
-            <!-- NAVIGATION UTILISATEUR CONNECTÃ‰ -->
+            <!-- NAVIGATION UTILISATEUR CONNECTE -->
             <li>
               <a href="index.html" class="nav-link"
                 ><i class="fas fa-home"></i> Accueil</a
@@ -75,7 +75,7 @@
             </li>
             <li>
               <a href="mes-reservations.html" class="nav-link"
-                ><i class="fas fa-calendar-check"></i> Mes rÃ©servations</a
+                ><i class="fas fa-calendar-check"></i> Mes réservations</a
               >
             </li>
             <li>
@@ -90,12 +90,12 @@
             </li>
             <li>
               <a href="add-vehicule.html" class="nav-link"
-                ><i class="fas fa-car"></i> Mes vÃ©hicules</a
+                ><i class="fas fa-car"></i> Mes véhicules</a
               >
             </li>
             <li>
               <a href="add-preferences.html" class="nav-link"
-                ><i class="fas fa-cog"></i> PrÃ©fÃ©rences</a
+                ><i class="fas fa-cog"></i> Préférences</a
               >
             </li>
             <li>
@@ -109,7 +109,7 @@
                 onclick="logout()"
                 type="button"
               >
-                <i class="fas fa-sign-out-alt"></i> DÃ©connexion
+                <i class="fas fa-sign-out-alt"></i> Déconnexion
               </button>
             </li>
           </ul>
@@ -124,13 +124,13 @@
           <div class="text-content">
             <h2>Mon Profil</h2>
             <p>
-              <i class="fas fa-user-circle"></i> GÃ©rez vos informations
-              personnelles et vos prÃ©fÃ©rences
+              <i class="fas fa-user-circle"></i> Gérez vos informations
+              personnelles et vos préférences
             </p>
             <p>
               <i class="fas fa-chart-bar"></i> Statistiques personnelles<br />
-              <i class="fas fa-cog"></i> PrÃ©fÃ©rences et vÃ©hicules<br />
-              <i class="fas fa-coins"></i> Gestion des crÃ©dits<br />
+              <i class="fas fa-cog"></i> Préférences et véhicules<br />
+              <i class="fas fa-coins"></i> Gestion des crédits<br />
               <i class="fas fa-route"></i> Trajets en cours
             </p>
           </div>
@@ -148,17 +148,17 @@
           <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-route"></i></div>
             <div class="stat-value" id="trips-count">0</div>
-            <div class="stat-label">Trajets rÃ©alisÃ©s</div>
+            <div class="stat-label">Trajets réalisés</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-road"></i></div>
             <div class="stat-value" id="kilometers-saved">0</div>
-            <div class="stat-label">km Ã©conomisÃ©s</div>
+            <div class="stat-label">km économisés</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-leaf"></i></div>
             <div class="stat-value" id="co2-saved">0</div>
-            <div class="stat-label">kg COâ‚‚ Ã©vitÃ©s</div>
+            <div class="stat-label">kg CO₂ évités</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-star"></i></div>
@@ -167,7 +167,7 @@
           </div>
         </div>
 
-        <!-- Section infos et crÃ©dits -->
+        <!-- Section infos et crédits -->
         <div class="profile-overview">
           <div class="info-card">
             <div class="card-header">
@@ -184,34 +184,61 @@
           </div>
 
           <div class="credits-card">
+            <div class="credits-bg-decoration">
+              <div class="credits-coin-icon">
+                <i class="fas fa-coins"></i>
+              </div>
+              <div class="credits-pattern"></div>
+            </div>
             <div class="card-header">
-              <h3><i class="fas fa-coins"></i> Mes crÃ©dits</h3>
+              <h3><i class="fas fa-wallet"></i> Mes crédits</h3>
+              <div class="credits-status-badge">
+                <i class="fas fa-check-circle"></i>
+                <span>Actif</span>
+              </div>
             </div>
             <div class="card-content">
               <div class="credits-display">
-                <span class="credits-amount" id="credits-amount">0</span>
-                <span class="credits-label">crÃ©dits</span>
+                <div class="credits-main">
+                  <span class="credits-amount" id="credits-amount">0</span>
+                  <span class="credits-label">crédits disponibles</span>
+                </div>
+                <div class="credits-info">
+                  <div class="credits-stat">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>Dernière recharge : <strong>+20</strong></span>
+                  </div>
+                  <div class="credits-stat">
+                    <i class="fas fa-calendar"></i>
+                    <span>Ce mois : <strong>15 utilisés</strong></span>
+                  </div>
+                </div>
               </div>
               <div class="credits-actions">
-                <button class="btn btn-success btn-small" id="add-credits-btn">
-                  <i class="fas fa-plus"></i> Recharger
+                <button
+                  class="btn btn-primary credits-btn"
+                  id="add-credits-btn"
+                >
+                  <i class="fas fa-plus"></i>
+                  <span>Recharger</span>
                 </button>
                 <button
-                  class="btn btn-secondary btn-small"
+                  class="btn btn-secondary credits-btn"
                   id="credits-history-btn"
                 >
-                  <i class="fas fa-history"></i> Historique
+                  <i class="fas fa-history"></i>
+                  <span>Historique</span>
                 </button>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Mes vÃ©hicules et prÃ©fÃ©rences -->
+        <!-- Mes véhicules et préférences -->
         <div class="profile-details">
           <div class="details-card">
             <div class="card-header">
-              <h3><i class="fas fa-car"></i> Mes vÃ©hicules</h3>
+              <h3><i class="fas fa-car"></i> Mes véhicules</h3>
               <button class="btn btn-primary btn-small" id="add-vehicle-btn">
                 <i class="fas fa-plus"></i> Ajouter
               </button>
@@ -225,7 +252,7 @@
 
           <div class="details-card">
             <div class="card-header">
-              <h3><i class="fas fa-cog"></i> Mes prÃ©fÃ©rences</h3>
+              <h3><i class="fas fa-cog"></i> Mes préférences</h3>
               <button
                 class="btn btn-primary btn-small"
                 id="edit-preferences-btn"
@@ -278,7 +305,7 @@
               <div class="action-icon">
                 <i class="fas fa-calendar-check"></i>
               </div>
-              <span>Mes rÃ©servations</span>
+              <span>Mes réservations</span>
             </a>
             <a href="historique.html" class="action-card">
               <div class="action-icon">
@@ -286,6 +313,47 @@
               </div>
               <span>Historique complet</span>
             </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal de modification de profil -->
+      <div id="edit-profile-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3><i class="fas fa-user-edit"></i> Modifier mes informations</h3>
+            <span class="close">&times;</span>
+          </div>
+          <div class="modal-body">
+            <form id="edit-profile-form">
+              <div class="form-group">
+                <label for="edit-pseudo"
+                  ><i class="fas fa-user"></i> Pseudo</label
+                >
+                <input type="text" id="edit-pseudo" name="pseudo" required />
+              </div>
+              <div class="form-group">
+                <label for="edit-email"
+                  ><i class="fas fa-envelope"></i> Email</label
+                >
+                <input type="email" id="edit-email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="edit-password"
+                  ><i class="fas fa-lock"></i> Nouveau mot de passe
+                  (optionnel)</label
+                >
+                <input type="password" id="edit-password" name="password" />
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn btn-secondary cancel-btn">
+                  <i class="fas fa-times"></i> Annuler
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-save"></i> Enregistrer
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -298,10 +366,10 @@
           <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
             <i class="fas fa-seedling"></i> La plateforme de covoiturage
-            Ã©coresponsable
+            écoresponsable
           </p>
           <p>
-            <i class="fas fa-handshake"></i> RÃ©duisons ensemble notre empreinte
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
             carbone
           </p>
         </div>
@@ -318,7 +386,7 @@
           <ul>
             <li>
               <i class="fas fa-gavel"></i>
-              <a href="mentions.html"> Mentions lÃ©gales</a>
+              <a href="mentions.html"> Mentions légales</a>
             </li>
             <li>
               <i class="fas fa-envelope"></i>
@@ -342,54 +410,13 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 EcoRide. Tous droits rÃ©servÃ©s.</p>
+        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
         <p>
-          <i class="fas fa-leaf"></i> Pour une mobilitÃ© plus verte
-          <i class="fas fa-leaf text-green"></i>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i>
         </p>
       </div>
     </footer>
-
-    <!-- Modal de modification de profil -->
-    <div id="edit-profile-modal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3><i class="fas fa-user-edit"></i> Modifier mes informations</h3>
-          <span class="close">&times;</span>
-        </div>
-        <div class="modal-body">
-          <form id="edit-profile-form">
-            <div class="form-group">
-              <label for="edit-pseudo"
-                ><i class="fas fa-user"></i> Pseudo</label
-              >
-              <input type="text" id="edit-pseudo" name="pseudo" required />
-            </div>
-            <div class="form-group">
-              <label for="edit-email"
-                ><i class="fas fa-envelope"></i> Email</label
-              >
-              <input type="email" id="edit-email" name="email" required />
-            </div>
-            <div class="form-group">
-              <label for="edit-password"
-                ><i class="fas fa-lock"></i> Nouveau mot de passe
-                (optionnel)</label
-              >
-              <input type="password" id="edit-password" name="password" />
-            </div>
-            <div class="form-actions">
-              <button type="button" class="btn btn-secondary cancel-btn">
-                <i class="fas fa-times"></i> Annuler
-              </button>
-              <button type="submit" class="btn btn-primary">
-                <i class="fas fa-save"></i> Enregistrer
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
 
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/user-profile.js"></script>

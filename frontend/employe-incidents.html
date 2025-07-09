@@ -1,19 +1,19 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Gestion des incidents ecoCovoit - Interface employÃ© pour traiter les signalements et incidents de la plateforme de covoiturage."
+      content="Gestion des incidents ecoCovoit - Interface employé pour traiter les signalements et incidents de la plateforme de covoiturage."
     />
     <meta
       name="keywords"
-      content="gestion incidents, signalements, employÃ©, support, covoiturage, rÃ©solution"
+      content="gestion incidents, signalements, employé, support, covoiturage, résolution"
     />
     <meta name="author" content="ecoCovoit" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Gestion des Incidents - EmployÃ© ecoCovoit</title>
+    <title>Gestion des Incidents - Employé ecoCovoit</title>
     <link rel="stylesheet" href="assets/css/_commun.css" />
     <link rel="stylesheet" href="assets/css/_header.css" />
     <link rel="stylesheet" href="assets/css/_footer.css" />
@@ -90,7 +90,7 @@
                 onclick="logout()"
                 type="button"
               >
-                <i class="fas fa-sign-out-alt"></i> DÃ©connexion
+                <i class="fas fa-sign-out-alt"></i> Déconnexion
               </button>
             </li>
           </ul>
@@ -106,12 +106,12 @@
             <h2>Gestion des Incidents</h2>
             <p>
               <i class="fas fa-exclamation-triangle"></i> Support client et
-              rÃ©solution des problÃ¨mes
+              résolution des problèmes
             </p>
             <p>
               <i class="fas fa-headset"></i> Support 24/7<br />
-              <i class="fas fa-clock"></i> RÃ©solution rapide<br />
-              <i class="fas fa-chart-line"></i> Suivi en temps rÃ©el<br />
+              <i class="fas fa-clock"></i> Résolution rapide<br />
+              <i class="fas fa-chart-line"></i> Suivi en temps réel<br />
               <i class="fas fa-users-cog"></i> Escalade automatique
             </p>
           </div>
@@ -145,7 +145,7 @@
               <i class="fas fa-check-circle"></i>
             </div>
             <div class="stat-value" id="stat-resolus">-</div>
-            <div class="stat-label">RÃ©solus</div>
+            <div class="stat-label">Résolus</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon">
@@ -170,16 +170,16 @@
                 <option value="tous">Tous les statuts</option>
                 <option value="ouvert" selected>Ouverts</option>
                 <option value="en-cours">En cours</option>
-                <option value="resolu">RÃ©solus</option>
-                <option value="ferme">FermÃ©s</option>
+                <option value="resolu">Résolus</option>
+                <option value="ferme">Fermés</option>
               </select>
             </div>
             <div class="filter-group">
               <label for="filter-priority"
-                ><i class="fas fa-flag"></i> PrioritÃ©</label
+                ><i class="fas fa-flag"></i> Priorité</label
               >
               <select id="filter-priority" class="form-input">
-                <option value="tous">Toutes les prioritÃ©s</option>
+                <option value="tous">Toutes les priorités</option>
                 <option value="critique">Critique</option>
                 <option value="haute">Haute</option>
                 <option value="normale">Normale</option>
@@ -190,9 +190,9 @@
               <label for="filter-type"><i class="fas fa-tag"></i> Type</label>
               <select id="filter-type" class="form-input">
                 <option value="tous">Tous les types</option>
-                <option value="technique">ProblÃ¨me technique</option>
-                <option value="paiement">ProblÃ¨me de paiement</option>
-                <option value="comportement">Comportement inappropriÃ©</option>
+                <option value="technique">Problème technique</option>
+                <option value="paiement">Problème de paiement</option>
+                <option value="comportement">Comportement inapproprié</option>
                 <option value="autre">Autre</option>
               </select>
             </div>
@@ -208,7 +208,7 @@
               <i class="fas fa-search"></i> Rechercher
             </button>
             <button onclick="resetFilters()" class="btn btn-secondary">
-              <i class="fas fa-undo"></i> RÃ©initialiser
+              <i class="fas fa-undo"></i> Réinitialiser
             </button>
             <button onclick="exportIncidents()" class="btn btn-success">
               <i class="fas fa-download"></i> Exporter
@@ -233,10 +233,10 @@
           <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
             <i class="fas fa-seedling"></i> La plateforme de covoiturage
-            Ã©coresponsable
+            écoresponsable
           </p>
           <p>
-            <i class="fas fa-handshake"></i> RÃ©duisons ensemble notre empreinte
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
             carbone
           </p>
         </div>
@@ -253,7 +253,7 @@
           <ul>
             <li>
               <i class="fas fa-gavel"></i>
-              <a href="mentions.html"> Mentions lÃ©gales</a>
+              <a href="mentions.html"> Mentions légales</a>
             </li>
             <li>
               <i class="fas fa-envelope"></i>
@@ -277,21 +277,21 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 EcoRide. Tous droits rÃ©servÃ©s.</p>
+        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
         <p>
-          <i class="fas fa-leaf"></i> Pour une mobilitÃ© plus verte
-          <i class="fas fa-leaf text-green"></i>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i>
         </p>
       </div>
     </footer>
 
     <script src="assets/js/menu.js"></script>
     <script>
-      // Ã‰tat de l'application
+      // Etat de l'application
       let allIncidents = [];
       let filteredIncidents = [];
 
-      // Ã‰lÃ©ments du DOM
+      // Eléments du DOM
       const incidentsContainer = document.getElementById('incidents-container');
       const filterStatus = document.getElementById('filter-status');
       const filterPriority = document.getElementById('filter-priority');
@@ -306,7 +306,7 @@
       // Chargement des incidents
       async function loadIncidents() {
         try {
-          // Simulation des donnÃ©es d'incidents (Ã  remplacer par l'API rÃ©elle)
+          // Simulation des données d'incidents (A remplacer par l'API réelle)
           const mockData = {
             success: true,
             incidents: [
@@ -315,7 +315,7 @@
                 type: 'technique',
                 titre: 'Impossible de se connecter',
                 description:
-                  'Utilisateur ne peut pas se connecter malgrÃ© un mot de passe correct.',
+                  'Utilisateur ne peut pas se connecter malgré un mot de passe correct.',
                 statut: 'ouvert',
                 priorite: 'haute',
                 utilisateur: 'Jean Dupont',
@@ -328,9 +328,9 @@
               {
                 id: 2,
                 type: 'paiement',
-                titre: 'ProblÃ¨me de remboursement',
+                titre: 'Problème de remboursement',
                 description:
-                  "Le remboursement du trajet annulÃ© n'a pas Ã©tÃ© effectuÃ©.",
+                  "Le remboursement du trajet annulé n'a pas été effectué.",
                 statut: 'en-cours',
                 priorite: 'normale',
                 utilisateur: 'Marie Martin',
@@ -343,7 +343,7 @@
                     auteur: 'Support Tech',
                     date: '2025-01-06',
                     message:
-                      'Dossier pris en charge, vÃ©rification en cours avec la comptabilitÃ©.',
+                      'Dossier pris en charge, vérification en cours avec la comptabilité.',
                   },
                 ],
               },
@@ -361,11 +361,11 @@
           applyFilters();
         } catch (error) {
           console.error('Erreur:', error);
-          showError('Impossible de charger les incidents. Veuillez rÃ©essayer.');
+          showError('Impossible de charger les incidents. Veuillez réessayer.');
         }
       }
 
-      // Mise Ã  jour des statistiques
+      // Mise à jour des statistiques
       function updateStats(stats) {
         document.getElementById('stat-ouverts').textContent =
           stats.ouverts || 0;
@@ -390,7 +390,7 @@
             return false;
           }
 
-          // Filtre par prioritÃ©
+          // Filtre par priorité
           if (
             priorityFilter !== 'tous' &&
             incident.priorite !== priorityFilter
@@ -403,7 +403,7 @@
             return false;
           }
 
-          // Filtre par date de dÃ©but
+          // Filtre par date de début
           if (dateDebutFilter && incident.date_creation < dateDebutFilter) {
             return false;
           }
@@ -414,7 +414,7 @@
         renderIncidents();
       }
 
-      // RÃ©initialisation des filtres
+      // Réinitialisation des filtres
       function resetFilters() {
         filterStatus.value = 'ouvert';
         filterPriority.value = 'tous';
@@ -429,8 +429,8 @@
           incidentsContainer.innerHTML = `
                     <div class="no-results">
                         <div class="no-results-icon"></div>
-                        <h3>Aucun incident trouvÃ©</h3>
-                        <p>Aucun incident ne correspond Ã  vos critÃ¨res de recherche</p>
+                        <h3>Aucun incident trouvé</h3>
+                        <p>Aucun incident ne correspond Í  vos critères de recherche</p>
                     </div>
                 `;
           return;
@@ -442,7 +442,7 @@
         incidentsContainer.innerHTML = `<div class="incidents-container">${incidentsHTML}</div>`;
       }
 
-      // CrÃ©ation d'une carte d'incident
+      // Création d'une carte d'incident
       function createIncidentCard(incident) {
         const statusClass = `status-${incident.statut.replace('_', '-')}`;
         const priorityClass = `priority-${incident.priorite}`;
@@ -456,7 +456,7 @@
                                 ${getTypeIcon(incident.type)} ${incident.titre}
                             </div>
                             <div class="incident-date">
-                                CrÃ©Ã© le ${formatDate(
+                                Créé le ${formatDate(
                                   incident.date_creation
                                 )} par ${incident.utilisateur}
                             </div>
@@ -492,7 +492,7 @@
                             <div class="detail-item">
                                 <span class="detail-icon"></span>
                                 <span>${
-                                  incident.assigne_a || 'Non assignÃ©'
+                                  incident.assigne_a || 'Non assigné'
                                 }</span>
                             </div>
                         </div>
@@ -517,7 +517,7 @@
             `;
       }
 
-      // GÃ©nÃ©ration des boutons d'action
+      // Génération des boutons d'action
       function generateActionButtons(incident) {
         let buttons = [];
 
@@ -532,7 +532,7 @@
         if (incident.statut === 'en-cours') {
           buttons.push(`
                     <button onclick="resolveIncident(${incident.id})" class="btn btn-success">
-                        Marquer comme rÃ©solu
+                        Marquer comme résolu
                     </button>
                 `);
         }
@@ -554,19 +554,19 @@
         return buttons.join('');
       }
 
-      // Section de rÃ©ponse
+      // Section de réponse
       function generateResponseSection(incidentId) {
         return `
                 <div class="response-section hidden" id="response-${incidentId}">
-                    <h4>RÃ©pondre Ã  l'incident</h4>
+                    <h4>Répondre à l'incident</h4>
                     <textarea
                         id="response-text-${incidentId}"
                         class="response-textarea"
-                        placeholder="Tapez votre rÃ©ponse ici..."
+                        placeholder="Tapez votre réponse ici..."
                     ></textarea>
                     <div class="flex-gap">
                         <button onclick="sendResponse(${incidentId})" class="btn btn-primary">
-                            Envoyer la rÃ©ponse
+                            Envoyer la réponse
                         </button>
                         <button onclick="hideResponseSection(${incidentId})" class="btn btn-warning">
                             Annuler
@@ -576,7 +576,7 @@
             `;
       }
 
-      // Historique des rÃ©ponses
+      // Historique des réponses
       function createResponseHistory(responses) {
         const responsesHTML = responses
           .map(
@@ -594,7 +594,7 @@
 
         return `
                 <div class="response-history">
-                    <h4>Historique des rÃ©ponses</h4>
+                    <h4>Historique des réponses</h4>
                     ${responsesHTML}
                 </div>
             `;
@@ -611,9 +611,9 @@
           const incident = allIncidents.find((i) => i.id === incidentId);
           if (incident) {
             incident.statut = 'en-cours';
-            incident.assigne_a = 'EmployÃ© Support';
+            incident.assigne_a = 'Employé Support';
             applyFilters();
-            alert('Incident pris en charge avec succÃ¨s');
+            alert('Incident pris en charge avec succès');
           }
         } catch (error) {
           console.error('Erreur:', error);
@@ -622,26 +622,26 @@
       }
 
       async function resolveIncident(incidentId) {
-        if (!confirm('Marquer cet incident comme rÃ©solu ?')) {
+        if (!confirm('Marquer cet incident comme résolu ?')) {
           return;
         }
 
         try {
-          // Simulation de la rÃ©solution
+          // Simulation de la résolution
           const incident = allIncidents.find((i) => i.id === incidentId);
           if (incident) {
             incident.statut = 'resolu';
             applyFilters();
-            alert('Incident marquÃ© comme rÃ©solu');
+            alert('Incident marqué comme résolu');
           }
         } catch (error) {
           console.error('Erreur:', error);
-          alert('Erreur lors de la rÃ©solution');
+          alert('Erreur lors de la résolution');
         }
       }
 
       async function closeIncident(incidentId) {
-        if (!confirm('Fermer dÃ©finitivement cet incident ?')) {
+        if (!confirm('Fermer définitivement cet incident ?')) {
           return;
         }
 
@@ -651,7 +651,7 @@
           if (incident) {
             incident.statut = 'ferme';
             applyFilters();
-            alert('Incident fermÃ© avec succÃ¨s');
+            alert('Incident fermé avec succès');
           }
         } catch (error) {
           console.error('Erreur:', error);
@@ -660,7 +660,7 @@
       }
 
       function escalateIncident(incidentId) {
-        alert('Incident escaladÃ© vers le niveau supÃ©rieur');
+        alert('Incident escaladé vers le niveau supérieur');
       }
 
       function showResponseSection(incidentId) {
@@ -684,21 +684,21 @@
         ).value;
 
         if (!responseText.trim()) {
-          alert('Veuillez saisir une rÃ©ponse');
+          alert('Veuillez saisir une réponse');
           return;
         }
 
         try {
-          // Simulation de l'envoi de rÃ©ponse
-          alert('RÃ©ponse envoyÃ©e avec succÃ¨s');
+          // Simulation de l'envoi de réponse
+          alert('Réponse envoyée avec succès');
           hideResponseSection(incidentId);
 
-          // Ajouter la rÃ©ponse Ã  l'historique
+          // Ajouter la réponse à l'historique
           const incident = allIncidents.find((i) => i.id === incidentId);
           if (incident) {
             if (!incident.responses) incident.responses = [];
             incident.responses.push({
-              auteur: 'EmployÃ© Support',
+              auteur: 'Employé Support',
               date: new Date().toISOString(),
               message: responseText,
             });
@@ -706,7 +706,7 @@
           }
         } catch (error) {
           console.error('Erreur:', error);
-          alert("Erreur lors de l'envoi de la rÃ©ponse");
+          alert("Erreur lors de l'envoi de la réponse");
         }
       }
 
@@ -731,17 +731,17 @@
         const statusTexts = {
           ouvert: 'Ouvert',
           'en-cours': 'En cours',
-          resolu: 'RÃ©solu',
-          ferme: 'FermÃ©',
+          resolu: 'Résolu',
+          ferme: 'Fermé',
         };
         return statusTexts[statut] || statut;
       }
 
       function getTypeText(type) {
         const typeTexts = {
-          technique: 'ProblÃ¨me technique',
-          paiement: 'ProblÃ¨me de paiement',
-          comportement: 'Comportement inappropriÃ©',
+          technique: 'problème technique',
+          paiement: 'problème de paiement',
+          comportement: 'Comportement inapproprié',
           autre: 'Autre',
         };
         return typeTexts[type] || type;
@@ -749,38 +749,38 @@
 
       function getTypeIcon(type) {
         const typeIcons = {
-          technique: 'ðŸ”§',
-          paiement: 'ðŸ’³',
-          comportement: 'âš ï¸',
-          autre: 'â“',
+          technique: '<i class="fas fa-tools"></i>',
+          paiement: '<i class="fas fa-euro-sign"></i>',
+          comportement: '<i class="fas fa-exclamation-triangle"></i>',
+          autre: '<i class="fas fa-question-circle"></i>',
         };
-        return typeIcons[type] || 'ðŸ“';
+        return typeIcons[type] || '<i class="fas fa-tag"></i>';
       }
 
       function getPriorityIcon(priority) {
         const priorityIcons = {
-          critique: 'ðŸ”´',
-          haute: 'ðŸŸ¡',
-          normale: 'ðŸ”µ',
-          basse: 'ðŸŸ¢',
+          critique: '🔴',
+          haute: '🟠',
+          normale: '🟡',
+          basse: '🟢',
         };
-        return priorityIcons[priority] || 'âšª';
+        return priorityIcons[priority] || '⚪';
       }
 
       function showError(message) {
         incidentsContainer.innerHTML = `
-                <div class="no-results">
-                    <div class="no-results-icon">âŒ</div>
-                    <h3>Erreur</h3>
-                    <p>${message}</p>
-                    <button onclick="loadIncidents()" class="btn btn-primary">
-                        ðŸ”„ RÃ©essayer
-                    </button>
-                </div>
-            `;
+            <div class="no-results">
+            <div class="no-results-icon">❌</div>
+            <h3>Erreur</h3>
+            <p>${message}</p>
+            <button onclick="loadIncidents()" class="btn btn-primary">
+            🔄 Réessayer
+            </button>
+            </div>
+        `;
       }
 
-      // Ajouter l'Ã©couteur pour la section de rÃ©ponse
+      // Ajouter l'écouteur pour la section de réponse
       document.addEventListener('click', function (e) {
         if (e.target.classList.contains('incident-card')) {
           const incidentId = e.target.dataset.incidentId;
@@ -792,5 +792,3 @@
     </script>
   </body>
 </html>
-
-

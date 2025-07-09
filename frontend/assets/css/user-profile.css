@@ -68,6 +68,79 @@
   padding: 2rem var(--space-md);
 }
 
+/* ===== CONTENEUR ADMIN HARMONISÉ ===== */
+.admin-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem var(--space-md);
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Animation staggered pour les sections */
+.admin-container .stats-overview {
+  animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+.admin-container .profile-overview {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.admin-container .profile-details {
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.admin-container .current-trips-section {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.admin-container .quick-actions-section {
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+/* Décoration de fond pour admin-container */
+.admin-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(52, 152, 219, 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.admin-container::after {
+  content: '';
+  position: absolute;
+  bottom: -50%;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(46, 204, 113, 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Toutes les sections à l'intérieur d'admin-container */
+.admin-container > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* ===== STATISTIQUES ===== */
 .stats-overview {
   display: grid;
@@ -290,60 +363,201 @@
 
 /* ===== CARTES SPECIALES ===== */
 .credits-card {
-  background: linear-gradient(
-    135deg,
-    var(--color-success),
-    var(--color-success-dark)
-  );
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+}
+
+.credits-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+.credits-bg-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.credits-coin-icon {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 6s ease-in-out infinite;
+}
+
+.credits-coin-icon i {
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+.credits-pattern {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 20%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
 }
 
 .credits-card .card-header {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.credits-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.credits-status-badge i {
+  color: #4ade80;
 }
 
 .credits-display {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1.5rem;
+}
+
+.credits-main {
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
 .credits-amount {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 3.5rem;
+  font-weight: 900;
   display: block;
   margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #ffffff, #f1f5f9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .credits-label {
   font-size: 1.1rem;
   opacity: 0.9;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.credits-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.credits-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+
+.credits-stat i {
+  color: #4ade80;
+  font-size: 1rem;
 }
 
 .credits-actions {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
 }
 
-.credits-actions .btn-secondary {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 0.75rem 1rem;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
+.credits-btn {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 1rem !important;
+  border-radius: var(--radius-md) !important;
+  font-weight: 600 !important;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease !important;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 0.5rem;
+  backdrop-filter: blur(5px);
 }
 
-.credits-actions .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-1px);
+.credits-btn:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.credits-btn i {
+  font-size: 1.2rem;
+}
+
+.credits-btn span {
+  font-size: 0.9rem;
 }
 
 /* ===== VEHICULES ===== */
@@ -591,8 +805,10 @@
 
 .actions-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .action-card {
@@ -601,28 +817,76 @@
   align-items: center;
   gap: 1rem;
   padding: 2rem;
-  background: var(--color-bg-tertiary);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
   text-decoration: none;
   color: var(--color-text-primary);
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.action-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(52, 152, 219, 0.1),
+    transparent
+  );
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.action-card:hover::before {
+  left: 100%;
 }
 
 .action-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-md), 0 0 0 2px rgba(52, 152, 219, 0.1);
   color: var(--color-primary);
   border-color: var(--color-primary);
+  background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 100%);
 }
 
-.action-card i {
-  font-size: 3rem;
-  color: var(--color-primary);
+.action-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.action-icon i {
+  font-size: 2rem;
+  color: white;
   transition: all 0.3s ease;
 }
 
-.action-card:hover i {
+.action-card:hover .action-icon {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.action-card:hover .action-icon i {
   transform: scale(1.1);
 }
 
@@ -630,6 +894,8 @@
   font-weight: 600;
   font-size: 1.1rem;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 /* ===== ETATS VIDES ===== */
@@ -749,79 +1015,65 @@
 /* =  RESPONSIVE DESIGN  = */
 /* ======================= */
 
+@media (max-width: 1200px) {
+  .admin-container {
+    padding: 1.5rem var(--space-sm);
+  }
+}
+
 @media (max-width: 768px) {
-  .presentation-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: center;
+  .admin-container {
+    padding: 1rem;
+    margin: 0 1rem;
+    border-radius: var(--radius-md);
   }
 
-  .profile-container {
+  .current-trips-section .card-header,
+  .quick-actions-section {
     padding: 1rem;
   }
 
-  .profile-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .card-header {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
-
-  .stats-overview {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+  .current-trips-section .card-header h3,
+  .quick-actions-section h3 {
+    font-size: 1.1rem;
   }
 
   .actions-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1rem;
   }
 
-  .trip-item {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
+  .action-card {
+    padding: 1.5rem;
   }
 
-  .trip-actions {
-    justify-content: center;
+  .action-icon {
+    width: 60px;
+    height: 60px;
   }
 
-  .credits-actions {
-    flex-direction: column;
+  .action-icon i {
+    font-size: 1.5rem;
   }
 
-  .vehicle-item {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .vehicle-actions {
-    justify-content: center;
+  .action-card span {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .stats-overview {
-    grid-template-columns: 1fr;
+  .admin-container {
+    margin: 0 0.5rem;
+    padding: 0.5rem;
   }
 
   .actions-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 
-  .filter-controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .filter-select,
-  .filter-input {
-    min-width: unset;
+  .quick-actions-section h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -847,16 +1099,27 @@
   box-shadow: var(--shadow-md);
 }
 
-/* Couleurs distinctes pour les card-header des details-card */
+/* Headers harmonisés pour profile-details */
 .details-card:nth-child(1) .card-header {
   background: linear-gradient(135deg, #3498db, #2980b9);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
 }
 
 .details-card:nth-child(2) .card-header {
   background: linear-gradient(135deg, #9b59b6, #8e44ad);
+  box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
 }
 
-/* Card header pour les véhicules */
+.details-card:nth-child(3) .card-header {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.details-card:nth-child(4) .card-header {
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+}
+
 .details-card .card-header {
   color: white;
   padding: 1.5rem;
@@ -878,7 +1141,7 @@
 /* ===== SECTION PROFILE-OVERVIEW ===== */
 .profile-overview {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2rem;
   margin-bottom: 2rem;
 }
@@ -897,8 +1160,18 @@
   box-shadow: var(--shadow-md);
 }
 
+/* Headers harmonisés pour profile-overview */
+.info-card:nth-child(1) .card-header {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.info-card:nth-child(2) .card-header {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
 .info-card .card-header {
-  background: linear-gradient(135deg, #27ae60, #229954);
   color: white;
   padding: 1.5rem;
   display: flex;
@@ -916,7 +1189,7 @@
   margin-right: 0.5rem;
 }
 
-/* ===== SECTION CURRENT-TRIPS ===== */
+/* ===== SECTION CURRENT-TRIPS HARMONISÉE ===== */
 .current-trips-section {
   background: white;
   border-radius: var(--radius-md);
@@ -924,6 +1197,34 @@
   overflow: hidden;
   margin-bottom: 2rem;
   border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.current-trips-section:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.current-trips-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.8s ease;
+  z-index: 1;
+}
+
+.current-trips-section:hover::before {
+  left: 100%;
 }
 
 .current-trips-section .card-header {
@@ -933,6 +1234,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+  position: relative;
+  z-index: 2;
 }
 
 .current-trips-section .card-header h3 {
@@ -945,7 +1249,12 @@
   margin-right: 0.5rem;
 }
 
-/* ===== SECTION QUICK-ACTIONS ===== */
+.current-trips-section .card-content {
+  padding: 1.5rem;
+  min-height: 120px;
+}
+
+/* ===== SECTION QUICK-ACTIONS HARMONISÉE ===== */
 .quick-actions-section {
   background: white;
   border-radius: var(--radius-md);
@@ -953,12 +1262,307 @@
   padding: 2rem;
   margin-bottom: 2rem;
   border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-actions-section:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.quick-actions-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.8s ease;
+  z-index: 1;
+}
+
+.quick-actions-section:hover::before {
+  left: 100%;
 }
 
 .quick-actions-section h3 {
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 2rem 0;
   color: var(--color-text-primary);
   font-size: 1.5rem;
   font-weight: 600;
   text-align: center;
+  position: relative;
+  z-index: 2;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.quick-actions-section h3::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  border-radius: 2px;
+}
+
+/* ===== RESPONSIVE CREDITS CARD ===== */
+@media (max-width: 480px) {
+  .credits-coin-icon {
+    width: 80px;
+    height: 80px;
+    top: -20px;
+    right: -20px;
+  }
+
+  .credits-coin-icon i {
+    font-size: 2rem;
+  }
+
+  .credits-amount {
+    font-size: 2.5rem;
+  }
+
+  .credits-actions {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .credits-info {
+    gap: 0.5rem;
+  }
+
+  .credits-stat {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* ===== BOUTONS DANS LES HEADERS DES CARTES ===== */
+.info-card .card-header .btn,
+.details-card .card-header .btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+}
+
+.info-card .card-header .btn:hover,
+.details-card .card-header .btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.info-card .card-header .btn:active,
+.details-card .card-header .btn:active {
+  transform: scale(0.98);
+}
+
+/* Loading states harmonisés */
+.info-card .loading,
+.details-card .loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.info-card .loading i,
+.details-card .loading i {
+  margin-right: 0.5rem;
+  animation: spin 1s linear infinite;
+}
+
+/* ===== ANIMATIONS ET EFFETS VISUELS HARMONISÉS ===== */
+.info-card,
+.details-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card::before,
+.details-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.8s ease;
+  z-index: 1;
+}
+
+.info-card:hover::before,
+.details-card:hover::before {
+  left: 100%;
+}
+
+/* Effet de bordure sur hover */
+.info-card:hover,
+.details-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md), 0 0 0 2px rgba(52, 152, 219, 0.1);
+}
+
+/* ===== ÉTATS ET INTERACTIONS HARMONISÉS ===== */
+.info-card .card-content *:last-child,
+.details-card .card-content *:last-child {
+  margin-bottom: 0;
+}
+
+/* Transitions fluides pour tous les éléments interactifs */
+.info-card *,
+.details-card * {
+  transition: all 0.3s ease;
+}
+
+/* Amélioration de l'accessibilité */
+.info-card:focus-within,
+.details-card:focus-within {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.info-card .card-header .btn:focus,
+.details-card .card-header .btn:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* Styles pour les indicateurs de statut */
+.info-card .status-indicator,
+.details-card .status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-primary);
+  margin-top: 0.5rem;
+}
+
+.info-card .status-indicator.active,
+.details-card .status-indicator.active {
+  background: rgba(46, 204, 113, 0.1);
+  color: #27ae60;
+  border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.info-card .status-indicator.inactive,
+.details-card .status-indicator.inactive {
+  background: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+/* ===== BOUTONS HARMONISÉS POUR CURRENT-TRIPS ET QUICK-ACTIONS ===== */
+.current-trips-section .card-header .btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+}
+
+.current-trips-section .card-header .btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.current-trips-section .card-header .btn:active {
+  transform: scale(0.98);
+}
+
+/* Loading states pour current-trips */
+.current-trips-section .loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.current-trips-section .loading i {
+  margin-right: 0.5rem;
+  animation: spin 1s linear infinite;
+}
+
+/* ===== ANIMATIONS GLOBALES POUR ADMIN-CONTAINER ===== */
+.admin-container {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Amélioration de l'accessibilité - suppression des animations si préféré */
+@media (prefers-reduced-motion: reduce) {
+  .admin-container,
+  .admin-container > * {
+    animation: none;
+  }
+
+  .action-card::before,
+  .current-trips-section::before,
+  .quick-actions-section::before,
+  .info-card::before,
+  .details-card::before {
+    display: none;
+  }
 }

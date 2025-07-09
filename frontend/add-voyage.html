@@ -1,18 +1,18 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta
       name="description"
-      content="Proposez un trajet sur ecoCovoit - Partagez votre vÃ©hicule et vos frais de transport tout en rÃ©duisant votre impact environnemental."
+      content="Proposez un trajet sur ecoCovoit - Partagez votre véhicule et vos frais de transport tout en réduisant votre impact environnemental."
     />
     <meta
       name="keywords"
-      content="proposer trajet, conducteur, covoiturage, partage vÃ©hicule, transport Ã©cologique, Ã©conomies"
+      content="proposer trajet, conducteur, covoiturage, partage véhicule, transport écologique, économies"
     />
     <meta name="author" content="ecoCovoit" />
-    <title>Proposer un trajet â€“ ecoCovoit</title>
+    <title>Proposer un trajet - ecoCovoit</title>
     <link rel="stylesheet" href="assets/css/_commun.css">
     <link rel="stylesheet" href="assets/css/_header.css">
     <link rel="stylesheet" href="assets/css/_footer.css">
@@ -49,7 +49,7 @@
 
             <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal de navigation">
                 <ul class="nav-list">
-                    <!-- NAVIGATION UTILISATEUR CONNECTÃ‰ -->
+                    <!-- NAVIGATION UTILISATEUR CONNECTE -->
                     <li>
                         <a href="index.html" class="nav-link"
                             ><i class="fas fa-home"></i> Accueil</a
@@ -67,7 +67,7 @@
                     </li>
                     <li>
                         <a href="mes-reservations.html" class="nav-link"
-                            ><i class="fas fa-calendar-check"></i> Mes rÃ©servations</a
+                            ><i class="fas fa-calendar-check"></i> Mes réservations</a
                         >
                     </li>
                     <li>
@@ -82,12 +82,12 @@
                     </li>
                     <li>
                         <a href="add-vehicule.html" class="nav-link"
-                            ><i class="fas fa-car"></i> Mes vÃ©hicules</a
+                            ><i class="fas fa-car"></i> Mes véhicules</a
                         >
                     </li>
                     <li>
                         <a href="add-preferences.html" class="nav-link"
-                            ><i class="fas fa-cog"></i> PrÃ©fÃ©rences</a
+                            ><i class="fas fa-cog"></i> <P></P> Préférences</a
                         >
                     </li>
                     <li>
@@ -97,7 +97,7 @@
                     </li>
                     <li>
                         <button class="nav-link logout-btn" onclick="logout()" type="button"
-                            ><i class="fas fa-sign-out-alt"></i> DÃ©connexion</button
+                            ><i class="fas fa-sign-out-alt"></i> Déconnexion</button
                         >
                     </li>
                 </ul>
@@ -112,13 +112,13 @@
                 <div class="text-content">
                     <h2>Proposer un trajet</h2>
                     <p>
-                        <i class="fas fa-route"></i> Partagez votre voyage et rÃ©duisez votre empreinte carbone
+                        <i class="fas fa-route"></i> Partagez votre voyage et réduisez votre empreinte carbone
                     </p>
                     <p>
-                        <i class="fas fa-leaf"></i> Ã‰co-responsable<br />
+                        <i class="fas fa-leaf"></i> Eco-responsable<br />
                         <i class="fas fa-users"></i> Convivial et solidaire<br />
-                        <i class="fas fa-euro-sign"></i> Ã‰conomique<br />
-                        <i class="fas fa-heart"></i> Contribuez Ã  un monde plus vert
+                        <i class="fas fa-euro-sign"></i> Economique<br />
+                        <i class="fas fa-heart"></i> Contribuez à un monde plus vert
                     </p>
                 </div>
                 <div class="image-container">
@@ -137,15 +137,15 @@
                     <div class="auth-card trip-form">
 
                 <form id="trip-form" class="auth-form">
-                    <!-- Ã‰tape 1: ItinÃ©raire -->
+                    <!-- Étape 1: Itinéraire -->
                     <div class="form-section" data-step="1">
-                        <h3><i class="fas fa-map-marked-alt"></i> ItinÃ©raire</h3>
+                        <h3><i class="fas fa-map-marked-alt"></i> Itinéraire</h3>
 
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="ville_depart">
                                     <i class="fas fa-play"></i>
-                                    Ville de dÃ©part
+                                    Ville de départ
                                 </label>
                                 <input type="text" id="ville_depart" name="ville_depart" required
                                        placeholder="Ex: Lyon">
@@ -156,7 +156,7 @@
                             <div class="form-group">
                                 <label for="ville_arrivee">
                                     <i class="fas fa-flag-checkered"></i>
-                                    Ville d'arrivÃ©e
+                                    Ville d'arrivée
                                 </label>
                                 <input type="text" id="ville_arrivee" name="ville_arrivee" required
                                        placeholder="Ex: Paris">
@@ -168,15 +168,15 @@
                         <div class="form-group">
                             <label for="etapes">
                                 <i class="fas fa-map-pin"></i>
-                                Ã‰tapes intermÃ©diaires (optionnel)
+                                Etapes intermédiaires (optionnel)
                             </label>
                             <input type="text" id="etapes" name="etapes"
-                                   placeholder="Ex: MÃ¢con, Beaune (sÃ©parÃ©es par des virgules)">
-                            <small class="form-hint">Mentionnez les villes oÃ¹ vous pouvez prendre ou dÃ©poser des passagers</small>
+                                   placeholder="Ex: Mâcon, Beaune (séparées par des virgules)">
+                            <small class="form-hint">Mentionnez les villes où vous pouvez prendre ou déposer des passagers</small>
                         </div>
                     </div>
 
-                    <!-- Ã‰tape 2: Date et heure -->
+                    <!-- Étape 2: Date et heure -->
                     <div class="form-section" data-step="2">
                         <h3><i class="fas fa-clock"></i> Date et heure</h3>
 
@@ -193,7 +193,7 @@
                             <div class="form-group">
                                 <label for="heure_depart">
                                     <i class="fas fa-clock"></i>
-                                    Heure de dÃ©part
+                                    Heure de départ
                                 </label>
                                 <input type="time" id="heure_depart" name="heure_depart" required>
                                 <div class="error-message"></div>
@@ -203,10 +203,10 @@
                         <div class="form-group">
                             <label for="duree_estimee">
                                 <i class="fas fa-hourglass-half"></i>
-                                DurÃ©e estimÃ©e
+                                Durée estimée
                             </label>
                             <select id="duree_estimee" name="duree_estimee" required>
-                                <option value="">SÃ©lectionner la durÃ©e</option>
+                                <option value="">Sélectionner la durée</option>
                                 <option value="30min">30 minutes</option>
                                 <option value="1h">1 heure</option>
                                 <option value="1h30">1h30</option>
@@ -220,22 +220,22 @@
                         </div>
                     </div>
 
-                    <!-- Ã‰tape 3: VÃ©hicule et places -->
+                    <!-- Étape 3: véhicule et places -->
                     <div class="form-section" data-step="3">
-                        <h3><i class="fas fa-car"></i> VÃ©hicule et places</h3>
+                        <h3><i class="fas fa-car"></i> Véhicule et places</h3>
 
                         <div class="form-group">
                             <label for="vehicule_id">
                                 <i class="fas fa-car-side"></i>
-                                VÃ©hicule utilisÃ©
+                                Véhicule utilisé
                             </label>
                             <select id="vehicule_id" name="vehicule_id" required>
                                 <option value="">Chargement...</option>
                             </select>
                             <div class="no-vehicle-message hidden">
-                                <p><i class="fas fa-info-circle"></i> Vous devez d'abord ajouter un vÃ©hicule</p>
+                                <p><i class="fas fa-info-circle"></i> Vous devez d'abord ajouter un véhicule</p>
                                 <a href="add-vehicule.html" class="btn-secondary">
-                                    <i class="fas fa-plus"></i> Ajouter un vÃ©hicule
+                                    <i class="fas fa-plus"></i> Ajouter un véhicule
                                 </a>
                             </div>
                             <div class="error-message"></div>
@@ -248,7 +248,7 @@
                                     Places disponibles
                                 </label>
                                 <select id="places_disponibles" name="places_disponibles" required>
-                                    <option value="">SÃ©lectionner</option>
+                                    <option value="">Sélectionner</option>
                                     <option value="1">1 place</option>
                                     <option value="2">2 places</option>
                                     <option value="3">3 places</option>
@@ -263,19 +263,19 @@
                             <div class="form-group">
                                 <label for="prix">
                                     <i class="fas fa-euro-sign"></i>
-                                    Prix par passager (â‚¬)
+                                    Prix par passager (€)
                                 </label>
                                 <input type="number" id="prix" name="prix" required
                                        min="0" max="100" step="0.50" placeholder="15.00">
-                                <small class="form-hint">Prix recommandÃ©: <span id="prix-recommande">-</span>â‚¬</small>
+                                <small class="form-hint">Prix recommandé : <span id="prix-recommande">-</span> €</small>
                                 <div class="error-message"></div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Ã‰tape 4: PrÃ©fÃ©rences et options -->
+                    <!-- Étape 4: Préférences et options -->
                     <div class="form-section" data-step="4">
-                        <h3><i class="fas fa-cog"></i> PrÃ©fÃ©rences du voyage</h3>
+                        <h3><i class="fas fa-cog"></i> Préférences du voyage</h3>
 
                         <div class="preferences-grid">
                             <div class="preference-item">
@@ -283,7 +283,7 @@
                                     <input type="checkbox" id="musique" name="preferences[]" value="musique">
                                     <span class="checkmark"></span>
                                     <i class="fas fa-music"></i>
-                                    Musique autorisÃ©e
+                                    Musique autorisée
                                 </label>
                             </div>
                             <div class="preference-item">
@@ -291,7 +291,7 @@
                                     <input type="checkbox" id="fumeur" name="preferences[]" value="fumeur">
                                     <span class="checkmark"></span>
                                     <i class="fas fa-smoking"></i>
-                                    Fumeur autorisÃ©
+                                    Fumeur autorisé
                                 </label>
                             </div>
                             <div class="preference-item">
@@ -299,7 +299,7 @@
                                     <input type="checkbox" id="animaux" name="preferences[]" value="animaux">
                                     <span class="checkmark"></span>
                                     <i class="fas fa-paw"></i>
-                                    Animaux acceptÃ©s
+                                    Animaux acceptés
                                 </label>
                             </div>
                             <div class="preference-item">
@@ -307,7 +307,7 @@
                                     <input type="checkbox" id="bagages" name="preferences[]" value="bagages">
                                     <span class="checkmark"></span>
                                     <i class="fas fa-suitcase"></i>
-                                    Gros bagages acceptÃ©s
+                                    Gros bagages acceptés
                                 </label>
                             </div>
                             <div class="preference-item">
@@ -323,7 +323,7 @@
                                     <input type="checkbox" id="detours" name="preferences[]" value="detours">
                                     <span class="checkmark"></span>
                                     <i class="fas fa-map-signs"></i>
-                                    DÃ©tours possibles
+                                    Détours possibles
                                 </label>
                             </div>
                         </div>
@@ -334,15 +334,15 @@
                                 Commentaire (optionnel)
                             </label>
                             <textarea id="commentaire" name="commentaire" rows="4"
-                                      placeholder="Informations supplÃ©mentaires pour les passagers..."></textarea>
+                                      placeholder="Informations supplémentaires pour les passagers..."></textarea>
                         </div>
                     </div>
 
-                    <!-- RÃ©capitulatif -->
+                    <!-- Récapitulatif -->
                     <div class="trip-summary">
-                        <h3><i class="fas fa-clipboard-list"></i> RÃ©capitulatif</h3>
+                        <h3><i class="fas fa-clipboard-list"></i> Récapitulatif</h3>
                         <div id="trip-recap" class="recap-content">
-                            <!-- Le contenu sera gÃ©nÃ©rÃ© dynamiquement -->
+                            <!-- Le contenu sera généré dynamiquement -->
                         </div>
                     </div>
 
@@ -371,10 +371,10 @@
           <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
             <i class="fas fa-seedling"></i> La plateforme de covoiturage
-            Ã©coresponsable
+            écoresponsable
           </p>
           <p>
-            <i class="fas fa-handshake"></i> RÃ©duisons ensemble notre empreinte
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
             carbone
           </p>
         </div>
@@ -391,7 +391,7 @@
           <ul>
             <li>
               <i class="fas fa-gavel"></i
-              ><a href="mentions.html"> Mentions lÃ©gales</a>
+              ><a href="mentions.html"> Mentions légales</a>
             </li>
             <li>
               <i class="fas fa-envelope"></i
@@ -415,10 +415,10 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 EcoRide. Tous droits rÃ©servÃ©s.</p>
+        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
         <p>
-          <i class="fas fa-leaf"></i> Pour une mobilitÃ© plus verte
-          <i class="fas fa-leaf text-green"></i>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i>
         </p>
       </div>
     </footer>
@@ -444,13 +444,13 @@
                 updateRecap();
             }
 
-            // DÃ©finir la date minimum Ã  aujourd'hui
+            // Définir la date minimum Í  aujourd'hui
             function setMinDate() {
                 const today = new Date().toISOString().split('T')[0];
                 document.getElementById('date_depart').min = today;
             }
 
-            // Charger les vÃ©hicules de l'utilisateur
+            // Charger les véhicules de l'utilisateur
             async function loadUserVehicles() {
                 try {
                     const response = await fetch('../backend/vehicules/lister.php');
@@ -460,7 +460,7 @@
                     const noVehicleMessage = document.querySelector('.no-vehicle-message');
 
                     if (data.success && data.vehicules && data.vehicules.length > 0) {
-                        vehiculeSelect.innerHTML = '<option value="">SÃ©lectionner un vÃ©hicule</option>';
+                        vehiculeSelect.innerHTML = '<option value="">Sélectionner un véhicule</option>';
                         data.vehicules.forEach(vehicle => {
                             const option = document.createElement('option');
                             option.value = vehicle.id;
@@ -469,7 +469,7 @@
                             vehiculeSelect.appendChild(option);
                         });
 
-                        // Mettre Ã  jour les places disponibles quand on change de vÃ©hicule
+                        // Mettre à jour les places disponibles quand on change de véhicule
                         vehiculeSelect.addEventListener('change', updateAvailableSeats);
 
                     } else {
@@ -478,12 +478,12 @@
                     }
 
                 } catch (error) {
-                    console.error('Erreur lors du chargement des vÃ©hicules:', error);
-                    showFeedback('Erreur lors du chargement des vÃ©hicules', 'error');
+                    console.error('Erreur lors du chargement des véhicules:', error);
+                    showFeedback('Erreur lors du chargement des véhicules', 'error');
                 }
             }
 
-            // Mettre Ã  jour les places disponibles selon le vÃ©hicule
+            // Mettre à jour les places disponibles selon le véhicule
             function updateAvailableSeats() {
                 const vehiculeSelect = document.getElementById('vehicule_id');
                 const placesSelect = document.getElementById('places_disponibles');
@@ -492,7 +492,7 @@
                     const selectedOption = vehiculeSelect.options[vehiculeSelect.selectedIndex];
                     const maxPlaces = parseInt(selectedOption.dataset.places) - 1; // -1 pour le conducteur
 
-                    placesSelect.innerHTML = '<option value="">SÃ©lectionner</option>';
+                    placesSelect.innerHTML = '<option value="">Sélectionner</option>';
                     for (let i = 1; i <= maxPlaces; i++) {
                         const option = document.createElement('option');
                         option.value = i;
@@ -500,30 +500,30 @@
                         placesSelect.appendChild(option);
                     }
 
-                    // Calculer le prix recommandÃ©
+                    // Calculer le prix recommandé
                     calculateRecommendedPrice();
                 }
             }
 
-            // Calculer le prix recommandÃ© basÃ© sur la distance
+            // Calculer le prix recommandé basé sur la distance
             function calculateRecommendedPrice() {
                 const depart = document.getElementById('ville_depart').value;
                 const arrivee = document.getElementById('ville_arrivee').value;
 
                 if (depart && arrivee) {
-                    // Simulation du calcul (Ã  remplacer par une vraie API de calcul de distance)
-                    const distance = Math.random() * 500 + 50; // Distance simulÃ©e entre 50 et 550 km
-                    const prixRecommande = Math.round((distance * 0.15) * 100) / 100; // 0.15â‚¬/km
+                    // Simulation du calcul (A remplacer par une vraie API de calcul de distance)
+                    const distance = Math.random() * 500 + 50; // Distance simulée entre 50 et 550 km
+                    const prixRecommande = Math.round((distance * 0.15) * 100) / 100; // 0.15₁¬/km
                     document.getElementById('prix-recommande').textContent = prixRecommande.toFixed(2);
                 }
             }
 
-            // Configuration de l'autocomplÃ©tion des villes
+            // Configuration de l'autocomplétion des villes
             function setupCityAutocomplete() {
                 const cities = [
                     'Paris', 'Lyon', 'Marseille', 'Toulouse', 'Nice', 'Nantes', 'Strasbourg',
                     'Montpellier', 'Bordeaux', 'Lille', 'Rennes', 'Reims', 'Le Havre',
-                    'Saint-Ã‰tienne', 'Toulon', 'Grenoble', 'Dijon', 'Angers', 'NÃ®mes', 'Villeurbanne'
+                    'Saint-Étienne', 'Toulon', 'Grenoble', 'Dijon', 'Angers', 'Nîmes', 'Villeurbanne'
                 ];
 
                 setupAutocomplete('ville_depart', cities);
@@ -566,38 +566,38 @@
                 });
             }
 
-            // Gestion des Ã©vÃ©nements
+            // Gestion des événements
             function setupEventListeners() {
                 // Soumission du formulaire
                 form.addEventListener('submit', handleSubmit);
 
                 // Annulation
                 cancelBtn.addEventListener('click', () => {
-                    if (confirm('ÃŠtes-vous sÃ»r de vouloir annuler ? Les informations saisies seront perdues.')) {
+                    if (confirm('Etes-vous sûr de vouloir annuler ? Les informations saisies seront perdues.')) {
                         window.location.href = 'index.html';
                     }
                 });
 
-                // Mise Ã  jour du rÃ©capitulatif en temps rÃ©el
+                // Mise à jour du récapitulatif en temps réel
                 form.addEventListener('input', updateRecap);
                 form.addEventListener('change', updateRecap);
 
-                // DÃ©connexion
+                // Déconnexion
                 document.querySelector('.logout-btn').addEventListener('click', async (e) => {
                     e.preventDefault();
-                    if (confirm('ÃŠtes-vous sÃ»r de vouloir vous dÃ©connecter ?')) {
+                    if (confirm('Etes-vous sûr de vouloir vous déconnecter ?')) {
                         try {
                             await fetch('../backend/auth/logout.php');
                             window.location.href = 'login.html';
                         } catch (error) {
-                            console.error('Erreur lors de la dÃ©connexion:', error);
+                            console.error('Erreur lors de la déconnexion:', error);
                             window.location.href = 'login.html';
                         }
                     }
                 });
             }
 
-            // Mettre Ã  jour le rÃ©capitulatif
+            // Mettre à jour le récapitulatif
             function updateRecap() {
                 const recap = document.getElementById('trip-recap');
                 const depart = document.getElementById('ville_depart').value;
@@ -628,7 +628,7 @@
                     html += `
                         <div class="recap-item">
                             <i class="fas fa-calendar-clock"></i>
-                            <span><strong>Date:</strong> ${formattedDate} Ã  ${heure}</span>
+                            <span><strong>Date:</strong> ${formattedDate} à ${heure}</span>
                         </div>
                     `;
                 }
@@ -646,13 +646,13 @@
                     html += `
                         <div class="recap-item">
                             <i class="fas fa-euro-sign"></i>
-                            <span><strong>Prix:</strong> ${prix}â‚¬ par personne</span>
+                            <span><strong>Prix:</strong> ${prix}₁¬ par personne</span>
                         </div>
                     `;
                 }
 
                 html += '</div>';
-                recap.innerHTML = html || '<p class="empty-recap">ComplÃ©tez le formulaire pour voir le rÃ©capitulatif</p>';
+                recap.innerHTML = html || '<p class="empty-recap">Complétez le formulaire pour voir le récapitulatif</p>';
             }
 
             // Soumission du formulaire
@@ -678,7 +678,7 @@
                     const data = await response.json();
 
                     if (data.success) {
-                        showFeedback('Trajet publiÃ© avec succÃ¨s !', 'success');
+                        showFeedback('Trajet publié avec succès !', 'success');
                         setTimeout(() => {
                             window.location.href = 'user-profile.html';
                         }, 2000);
@@ -713,7 +713,7 @@
                     }
                 });
 
-                // Validations spÃ©cifiques
+                // Validations spécifiques
                 const dateDepart = document.getElementById('date_depart');
                 if (dateDepart.value) {
                     const selectedDate = new Date(dateDepart.value);
@@ -721,14 +721,14 @@
                     today.setHours(0, 0, 0, 0);
 
                     if (selectedDate < today) {
-                        showFieldError(dateDepart, 'La date ne peut pas Ãªtre dans le passÃ©');
+                        showFieldError(dateDepart, 'La date ne peut pas être dans le passé');
                         isValid = false;
                     }
                 }
 
                 const prix = document.getElementById('prix');
                 if (prix.value && (parseFloat(prix.value) < 0 || parseFloat(prix.value) > 100)) {
-                    showFieldError(prix, 'Le prix doit Ãªtre entre 0 et 100â‚¬');
+                    showFieldError(prix, 'Le prix doit être entre 0 et 100 €');
                     isValid = false;
                 }
 
@@ -767,5 +767,3 @@
     </script>
 </body>
 </html>
-
-
