@@ -13,6 +13,7 @@
   --color-secondary: #2196f3; /* Bleu */
   --color-tertiary: #ff9800; /* Orange pour les alertes/notifications */
   --color-accent: #43e97b; /* Couleur d'accentuation - Vert lumineux */
+  --color-accent-light: #a2f2c0; /* Version claire de la couleur d'accentuation */
   --color-border: #e0e0e0; /* Couleur de bordure standard */
 
   /* COULEURS DE TEXTE */
@@ -61,6 +62,7 @@
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12); /* Ombre moyenne */
   --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15); /* Ombre prononcée */
+  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.2); /* Ombre extra-large */
   --shadow-focus: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Ombre de focus */
 
   /* TRANSITIONS */

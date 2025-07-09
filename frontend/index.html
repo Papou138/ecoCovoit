@@ -64,7 +64,12 @@
             </li>
             <li>
               <a href="rechercher-covoiturage.html" class="nav-link"
-                ><i class="fas fa-car"></i> Covoiturages</a
+                ><i class="fas fa-search"></i> Rechercher</a
+              >
+            </li>
+            <li>
+              <a href="add-voyage.html" class="nav-link"
+                ><i class="fas fa-plus-circle"></i> Proposer</a
               >
             </li>
             <li>
@@ -94,24 +99,23 @@
           <div class="text-content">
             <h2>Covoiturage écoresponsable</h2>
             <p>
-              EcoCovoit est la plateforme qui vous permet de partager vos
-              trajets tout en réduisant votre empreinte carbone. Rejoignez notre
-              communauté de conducteurs responsables et économisez sur vos
-              déplacements !
+              <i class="fas fa-leaf"></i> EcoCovoit est la plateforme qui vous
+              permet de partager vos trajets tout en réduisant votre empreinte
+              carbone et vos coûts.
             </p>
             <p>
-              <i class="fas fa-battery-full"></i> Optez pour des véhicules
+              <i class="fas fa-bolt"></i> Optez pour des véhicules
               électriques<br />
               <i class="fas fa-piggy-bank"></i> Réduisez vos coûts de
               transport<br />
               <i class="fas fa-users"></i> Rencontrez de nouvelles personnes<br />
-              <i class="fas fa-leaf"></i> Protégez l'environnement
+              <i class="fas fa-seedling"></i> Protégez l'environnement
             </p>
           </div>
           <div class="image-container">
             <img
               src="assets/img/covoit-ecoresponsable.jpg"
-              alt="Illustration covoiturage écologique"
+              alt="Illustration covoiturage écologique avec véhicules électriques"
               class="responsive-image"
               loading="lazy"
             />
@@ -122,7 +126,7 @@
       <!-- SECTION RECHERCHE -->
       <section class="search-section">
         <div class="search-container">
-          <h2>Trouvez votre itinéraire</h2>
+          <h2><i class="fas fa-search"></i> Trouvez votre itinéraire</h2>
           <form id="search-form" class="search-form">
             <div class="search-main-fields">
               <div class="form-group">
@@ -136,6 +140,7 @@
                   placeholder="D'où partez-vous ?"
                   required
                   class="form-input"
+                  autocomplete="address-line1"
                 />
               </div>
               <div class="form-group">
@@ -149,11 +154,12 @@
                   placeholder="Où allez-vous ?"
                   required
                   class="form-input"
+                  autocomplete="address-line2"
                 />
               </div>
               <div class="form-group">
                 <label for="date"
-                  ><i class="fas fa-calendar-days"></i>Date de départ</label
+                  ><i class="fas fa-calendar-alt"></i> Date de départ</label
                 >
                 <input
                   type="date"
@@ -161,6 +167,7 @@
                   name="date"
                   required
                   class="form-input"
+                  min=""
                 />
               </div>
             </div>
@@ -254,47 +261,60 @@
       <!-- SECTION AVANTAGES -->
       <section class="benefits-section">
         <div class="container">
-          <h2>Pourquoi choisir EcoCovoit ?</h2>
+          <h2><i class="fas fa-star"></i> Pourquoi choisir EcoCovoit ?</h2>
           <div class="benefits-grid">
-            <div class="benefit-card">
+            <div class="benefit-card" data-number="01">
               <div class="benefit-icon">
                 <i class="fas fa-leaf"></i>
               </div>
               <h3>Écologique</h3>
               <p>
-                Réduisez votre empreinte carbone en partageant vos trajets avec
-                des véhicules électriques.
+                Réduisez votre empreinte carbone en partageant vos trajets et en
+                privilégiant des véhicules électriques pour un impact
+                environnemental minimal.
               </p>
+              <div class="benefit-stats">
+                <span><i class="fas fa-minus"></i> 50% CO₂</span>
+              </div>
             </div>
-            <div class="benefit-card">
+            <div class="benefit-card" data-number="02">
               <div class="benefit-icon">
                 <i class="fas fa-euro-sign"></i>
               </div>
               <h3>Économique</h3>
               <p>
-                Partagez les coûts de vos déplacements et économisez sur vos
-                frais de transport.
+                Partagez les coûts de vos déplacements et réalisez des économies
+                substantielles sur vos frais de transport quotidiens.
               </p>
+              <div class="benefit-stats">
+                <span><i class="fas fa-arrow-down"></i> 70% coûts</span>
+              </div>
             </div>
-            <div class="benefit-card">
+            <div class="benefit-card" data-number="03">
               <div class="benefit-icon">
                 <i class="fas fa-users"></i>
               </div>
               <h3>Convivial</h3>
               <p>
-                Rencontrez de nouvelles personnes et voyagez dans une ambiance
-                détendue.
+                Rencontrez de nouvelles personnes partageant vos valeurs et
+                créez des liens sociaux durables lors de vos voyages.
               </p>
+              <div class="benefit-stats">
+                <span><i class="fas fa-heart"></i> Communauté</span>
+              </div>
             </div>
-            <div class="benefit-card">
+            <div class="benefit-card" data-number="04">
               <div class="benefit-icon">
                 <i class="fas fa-shield-alt"></i>
               </div>
               <h3>Sécurisé</h3>
               <p>
-                Système d'évaluation et profils vérifiés pour des trajets en
-                toute confiance.
+                Système d'évaluation rigoureux et profils vérifiés pour garantir
+                des trajets en toute confiance et sécurité.
               </p>
+              <div class="benefit-stats">
+                <span><i class="fas fa-star"></i> 4.8/5</span>
+              </div>
             </div>
           </div>
         </div>
@@ -358,5 +378,145 @@
 
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/search.js"></script>
+    <script>
+      // Amélioration de l'expérience utilisateur
+      document.addEventListener('DOMContentLoaded', function () {
+        // Définir la date minimale à aujourd'hui
+        const dateInput = document.getElementById('date');
+        const today = new Date();
+        const todayString = today.toISOString().split('T')[0];
+        dateInput.setAttribute('min', todayString);
+
+        // Définir par défaut la date d'aujourd'hui
+        if (!dateInput.value) {
+          dateInput.value = todayString;
+        }
+
+        // Amélioration des animations au scroll
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px',
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.animationPlayState = 'running';
+            }
+          });
+        }, observerOptions);
+
+        // Observer les cartes d'avantages
+        const benefitCards = document.querySelectorAll('.benefit-card');
+        benefitCards.forEach((card) => {
+          observer.observe(card);
+        });
+
+        // Amélioration du formulaire de recherche
+        const searchForm = document.getElementById('search-form');
+        const departureInput = document.getElementById('departure');
+        const arrivalInput = document.getElementById('arrival');
+
+        // Validation améliorée
+        searchForm.addEventListener('submit', function (e) {
+          const departure = departureInput.value.trim();
+          const arrival = arrivalInput.value.trim();
+
+          if (departure === arrival) {
+            e.preventDefault();
+            alert(
+              "La ville de départ ne peut pas être la même que la ville d'arrivée."
+            );
+            return false;
+          }
+
+          // Vérification de la longueur minimale
+          if (departure.length < 2 || arrival.length < 2) {
+            e.preventDefault();
+            alert(
+              'Veuillez saisir des noms de ville valides (minimum 2 caractères).'
+            );
+            return false;
+          }
+        });
+
+        // Auto-complétion basique pour les villes françaises populaires
+        const popularCities = [
+          'Paris',
+          'Lyon',
+          'Marseille',
+          'Toulouse',
+          'Nice',
+          'Nantes',
+          'Strasbourg',
+          'Montpellier',
+          'Bordeaux',
+          'Lille',
+          'Rennes',
+          'Reims',
+          'Le Havre',
+          'Saint-Étienne',
+          'Toulon',
+          'Grenoble',
+          'Dijon',
+          'Angers',
+          'Nîmes',
+          'Villeurbanne',
+          'Saint-Denis',
+          'Le Mans',
+          'Aix-en-Provence',
+          'Clermont-Ferrand',
+          'Brest',
+          'Limoges',
+          'Tours',
+          'Amiens',
+          'Perpignan',
+          'Metz',
+          'Besançon',
+          'Boulogne-Billancourt',
+          'Orléans',
+          'Mulhouse',
+          'Rouen',
+          'Pau',
+          'Caen',
+          'La Rochelle',
+          'Cannes',
+          'Colmar',
+          'Avignon',
+          'Poitiers',
+          'Dunkerque',
+        ];
+
+        function addAutocomplete(input) {
+          input.addEventListener('input', function () {
+            const value = this.value.toLowerCase();
+            const suggestions = popularCities.filter(
+              (city) => city.toLowerCase().includes(value) && value.length >= 2
+            );
+
+            // Créer une liste de suggestions simple
+            let datalistId = this.id + '-suggestions';
+            let datalist = document.getElementById(datalistId);
+
+            if (!datalist) {
+              datalist = document.createElement('datalist');
+              datalist.id = datalistId;
+              this.setAttribute('list', datalistId);
+              this.parentNode.appendChild(datalist);
+            }
+
+            datalist.innerHTML = '';
+            suggestions.slice(0, 8).forEach((city) => {
+              const option = document.createElement('option');
+              option.value = city;
+              datalist.appendChild(option);
+            });
+          });
+        }
+
+        addAutocomplete(departureInput);
+        addAutocomplete(arrivalInput);
+      });
+    </script>
   </body>
 </html>
