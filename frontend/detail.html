@@ -57,20 +57,61 @@
           aria-label="Menu principal de navigation"
         >
           <ul class="nav-list">
-            <li><a href="index.html" class="nav-link">Accueil</a></li>
+            <!-- NAVIGATION UTILISATEUR CONNECTÉ -->
             <li>
-              <a href="rechercher-covoiturage.html" class="nav-link active"
-                >Covoiturages</a
+              <a href="index.html" class="nav-link"
+                ><i class="fas fa-home"></i> Accueil</a
               >
             </li>
-            <li><a href="add-voyage.html" class="nav-link">Publier</a></li>
+            <li>
+              <a href="rechercher-covoiturage.html" class="nav-link"
+                ><i class="fas fa-search"></i> Rechercher</a
+              >
+            </li>
+            <li>
+              <a href="add-voyage.html" class="nav-link"
+                ><i class="fas fa-plus"></i> Publier</a
+              >
+            </li>
             <li>
               <a href="mes-reservations.html" class="nav-link"
-                >Mes réservations</a
+                ><i class="fas fa-calendar-check"></i> Mes réservations</a
               >
             </li>
-            <li><a href="historique.html" class="nav-link">Historique</a></li>
-            <li><a href="user-profile.html" class="nav-link">Mon profil</a></li>
+            <li>
+              <a href="historique.html" class="nav-link"
+                ><i class="fas fa-history"></i> Historique</a
+              >
+            </li>
+            <li>
+              <a href="user-profile.html" class="nav-link"
+                ><i class="fas fa-user-circle"></i> Mon profil</a
+              >
+            </li>
+            <li>
+              <a href="add-vehicule.html" class="nav-link"
+                ><i class="fas fa-car"></i> Mes véhicules</a
+              >
+            </li>
+            <li>
+              <a href="add-preferences.html" class="nav-link"
+                ><i class="fas fa-cog"></i> Préférences</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+            <li>
+              <button
+                class="nav-link logout-btn"
+                onclick="logout()"
+                type="button"
+              >
+                <i class="fas fa-sign-out-alt"></i> Déconnexion
+              </button>
+            </li>
           </ul>
         </nav>
       </div>

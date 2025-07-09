@@ -1,4 +1,4 @@
-# Script simple de verification des pages HTML
+﻿# Script simple de verification des pages HTML
 Write-Host "Verification des pages HTML en cours..." -ForegroundColor Green
 
 $frontendPath = "."

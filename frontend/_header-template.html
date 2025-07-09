@@ -28,35 +28,62 @@
       <span class="hamburger-line" aria-hidden="true"></span>
     </button>
 
-    <nav id="main-nav" class="main-nav" role="navigation" aria-label="Menu principal de navigation">
+    <nav
+      id="main-nav"
+      class="main-nav"
+      role="navigation"
+      aria-label="Menu principal de navigation"
+    >
       <ul class="nav-list">
         <!-- NAVIGATION PUBLIQUE (pages publiques accessibles sans connexion) -->
-        <li><a href="index.html" class="nav-link">🏠 Accueil</a></li>
-        <li><a href="rechercher-covoiturage.html" class="nav-link">🔍 Covoiturages</a></li>
-        <li><a href="contact.html" class="nav-link">📞 Contact</a></li>
-        <li><a href="login.html" class="nav-link">🔑 Connexion</a></li>
-        <li><a href="register.html" class="nav-link">✏️ Inscription</a></li>
+        <li>
+          <a href="index.html" class="nav-link"
+            ><i class="fas fa-home"></i> Accueil</a
+          >
+        </li>
+        <li>
+          <a href="rechercher-covoiturage.html" class="nav-link"
+            ><i class="fas fa-search"></i> Rechercher</a
+          >
+        </li>
+        <li>
+          <a href="contact.html" class="nav-link"
+            ><i class="fas fa-envelope"></i> Contact</a
+          >
+        </li>
+        <li>
+          <a href="login.html" class="nav-link"
+            ><i class="fas fa-sign-in-alt"></i> Connexion</a
+          >
+        </li>
+        <li>
+          <a href="register.html" class="nav-link"
+            ><i class="fas fa-user-plus"></i> Inscription</a
+          >
+        </li>
 
         <!-- NAVIGATION UTILISATEUR CONNECTÉ (remplacer la navigation publique) -->
         <!--
-        <li><a href="index.html" class="nav-link">🏠 Accueil</a></li>
-        <li><a href="rechercher-covoiturage.html" class="nav-link">🔍 Rechercher</a></li>
-        <li><a href="add-voyage.html" class="nav-link">➕ Publier</a></li>
-        <li><a href="mes-reservations.html" class="nav-link">📅 Mes réservations</a></li>
-        <li><a href="historique.html" class="nav-link">📋 Historique</a></li>
-        <li><a href="user-profile.html" class="nav-link">👤 Mon profil</a></li>
-        <li><a href="add-vehicule.html" class="nav-link">🚗 Mes véhicules</a></li>
-        <li><a href="add-preferences.html" class="nav-link">⚙️ Préférences</a></li>
-        <li><a href="#" class="nav-link logout-btn" onclick="logout()">🚪 Déconnexion</a></li>
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+        <li><a href="rechercher-covoiturage.html" class="nav-link"><i class="fas fa-search"></i> Rechercher</a></li>
+        <li><a href="add-voyage.html" class="nav-link"><i class="fas fa-plus"></i> Publier</a></li>
+        <li><a href="mes-reservations.html" class="nav-link"><i class="fas fa-calendar-check"></i> Mes réservations</a></li>
+        <li><a href="historique.html" class="nav-link"><i class="fas fa-history"></i> Historique</a></li>
+        <li><a href="user-profile.html" class="nav-link"><i class="fas fa-user-circle"></i> Mon profil</a></li>
+        <li><a href="add-vehicule.html" class="nav-link"><i class="fas fa-car"></i> Mes véhicules</a></li>
+        <li><a href="add-preferences.html" class="nav-link"><i class="fas fa-cog"></i> Préférences</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li><button class="nav-link logout-btn" onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i> Déconnexion</button></li>
         -->
 
         <!-- NAVIGATION ADMIN/EMPLOYÉ (remplacer la navigation publique) -->
         <!--
-        <li><a href="admin-dashboard.html" class="nav-link">📊 Dashboard</a></li>
-        <li><a href="admin-comptes.html" class="nav-link">👥 Comptes</a></li>
-        <li><a href="employe-avis.html" class="nav-link">⭐ Avis</a></li>
-        <li><a href="employe-incidents.html" class="nav-link">🚨 Incidents</a></li>
-        <li><a href="index.html" class="nav-link logout-btn">🚪 Déconnexion</a></li>
+        <li><a href="admin-dashboard.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+        <li><a href="admin-comptes.html" class="nav-link"><i class="fas fa-users"></i> Comptes</a></li>
+        <li><a href="employe-avis.html" class="nav-link"><i class="fas fa-star"></i> Avis</a></li>
+        <li><a href="employe-incidents.html" class="nav-link"><i class="fas fa-exclamation-triangle"></i> Incidents</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li><button class="nav-link logout-btn" onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i> Déconnexion</button></li>
         -->
       </ul>
     </nav>
@@ -68,15 +95,27 @@ INSTRUCTIONS D'UTILISATION :
 
 1. Copier cette structure dans chaque page HTML
 2. Ajouter la classe "active" sur le lien correspondant à la page actuelle
-3. Activer/désactiver les liens selon le type d'utilisateur (public/connecté/admin)
+3. Activer/désactiver les liens selon le type d'utilisateur :
+   - NAVIGATION PUBLIQUE : Décommenter les liens publics (index, rechercher, contact, connexion, inscription)
+   - NAVIGATION UTILISATEUR : Décommenter les liens utilisateur connecté (+ contact)
+   - NAVIGATION ADMIN : Décommenter les liens admin/employé (+ contact)
 4. S'assurer que les liens CSS sont présents :
    - <link rel="stylesheet" href="assets/css/_header.css" />
    - <link rel="stylesheet" href="assets/css/_commun.css" />
 5. Ajouter le script du menu mobile :
    - <script src="assets/js/menu.js"></script>
+6. Ajouter Font Awesome pour les icônes :
+   - <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 EXEMPLE pour la page user-profile.html :
-- Ajouter class="active" sur le lien "Mon profil"
-- Afficher uniquement les liens des pages connectées
-- Masquer les liens publics (connexion/inscription)
+1. Commenter tous les liens publics
+2. Décommenter tous les liens utilisateur connecté
+3. Ajouter class="active" sur le lien "Mon profil"
+4. Garder le lien "Contact" accessible
+
+EXEMPLE pour la page admin-dashboard.html :
+1. Commenter tous les liens publics
+2. Décommenter tous les liens admin
+3. Ajouter class="active" sur le lien "Dashboard"
+4. Garder le lien "Contact" accessible
 -->

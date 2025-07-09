@@ -1,4 +1,4 @@
-# Script PowerShell pour verifier et standardiser toutes les pages HTML
+﻿# Script PowerShell pour verifier et standardiser toutes les pages HTML
 # ecoCovoit - Verification des headers, footers et liaisons CSS
 
 Write-Host "🔧 Debut de la verification de toutes les pages HTML..." -ForegroundColor Green

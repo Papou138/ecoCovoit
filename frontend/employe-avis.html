@@ -58,17 +58,41 @@
           aria-label="Menu principal de navigation"
         >
           <ul class="nav-list">
+            <!-- NAVIGATION ADMIN -->
             <li>
-              <a href="admin-dashboard.html" class="nav-link">Dashboard</a>
-            </li>
-            <li><a href="admin-comptes.html" class="nav-link">Comptes</a></li>
-            <li>
-              <a href="employe-avis.html" class="nav-link active">Avis</a>
+              <a href="admin-dashboard.html" class="nav-link"
+                ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+              >
             </li>
             <li>
-              <a href="employe-incidents.html" class="nav-link">Incidents</a>
+              <a href="admin-comptes.html" class="nav-link"
+                ><i class="fas fa-users"></i> Comptes</a
+              >
             </li>
-            <li><a href="index.html" class="nav-link">Déconnexion</a></li>
+            <li>
+              <a href="employe-avis.html" class="nav-link active"
+                ><i class="fas fa-star"></i> Avis</a
+              >
+            </li>
+            <li>
+              <a href="employe-incidents.html" class="nav-link"
+                ><i class="fas fa-exclamation-triangle"></i> Incidents</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+            <li>
+              <button
+                class="nav-link logout-btn"
+                onclick="logout()"
+                type="button"
+              >
+                <i class="fas fa-sign-out-alt"></i> Déconnexion
+              </button>
+            </li>
           </ul>
         </nav>
       </div>
