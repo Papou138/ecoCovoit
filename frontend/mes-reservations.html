@@ -1,18 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Gérez vos réservations de covoiturage sur ecoCovoit - Consultez et modifiez vos trajets écoresponsables réservés."
+      content="GÃ©rez vos rÃ©servations de covoiturage sur ecoCovoit - Consultez et modifiez vos trajets Ã©coresponsables rÃ©servÃ©s."
     />
     <meta
       name="keywords"
-      content="réservations, trajets, covoiturage, gestion, transport écologique, mes voyages"
+      content="rÃ©servations, trajets, covoiturage, gestion, transport Ã©cologique, mes voyages"
     />
     <meta name="author" content="ecoCovoit" />
-    <title>Mes réservations – ecoCovoit</title>
+    <title>Mes rÃ©servations â€“ ecoCovoit</title>
     <link rel="stylesheet" href="assets/css/_commun.css" />
     <link rel="stylesheet" href="assets/css/_header.css" />
     <link rel="stylesheet" href="assets/css/_footer.css" />
@@ -23,7 +23,7 @@
     />
   </head>
   <body>
-    <header>
+    <header class="header-user">
       <div class="header-content">
         <div class="logo-container">
           <img
@@ -57,7 +57,7 @@
           aria-label="Menu principal de navigation"
         >
           <ul class="nav-list">
-            <!-- NAVIGATION UTILISATEUR CONNECTÉ -->
+            <!-- NAVIGATION UTILISATEUR CONNECTÃ‰ -->
             <li>
               <a href="index.html" class="nav-link"
                 ><i class="fas fa-home"></i> Accueil</a
@@ -75,7 +75,7 @@
             </li>
             <li>
               <a href="mes-reservations.html" class="nav-link active"
-                ><i class="fas fa-calendar-check"></i> Mes réservations</a
+                ><i class="fas fa-calendar-check"></i> Mes rÃ©servations</a
               >
             </li>
             <li>
@@ -90,12 +90,12 @@
             </li>
             <li>
               <a href="add-vehicule.html" class="nav-link"
-                ><i class="fas fa-car"></i> Mes véhicules</a
+                ><i class="fas fa-car"></i> Mes vÃ©hicules</a
               >
             </li>
             <li>
               <a href="add-preferences.html" class="nav-link"
-                ><i class="fas fa-cog"></i> Préférences</a
+                ><i class="fas fa-cog"></i> PrÃ©fÃ©rences</a
               >
             </li>
             <li>
@@ -109,7 +109,7 @@
                 onclick="logout()"
                 type="button"
               >
-                <i class="fas fa-sign-out-alt"></i> Déconnexion
+                <i class="fas fa-sign-out-alt"></i> DÃ©connexion
               </button>
             </li>
           </ul>
@@ -122,19 +122,19 @@
       <section class="presentation-section">
         <div class="presentation-content">
           <div class="text-content">
-            <h2>Mes Réservations</h2>
+            <h2>Mes RÃ©servations</h2>
             <p>
-              <i class="fas fa-calendar-check"></i> Gérez vos trajets réservés
-              en toute simplicité
+              <i class="fas fa-calendar-check"></i> GÃ©rez vos trajets rÃ©servÃ©s
+              en toute simplicitÃ©
             </p>
             <p>
-              <i class="fas fa-route"></i> Suivez vos trajets en temps réel<br />
+              <i class="fas fa-route"></i> Suivez vos trajets en temps rÃ©el<br />
               <i class="fas fa-clock"></i> Consultez l'historique de vos
               voyages<br />
               <i class="fas fa-user-friends"></i> Rencontrez d'autres
               voyageurs<br />
-              <i class="fas fa-leaf"></i> Contribuez à un transport
-              éco-responsable
+              <i class="fas fa-leaf"></i> Contribuez Ã  un transport
+              Ã©co-responsable
             </p>
           </div>
           <div class="image-container">
@@ -146,41 +146,41 @@
       </section>
 
       <div class="reservations-container">
-        <!-- Statistiques des réservations -->
+        <!-- Statistiques des rÃ©servations -->
         <div class="stats-overview">
           <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
             <div class="stat-value" id="total-reservations">0</div>
-            <div class="stat-label">Réservations actives</div>
+            <div class="stat-label">RÃ©servations actives</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
             <div class="stat-value" id="completed-trips">0</div>
-            <div class="stat-label">Trajets terminés</div>
+            <div class="stat-label">Trajets terminÃ©s</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-leaf"></i></div>
             <div class="stat-value" id="co2-saved">0</div>
-            <div class="stat-label">kg CO₂ économisés</div>
+            <div class="stat-label">kg COâ‚‚ Ã©conomisÃ©s</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-euro-sign"></i></div>
             <div class="stat-value" id="money-saved">0</div>
-            <div class="stat-label">€ économisés</div>
+            <div class="stat-label">â‚¬ Ã©conomisÃ©s</div>
           </div>
         </div>
 
         <!-- Filtres -->
         <div class="filters-section">
-          <h3><i class="fas fa-filter"></i> Filtrer mes réservations</h3>
+          <h3><i class="fas fa-filter"></i> Filtrer mes rÃ©servations</h3>
           <div class="filter-controls">
             <select id="status-filter" class="filter-select">
               <option value="">Tous les statuts</option>
               <option value="en_attente">En attente</option>
-              <option value="confirme">Confirmé</option>
+              <option value="confirme">ConfirmÃ©</option>
               <option value="en_cours">En cours</option>
-              <option value="termine">Terminé</option>
-              <option value="annule">Annulé</option>
+              <option value="termine">TerminÃ©</option>
+              <option value="annule">AnnulÃ©</option>
             </select>
             <input
               type="date"
@@ -189,20 +189,20 @@
               placeholder="Date"
             />
             <button id="reset-filters" class="btn-secondary">
-              <i class="fas fa-times"></i> Réinitialiser
+              <i class="fas fa-times"></i> RÃ©initialiser
             </button>
           </div>
         </div>
 
-        <!-- Liste des réservations -->
+        <!-- Liste des rÃ©servations -->
         <div class="reservations-list">
-          <h3><i class="fas fa-list"></i> Mes trajets réservés</h3>
+          <h3><i class="fas fa-list"></i> Mes trajets rÃ©servÃ©s</h3>
           <div id="reservations-cards">
             <div class="loading-card">
               <div class="loading-spinner">
                 <i class="fas fa-spinner fa-spin"></i>
               </div>
-              <p>Chargement de vos réservations...</p>
+              <p>Chargement de vos rÃ©servations...</p>
             </div>
           </div>
         </div>
@@ -216,10 +216,10 @@
           <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
             <i class="fas fa-seedling"></i> La plateforme de covoiturage
-            écoresponsable
+            Ã©coresponsable
           </p>
           <p>
-            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            <i class="fas fa-handshake"></i> RÃ©duisons ensemble notre empreinte
             carbone
           </p>
         </div>
@@ -236,7 +236,7 @@
           <ul>
             <li>
               <i class="fas fa-gavel"></i>
-              <a href="mentions.html"> Mentions légales</a>
+              <a href="mentions.html"> Mentions lÃ©gales</a>
             </li>
             <li>
               <i class="fas fa-envelope"></i>
@@ -260,9 +260,9 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>&copy; 2025 EcoRide. Tous droits rÃ©servÃ©s.</p>
         <p>
-          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i> Pour une mobilitÃ© plus verte
           <i class="fas fa-leaf text-green"></i>
         </p>
       </div>
@@ -278,7 +278,7 @@
       let allReservations = [];
       let filteredReservations = [];
 
-      // Charger les réservations
+      // Charger les rÃ©servations
       function loadReservations() {
         fetch('../backend/reservations/mes-reservations.php')
           .then((res) => res.json())
@@ -289,21 +289,21 @@
             displayReservations();
           })
           .catch((error) => {
-            console.error('Erreur lors du chargement des réservations:', error);
+            console.error('Erreur lors du chargement des rÃ©servations:', error);
             container.innerHTML = `
               <div class="error-card">
                 <div class="error-icon"><i class="fas fa-exclamation-triangle"></i></div>
                 <h3>Erreur de chargement</h3>
-                <p>Impossible de charger vos réservations. Veuillez réessayer.</p>
+                <p>Impossible de charger vos rÃ©servations. Veuillez rÃ©essayer.</p>
                 <button onclick="loadReservations()" class="btn-primary">
-                  <i class="fas fa-redo"></i> Réessayer
+                  <i class="fas fa-redo"></i> RÃ©essayer
                 </button>
               </div>
             `;
           });
       }
 
-      // Mettre à jour les statistiques
+      // Mettre Ã  jour les statistiques
       function updateStatistics() {
         const activeReservations = allReservations.filter(
           (r) => r.statut !== 'termine' && r.statut !== 'annule'
@@ -321,10 +321,10 @@
         ); // Estimation CO2
         document.getElementById('money-saved').textContent = Math.round(
           completedTrips.length * 8.5
-        ); // Estimation économies
+        ); // Estimation Ã©conomies
       }
 
-      // Afficher les réservations
+      // Afficher les rÃ©servations
       function displayReservations() {
         container.innerHTML = '';
 
@@ -332,8 +332,8 @@
           container.innerHTML = `
             <div class="empty-state">
               <div class="empty-icon"><i class="fas fa-calendar-times"></i></div>
-              <h3>Aucune réservation trouvée</h3>
-              <p>Vous n'avez encore réservé aucun trajet ou aucun trajet ne correspond à vos critères.</p>
+              <h3>Aucune rÃ©servation trouvÃ©e</h3>
+              <p>Vous n'avez encore rÃ©servÃ© aucun trajet ou aucun trajet ne correspond Ã  vos critÃ¨res.</p>
               <a href="rechercher-covoiturage.html" class="btn-primary">
                 <i class="fas fa-search"></i> Rechercher un trajet
               </a>
@@ -376,7 +376,7 @@
                 <div class="info-item">
                   <i class="fas fa-clock"></i>
                   <span><strong>Heure :</strong> ${
-                    trajet.heure || 'Non spécifiée'
+                    trajet.heure || 'Non spÃ©cifiÃ©e'
                   }</span>
                 </div>
                 <div class="info-item">
@@ -404,7 +404,7 @@
         });
       }
 
-      // Obtenir l'icône du statut
+      // Obtenir l'icÃ´ne du statut
       function getStatusIcon(status) {
         const icons = {
           en_attente: '<i class="fas fa-hourglass-half"></i>',
@@ -420,10 +420,10 @@
       function getStatusText(status) {
         const texts = {
           en_attente: 'En attente',
-          confirme: 'Confirmé',
+          confirme: 'ConfirmÃ©',
           en_cours: 'En cours',
-          termine: 'Terminé',
-          annule: 'Annulé',
+          termine: 'TerminÃ©',
+          annule: 'AnnulÃ©',
         };
         return texts[status] || 'Inconnu';
       }
@@ -450,7 +450,7 @@
 
         buttons += `
           <button onclick="voirDetails(${trajet.id})" class="btn-primary">
-            <i class="fas fa-eye"></i> Détails
+            <i class="fas fa-eye"></i> DÃ©tails
           </button>
         `;
 
@@ -468,7 +468,7 @@
         });
       }
 
-      // Filtrer les réservations
+      // Filtrer les rÃ©servations
       function filterReservations() {
         const statusValue = statusFilter.value;
         const dateValue = dateFilter.value;
@@ -482,7 +482,7 @@
         displayReservations();
       }
 
-      // Réinitialiser les filtres
+      // RÃ©initialiser les filtres
       function resetFiltersHandler() {
         statusFilter.value = '';
         dateFilter.value = '';
@@ -490,9 +490,9 @@
         displayReservations();
       }
 
-      // Annuler une réservation
+      // Annuler une rÃ©servation
       function annuler(trajetId) {
-        if (!confirm('Êtes-vous sûr de vouloir annuler cette réservation ?'))
+        if (!confirm('ÃŠtes-vous sÃ»r de vouloir annuler cette rÃ©servation ?'))
           return;
 
         const button = event.target;
@@ -510,7 +510,7 @@
           .then((data) => {
             alert(data.message);
             if (data.success) {
-              loadReservations(); // Recharger les données
+              loadReservations(); // Recharger les donnÃ©es
             } else {
               button.innerHTML = originalText;
               button.disabled = false;
@@ -518,7 +518,7 @@
           })
           .catch((error) => {
             console.error("Erreur lors de l'annulation:", error);
-            alert("Erreur lors de l'annulation. Veuillez réessayer.");
+            alert("Erreur lors de l'annulation. Veuillez rÃ©essayer.");
             button.innerHTML = originalText;
             button.disabled = false;
           });
@@ -529,7 +529,7 @@
         window.location.href = `laisser-avis.html?trajet_id=${trajetId}`;
       }
 
-      // Voir les détails
+      // Voir les dÃ©tails
       function voirDetails(trajetId) {
         window.location.href = `detail.html?id=${trajetId}`;
       }
@@ -544,3 +544,5 @@
     </script>
   </body>
 </html>
+
+

@@ -1,18 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Ajoutez votre véhicule sur ecoCovoit - Enregistrez votre voiture, électrique ou hybride, pour proposer des trajets écoresponsables."
+      content="Ajoutez votre vÃ©hicule sur ecoCovoit - Enregistrez votre voiture, Ã©lectrique ou hybride, pour proposer des trajets Ã©coresponsables."
     />
     <meta
       name="keywords"
-      content="ajouter véhicule, voiture électrique, hybride, covoiturage, transport écologique"
+      content="ajouter vÃ©hicule, voiture Ã©lectrique, hybride, covoiturage, transport Ã©cologique"
     />
     <meta name="author" content="ecoCovoit" />
-    <title>Ajout véhicule – ecoCovoit</title>
+    <title>Ajout vÃ©hicule â€“ ecoCovoit</title>
     <link rel="stylesheet" href="assets/css/_commun.css" />
     <link rel="stylesheet" href="assets/css/_header.css" />
     <link rel="stylesheet" href="assets/css/_footer.css" />
@@ -23,7 +23,7 @@
     />
   </head>
   <body>
-    <header>
+    <header class="header-user">
       <div class="header-content">
         <div class="logo-container">
           <img
@@ -57,7 +57,7 @@
           aria-label="Menu principal de navigation"
         >
           <ul class="nav-list">
-            <!-- NAVIGATION UTILISATEUR CONNECTÉ -->
+            <!-- NAVIGATION UTILISATEUR CONNECTÃ‰ -->
             <li>
               <a href="index.html" class="nav-link"
                 ><i class="fas fa-home"></i> Accueil</a
@@ -75,7 +75,7 @@
             </li>
             <li>
               <a href="mes-reservations.html" class="nav-link"
-                ><i class="fas fa-calendar-check"></i> Mes réservations</a
+                ><i class="fas fa-calendar-check"></i> Mes rÃ©servations</a
               >
             </li>
             <li>
@@ -90,12 +90,12 @@
             </li>
             <li>
               <a href="add-vehicule.html" class="nav-link active"
-                ><i class="fas fa-car"></i> Mes véhicules</a
+                ><i class="fas fa-car"></i> Mes vÃ©hicules</a
               >
             </li>
             <li>
               <a href="add-preferences.html" class="nav-link"
-                ><i class="fas fa-cog"></i> Préférences</a
+                ><i class="fas fa-cog"></i> PrÃ©fÃ©rences</a
               >
             </li>
             <li>
@@ -105,7 +105,7 @@
             </li>
             <li>
               <button class="nav-link logout-btn" onclick="logout()" type="button"
-                ><i class="fas fa-sign-out-alt"></i> Déconnexion</button
+                ><i class="fas fa-sign-out-alt"></i> DÃ©connexion</button
               >
             </li>
           </ul>
@@ -118,15 +118,15 @@
       <section class="presentation-section">
         <div class="presentation-content">
           <div class="text-content">
-            <h2 id="form-title">Ajouter un véhicule</h2>
+            <h2 id="form-title">Ajouter un vÃ©hicule</h2>
             <p>
-              <i class="fas fa-car"></i> Enregistrez votre véhicule pour proposer des covoiturages
+              <i class="fas fa-car"></i> Enregistrez votre vÃ©hicule pour proposer des covoiturages
             </p>
             <p>
-              <i class="fas fa-shield-alt"></i> Informations sécurisées<br />
-              <i class="fas fa-leaf"></i> Participez à l'éco-mobilité<br />
+              <i class="fas fa-shield-alt"></i> Informations sÃ©curisÃ©es<br />
+              <i class="fas fa-leaf"></i> Participez Ã  l'Ã©co-mobilitÃ©<br />
               <i class="fas fa-users"></i> Partagez vos trajets<br />
-              <i class="fas fa-heart"></i> Réduisons l'empreinte carbone
+              <i class="fas fa-heart"></i> RÃ©duisons l'empreinte carbone
             </p>
           </div>
           <div class="image-container">
@@ -140,7 +140,7 @@
       <!-- SECTION FORMULAIRE -->
       <section class="vehicle-form-section">
         <div class="container">
-          <h2>Informations du véhicule</h2>
+          <h2>Informations du vÃ©hicule</h2>
           <div class="auth-container">
             <div class="auth-card vehicle-form">
 
@@ -152,10 +152,10 @@
                   Marque
                 </label>
                 <select id="marque" name="marque" required>
-                  <option value="">Sélectionner une marque</option>
+                  <option value="">SÃ©lectionner une marque</option>
                   <option value="Audi">Audi</option>
                   <option value="BMW">BMW</option>
-                  <option value="Citroën">Citroën</option>
+                  <option value="CitroÃ«n">CitroÃ«n</option>
                   <option value="Fiat">Fiat</option>
                   <option value="Ford">Ford</option>
                   <option value="Mercedes">Mercedes</option>
@@ -172,7 +172,7 @@
               <div class="form-group">
                 <label for="modele">
                   <i class="fas fa-car-side"></i>
-                  Modèle
+                  ModÃ¨le
                 </label>
                 <input type="text" id="modele" name="modele" required />
                 <div class="error-message"></div>
@@ -186,7 +186,7 @@
                   Couleur
                 </label>
                 <select id="couleur" name="couleur" required>
-                  <option value="">Sélectionner une couleur</option>
+                  <option value="">SÃ©lectionner une couleur</option>
                   <option value="Blanc">Blanc</option>
                   <option value="Noir">Noir</option>
                   <option value="Gris">Gris</option>
@@ -227,7 +227,7 @@
                   Nombre de places
                 </label>
                 <select id="places" name="places" required>
-                  <option value="">Sélectionner</option>
+                  <option value="">SÃ©lectionner</option>
                   <option value="2">2 places</option>
                   <option value="4">4 places</option>
                   <option value="5">5 places</option>
@@ -240,13 +240,13 @@
               <div class="form-group">
                 <label for="energie">
                   <i class="fas fa-gas-pump"></i>
-                  Type d'énergie
+                  Type d'Ã©nergie
                 </label>
                 <select id="energie" name="energie" required>
-                  <option value="">Sélectionner</option>
+                  <option value="">SÃ©lectionner</option>
                   <option value="essence">Essence</option>
                   <option value="diesel">Diesel</option>
-                  <option value="électrique">Électrique</option>
+                  <option value="Ã©lectrique">Ã‰lectrique</option>
                   <option value="hybride">Hybride</option>
                   <option value="gpl">GPL</option>
                   <option value="gnv">GNV</option>
@@ -258,7 +258,7 @@
             <div class="form-group">
               <label for="date_immatriculation">
                 <i class="fas fa-calendar"></i>
-                Date de première immatriculation
+                Date de premiÃ¨re immatriculation
               </label>
               <input
                 type="date"
@@ -276,7 +276,7 @@
               </button>
               <button type="submit" class="btn-primary">
                 <i class="fas fa-save"></i>
-                <span id="submit-text">Enregistrer le véhicule</span>
+                <span id="submit-text">Enregistrer le vÃ©hicule</span>
               </button>
             </div>
 
@@ -294,10 +294,10 @@
           <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
             <i class="fas fa-seedling"></i> La plateforme de covoiturage
-            écoresponsable
+            Ã©coresponsable
           </p>
           <p>
-            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            <i class="fas fa-handshake"></i> RÃ©duisons ensemble notre empreinte
             carbone
           </p>
         </div>
@@ -314,7 +314,7 @@
           <ul>
             <li>
               <i class="fas fa-gavel"></i>
-              <a href="mentions.html"> Mentions légales</a>
+              <a href="mentions.html"> Mentions lÃ©gales</a>
             </li>
             <li>
               <i class="fas fa-envelope"></i>
@@ -338,9 +338,9 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>&copy; 2025 EcoRide. Tous droits rÃ©servÃ©s.</p>
         <p>
-          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i> Pour une mobilitÃ© plus verte
           <i class="fas fa-leaf text-green"></i>
         </p>
       </div>
@@ -356,14 +356,14 @@
         const feedback = document.getElementById('form-feedback');
         const cancelBtn = document.getElementById('cancel-btn');
 
-        // Vérifier si on est en mode édition
+        // VÃ©rifier si on est en mode Ã©dition
         const urlParams = new URLSearchParams(window.location.search);
         const editId = urlParams.get('edit');
 
         if (editId) {
           document.getElementById('form-title').textContent =
-            'Modifier le véhicule';
-          submitText.textContent = 'Mettre à jour le véhicule';
+            'Modifier le vÃ©hicule';
+          submitText.textContent = 'Mettre Ã  jour le vÃ©hicule';
           loadVehicleData(editId);
         }
 
@@ -381,7 +381,7 @@
           // Animation de chargement
           const originalText = submitText.textContent;
           submitText.textContent = editId
-            ? 'Mise à jour...'
+            ? 'Mise Ã  jour...'
             : 'Enregistrement...';
           submitBtn.innerHTML =
             '<i class="fas fa-spinner fa-spin"></i> ' + submitText.textContent;
@@ -398,8 +398,8 @@
             if (data.success) {
               showFeedback(
                 editId
-                  ? 'Véhicule mis à jour avec succès !'
-                  : 'Véhicule ajouté avec succès !',
+                  ? 'VÃ©hicule mis Ã  jour avec succÃ¨s !'
+                  : 'VÃ©hicule ajoutÃ© avec succÃ¨s !',
                 'success'
               );
               setTimeout(() => {
@@ -425,14 +425,14 @@
         cancelBtn.addEventListener('click', function () {
           if (
             confirm(
-              'Êtes-vous sûr de vouloir annuler ? Les modifications ne seront pas sauvegardées.'
+              'ÃŠtes-vous sÃ»r de vouloir annuler ? Les modifications ne seront pas sauvegardÃ©es.'
             )
           ) {
             window.location.href = 'user-profile.html';
           }
         });
 
-        // Validation de l'immatriculation en temps réel
+        // Validation de l'immatriculation en temps rÃ©el
         document
           .getElementById('immatriculation')
           .addEventListener('input', function (e) {
@@ -452,23 +452,23 @@
             e.target.value = value;
           });
 
-        // Déconnexion
+        // DÃ©connexion
         document
           .querySelector('.logout-btn')
           .addEventListener('click', async function (e) {
             e.preventDefault();
-            if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+            if (confirm('ÃŠtes-vous sÃ»r de vouloir vous dÃ©connecter ?')) {
               try {
                 await fetch('../backend/auth/logout.php');
                 window.location.href = 'login.html';
               } catch (error) {
-                console.error('Erreur lors de la déconnexion:', error);
+                console.error('Erreur lors de la dÃ©connexion:', error);
                 window.location.href = 'login.html';
               }
             }
           });
 
-        // Charger les données du véhicule en mode édition
+        // Charger les donnÃ©es du vÃ©hicule en mode Ã©dition
         async function loadVehicleData(vehicleId) {
           try {
             const response = await fetch(
@@ -489,8 +489,8 @@
                 vehicle.date_immatriculation;
             }
           } catch (error) {
-            console.error('Erreur lors du chargement du véhicule:', error);
-            showFeedback('Erreur lors du chargement des données', 'error');
+            console.error('Erreur lors du chargement du vÃ©hicule:', error);
+            showFeedback('Erreur lors du chargement des donnÃ©es', 'error');
           }
         }
 
@@ -518,7 +518,7 @@
             }
           });
 
-          // Validation spécifique de l'immatriculation
+          // Validation spÃ©cifique de l'immatriculation
           const immat = document.getElementById('immatriculation');
           const immatPattern = /^[A-Z]{2}-\d{3}-[A-Z]{2}$/;
           if (immat.value && !immatPattern.test(immat.value)) {
@@ -534,7 +534,7 @@
             if (selectedDate > today) {
               showFieldError(
                 dateImmat,
-                'La date ne peut pas être dans le futur'
+                'La date ne peut pas Ãªtre dans le futur'
               );
               isValid = false;
             }
@@ -573,3 +573,5 @@
     </script>
   </body>
 </html>
+
+

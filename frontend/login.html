@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Connexion à ecoCovoit - Accédez à votre espace personnel pour gérer vos covoiturages écoresponsables."
+      content="Connexion Ã  ecoCovoit - AccÃ©dez Ã  votre espace personnel pour gÃ©rer vos covoiturages Ã©coresponsables."
     />
     <meta
       name="keywords"
-      content="connexion, login, espace personnel, covoiturage, écologique"
+      content="connexion, login, espace personnel, covoiturage, Ã©cologique"
     />
     <meta name="author" content="ecoCovoit" />
     <title>Connexion - EcoCovoit</title>
@@ -24,7 +24,7 @@
   </head>
   <body>
     <!-- HEADER -->
-    <header>
+    <header class="header-public">
       <div class="header-content">
         <div class="logo-container">
           <img
@@ -57,6 +57,7 @@
           aria-label="Menu principal de navigation"
         >
           <ul class="nav-list">
+            <!-- NAVIGATION PUBLIQUE -->
             <li>
               <a href="index.html" class="nav-link">
                 <i class="fas fa-home"></i> Accueil
@@ -64,7 +65,7 @@
             </li>
             <li>
               <a href="rechercher-covoiturage.html" class="nav-link">
-                <i class="fas fa-search"></i> Covoiturages
+                <i class="fas fa-search"></i> Rechercher
               </a>
             </li>
             <li>
@@ -94,15 +95,17 @@
           <div class="text-content">
             <h2>Bienvenue sur ecoCovoit</h2>
             <p>
-              <i class="fas fa-user-circle"></i> Connectez-vous à votre espace
+              <i class="fas fa-user-circle"></i> Connectez-vous Ã  votre espace
               personnel
             </p>
             <p>
-              <i class="fas fa-car"></i> Accédez à vos trajets de covoiturage<br />
-              <i class="fas fa-users"></i> Rejoignez la communauté
-              écoresponsable<br />
-              <i class="fas fa-leaf"></i> Contribuez à un transport plus vert<br />
-              <i class="fas fa-gift"></i> Profitez de vos crédits gratuits
+              <i class="fas fa-car"></i> AccÃ©dez Ã  vos trajets de
+              covoiturage<br />
+              <i class="fas fa-users"></i> Rejoignez la communautÃ©
+              Ã©coresponsable<br />
+              <i class="fas fa-leaf"></i> Contribuez Ã  un transport plus
+              vert<br />
+              <i class="fas fa-gift"></i> Profitez de vos crÃ©dits gratuits
             </p>
           </div>
           <div class="image-container">
@@ -129,7 +132,7 @@
           <div class="auth-form-container active" id="login-form-container">
             <div class="auth-header">
               <h1>Connexion</h1>
-              <p>Connectez-vous à votre espace EcoCovoit</p>
+              <p>Connectez-vous Ã  votre espace EcoCovoit</p>
             </div>
 
             <form id="login-form" class="auth-form">
@@ -179,7 +182,7 @@
                   <input type="checkbox" id="remember-me" name="remember" />
                   Se souvenir de moi
                 </label>
-                <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+                <a href="#" class="forgot-password">Mot de passe oubliÃ© ?</a>
               </div>
 
               <button type="submit" class="btn btn-primary btn-large">
@@ -196,7 +199,7 @@
             <div class="auth-header">
               <h1>Inscription</h1>
               <p>
-                Créez votre compte EcoCovoit et bénéficiez de 20 crédits
+                CrÃ©ez votre compte EcoCovoit et bÃ©nÃ©ficiez de 20 crÃ©dits
                 gratuits !
               </p>
             </div>
@@ -219,7 +222,7 @@
                     class="form-input"
                   />
                 </div>
-                <div class="field-help">Entre 3 et 20 caractères</div>
+                <div class="field-help">Entre 3 et 20 caractÃ¨res</div>
               </div>
 
               <div class="form-group">
@@ -264,13 +267,13 @@
                 </div>
                 <div class="password-strength" id="password-strength"></div>
                 <div class="field-help">
-                  Le mot de passe doit contenir au moins 8 caractères, avec au
+                  Le mot de passe doit contenir au moins 8 caractÃ¨res, avec au
                   moins :
                   <ul>
                     <li>1 lettre minuscule</li>
                     <li>1 lettre majuscule</li>
                     <li>1 chiffre</li>
-                    <li>1 caractère spécial (!@#$%^&*)</li>
+                    <li>1 caractÃ¨re spÃ©cial (!@#$%^&*)</li>
                   </ul>
                 </div>
               </div>
@@ -310,20 +313,20 @@
 
               <button type="submit" class="btn btn-primary btn-large">
                 <i class="fas fa-user-plus"></i>
-                Créer mon compte
+                CrÃ©er mon compte
               </button>
 
               <div class="auth-message" id="register-message"></div>
             </form>
           </div>
 
-          <!-- Informations crédits -->
+          <!-- Informations crÃ©dits -->
           <div class="credits-info">
             <div class="credits-card">
               <i class="fas fa-gift"></i>
               <h3>Offre de bienvenue</h3>
               <p>
-                Recevez <strong>20 crédits gratuits</strong> à l'inscription
+                Recevez <strong>20 crÃ©dits gratuits</strong> Ã  l'inscription
                 pour commencer vos trajets !
               </p>
             </div>
@@ -339,10 +342,10 @@
           <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
             <i class="fas fa-seedling"></i> La plateforme de covoiturage
-            écoresponsable
+            Ã©coresponsable
           </p>
           <p>
-            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            <i class="fas fa-handshake"></i> RÃ©duisons ensemble notre empreinte
             carbone
           </p>
         </div>
@@ -359,7 +362,7 @@
           <ul>
             <li>
               <i class="fas fa-gavel"></i
-              ><a href="mentions.html"> Mentions légales</a>
+              ><a href="mentions.html"> Mentions lÃ©gales</a>
             </li>
             <li>
               <i class="fas fa-envelope"></i
@@ -383,9 +386,9 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>&copy; 2025 EcoRide. Tous droits rÃ©servÃ©s.</p>
         <p>
-          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i> Pour une mobilitÃ© plus verte
           <i class="fas fa-leaf text-green"></i>
         </p>
       </div>

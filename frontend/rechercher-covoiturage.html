@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Recherchez et trouvez des covoiturages écoresponsables sur ecoCovoit. Filtrez par destination, prix et véhicules électriques."
+      content="Recherchez et trouvez des covoiturages Ã©coresponsables sur ecoCovoit. Filtrez par destination, prix et vÃ©hicules Ã©lectriques."
     />
     <meta
       name="keywords"
-      content="recherche, covoiturage, trajets, véhicules électriques, transport écologique, économies"
+      content="recherche, covoiturage, trajets, vÃ©hicules Ã©lectriques, transport Ã©cologique, Ã©conomies"
     />
     <meta name="author" content="ecoCovoit" />
     <title>Rechercher un covoiturage - EcoCovoit</title>
@@ -23,7 +23,7 @@
     />
   </head>
   <body>
-    <header>
+    <header class="header-public">
       <div class="header-content">
         <div class="logo-container">
           <img
@@ -56,6 +56,7 @@
           aria-label="Menu principal de navigation"
         >
           <ul class="nav-list">
+            <!-- ==== NAVIGATION PUBLIQUE ==== -->
             <li>
               <a href="index.html" class="nav-link"
                 ><i class="fas fa-home"></i> Accueil</a
@@ -73,7 +74,7 @@
             </li>
             <li>
               <a href="mes-reservations.html" class="nav-link"
-                ><i class="fas fa-calendar-check"></i> Mes réservations</a
+                ><i class="fas fa-calendar-check"></i> Mes rÃ©servations</a
               >
             </li>
             <li>
@@ -88,12 +89,12 @@
             </li>
             <li>
               <a href="add-vehicule.html" class="nav-link"
-                ><i class="fas fa-car"></i> Mes véhicules</a
+                ><i class="fas fa-car"></i> Mes vÃ©hicules</a
               >
             </li>
             <li>
               <a href="add-preferences.html" class="nav-link"
-                ><i class="fas fa-cog"></i> Préférences</a
+                ><i class="fas fa-cog"></i> PrÃ©fÃ©rences</a
               >
             </li>
             <li>
@@ -102,7 +103,7 @@
                 onclick="logout()"
                 type="button"
               >
-                <i class="fas fa-sign-out-alt"></i> Déconnexion
+                <i class="fas fa-sign-out-alt"></i> DÃ©connexion
               </button>
             </li>
           </ul>
@@ -118,13 +119,13 @@
             <h2>Rechercher un covoiturage</h2>
             <p>
               <i class="fas fa-search"></i> Trouvez le trajet parfait pour vos
-              déplacements écoresponsables
+              dÃ©placements Ã©coresponsables
             </p>
             <p>
               <i class="fas fa-route"></i> Trajets disponibles 24h/24<br />
-              <i class="fas fa-leaf"></i> Mobilité écoresponsable<br />
+              <i class="fas fa-leaf"></i> MobilitÃ© Ã©coresponsable<br />
               <i class="fas fa-euro-sign"></i> Prix avantageux<br />
-              <i class="fas fa-users"></i> Communauté de confiance
+              <i class="fas fa-users"></i> CommunautÃ© de confiance
             </p>
           </div>
           <div class="image-container">
@@ -143,33 +144,33 @@
             <div class="search-fields">
               <div class="form-group">
                 <label for="departure"
-                  ><i class="fas fa-map-marker-alt"></i> Ville de départ</label
+                  ><i class="fas fa-map-marker-alt"></i> Ville de dÃ©part</label
                 >
                 <input
                   type="text"
                   id="departure"
                   name="departure"
-                  placeholder="D'où partez-vous ?"
+                  placeholder="D'oÃ¹ partez-vous ?"
                   required
                   class="form-input"
                 />
               </div>
               <div class="form-group">
                 <label for="arrival"
-                  ><i class="fas fa-flag-checkered"></i> Ville d'arrivée</label
+                  ><i class="fas fa-flag-checkered"></i> Ville d'arrivÃ©e</label
                 >
                 <input
                   type="text"
                   id="arrival"
                   name="arrival"
-                  placeholder="Où allez-vous ?"
+                  placeholder="OÃ¹ allez-vous ?"
                   required
                   class="form-input"
                 />
               </div>
               <div class="form-group">
                 <label for="date"
-                  ><i class="fas fa-calendar-alt"></i> Date de départ</label
+                  ><i class="fas fa-calendar-alt"></i> Date de dÃ©part</label
                 >
                 <input
                   type="date"
@@ -196,7 +197,7 @@
               class="btn btn-secondary btn-small reset-filters"
               id="reset-filters"
             >
-              <i class="fas fa-undo"></i> Réinitialiser
+              <i class="fas fa-undo"></i> RÃ©initialiser
             </button>
           </div>
           <div class="filters-grid">
@@ -204,7 +205,7 @@
               <label>
                 <i class="fas fa-leaf"></i>
                 <input type="checkbox" id="eco-filter" name="eco-filter" />
-                Véhicules électriques uniquement
+                VÃ©hicules Ã©lectriques uniquement
               </label>
             </div>
             <div class="filter-group">
@@ -220,14 +221,14 @@
                 value="50"
                 class="price-slider"
               />
-              <span class="price-display">50€</span>
+              <span class="price-display">50â‚¬</span>
             </div>
             <div class="filter-group">
               <label for="max-duration"
-                ><i class="fas fa-clock"></i> Durée maximum</label
+                ><i class="fas fa-clock"></i> DurÃ©e maximum</label
               >
               <select id="max-duration" name="max-duration" class="form-select">
-                <option value="">Toutes durées</option>
+                <option value="">Toutes durÃ©es</option>
                 <option value="1">1 heure max</option>
                 <option value="2">2 heures max</option>
                 <option value="4">4 heures max</option>
@@ -248,23 +249,23 @@
                 />
                 <label for="rating-all">Toutes</label>
                 <input type="radio" id="rating-3" name="min-rating" value="3" />
-                <label for="rating-3">3⭐+</label>
+                <label for="rating-3">3â­+</label>
                 <input type="radio" id="rating-4" name="min-rating" value="4" />
-                <label for="rating-4">4⭐+</label>
+                <label for="rating-4">4â­+</label>
                 <input type="radio" id="rating-5" name="min-rating" value="5" />
-                <label for="rating-5">5⭐</label>
+                <label for="rating-5">5â­</label>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Résultats -->
+        <!-- RÃ©sultats -->
         <div class="results-section">
           <div class="results-header">
             <h3 id="results-title">
               <i class="fas fa-list"></i> Covoiturages disponibles
             </h3>
-            <div class="results-count" id="results-count">0 trajet trouvé</div>
+            <div class="results-count" id="results-count">0 trajet trouvÃ©</div>
           </div>
 
           <!-- MESSAGE D'INSTRUCTION -->
@@ -279,12 +280,12 @@
             </div>
           </div>
 
-          <!-- MESSAGE PAS DE RÉSULTATS -->
+          <!-- MESSAGE PAS DE RÃ‰SULTATS -->
           <div class="no-results-message hidden" id="no-results-message">
             <div class="message-content">
               <i class="fas fa-car fa-3x"></i>
-              <h3>Aucun covoiturage trouvé</h3>
-              <p>Aucun trajet ne correspond à vos critères pour cette date.</p>
+              <h3>Aucun covoiturage trouvÃ©</h3>
+              <p>Aucun trajet ne correspond Ã  vos critÃ¨res pour cette date.</p>
               <div
                 class="alternative-suggestion"
                 id="alternative-suggestion"
@@ -294,7 +295,7 @@
 
           <!-- LISTE DES COVOITURAGES -->
           <div class="covoiturages-list" id="covoiturages-list">
-            <!-- Les résultats seront injectés ici par JavaScript -->
+            <!-- Les rÃ©sultats seront injectÃ©s ici par JavaScript -->
           </div>
         </div>
       </div>
@@ -307,10 +308,10 @@
           <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
             <i class="fas fa-seedling"></i> La plateforme de covoiturage
-            écoresponsable
+            Ã©coresponsable
           </p>
           <p>
-            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            <i class="fas fa-handshake"></i> RÃ©duisons ensemble notre empreinte
             carbone
           </p>
         </div>
@@ -327,7 +328,7 @@
           <ul>
             <li>
               <i class="fas fa-gavel"></i>
-              <a href="mentions.html"> Mentions légales</a>
+              <a href="mentions.html"> Mentions lÃ©gales</a>
             </li>
             <li>
               <i class="fas fa-envelope"></i>
@@ -351,9 +352,9 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>&copy; 2025 EcoRide. Tous droits rÃ©servÃ©s.</p>
         <p>
-          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i> Pour une mobilitÃ© plus verte
           <i class="fas fa-leaf text-green"></i>
         </p>
       </div>
@@ -363,3 +364,5 @@
     <script src="assets/js/covoiturage-search.js"></script>
   </body>
 </html>
+
+

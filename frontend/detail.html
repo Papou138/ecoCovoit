@@ -1,18 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Détails du covoiturage ecoCovoit - Consultez les informations complètes d'un trajet écoresponsable et réservez votre place."
+      content="DÃ©tails du covoiturage ecoCovoit - Consultez les informations complÃ¨tes d'un trajet Ã©coresponsable et rÃ©servez votre place."
     />
     <meta
       name="keywords"
-      content="détails trajet, covoiturage, réservation, transport écologique, informations voyage"
+      content="dÃ©tails trajet, covoiturage, rÃ©servation, transport Ã©cologique, informations voyage"
     />
     <meta name="author" content="ecoCovoit" />
-    <title>Détails du covoiturage - EcoCovoit</title>
+    <title>DÃ©tails du covoiturage - EcoCovoit</title>
     <link rel="stylesheet" href="assets/css/_commun.css" />
     <link rel="stylesheet" href="assets/css/_header.css" />
     <link rel="stylesheet" href="assets/css/_footer.css" />
@@ -24,7 +24,7 @@
   </head>
   <body>
     <!-- HEADER -->
-    <header>
+    <header class="header-user">
       <div class="header-content">
         <div class="logo-container">
           <img
@@ -57,7 +57,7 @@
           aria-label="Menu principal de navigation"
         >
           <ul class="nav-list">
-            <!-- NAVIGATION UTILISATEUR CONNECTÉ -->
+            <!-- NAVIGATION UTILISATEUR CONNECTÃ‰ -->
             <li>
               <a href="index.html" class="nav-link"
                 ><i class="fas fa-home"></i> Accueil</a
@@ -75,7 +75,7 @@
             </li>
             <li>
               <a href="mes-reservations.html" class="nav-link"
-                ><i class="fas fa-calendar-check"></i> Mes réservations</a
+                ><i class="fas fa-calendar-check"></i> Mes rÃ©servations</a
               >
             </li>
             <li>
@@ -90,12 +90,12 @@
             </li>
             <li>
               <a href="add-vehicule.html" class="nav-link"
-                ><i class="fas fa-car"></i> Mes véhicules</a
+                ><i class="fas fa-car"></i> Mes vÃ©hicules</a
               >
             </li>
             <li>
               <a href="add-preferences.html" class="nav-link"
-                ><i class="fas fa-cog"></i> Préférences</a
+                ><i class="fas fa-cog"></i> PrÃ©fÃ©rences</a
               >
             </li>
             <li>
@@ -109,7 +109,7 @@
                 onclick="logout()"
                 type="button"
               >
-                <i class="fas fa-sign-out-alt"></i> Déconnexion
+                <i class="fas fa-sign-out-alt"></i> DÃ©connexion
               </button>
             </li>
           </ul>
@@ -118,7 +118,7 @@
     </header>
 
     <main>
-      <!-- SECTION PRÉSENTATION HERO -->
+      <!-- SECTION PRÃ‰SENTATION HERO -->
       <section class="trip-detail-header">
         <div class="trip-detail-header-content">
           <div class="trip-hero-info">
@@ -142,7 +142,7 @@
         </div>
       </section>
 
-      <!-- DÉTAILS DU TRAJET -->
+      <!-- DÃ‰TAILS DU TRAJET -->
       <section class="trip-detail-section">
         <div class="detail-container">
           <div class="trip-detail-grid">
@@ -155,7 +155,7 @@
                     <i class="fas fa-hourglass-half"></i>
                   </div>
                   <div class="info-content">
-                    <div class="info-label">Durée</div>
+                    <div class="info-label">DurÃ©e</div>
                     <div class="info-value" id="trip-duration">2h15</div>
                   </div>
                 </div>
@@ -176,14 +176,14 @@
                   </div>
                   <div class="info-content">
                     <div class="info-label">Prix par personne</div>
-                    <div class="info-value" id="trip-price">25 €</div>
+                    <div class="info-value" id="trip-price">25 â‚¬</div>
                   </div>
                 </div>
               </div>
 
               <!-- VEHICULE -->
               <div class="vehicle-section">
-                <h2>Véhicule</h2>
+                <h2>VÃ©hicule</h2>
                 <div class="vehicle-card">
                   <div class="vehicle-icon">
                     <i class="fas fa-car"></i>
@@ -195,7 +195,7 @@
                     <div class="vehicle-details">
                       <span id="vehicle-energy" class="energy-badge electric">
                         <i class="fas fa-bolt"></i>
-                        Électrique
+                        Ã‰lectrique
                       </span>
                       <span class="vehicle-color" id="vehicle-color">Bleu</span>
                     </div>
@@ -236,7 +236,7 @@
 
               <!-- PREFERENCES -->
               <div class="preferences-section">
-                <h3>Préférences du conducteur</h3>
+                <h3>PrÃ©fÃ©rences du conducteur</h3>
                 <div class="preferences-list" id="preferences-list">
                   <div class="preference-item">
                     <i class="fas fa-smoking-ban"></i>
@@ -244,11 +244,11 @@
                   </div>
                   <div class="preference-item">
                     <i class="fas fa-paw"></i>
-                    <span>Animaux acceptés</span>
+                    <span>Animaux acceptÃ©s</span>
                   </div>
                   <div class="preference-item">
                     <i class="fas fa-music"></i>
-                    <span>Musique autorisée</span>
+                    <span>Musique autorisÃ©e</span>
                   </div>
                 </div>
               </div>
@@ -256,7 +256,7 @@
               <!-- ACTION DE PARTICIPATION -->
               <div class="participation-section">
                 <div class="price-display">
-                  <div class="total-price" id="total-price">25€</div>
+                  <div class="total-price" id="total-price">25â‚¬</div>
                   <div class="price-label">par personne</div>
                 </div>
 
@@ -265,13 +265,13 @@
                   id="participate-btn"
                 >
                   <i class="fas fa-plus"></i>
-                  Participer à ce trajet
+                  Participer Ã  ce trajet
                 </button>
 
                 <div class="credit-info hidden" id="credit-info">
                   <p>
                     <i class="fas fa-info-circle"></i> Vous avez actuellement
-                    <span id="user-credits">15</span> crédits
+                    <span id="user-credits">15</span> crÃ©dits
                   </p>
                 </div>
               </div>
@@ -293,14 +293,14 @@
                     <i class="fas fa-star"></i>
                   </div>
                   <div class="total-reviews" id="total-reviews">
-                    Basé sur 23 avis
+                    BasÃ© sur 23 avis
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="reviews-list" id="reviews-list">
-              <!-- Les avis seront chargés dynamiquement -->
+              <!-- Les avis seront chargÃ©s dynamiquement -->
             </div>
 
             <button
@@ -324,14 +324,14 @@
           </div>
           <div class="modal-body">
             <div class="confirmation-details">
-              <h4>Récapitulatif du trajet</h4>
+              <h4>RÃ©capitulatif du trajet</h4>
               <div class="detail-row">
                 <span>Trajet:</span>
-                <span id="modal-route">Paris → Lyon</span>
+                <span id="modal-route">Paris â†’ Lyon</span>
               </div>
               <div class="detail-row">
                 <span>Date et heure:</span>
-                <span id="modal-datetime">Sam. 8 juillet 2025 à 08:30</span>
+                <span id="modal-datetime">Sam. 8 juillet 2025 Ã  08:30</span>
               </div>
               <div class="detail-row">
                 <span>Conducteur:</span>
@@ -339,19 +339,19 @@
               </div>
               <div class="detail-row">
                 <span>Prix:</span>
-                <span id="modal-price">25€</span>
+                <span id="modal-price">25â‚¬</span>
               </div>
             </div>
 
             <div class="credit-warning">
               <i class="fas fa-exclamation-triangle"></i>
               <p>
-                Cette réservation utilisera
-                <strong id="modal-credit-cost">25</strong> de vos crédits.
+                Cette rÃ©servation utilisera
+                <strong id="modal-credit-cost">25</strong> de vos crÃ©dits.
               </p>
               <p>
                 Il vous restera
-                <strong id="modal-remaining-credits">-10</strong> crédits après
+                <strong id="modal-remaining-credits">-10</strong> crÃ©dits aprÃ¨s
                 cette transaction.
               </p>
             </div>
@@ -376,10 +376,10 @@
           <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
             <i class="fas fa-seedling"></i> La plateforme de covoiturage
-            écoresponsable
+            Ã©coresponsable
           </p>
           <p>
-            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            <i class="fas fa-handshake"></i> RÃ©duisons ensemble notre empreinte
             carbone
           </p>
         </div>
@@ -396,7 +396,7 @@
           <ul>
             <li>
               <i class="fas fa-gavel"></i>
-              <a href="mentions.html"> Mentions légales</a>
+              <a href="mentions.html"> Mentions lÃ©gales</a>
             </li>
             <li>
               <i class="fas fa-envelope"></i>
@@ -420,9 +420,9 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>&copy; 2025 EcoRide. Tous droits rÃ©servÃ©s.</p>
         <p>
-          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i> Pour une mobilitÃ© plus verte
           <i class="fas fa-leaf text-green"></i>
         </p>
       </div>
@@ -448,11 +448,11 @@
 
         getTripIdFromUrl() {
           const urlParams = new URLSearchParams(window.location.search);
-          return urlParams.get('id') || '1'; // Valeur par défaut pour test
+          return urlParams.get('id') || '1'; // Valeur par dÃ©faut pour test
         }
 
         getUserCredits() {
-          // Simulation - en réalité, cela viendrait de l'API
+          // Simulation - en rÃ©alitÃ©, cela viendrait de l'API
           return parseInt(localStorage.getItem('userCredits')) || 40;
         }
 
@@ -469,7 +469,7 @@
             this.confirmParticipation()
           );
 
-          // Fermer modal en cliquant à l'extérieur
+          // Fermer modal en cliquant Ã  l'extÃ©rieur
           this.modal.addEventListener('click', (e) => {
             if (e.target === this.modal) {
               this.closeModal();
@@ -486,19 +486,19 @@
 
         async loadTripDetails() {
           try {
-            // Simulation d'appel API - à remplacer par le vrai backend
+            // Simulation d'appel API - Ã  remplacer par le vrai backend
             const tripData = await this.fetchTripDetails(this.tripId);
             this.currentTrip = tripData;
             this.displayTripDetails(tripData);
             this.loadDriverReviews(tripData.driver.id);
           } catch (error) {
-            console.error('Erreur lors du chargement des détails:', error);
-            this.showError('Impossible de charger les détails du trajet');
+            console.error('Erreur lors du chargement des dÃ©tails:', error);
+            this.showError('Impossible de charger les dÃ©tails du trajet');
           }
         }
 
         async fetchTripDetails(tripId) {
-          // Simulation d'appel API - à remplacer par le vrai backend
+          // Simulation d'appel API - Ã  remplacer par le vrai backend
           return new Promise((resolve) => {
             setTimeout(() => {
               const mockTrip = {
@@ -521,7 +521,7 @@
                 vehicle: {
                   brand: 'Tesla',
                   model: 'Model 3',
-                  energy: 'Électrique',
+                  energy: 'Ã‰lectrique',
                   color: 'Bleu',
                   isElectric: true,
                 },
@@ -531,8 +531,8 @@
                 isEco: true,
                 preferences: [
                   { icon: 'fas fa-smoking-ban', text: 'Non-fumeur' },
-                  { icon: 'fas fa-paw', text: 'Animaux acceptés' },
-                  { icon: 'fas fa-music', text: 'Musique autorisée' },
+                  { icon: 'fas fa-paw', text: 'Animaux acceptÃ©s' },
+                  { icon: 'fas fa-music', text: 'Musique autorisÃ©e' },
                 ],
               };
               resolve(mockTrip);
@@ -553,7 +553,7 @@
           document.getElementById('trip-duration').textContent =
             trip.route.duration;
 
-          // Date formatée
+          // Date formatÃ©e
           const date = new Date(trip.route.date);
           const formattedDate = date.toLocaleDateString('fr-FR', {
             weekday: 'long',
@@ -567,10 +567,10 @@
           document.getElementById(
             'available-seats'
           ).textContent = `${trip.availableSeats} sur ${trip.totalSeats}`;
-          document.getElementById('trip-price').textContent = `${trip.price}€`;
-          document.getElementById('total-price').textContent = `${trip.price}€`;
+          document.getElementById('trip-price').textContent = `${trip.price}â‚¬`;
+          document.getElementById('total-price').textContent = `${trip.price}â‚¬`;
 
-          // Véhicule
+          // VÃ©hicule
           document.getElementById(
             'vehicle-name'
           ).textContent = `${trip.vehicle.brand} ${trip.vehicle.model}`;
@@ -588,7 +588,7 @@
                 ${trip.vehicle.energy}
             `;
 
-          // Badge écologique
+          // Badge Ã©cologique
           const ecoStatus = document.getElementById('eco-status');
           if (!trip.isEco) {
             ecoStatus.style.display = 'none';
@@ -604,10 +604,10 @@
             'driver-rating-count'
           ).textContent = `(${trip.driver.reviewCount} avis)`;
 
-          // Étoiles du conducteur
+          // Ã‰toiles du conducteur
           this.displayStars('driver-stars', trip.driver.rating);
 
-          // Préférences
+          // PrÃ©fÃ©rences
           const preferencesList = document.getElementById('preferences-list');
           preferencesList.innerHTML = trip.preferences
             .map(
@@ -620,7 +620,7 @@
             )
             .join('');
 
-          // Vérifier la disponibilité
+          // VÃ©rifier la disponibilitÃ©
           this.checkAvailability(trip);
         }
 
@@ -631,17 +631,17 @@
 
           let starsHtml = '';
 
-          // Étoiles pleines
+          // Ã‰toiles pleines
           for (let i = 0; i < fullStars; i++) {
             starsHtml += '<i class="fas fa-star"></i>';
           }
 
-          // Demi-étoile
+          // Demi-Ã©toile
           if (hasHalfStar) {
             starsHtml += '<i class="fas fa-star-half-alt"></i>';
           }
 
-          // Étoiles vides
+          // Ã‰toiles vides
           const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
           for (let i = 0; i < emptyStars; i++) {
             starsHtml += '<i class="far fa-star"></i>';
@@ -673,21 +673,21 @@
 
           if (this.userCredits < trip.price) {
             this.participateBtn.innerHTML =
-              '<i class="fas fa-coins"></i>Crédits insuffisants';
+              '<i class="fas fa-coins"></i>CrÃ©dits insuffisants';
             this.participateBtn.disabled = true;
             this.participateBtn.classList.add('btn-disabled');
 
-            // Afficher info crédits
+            // Afficher info crÃ©dits
             const creditInfo = document.getElementById('credit-info');
             creditInfo.style.display = 'block';
             creditInfo.innerHTML = `
                     <p><i class="fas fa-exclamation-triangle"></i>
-                    Vous avez ${this.userCredits} crédits, mais ce trajet coûte ${trip.price} crédits.</p>
+                    Vous avez ${this.userCredits} crÃ©dits, mais ce trajet coÃ»te ${trip.price} crÃ©dits.</p>
                 `;
             return;
           }
 
-          // Afficher les crédits actuels
+          // Afficher les crÃ©dits actuels
           const creditInfo = document.getElementById('credit-info');
           creditInfo.style.display = 'block';
           document.getElementById('user-credits').textContent =
@@ -697,10 +697,10 @@
         handleParticipation() {
           if (!this.currentTrip || this.participateBtn.disabled) return;
 
-          // Remplir le modal avec les détails
+          // Remplir le modal avec les dÃ©tails
           document.getElementById(
             'modal-route'
-          ).textContent = `${this.currentTrip.route.departure} → ${this.currentTrip.route.arrival}`;
+          ).textContent = `${this.currentTrip.route.departure} â†’ ${this.currentTrip.route.arrival}`;
 
           const date = new Date(this.currentTrip.route.date);
           const formattedDate = date.toLocaleDateString('fr-FR', {
@@ -711,13 +711,13 @@
           });
           document.getElementById(
             'modal-datetime'
-          ).textContent = `${formattedDate} à ${this.currentTrip.route.departureTime}`;
+          ).textContent = `${formattedDate} Ã  ${this.currentTrip.route.departureTime}`;
 
           document.getElementById('modal-driver').textContent =
             this.currentTrip.driver.name;
           document.getElementById(
             'modal-price'
-          ).textContent = `${this.currentTrip.price}€`;
+          ).textContent = `${this.currentTrip.price}â‚¬`;
           document.getElementById('modal-credit-cost').textContent =
             this.currentTrip.price;
 
@@ -725,7 +725,7 @@
           document.getElementById('modal-remaining-credits').textContent =
             remainingCredits;
 
-          // Styling des crédits restants
+          // Styling des crÃ©dits restants
           const remainingElement = document.getElementById(
             'modal-remaining-credits'
           );
@@ -758,11 +758,11 @@
             const result = await this.submitParticipation();
 
             if (result.success) {
-              // Mettre à jour les crédits locaux
+              // Mettre Ã  jour les crÃ©dits locaux
               this.userCredits -= this.currentTrip.price;
               localStorage.setItem('userCredits', this.userCredits);
 
-              // Mettre à jour les places disponibles
+              // Mettre Ã  jour les places disponibles
               this.currentTrip.availableSeats--;
               document.getElementById(
                 'available-seats'
@@ -771,7 +771,7 @@
               this.closeModal();
               this.showSuccessMessage();
 
-              // Rediriger vers mes réservations après 3 secondes
+              // Rediriger vers mes rÃ©servations aprÃ¨s 3 secondes
               setTimeout(() => {
                 window.location.href = 'mes-reservations.html';
               }, 3000);
@@ -791,10 +791,10 @@
         }
 
         async submitParticipation() {
-          // Simulation d'appel API - à remplacer par le vrai backend
+          // Simulation d'appel API - Ã  remplacer par le vrai backend
           return new Promise((resolve) => {
             setTimeout(() => {
-              resolve({ success: true, message: 'Participation confirmée !' });
+              resolve({ success: true, message: 'Participation confirmÃ©e !' });
             }, 1500);
           });
         }
@@ -805,8 +805,8 @@
           message.innerHTML = `
                 <div class="notification-content">
                     <i class="fas fa-check-circle"></i>
-                    <h3>Participation confirmée !</h3>
-                    <p>Vous allez être redirigé vers vos réservations...</p>
+                    <h3>Participation confirmÃ©e !</h3>
+                    <p>Vous allez Ãªtre redirigÃ© vers vos rÃ©servations...</p>
                 </div>
             `;
 
@@ -855,7 +855,7 @@
                   id: 1,
                   rating: 5,
                   comment:
-                    'Excellent conducteur ! Très ponctuel et conduite souple. Je recommande vivement !',
+                    'Excellent conducteur ! TrÃ¨s ponctuel et conduite souple. Je recommande vivement !',
                   date: '2025-06-28',
                   passengerName: 'Jean M.',
                 },
@@ -863,7 +863,7 @@
                   id: 2,
                   rating: 4,
                   comment:
-                    'Trajet agréable, conductrice sympathique. Voiture propre et confortable.',
+                    'Trajet agrÃ©able, conductrice sympathique. Voiture propre et confortable.',
                   date: '2025-06-25',
                   passengerName: 'Sophie L.',
                 },
@@ -871,7 +871,7 @@
                   id: 3,
                   rating: 5,
                   comment:
-                    'Parfait ! Communication excellente et respect des horaires. À refaire !',
+                    'Parfait ! Communication excellente et respect des horaires. Ã€ refaire !',
                   date: '2025-06-20',
                   passengerName: 'Pierre D.',
                 },
@@ -890,12 +890,12 @@
             average.toFixed(1);
           document.getElementById(
             'total-reviews'
-          ).textContent = `Basé sur ${reviews.length} avis`;
+          ).textContent = `BasÃ© sur ${reviews.length} avis`;
 
-          // Afficher les étoiles
+          // Afficher les Ã©toiles
           this.displayStars('stars-large', average);
 
-          // Afficher les avis (limité à 3 initialement)
+          // Afficher les avis (limitÃ© Ã  3 initialement)
           const reviewsList = document.getElementById('reviews-list');
           const displayedReviews = reviews.slice(0, 3);
 
@@ -905,7 +905,7 @@
                 <div class="review-item">
                     <div class="review-header">
                         <div class="review-rating">
-                            ${'★'.repeat(review.rating)}${'☆'.repeat(
+                            ${'â˜…'.repeat(review.rating)}${'â˜†'.repeat(
                 5 - review.rating
               )}
                         </div>
@@ -927,7 +927,7 @@
         }
 
         loadMoreReviews() {
-          // Charger plus d'avis - à implémenter
+          // Charger plus d'avis - Ã  implÃ©menter
           console.log("Charger plus d'avis...");
         }
 
@@ -951,10 +951,10 @@
       document.addEventListener('DOMContentLoaded', () => {
         new TripDetailManager();
 
-        // Vérifier si on vient de la recherche avec l'action "participate"
+        // VÃ©rifier si on vient de la recherche avec l'action "participate"
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('action') === 'participate') {
-          // Auto-ouvrir le modal de participation après chargement
+          // Auto-ouvrir le modal de participation aprÃ¨s chargement
           setTimeout(() => {
             const participateBtn = document.getElementById('participate-btn');
             if (participateBtn && !participateBtn.disabled) {
@@ -966,3 +966,5 @@
     </script>
   </body>
 </html>
+
+

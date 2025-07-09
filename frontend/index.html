@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="ecoCovoit - Plateforme de covoiturage écoresponsable. Partagez vos trajets et réduisez votre empreinte carbone."
+      content="ecoCovoit - Plateforme de covoiturage Ã©coresponsable. Partagez vos trajets et rÃ©duisez votre empreinte carbone."
     />
     <meta
       name="keywords"
-      content="covoiturage, écologique, transport, mobilité verte"
+      content="covoiturage, Ã©cologique, transport, mobilitÃ© verte"
     />
     <meta name="author" content="ecoCovoit" />
     <title>Accueil - ecoCovoit</title>
@@ -24,7 +24,7 @@
   </head>
   <body>
     <!-- HEADER -->
-    <header>
+    <header class="header-public">
       <div class="header-content">
         <div class="logo-container">
           <img
@@ -93,25 +93,25 @@
       <section class="presentation-section">
         <div class="presentation-content">
           <div class="text-content">
-            <h2>Covoiturage écoresponsable</h2>
+            <h2>Covoiturage Ã©coresponsable</h2>
             <p>
               <i class="fas fa-leaf"></i> EcoCovoit est la plateforme qui vous
-              permet de partager vos trajets tout en réduisant votre empreinte
-              carbone et vos coûts.
+              permet de partager vos trajets tout en rÃ©duisant votre empreinte
+              carbone et vos coÃ»ts.
             </p>
             <p>
-              <i class="fas fa-bolt"></i> Optez pour des véhicules
-              électriques<br />
-              <i class="fas fa-piggy-bank"></i> Réduisez vos coûts de
+              <i class="fas fa-bolt"></i> Optez pour des vÃ©hicules
+              Ã©lectriques<br />
+              <i class="fas fa-piggy-bank"></i> RÃ©duisez vos coÃ»ts de
               transport<br />
               <i class="fas fa-users"></i> Rencontrez de nouvelles personnes<br />
-              <i class="fas fa-seedling"></i> Protégez l'environnement
+              <i class="fas fa-seedling"></i> ProtÃ©gez l'environnement
             </p>
           </div>
           <div class="image-container">
             <img
               src="assets/img/covoit-ecoresponsable.jpg"
-              alt="Illustration covoiturage écologique avec véhicules électriques"
+              alt="Illustration covoiturage Ã©cologique avec vÃ©hicules Ã©lectriques"
               class="responsive-image"
               loading="lazy"
             />
@@ -122,18 +122,18 @@
       <!-- SECTION RECHERCHE -->
       <section class="search-section">
         <div class="search-container">
-          <h2><i class="fas fa-search"></i> Trouvez votre itinéraire</h2>
+          <h2><i class="fas fa-search"></i> Trouvez votre itinÃ©raire</h2>
           <form id="search-form" class="search-form">
             <div class="search-main-fields">
               <div class="form-group">
                 <label for="departure"
-                  ><i class="fas fa-map-marker-alt"></i> Ville de départ</label
+                  ><i class="fas fa-map-marker-alt"></i> Ville de dÃ©part</label
                 >
                 <input
                   type="text"
                   id="departure"
                   name="departure"
-                  placeholder="D'où partez-vous ?"
+                  placeholder="D'oÃ¹ partez-vous ?"
                   required
                   class="form-input"
                   autocomplete="address-line1"
@@ -141,13 +141,13 @@
               </div>
               <div class="form-group">
                 <label for="arrival"
-                  ><i class="fas fa-map-pin"></i> Ville d'arrivée</label
+                  ><i class="fas fa-map-pin"></i> Ville d'arrivÃ©e</label
                 >
                 <input
                   type="text"
                   id="arrival"
                   name="arrival"
-                  placeholder="Où allez-vous ?"
+                  placeholder="OÃ¹ allez-vous ?"
                   required
                   class="form-input"
                   autocomplete="address-line2"
@@ -155,7 +155,7 @@
               </div>
               <div class="form-group">
                 <label for="date"
-                  ><i class="fas fa-calendar-alt"></i> Date de départ</label
+                  ><i class="fas fa-calendar-alt"></i> Date de dÃ©part</label
                 >
                 <input
                   type="date"
@@ -168,15 +168,15 @@
               </div>
             </div>
 
-            <!-- Filtres avancés -->
+            <!-- Filtres avancÃ©s -->
             <div class="advanced-filters">
               <button type="button" class="toggle-filters" id="toggle-filters">
                 <i class="fas fa-filter"></i>
-                Filtres avancés
+                Filtres avancÃ©s
               </button>
 
               <div class="filters-content" id="filters-content">
-                <!-- Section checkbox véhicules électriques -->
+                <!-- Section checkbox vÃ©hicules Ã©lectriques -->
                 <div class="filters-checkbox-section">
                   <div class="form-group form-group-checkbox">
                     <label for="eco-filter" class="checkbox-label">
@@ -185,13 +185,13 @@
                         id="eco-filter"
                         name="eco-filter"
                       />
-                      <i class="fas fa-bolt"></i> Véhicules électriques
+                      <i class="fas fa-bolt"></i> VÃ©hicules Ã©lectriques
                       uniquement
                     </label>
                   </div>
                 </div>
 
-                <!-- Grille des filtres numériques -->
+                <!-- Grille des filtres numÃ©riques -->
                 <div class="filters-grid">
                   <!-- Filtre prix maximum -->
                   <div class="form-group">
@@ -208,10 +208,10 @@
                     />
                   </div>
 
-                  <!-- Filtre durée maximum -->
+                  <!-- Filtre durÃ©e maximum -->
                   <div class="form-group">
                     <label for="max-duration"
-                      ><i class="fa-regular fa-clock"></i> Durée maximum</label
+                      ><i class="fa-regular fa-clock"></i> DurÃ©e maximum</label
                     >
                     <input
                       type="number"
@@ -235,11 +235,11 @@
                       class="form-select"
                     >
                       <option value="">Toutes les notes</option>
-                      <option value="1">1 étoile et plus</option>
-                      <option value="2">2 étoiles et plus</option>
-                      <option value="3">3 étoiles et plus</option>
-                      <option value="4">4 étoiles et plus</option>
-                      <option value="5">5 étoiles uniquement</option>
+                      <option value="1">1 Ã©toile et plus</option>
+                      <option value="2">2 Ã©toiles et plus</option>
+                      <option value="3">3 Ã©toiles et plus</option>
+                      <option value="4">4 Ã©toiles et plus</option>
+                      <option value="5">5 Ã©toiles uniquement</option>
                     </select>
                   </div>
                 </div>
@@ -263,27 +263,27 @@
               <div class="benefit-icon">
                 <i class="fas fa-leaf"></i>
               </div>
-              <h3>Écologique</h3>
+              <h3>Ã‰cologique</h3>
               <p>
-                Réduisez votre empreinte carbone en partageant vos trajets et en
-                privilégiant des véhicules électriques pour un impact
+                RÃ©duisez votre empreinte carbone en partageant vos trajets et
+                en privilÃ©giant des vÃ©hicules Ã©lectriques pour un impact
                 environnemental minimal.
               </p>
               <div class="benefit-stats">
-                <span><i class="fas fa-minus"></i> 50% CO₂</span>
+                <span><i class="fas fa-minus"></i> 50% COâ‚‚</span>
               </div>
             </div>
             <div class="benefit-card" data-number="02">
               <div class="benefit-icon">
                 <i class="fas fa-euro-sign"></i>
               </div>
-              <h3>Économique</h3>
+              <h3>Ã‰conomique</h3>
               <p>
-                Partagez les coûts de vos déplacements et réalisez des économies
-                substantielles sur vos frais de transport quotidiens.
+                Partagez les coÃ»ts de vos dÃ©placements et rÃ©alisez des
+                Ã©conomies substantielles sur vos frais de transport quotidiens.
               </p>
               <div class="benefit-stats">
-                <span><i class="fas fa-arrow-down"></i> 70% coûts</span>
+                <span><i class="fas fa-arrow-down"></i> 70% coÃ»ts</span>
               </div>
             </div>
             <div class="benefit-card" data-number="03">
@@ -293,20 +293,20 @@
               <h3>Convivial</h3>
               <p>
                 Rencontrez de nouvelles personnes partageant vos valeurs et
-                créez des liens sociaux durables lors de vos voyages.
+                crÃ©ez des liens sociaux durables lors de vos voyages.
               </p>
               <div class="benefit-stats">
-                <span><i class="fas fa-heart"></i> Communauté</span>
+                <span><i class="fas fa-heart"></i> CommunautÃ©</span>
               </div>
             </div>
             <div class="benefit-card" data-number="04">
               <div class="benefit-icon">
                 <i class="fas fa-shield-alt"></i>
               </div>
-              <h3>Sécurisé</h3>
+              <h3>SÃ©curisÃ©</h3>
               <p>
-                Système d'évaluation rigoureux et profils vérifiés pour garantir
-                des trajets en toute confiance et sécurité.
+                SystÃ¨me d'Ã©valuation rigoureux et profils vÃ©rifiÃ©s pour
+                garantir des trajets en toute confiance et sÃ©curitÃ©.
               </p>
               <div class="benefit-stats">
                 <span><i class="fas fa-star"></i> 4.8/5</span>
@@ -324,10 +324,10 @@
           <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
             <i class="fas fa-seedling"></i> La plateforme de covoiturage
-            écoresponsable
+            Ã©coresponsable
           </p>
           <p>
-            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            <i class="fas fa-handshake"></i> RÃ©duisons ensemble notre empreinte
             carbone
           </p>
         </div>
@@ -344,7 +344,7 @@
           <ul>
             <li>
               <i class="fas fa-gavel"></i
-              ><a href="mentions.html"> Mentions légales</a>
+              ><a href="mentions.html"> Mentions lÃ©gales</a>
             </li>
           </ul>
         </div>
@@ -364,9 +364,9 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>&copy; 2025 EcoRide. Tous droits rÃ©servÃ©s.</p>
         <p>
-          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i> Pour une mobilitÃ© plus verte
           <i class="fas fa-leaf text-green"></i>
         </p>
       </div>
@@ -375,20 +375,20 @@
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/search.js"></script>
     <script>
-      // Amélioration de l'expérience utilisateur
+      // AmÃ©lioration de l'expÃ©rience utilisateur
       document.addEventListener('DOMContentLoaded', function () {
-        // Définir la date minimale à aujourd'hui
+        // DÃ©finir la date minimale Ã  aujourd'hui
         const dateInput = document.getElementById('date');
         const today = new Date();
         const todayString = today.toISOString().split('T')[0];
         dateInput.setAttribute('min', todayString);
 
-        // Définir par défaut la date d'aujourd'hui
+        // DÃ©finir par dÃ©faut la date d'aujourd'hui
         if (!dateInput.value) {
           dateInput.value = todayString;
         }
 
-        // Amélioration des animations au scroll
+        // AmÃ©lioration des animations au scroll
         const observerOptions = {
           threshold: 0.1,
           rootMargin: '0px 0px -50px 0px',
@@ -408,12 +408,12 @@
           observer.observe(card);
         });
 
-        // Amélioration du formulaire de recherche
+        // AmÃ©lioration du formulaire de recherche
         const searchForm = document.getElementById('search-form');
         const departureInput = document.getElementById('departure');
         const arrivalInput = document.getElementById('arrival');
 
-        // Validation améliorée
+        // Validation amÃ©liorÃ©e
         searchForm.addEventListener('submit', function (e) {
           const departure = departureInput.value.trim();
           const arrival = arrivalInput.value.trim();
@@ -421,22 +421,22 @@
           if (departure === arrival) {
             e.preventDefault();
             alert(
-              "La ville de départ ne peut pas être la même que la ville d'arrivée."
+              "La ville de dÃ©part ne peut pas Ãªtre la mÃªme que la ville d'arrivÃ©e."
             );
             return false;
           }
 
-          // Vérification de la longueur minimale
+          // VÃ©rification de la longueur minimale
           if (departure.length < 2 || arrival.length < 2) {
             e.preventDefault();
             alert(
-              'Veuillez saisir des noms de ville valides (minimum 2 caractères).'
+              'Veuillez saisir des noms de ville valides (minimum 2 caractÃ¨res).'
             );
             return false;
           }
         });
 
-        // Auto-complétion basique pour les villes françaises populaires
+        // Auto-complÃ©tion basique pour les villes franÃ§aises populaires
         const popularCities = [
           'Paris',
           'Lyon',
@@ -451,12 +451,12 @@
           'Rennes',
           'Reims',
           'Le Havre',
-          'Saint-Étienne',
+          'Saint-Ã‰tienne',
           'Toulon',
           'Grenoble',
           'Dijon',
           'Angers',
-          'Nîmes',
+          'NÃ®mes',
           'Villeurbanne',
           'Saint-Denis',
           'Le Mans',
@@ -468,9 +468,9 @@
           'Amiens',
           'Perpignan',
           'Metz',
-          'Besançon',
+          'BesanÃ§on',
           'Boulogne-Billancourt',
-          'Orléans',
+          'OrlÃ©ans',
           'Mulhouse',
           'Rouen',
           'Pau',
@@ -490,7 +490,7 @@
               (city) => city.toLowerCase().includes(value) && value.length >= 2
             );
 
-            // Créer une liste de suggestions simple
+            // CrÃ©er une liste de suggestions simple
             let datalistId = this.id + '-suggestions';
             let datalist = document.getElementById(datalistId);
 

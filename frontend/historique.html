@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Historique des trajets ecoCovoit - Consultez l'historique de vos covoiturages passés et vos économies environnementales."
+      content="Historique des trajets ecoCovoit - Consultez l'historique de vos covoiturages passÃ©s et vos Ã©conomies environnementales."
     />
     <meta
       name="keywords"
-      content="historique, trajets passés, covoiturage, économies, statistiques, transport écologique"
+      content="historique, trajets passÃ©s, covoiturage, Ã©conomies, statistiques, transport Ã©cologique"
     />
     <meta name="author" content="ecoCovoit" />
     <title>Historique des trajets - ecoCovoit</title>
@@ -24,7 +24,7 @@
   </head>
   <body>
     <!-- MENU NAVIGATION -->
-    <header>
+    <header class="header-user">
       <div class="header-content">
         <div class="logo-container">
           <img
@@ -57,7 +57,7 @@
           aria-label="Menu principal de navigation"
         >
           <ul class="nav-list">
-            <!-- NAVIGATION UTILISATEUR CONNECTÉ -->
+            <!-- NAVIGATION UTILISATEUR CONNECTÃ‰ -->
             <li>
               <a href="index.html" class="nav-link"
                 ><i class="fas fa-home"></i> Accueil</a
@@ -75,7 +75,7 @@
             </li>
             <li>
               <a href="mes-reservations.html" class="nav-link"
-                ><i class="fas fa-calendar-check"></i> Mes réservations</a
+                ><i class="fas fa-calendar-check"></i> Mes rÃ©servations</a
               >
             </li>
             <li>
@@ -90,12 +90,12 @@
             </li>
             <li>
               <a href="add-vehicule.html" class="nav-link"
-                ><i class="fas fa-car"></i> Mes véhicules</a
+                ><i class="fas fa-car"></i> Mes vÃ©hicules</a
               >
             </li>
             <li>
               <a href="add-preferences.html" class="nav-link"
-                ><i class="fas fa-cog"></i> Préférences</a
+                ><i class="fas fa-cog"></i> PrÃ©fÃ©rences</a
               >
             </li>
             <li>
@@ -105,7 +105,7 @@
             </li>
             <li>
               <button class="nav-link logout-btn" onclick="logout()" type="button"
-                ><i class="fas fa-sign-out-alt"></i> Déconnexion</button
+                ><i class="fas fa-sign-out-alt"></i> DÃ©connexion</button
               >
             </li>
           </ul>
@@ -123,9 +123,9 @@
               <i class="fas fa-history"></i> Votre carnet de route personnel
             </p>
             <p>
-              <i class="fas fa-chart-line"></i> Statistiques détaillées<br />
+              <i class="fas fa-chart-line"></i> Statistiques dÃ©taillÃ©es<br />
               <i class="fas fa-leaf"></i> Impact environnemental<br />
-              <i class="fas fa-coins"></i> Crédits accumulés<br />
+              <i class="fas fa-coins"></i> CrÃ©dits accumulÃ©s<br />
               <i class="fas fa-route"></i> Suivi de vos trajets
             </p>
           </div>
@@ -148,17 +148,17 @@
           <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-road"></i></div>
             <div class="stat-value" id="stat-km">-</div>
-            <div class="stat-label">Kilomètres parcourus</div>
+            <div class="stat-label">KilomÃ¨tres parcourus</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-leaf"></i></div>
             <div class="stat-value" id="stat-co2">-</div>
-            <div class="stat-label">kg CO₂ économisés</div>
+            <div class="stat-label">kg COâ‚‚ Ã©conomisÃ©s</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-coins"></i></div>
             <div class="stat-value" id="stat-credits">-</div>
-            <div class="stat-label">Crédits gagnés</div>
+            <div class="stat-label">CrÃ©dits gagnÃ©s</div>
           </div>
         </div>
 
@@ -170,16 +170,16 @@
               <label for="filter-status">Statut</label>
               <select id="filter-status">
                 <option value="tous">Tous les statuts</option>
-                <option value="a-venir">À venir</option>
+                <option value="a-venir">Ã€ venir</option>
                 <option value="en-cours">En cours</option>
-                <option value="termine">Terminés</option>
-                <option value="annule">Annulés</option>
+                <option value="termine">TerminÃ©s</option>
+                <option value="annule">AnnulÃ©s</option>
               </select>
             </div>
             <div class="filter-group">
-              <label for="filter-role">Rôle</label>
+              <label for="filter-role">RÃ´le</label>
               <select id="filter-role">
-                <option value="tous">Tous les rôles</option>
+                <option value="tous">Tous les rÃ´les</option>
                 <option value="chauffeur">Chauffeur</option>
                 <option value="passager">Passager</option>
               </select>
@@ -198,7 +198,7 @@
               <i class="fas fa-search"></i> Filtrer
             </button>
             <button type="button" class="btn btn-secondary" id="btn-reset">
-              <i class="fas fa-undo"></i> Réinitialiser
+              <i class="fas fa-undo"></i> RÃ©initialiser
             </button>
           </div>
         </div>
@@ -219,10 +219,10 @@
           <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
             <i class="fas fa-seedling"></i> La plateforme de covoiturage
-            écoresponsable
+            Ã©coresponsable
           </p>
           <p>
-            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            <i class="fas fa-handshake"></i> RÃ©duisons ensemble notre empreinte
             carbone
           </p>
         </div>
@@ -239,7 +239,7 @@
           <ul>
             <li>
               <i class="fas fa-gavel"></i>
-              <a href="mentions.html"> Mentions légales</a>
+              <a href="mentions.html"> Mentions lÃ©gales</a>
             </li>
             <li>
               <i class="fas fa-envelope"></i>
@@ -263,9 +263,9 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>&copy; 2025 EcoRide. Tous droits rÃ©servÃ©s.</p>
         <p>
-          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i> Pour une mobilitÃ© plus verte
           <i class="fas fa-leaf text-green"></i>
         </p>
       </div>
@@ -273,11 +273,11 @@
 
     <script src="assets/js/menu.js"></script>
     <script>
-      // État de l'application
+      // Ã‰tat de l'application
       let allTrajets = [];
       let filteredTrajets = [];
 
-      // Éléments du DOM
+      // Ã‰lÃ©ments du DOM
       const trajetsContainer = document.getElementById('trajets-container');
       const filterStatus = document.getElementById('filter-status');
       const filterRole = document.getElementById('filter-role');
@@ -290,7 +290,7 @@
         setupEventListeners();
       });
 
-      // Configuration des écouteurs d'événements
+      // Configuration des Ã©couteurs d'Ã©vÃ©nements
       function setupEventListeners() {
         filterStatus.addEventListener('change', applyFilters);
         filterRole.addEventListener('change', applyFilters);
@@ -302,7 +302,7 @@
         document.getElementById('btn-reset').addEventListener('click', resetFilters);
       }
 
-      // Réinitialisation des filtres
+      // RÃ©initialisation des filtres
       function resetFilters() {
         filterStatus.value = 'tous';
         filterRole.value = 'tous';
@@ -333,11 +333,11 @@
           }
         } catch (error) {
           console.error('Erreur:', error);
-          showError("Impossible de charger l'historique. Veuillez réessayer.");
+          showError("Impossible de charger l'historique. Veuillez rÃ©essayer.");
         }
       }
 
-      // Mise à jour des statistiques
+      // Mise Ã  jour des statistiques
       function updateStats(stats) {
         document.getElementById('stat-total').textContent =
           stats.total_trajets || 0;
@@ -362,7 +362,7 @@
             return false;
           }
 
-          // Filtre par rôle
+          // Filtre par rÃ´le
           if (roleFilter !== 'tous') {
             const isDriverRole = roleFilter === 'chauffeur';
             if (trajet.est_chauffeur !== isDriverRole) {
@@ -370,7 +370,7 @@
             }
           }
 
-          // Filtre par date de début
+          // Filtre par date de dÃ©but
           if (dateDebutFilter && trajet.date < dateDebutFilter) {
             return false;
           }
@@ -394,7 +394,7 @@
                         <div class="no-results-icon">
                             <i class="fas fa-search"></i>
                         </div>
-                        <h3>Aucun trajet trouvé</h3>
+                        <h3>Aucun trajet trouvÃ©</h3>
                         <p>Essayez de modifier vos filtres ou <a href="add-voyage.html" class="btn btn-primary">proposez un nouveau trajet</a></p>
                     </div>
                 `;
@@ -407,20 +407,20 @@
         trajetsContainer.innerHTML = `<div class="trajets-grid">${trajetsHTML}</div>`;
       }
 
-      // Création d'une carte de trajet
+      // CrÃ©ation d'une carte de trajet
       function createTrajetCard(trajet) {
         const statusClass = `status-${trajet.statut.replace('_', '-')}`;
         const roleClass = trajet.est_chauffeur
           ? 'role-chauffeur'
           : 'role-passager';
-        const roleText = trajet.est_chauffeur ? '🚗 Chauffeur' : '🪑 Passager';
+        const roleText = trajet.est_chauffeur ? 'ðŸš— Chauffeur' : 'ðŸª‘ Passager';
 
         return `
                 <div class="trajet-card">
                     <div class="trajet-header">
                         <div class="trajet-route">
                             <i class="fas fa-route"></i>
-                            <span>${trajet.ville_depart} → ${trajet.ville_arrivee}</span>
+                            <span>${trajet.ville_depart} â†’ ${trajet.ville_arrivee}</span>
                         </div>
                         <span class="trajet-status ${statusClass}">
                             ${getStatusText(trajet.statut)}
@@ -430,7 +430,7 @@
                     <div class="trajet-details">
                         <div class="detail-item">
                             <i class="fas fa-calendar-alt"></i>
-                            <span>${formatDate(trajet.date)} à ${trajet.heure}</span>
+                            <span>${formatDate(trajet.date)} Ã  ${trajet.heure}</span>
                         </div>
                         <div class="detail-item">
                             <i class="fas ${trajet.est_chauffeur ? 'fa-steering-wheel' : 'fa-user'}"></i>
@@ -438,7 +438,7 @@
                         </div>
                         <div class="detail-item">
                             <i class="fas fa-euro-sign"></i>
-                            <span>${trajet.prix_total || trajet.prix}€</span>
+                            <span>${trajet.prix_total || trajet.prix}â‚¬</span>
                         </div>
                         <div class="detail-item">
                             <i class="fas fa-road"></i>
@@ -453,20 +453,20 @@
             `;
       }
 
-      // Génération des boutons d'action
+      // GÃ©nÃ©ration des boutons d'action
       function generateActionButtons(trajet) {
         let buttons = [];
 
-        // Bouton voir détails (toujours disponible)
+        // Bouton voir dÃ©tails (toujours disponible)
         buttons.push(`
                 <a href="detail.html?id=${trajet.id}" class="btn btn-secondary">
-                    Voir détails
+                    Voir dÃ©tails
                 </a>
             `);
 
-        // Actions selon le statut et le rôle
+        // Actions selon le statut et le rÃ´le
         if (trajet.statut === 'a-venir') {
-          // Trajet à venir - possibilité d'annuler
+          // Trajet Ã  venir - possibilitÃ© d'annuler
           if (trajet.annulable) {
             buttons.push(`
                         <button onclick="annulerTrajet(${trajet.id})" class="btn btn-danger">
@@ -475,11 +475,11 @@
                     `);
           }
 
-          // Si chauffeur, possibilité de démarrer
+          // Si chauffeur, possibilitÃ© de dÃ©marrer
           if (trajet.est_chauffeur) {
             buttons.push(`
                         <button onclick="demarrerTrajet(${trajet.id})" class="btn btn-success">
-                            Démarrer
+                            DÃ©marrer
                         </button>
                     `);
           }
@@ -491,7 +491,7 @@
                     </button>
                 `);
         } else if (trajet.statut === 'termine') {
-          // Trajet terminé - possibilité de laisser un avis
+          // Trajet terminÃ© - possibilitÃ© de laisser un avis
           if (!trajet.avis_laisse) {
             buttons.push(`
                         <a href="laisser-avis.html?trajet_id=${trajet.id}" class="btn btn-primary">
@@ -518,17 +518,17 @@
       // Texte du statut
       function getStatusText(statut) {
         const statusTexts = {
-          'a-venir': 'À venir',
+          'a-venir': 'Ã€ venir',
           'en-cours': 'En cours',
-          termine: 'Terminé',
-          annule: 'Annulé',
+          termine: 'TerminÃ©',
+          annule: 'AnnulÃ©',
         };
         return statusTexts[statut] || statut;
       }
 
       // Actions sur les trajets
       async function annulerTrajet(trajetId) {
-        if (!confirm('Êtes-vous sûr de vouloir annuler ce trajet ?')) {
+        if (!confirm('ÃŠtes-vous sÃ»r de vouloir annuler ce trajet ?')) {
           return;
         }
 
@@ -544,7 +544,7 @@
           const result = await response.json();
 
           if (result.success) {
-            alert('Trajet annulé avec succès');
+            alert('Trajet annulÃ© avec succÃ¨s');
             loadHistorique(); // Recharger la liste
           } else {
             alert(result.message || "Erreur lors de l'annulation");
@@ -556,7 +556,7 @@
       }
 
       async function demarrerTrajet(trajetId) {
-        if (!confirm('Démarrer ce trajet maintenant ?')) {
+        if (!confirm('DÃ©marrer ce trajet maintenant ?')) {
           return;
         }
 
@@ -572,19 +572,19 @@
           const result = await response.json();
 
           if (result.success) {
-            alert('Trajet démarré avec succès');
+            alert('Trajet dÃ©marrÃ© avec succÃ¨s');
             loadHistorique(); // Recharger la liste
           } else {
-            alert(result.message || 'Erreur lors du démarrage');
+            alert(result.message || 'Erreur lors du dÃ©marrage');
           }
         } catch (error) {
           console.error('Erreur:', error);
-          alert('Erreur lors du démarrage du trajet');
+          alert('Erreur lors du dÃ©marrage du trajet');
         }
       }
 
       async function terminerTrajet(trajetId) {
-        if (!confirm("Confirmer l'arrivée à destination ?")) {
+        if (!confirm("Confirmer l'arrivÃ©e Ã  destination ?")) {
           return;
         }
 
@@ -600,7 +600,7 @@
           const result = await response.json();
 
           if (result.success) {
-            alert('Trajet terminé avec succès');
+            alert('Trajet terminÃ© avec succÃ¨s');
             loadHistorique(); // Recharger la liste
           } else {
             alert(result.message || 'Erreur lors de la finalisation');
@@ -619,7 +619,7 @@
                     <h3>Erreur</h3>
                     <p>${message}</p>
                     <button onclick="loadHistorique()" class="btn btn-primary">
-                        Réessayer
+                        RÃ©essayer
                     </button>
                 </div>
             `;
@@ -627,3 +627,5 @@
     </script>
   </body>
 </html>
+
+

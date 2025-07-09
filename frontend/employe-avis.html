@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Gestion des avis ecoCovoit - Interface employé pour modérer les avis et commentaires de la plateforme de covoiturage."
+      content="Gestion des avis ecoCovoit - Interface employÃ© pour modÃ©rer les avis et commentaires de la plateforme de covoiturage."
     />
     <meta
       name="keywords"
-      content="gestion avis, modération, employé, commentaires, covoiturage, validation"
+      content="gestion avis, modÃ©ration, employÃ©, commentaires, covoiturage, validation"
     />
     <meta name="author" content="ecoCovoit" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Gestion des Avis - Employé ecoCovoit</title>
+    <title>Gestion des Avis - EmployÃ© ecoCovoit</title>
     <link rel="stylesheet" href="assets/css/_commun.css" />
     <link rel="stylesheet" href="assets/css/_header.css" />
     <link rel="stylesheet" href="assets/css/_footer.css" />
@@ -25,7 +25,7 @@
   </head>
   <body>
     <!-- HEADER -->
-    <header>
+    <header class="header-admin">
       <div class="header-content">
         <div class="logo-container">
           <img
@@ -90,7 +90,7 @@
                 onclick="logout()"
                 type="button"
               >
-                <i class="fas fa-sign-out-alt"></i> Déconnexion
+                <i class="fas fa-sign-out-alt"></i> DÃ©connexion
               </button>
             </li>
           </ul>
@@ -105,14 +105,14 @@
           <div class="text-content">
             <h2>Gestion des Avis</h2>
             <p>
-              <i class="fas fa-star"></i> Modération et validation des avis
+              <i class="fas fa-star"></i> ModÃ©ration et validation des avis
               clients
             </p>
             <p>
-              <i class="fas fa-shield-alt"></i> Contrôle qualité<br />
-              <i class="fas fa-chart-bar"></i> Statistiques temps réel<br />
+              <i class="fas fa-shield-alt"></i> ContrÃ´le qualitÃ©<br />
+              <i class="fas fa-chart-bar"></i> Statistiques temps rÃ©el<br />
               <i class="fas fa-thumbs-up"></i> Validation rapide<br />
-              <i class="fas fa-filter"></i> Filtrage avancé
+              <i class="fas fa-filter"></i> Filtrage avancÃ©
             </p>
           </div>
           <div class="image-container">
@@ -138,14 +138,14 @@
               <i class="fas fa-check-circle"></i>
             </div>
             <div class="stat-value" id="stat-valides">-</div>
-            <div class="stat-label">Validés</div>
+            <div class="stat-label">ValidÃ©s</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon">
               <i class="fas fa-times-circle"></i>
             </div>
             <div class="stat-value" id="stat-rejetes">-</div>
-            <div class="stat-label">Rejetés</div>
+            <div class="stat-label">RejetÃ©s</div>
           </div>
           <div class="stat-card">
             <div class="stat-icon">
@@ -169,8 +169,8 @@
               <select id="filter-status" class="form-input">
                 <option value="tous">Tous les statuts</option>
                 <option value="en-attente" selected>En attente</option>
-                <option value="valide">Validés</option>
-                <option value="rejete">Rejetés</option>
+                <option value="valide">ValidÃ©s</option>
+                <option value="rejete">RejetÃ©s</option>
               </select>
             </div>
             <div class="filter-group">
@@ -179,11 +179,11 @@
               >
               <select id="filter-rating" class="form-input">
                 <option value="tous">Toutes les notes</option>
-                <option value="5">5 étoiles</option>
-                <option value="4">4 étoiles</option>
-                <option value="3">3 étoiles</option>
-                <option value="2">2 étoiles</option>
-                <option value="1">1 étoile</option>
+                <option value="5">5 Ã©toiles</option>
+                <option value="4">4 Ã©toiles</option>
+                <option value="3">3 Ã©toiles</option>
+                <option value="2">2 Ã©toiles</option>
+                <option value="1">1 Ã©toile</option>
               </select>
             </div>
             <div class="filter-group">
@@ -204,7 +204,7 @@
               <i class="fas fa-search"></i> Rechercher
             </button>
             <button onclick="resetFilters()" class="btn btn-secondary">
-              <i class="fas fa-undo"></i> Réinitialiser
+              <i class="fas fa-undo"></i> RÃ©initialiser
             </button>
             <button onclick="validateAll()" class="btn btn-success">
               <i class="fas fa-check-double"></i> Valider en lot
@@ -229,10 +229,10 @@
           <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
             <i class="fas fa-seedling"></i> La plateforme de covoiturage
-            écoresponsable
+            Ã©coresponsable
           </p>
           <p>
-            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            <i class="fas fa-handshake"></i> RÃ©duisons ensemble notre empreinte
             carbone
           </p>
         </div>
@@ -249,7 +249,7 @@
           <ul>
             <li>
               <i class="fas fa-gavel"></i>
-              <a href="mentions.html"> Mentions légales</a>
+              <a href="mentions.html"> Mentions lÃ©gales</a>
             </li>
             <li>
               <i class="fas fa-envelope"></i>
@@ -273,9 +273,9 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>&copy; 2025 EcoRide. Tous droits rÃ©servÃ©s.</p>
         <p>
-          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i> Pour une mobilitÃ© plus verte
           <i class="fas fa-leaf text-green"></i>
         </p>
       </div>
@@ -283,11 +283,11 @@
 
     <script src="assets/js/menu.js"></script>
     <script>
-      // État de l'application
+      // Ã‰tat de l'application
       let allAvis = [];
       let filteredAvis = [];
 
-      // Éléments du DOM
+      // Ã‰lÃ©ments du DOM
       const avisContainer = document.getElementById('avis-container');
       const filterStatus = document.getElementById('filter-status');
       const filterRating = document.getElementById('filter-rating');
@@ -321,11 +321,11 @@
           }
         } catch (error) {
           console.error('Erreur:', error);
-          showError('Impossible de charger les avis. Veuillez réessayer.');
+          showError('Impossible de charger les avis. Veuillez rÃ©essayer.');
         }
       }
 
-      // Mise à jour des statistiques
+      // Mise Ã  jour des statistiques
       function updateStats(stats) {
         document.getElementById('stat-attente').textContent =
           stats.en_attente || 0;
@@ -356,7 +356,7 @@
             return false;
           }
 
-          // Filtre par date de début
+          // Filtre par date de dÃ©but
           if (dateDebutFilter && avis.date_creation < dateDebutFilter) {
             return false;
           }
@@ -372,7 +372,7 @@
         renderAvis();
       }
 
-      // Réinitialisation des filtres
+      // RÃ©initialisation des filtres
       function resetFilters() {
         filterStatus.value = 'en-attente';
         filterRating.value = 'tous';
@@ -387,8 +387,8 @@
           avisContainer.innerHTML = `
                     <div class="no-results">
                         <div class="no-results-icon"></div>
-                        <h3>Aucun avis trouvé</h3>
-                        <p>Aucun avis ne correspond à vos critères de recherche</p>
+                        <h3>Aucun avis trouvÃ©</h3>
+                        <p>Aucun avis ne correspond Ã  vos critÃ¨res de recherche</p>
                     </div>
                 `;
           return;
@@ -400,22 +400,22 @@
         avisContainer.innerHTML = `<div class="avis-container">${avisHTML}</div>`;
       }
 
-      // Création d'une carte d'avis
+      // CrÃ©ation d'une carte d'avis
       function createAvisCard(avis) {
         const statusClass = `status-${avis.statut.replace('_', '-')}`;
-        const stars = '⭐'.repeat(avis.note) + '☆'.repeat(5 - avis.note);
+        const stars = 'â­'.repeat(avis.note) + 'â˜†'.repeat(5 - avis.note);
 
         return `
                 <div class="avis-card">
                     <div class="avis-header">
                         <div class="avis-meta">
                             <div class="avis-trajet">
-                                ${avis.ville_depart || 'N/A'} → ${
+                                ${avis.ville_depart || 'N/A'} â†’ ${
           avis.ville_arrivee || 'N/A'
         }
                             </div>
                             <div class="avis-date">
-                                Publié le ${formatDate(avis.date_creation)}
+                                PubliÃ© le ${formatDate(avis.date_creation)}
                             </div>
                             <div class="avis-rating">
                                 <span class="stars">${stars}</span>
@@ -441,7 +441,7 @@
                             </div>
                             <div class="detail-item">
                                 <span class="detail-icon"></span>
-                                <span>Évalue ${
+                                <span>Ã‰value ${
                                   avis.nom_evalue || 'Utilisateur'
                                 }</span>
                             </div>
@@ -467,7 +467,7 @@
             `;
       }
 
-      // Génération des boutons d'action
+      // GÃ©nÃ©ration des boutons d'action
       function generateActionButtons(avis) {
         let buttons = [];
 
@@ -491,15 +491,15 @@
         return buttons.join('');
       }
 
-      // Section de modération
+      // Section de modÃ©ration
       function generateModerateSection(avisId) {
         return `
                 <div class="moderate-section hidden" id="moderate-${avisId}">
-                    <h4>Commentaire de modération</h4>
+                    <h4>Commentaire de modÃ©ration</h4>
                     <textarea
                         id="comment-${avisId}"
                         class="moderate-textarea"
-                        placeholder="Ajoutez un commentaire de modération (optionnel)..."
+                        placeholder="Ajoutez un commentaire de modÃ©ration (optionnel)..."
                     ></textarea>
                     <div class="flex-gap">
                         <button onclick="confirmValidation(${avisId})" class="btn btn-success">
@@ -516,7 +516,7 @@
             `;
       }
 
-      // Actions de modération
+      // Actions de modÃ©ration
       function validateAvis(avisId) {
         showModerateSection(avisId);
       }
@@ -557,7 +557,7 @@
           const result = await response.json();
 
           if (result.success) {
-            alert('Avis validé avec succès');
+            alert('Avis validÃ© avec succÃ¨s');
             loadAvis(); // Recharger la liste
           } else {
             alert(result.message || 'Erreur lors de la validation');
@@ -572,7 +572,7 @@
         const comment = document.getElementById(`comment-${avisId}`).value;
 
         if (!comment.trim()) {
-          alert('Un commentaire de modération est requis pour rejeter un avis');
+          alert('Un commentaire de modÃ©ration est requis pour rejeter un avis');
           return;
         }
 
@@ -590,7 +590,7 @@
           const result = await response.json();
 
           if (result.success) {
-            alert('Avis rejeté avec succès');
+            alert('Avis rejetÃ© avec succÃ¨s');
             loadAvis(); // Recharger la liste
           } else {
             alert(result.message || 'Erreur lors du rejet');
@@ -608,7 +608,7 @@
         );
 
         if (pendingAvis.length === 0) {
-          alert('Aucun avis en attente à valider');
+          alert('Aucun avis en attente Ã  valider');
           return;
         }
 
@@ -628,7 +628,7 @@
           );
 
           await Promise.all(promises);
-          alert(`${pendingAvis.length} avis validés avec succès`);
+          alert(`${pendingAvis.length} avis validÃ©s avec succÃ¨s`);
           loadAvis(); // Recharger la liste
         } catch (error) {
           console.error('Erreur:', error);
@@ -652,8 +652,8 @@
       function getStatusText(statut) {
         const statusTexts = {
           'en-attente': 'En attente',
-          valide: 'Validé',
-          rejete: 'Rejeté',
+          valide: 'ValidÃ©',
+          rejete: 'RejetÃ©',
         };
         return statusTexts[statut] || statut;
       }
@@ -665,7 +665,7 @@
                     <h3>Erreur</h3>
                     <p>${message}</p>
                     <button onclick="loadAvis()" class="btn btn-primary">
-                        Réessayer
+                        RÃ©essayer
                     </button>
                 </div>
             `;
@@ -673,3 +673,5 @@
     </script>
   </body>
 </html>
+
+
