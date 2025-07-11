@@ -1,0 +1,22 @@
+[
+    {
+        "utilisateur_id": 2,
+        "fumeur": false,
+        "animaux": true,
+        "musique": true,
+        "discussion": true,
+        "autres_preferences": "Test de préférences",
+        "id": 1,
+        "date_creation": "2025-07-11 22:58:48"
+    },
+    {
+        "utilisateur_id": 3,
+        "fumeur": false,
+        "animaux": true,
+        "musique": false,
+        "discussion": true,
+        "autres_preferences": "Pas de musique forte, voyage silencieux préféré",
+        "id": 2,
+        "date_creation": "2025-07-11 23:02:03"
+    }
+]

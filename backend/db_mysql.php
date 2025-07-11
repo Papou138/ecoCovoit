@@ -1,5 +1,22 @@
 <?php
-// backend/db_mysql.php
+/**
+ * FICHIER OBSOLÈTE - Utilisez Database.php à la place
+ *
+ * Ce fichier est conservé pour compatibilité avec l'ancien code
+ * mais la nouvelle classe Database dans models/Database.php est recommandée
+ */
+
+// Redirection vers la nouvelle classe
+require_once __DIR__ . '/models/Database.php';
+
+// Variables pour compatibilité avec l'ancien code
+$pdo = Database::getPDO();
+
+// Configuration héritée (à supprimer progressivement)
+$host = 'localhost';
+$dbname = 'ecoCovoit_SQL';
+$user = 'root';
+$password = '';nd/db_mysql.php
 
 $host = 'localhost';
 $dbname = 'ecoCovoit_SQL';

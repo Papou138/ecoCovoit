@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "pseudo": "admin",
+        "email": "admin@ecocovoit.fr",
+        "mot_de_passe": "$2y$12$ZLiOIW5klvJuxwe4JZhMnOlbSd9T3ulg5k6gdMrCkgmJP4alZZCdG",
+        "role": "admin",
+        "credits": 1000,
+        "statut": "actif",
+        "date_creation": "2025-07-11 20:43:04"
+    },
+    {
+        "id": 2,
+        "pseudo": "chauffeur1",
+        "email": "chauffeur@test.fr",
+        "mot_de_passe": "$2y$12$XrzBewBtr82k.N9zRjXWSucInhMz\/rO.Gg6YOgFwx3vvIDGFvR18i",
+        "role": "utilisateur",
+        "credits": 65,
+        "statut": "actif",
+        "date_creation": "2025-07-11 20:43:05",
+        "date_modification": "2025-07-11 23:02:03"
+    },
+    {
+        "id": 3,
+        "pseudo": "passager1",
+        "email": "passager@test.fr",
+        "mot_de_passe": "$2y$12$O8\/PjuvOE0y6XaTJyCHvs.kAt6WTYToVLy.rOHSif\/MWqHdU4Ysse",
+        "role": "utilisateur",
+        "credits": 30,
+        "statut": "actif",
+        "date_creation": "2025-07-11 20:43:05"
+    },
+    {
+        "pseudo": "testuser1752267055",
+        "email": "test1752267055@example.com",
+        "mot_de_passe": "$2y$12$BHY8e1fcqBrAivmjnEsUCul0VXByXh6pLpHZKd6jquXFi5kegudyC",
+        "role": "utilisateur",
+        "credits": 20,
+        "statut": "actif",
+        "date_creation": "2025-07-11 22:50:55",
+        "id": 4
+    },
+    {
+        "pseudo": "unittest_1752267102",
+        "email": "unittest_1752267102@test.com",
+        "mot_de_passe": "$2y$12$9PrkzvuzC.JEpYxe2qgxXuOIEvC8rWYvvnFAs6ZYfnKdmLES.KCUe",
+        "role": "utilisateur",
+        "credits": 20,
+        "id": 5,
+        "date_creation": "2025-07-11 22:51:43"
+    },
+    {
+        "nom": "Dupont",
+        "prenom": "Jean",
+        "email": "jean.dupont@test.com",
+        "mot_de_passe": "$2y$12$bS3DlZFz2cHs.jkZgYPdh.PZ2bOdHucekRdL0YD7xrRsJhRMwqrw6",
+        "telephone": "0123456789",
+        "credits": 100,
+        "note_moyenne": 4.5,
+        "nb_trajets_effectues": 15,
+        "role": "utilisateur",
+        "statut": "actif",
+        "date_inscription": "2025-07-11 23:12:32",
+        "id": 6,
+        "date_creation": "2025-07-11 23:12:32"
+    }
+]
