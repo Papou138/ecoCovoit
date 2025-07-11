@@ -11,7 +11,7 @@
         "nombre_places_restantes": 2,
         "statut": "termine",
         "date_creation": "2025-07-11 20:43:05",
-        "date_modification": "2025-07-11 23:50:06",
+        "date_modification": "2025-07-11 23:56:15",
         "heure_depart_reelle": "23:34:11",
         "date_mise_a_jour": "2025-07-11 23:34:11",
         "heure_arrivee_reelle": "01:34",
@@ -24,6 +24,13 @@
                 "description": "Test de validation automatique",
                 "date": "2025-07-11 23:50:06",
                 "traite": false
+            },
+            {
+                "reporter_id": 1,
+                "reason": "test_validation",
+                "description": "Test de validation automatique",
+                "date": "2025-07-11 23:56:15",
+                "traite": false
             }
         ],
         "signale": false,
@@ -33,7 +40,7 @@
                 "moderator_id": 1,
                 "action": "approve",
                 "reason": "Test de validation réussi",
-                "date": "2025-07-11 23:50:06"
+                "date": "2025-07-11 23:56:15"
             }
         ]
     },
@@ -89,5 +96,33 @@
         "date_creation": "2025-07-11 23:12:32",
         "duree_estimee": 180,
         "id": 4
+    },
+    {
+        "id": 5,
+        "chauffeur_id": 3,
+        "depart": "Lyon",
+        "arrivee": "Marseille",
+        "date_depart": "2025-07-05",
+        "heure_depart": "08:00",
+        "places_disponibles": 3,
+        "prix_par_place": 25,
+        "statut": "termine",
+        "distance_km": 315,
+        "date_creation": "2025-07-05 00:03:37",
+        "description": "Trajet Lyon-Marseille, arrêt possible à Valence"
+    },
+    {
+        "id": 6,
+        "chauffeur_id": 4,
+        "depart": "Toulouse",
+        "arrivee": "Bordeaux",
+        "date_depart": "2025-07-09",
+        "heure_depart": "14:30",
+        "places_disponibles": 2,
+        "prix_par_place": 18,
+        "statut": "termine",
+        "distance_km": 244,
+        "date_creation": "2025-07-09 00:03:37",
+        "description": "Trajet direct sans arrêt"
     }
 ]

@@ -1,0 +1,14 @@
+{
+    "app_name": "ecoCovoit",
+    "app_version": "1.0.0",
+    "app_environment": "production",
+    "app_timezone": "Europe\/Paris",
+    "max_places_par_trajet": 8,
+    "commission_plateforme_pourcent": 5,
+    "note_minimum_pour_trajet": 3,
+    "notifications_email_actives": true,
+    "moderation_automatique_active": true,
+    "calcul_co2_actif": true,
+    "date_creation": "2025-07-12 00:16:32",
+    "derniere_modification": "2025-07-12 00:16:32"
+}

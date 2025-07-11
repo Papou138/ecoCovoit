@@ -13,5 +13,33 @@
         "date_mise_a_jour": "2025-07-11 23:34:11",
         "date_modification": "2025-07-11 23:34:11",
         "date_fin": "2025-07-11 23:34:11"
+    },
+    {
+        "id": 2,
+        "trajet_id": 5,
+        "utilisateur_id": 5,
+        "statut": "confirmee",
+        "date_creation": "2025-07-05 00:03:37"
+    },
+    {
+        "id": 3,
+        "trajet_id": 5,
+        "utilisateur_id": 6,
+        "statut": "confirmee",
+        "date_creation": "2025-07-05 00:03:37"
+    },
+    {
+        "id": 4,
+        "trajet_id": 6,
+        "utilisateur_id": 7,
+        "statut": "confirmee",
+        "date_creation": "2025-07-09 00:03:37"
+    },
+    {
+        "id": 5,
+        "trajet_id": 6,
+        "utilisateur_id": 8,
+        "statut": "confirmee",
+        "date_creation": "2025-07-09 00:03:37"
     }
 ]

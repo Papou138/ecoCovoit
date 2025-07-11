@@ -29,7 +29,11 @@
         "role": "utilisateur",
         "credits": 30,
         "statut": "actif",
-        "date_creation": "2025-07-11 20:43:05"
+        "date_creation": "2025-07-11 20:43:05",
+        "note_moyenne": 5,
+        "nombre_avis": 2,
+        "niveau_reputation": "nouveau",
+        "date_modification": "2025-07-12 00:03:37"
     },
     {
         "pseudo": "testuser1752267055",
@@ -39,7 +43,11 @@
         "credits": 20,
         "statut": "actif",
         "date_creation": "2025-07-11 22:50:55",
-        "id": 4
+        "id": 4,
+        "note_moyenne": 4,
+        "nombre_avis": 2,
+        "niveau_reputation": "nouveau",
+        "date_modification": "2025-07-12 00:03:37"
     },
     {
         "pseudo": "unittest_1752267102",
@@ -48,7 +56,11 @@
         "role": "utilisateur",
         "credits": 20,
         "id": 5,
-        "date_creation": "2025-07-11 22:51:43"
+        "date_creation": "2025-07-11 22:51:43",
+        "note_moyenne": 5,
+        "nombre_avis": 1,
+        "niveau_reputation": "nouveau",
+        "date_modification": "2025-07-12 00:03:37"
     },
     {
         "nom": "Dupont",
@@ -57,13 +69,16 @@
         "mot_de_passe": "$2y$12$bS3DlZFz2cHs.jkZgYPdh.PZ2bOdHucekRdL0YD7xrRsJhRMwqrw6",
         "telephone": "0123456789",
         "credits": 100,
-        "note_moyenne": 4.5,
+        "note_moyenne": 4,
         "nb_trajets_effectues": 15,
         "role": "utilisateur",
         "statut": "actif",
         "date_inscription": "2025-07-11 23:12:32",
         "id": 6,
-        "date_creation": "2025-07-11 23:12:32"
+        "date_creation": "2025-07-11 23:12:32",
+        "nombre_avis": 1,
+        "niveau_reputation": "nouveau",
+        "date_modification": "2025-07-12 00:03:37"
     },
     {
         "nom": "Probleme",
@@ -75,7 +90,11 @@
         "statut": "en_attente",
         "date_creation": "2025-07-11 23:46:59",
         "credits": 50,
-        "id": 7
+        "id": 7,
+        "note_moyenne": 5,
+        "nombre_avis": 1,
+        "niveau_reputation": "nouveau",
+        "date_modification": "2025-07-12 00:03:37"
     },
     {
         "nom": "Suspendu",
@@ -88,6 +107,10 @@
         "raison_suspension": "Test de suspension",
         "date_creation": "2025-07-11 23:46:59",
         "credits": 25,
-        "id": 8
+        "id": 8,
+        "note_moyenne": 3,
+        "nombre_avis": 1,
+        "niveau_reputation": "nouveau",
+        "date_modification": "2025-07-12 00:03:37"
     }
 ]

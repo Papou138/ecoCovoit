@@ -43,5 +43,14 @@
         "date_creation": "2025-07-11 23:50:06",
         "lu": false,
         "data": "{\"test\":\"jour6\",\"admin_id\":1}"
+    },
+    {
+        "id": 6,
+        "utilisateur_id": 1,
+        "type": "test_validation",
+        "message": "Test de validation Jour 6 - Système d'administration opérationnel",
+        "date_creation": "2025-07-11 23:56:15",
+        "lu": false,
+        "data": "{\"test\":\"jour6\",\"admin_id\":1}"
     }
 ]
