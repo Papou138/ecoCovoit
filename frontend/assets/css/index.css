@@ -179,7 +179,7 @@
   margin-bottom: var(--space-lg);
 }
 
-/* ===== FILTRES AVANCÉES ===== */
+/* ===== FILTRES AVANCEES ===== */
 
 .advanced-filters {
   margin-top: var(--space-xl);
@@ -350,7 +350,7 @@
   box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
 }
 
-/* Style spécifique pour la checkbox - SUPPRIMÉ - utilise maintenant .filters-checkbox-section */
+/* Style spécifique pour la checkbox - SUPPRIME - utilise maintenant .filters-checkbox-section */
 
 /* ===== BOUTON DE RECHERCHE ===== */
 
@@ -1020,7 +1020,7 @@
   accent-color: var(--color-accent);
 }
 
-/* ===== AMÉLIORATIONS VISUELLES ===== */
+/* ===== AMELIORATIONS VISUELLES ===== */
 .form-group {
   position: relative;
 }

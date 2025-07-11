@@ -407,7 +407,7 @@
   transform: translateY(-1px);
 }
 
-/* ===== AMÉLIORATION DU BOUTON PRIMARY ===== */
+/* ===== AMELIORATION DU BOUTON PRIMARY ===== */
 
 /* Bouton primary amélioré pour plus de visibilité */
 .btn-primary {
@@ -643,7 +643,7 @@
   align-items: center;
 }
 
-/* États vide et erreur */
+/* Etats vide et erreur */
 .empty-state,
 .error-card {
   text-align: center;
@@ -769,7 +769,7 @@
   }
 }
 
-/* ===== AMÉLIORATIONS SUPPLÉMENTAIRES ===== */
+/* ===== AMELIORATIONS SUPPLEMENTAIRES ===== */
 
 /* Section des statistiques - alias pour stats-overview */
 .stats-overview {

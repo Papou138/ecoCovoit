@@ -500,7 +500,7 @@ class AuthManager {
  * Fonction globale de déconnexion
  */
 async function logout() {
-  if (confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) {
+  if (confirm('Etes-vous sûr de vouloir vous déconnecter ?')) {
     try {
       await fetch('../backend/auth/logout.php');
       window.location.href = 'login.html';

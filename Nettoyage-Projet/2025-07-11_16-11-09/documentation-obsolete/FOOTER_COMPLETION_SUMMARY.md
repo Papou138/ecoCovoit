@@ -1,4 +1,4 @@
-# ✅ HARMONISATION COMPLÈTE DES FOOTERS - ecoCovoit
+# ✅ HARMONISATION COMPLETE DES FOOTERS - ecoCovoit
 
 ## 🎉 Mission accomplie !
 
@@ -66,7 +66,7 @@ L'harmonisation complète des footers du projet ecoCovoit est maintenant **termi
 </footer>
 ```
 
-### **Éléments standardisés**
+### **Eléments standardisés**
 
 - ✅ **Icônes FontAwesome** uniformisées
 - ✅ **Liens "Mentions légales"** sur toutes les pages

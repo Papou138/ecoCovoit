@@ -39,7 +39,7 @@ try {
     $newUserId = $result['data']['user']['id'];
     echo "   ID: $newUserId\n";
   } else {
-    echo "❌ Échec inscription: " . ($result['message'] ?? 'Erreur inconnue') . "\n";
+    echo "❌ Echec inscription: " . ($result['message'] ?? 'Erreur inconnue') . "\n";
   }
 } catch (Exception $e) {
   ob_end_clean();
@@ -80,7 +80,7 @@ try {
     echo "   Rôle: {$result['data']['user']['role']}\n";
     echo "   Crédits: {$result['data']['user']['credits']}\n";
   } else {
-    echo "❌ Échec connexion: " . ($result['message'] ?? 'Erreur inconnue') . "\n";
+    echo "❌ Echec connexion: " . ($result['message'] ?? 'Erreur inconnue') . "\n";
   }
 } catch (Exception $e) {
   ob_end_clean();
@@ -131,7 +131,7 @@ try {
     echo "✅ Déconnexion réussie\n";
     echo "   Message: {$result['message']}\n";
   } else {
-    echo "❌ Échec déconnexion: " . ($result['message'] ?? 'Erreur inconnue') . "\n";
+    echo "❌ Echec déconnexion: " . ($result['message'] ?? 'Erreur inconnue') . "\n";
   }
 } catch (Exception $e) {
   ob_end_clean();

@@ -2,7 +2,7 @@
 /* =  STYLES SPECIFIQUES A LA PAGE DE DETAILS.HTML  = */
 /* ================================================== */
 
-/* ===== SECTION PRÉSENTATION ===== */
+/* ===== SECTION PRESENTATION ===== */
 .trip-detail-section {
   background: var(--color-bg-primary);
   padding: 0;
@@ -158,7 +158,7 @@
   color: var(--color-text-primary);
 }
 
-/* ===== VÉHICULE ===== */
+/* ===== VEHICULE ===== */
 .vehicle-section {
   background: white;
   border: 1px solid var(--color-border);
@@ -751,7 +751,7 @@
   transform: none;
 }
 
-/* ===== NOTIFICATION DE SUCCÈS ===== */
+/* ===== NOTIFICATION DE SUCCES ===== */
 .success-notification {
   position: fixed;
   top: 50%;

@@ -9,7 +9,7 @@
 require_once '../config/config.php';
 require_once '../models/DB.php';
 
-echo "\n=== TEST JOUR 7 - SYSTÈME D'ÉVALUATIONS ET AVIS ===\n";
+echo "\n=== TEST JOUR 7 - SYSTEME D'EVALUATIONS ET AVIS ===\n";
 echo "Date de test: " . date('Y-m-d H:i:s') . "\n\n";
 
 $testsPassed = 0;
@@ -42,7 +42,7 @@ function simulateRequest($url, $method = 'GET', $data = null)
   return $result ? json_decode($result, true) : null;
 }
 
-echo "1. TESTS DE CRÉATION D'AVIS\n";
+echo "1. TESTS DE CREATION D'AVIS\n";
 echo "=" . str_repeat("=", 50) . "\n";
 
 // Test 1: Créer un avis chauffeur
@@ -71,7 +71,7 @@ test("Création d'avis passager", $response && $response['success']);
 $response = simulateRequest('/backend/avis/gestion.php', 'POST', $avisData);
 test("Protection contre les doublons d'avis", $response && !$response['success']);
 
-echo "\n2. TESTS DE MODÉRATION AUTOMATIQUE\n";
+echo "\n2. TESTS DE MODERATION AUTOMATIQUE\n";
 echo "=" . str_repeat("=", 50) . "\n";
 
 // Test 4: Avis avec contenu inapproprié
@@ -100,7 +100,7 @@ $avisContradictoire = [
 $response = simulateRequest('/backend/avis/gestion.php', 'POST', $avisContradictoire);
 test("Détection d'incohérence note/commentaire", $response && $response['success'] && !$response['data']['valide']);
 
-echo "\n3. TESTS DE CALCUL DE RÉPUTATION\n";
+echo "\n3. TESTS DE CALCUL DE REPUTATION\n";
 echo "=" . str_repeat("=", 50) . "\n";
 
 // Test 6: Calcul de note moyenne utilisateur
@@ -126,7 +126,7 @@ test("Classement spécialisé chauffeurs", $response && $response['success']);
 $response = simulateRequest('/backend/avis/reputation.php?action=rankings&type=passager&limit=5');
 test("Classement spécialisé passagers", $response && $response['success']);
 
-echo "\n5. TESTS DE MODÉRATION ADMINISTRATIVE\n";
+echo "\n5. TESTS DE MODERATION ADMINISTRATIVE\n";
 echo "=" . str_repeat("=", 50) . "\n";
 
 // Simuler une session admin
@@ -156,7 +156,7 @@ if (!empty($avisAValider)) {
 $response = simulateRequest('/backend/avis/moderation.php?action=stats');
 test("Récupération des stats de modération", $response && $response['success']);
 
-echo "\n6. TESTS D'INTÉGRITÉ DES DONNÉES\n";
+echo "\n6. TESTS D'INTEGRITE DES DONNEES\n";
 echo "=" . str_repeat("=", 50) . "\n";
 
 // Test 14: Vérification de la cohérence des notes moyennes
@@ -265,7 +265,7 @@ foreach ($avisValides as $avis) {
 }
 echo "Utilisateurs avec avis: " . count($usersWithAvis) . "\n";
 
-echo "\n9. TESTS DE SÉCURITÉ\n";
+echo "\n9. TESTS DE SECURITE\n";
 echo "=" . str_repeat("=", 50) . "\n";
 
 // Test 18: Injection dans les paramètres
@@ -282,13 +282,13 @@ $response = simulateRequest('/backend/avis/moderation.php?action=stats');
 test("Protection accès admin sans session", $response && !$response['success']);
 
 echo "\n" . str_repeat("=", 70) . "\n";
-echo "RÉSUMÉ DES TESTS JOUR 7\n";
+echo "RESUME DES TESTS JOUR 7\n";
 echo str_repeat("=", 70) . "\n";
 echo "Tests réussis: $testsPassed/$totalTests\n";
 echo "Taux de réussite: " . round(($testsPassed / $totalTests) * 100, 1) . "%\n";
 
 if ($testsPassed === $totalTests) {
-  echo "🎉 TOUS LES TESTS SONT PASSÉS !\n";
+  echo "🎉 TOUS LES TESTS SONT PASSES !\n";
   echo "Le système d'évaluations et avis est entièrement fonctionnel.\n";
 } else {
   echo "⚠️ Certains tests ont échoué. Vérifiez les fonctionnalités concernées.\n";

@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $user = requireAuth();
 
 try {
-  // === RÉCUPÉRATION DES DONNÉES ===
+  // === RECUPERATION DES DONNEES ===
 
   $input = json_decode(file_get_contents('php://input'), true);
 
@@ -62,7 +62,7 @@ try {
   $accepteBagages = $input['accepte_bagages'] ?? true;
   $maxDetour = (int)($input['max_detour'] ?? 10); // km de détour max
 
-  // === VALIDATION DES DONNÉES ===
+  // === VALIDATION DES DONNEES ===
 
   $errors = [];
 
@@ -155,7 +155,7 @@ try {
     jsonResponse(false, 'Erreurs de validation', ['errors' => $errors], 400);
   }
 
-  // === VÉRIFICATIONS MÉTIER ===
+  // === VERIFICATIONS METIER ===
 
   // Vérifier que l'utilisateur n'a pas déjà un trajet à la même date/heure
   $existingTrajets = DB::query(
@@ -173,7 +173,7 @@ try {
     jsonResponse(false, 'Crédits insuffisants pour créer un trajet (commission: ' . $commission . '€)');
   }
 
-  // === CRÉATION DU TRAJET ===
+  // === CREATION DU TRAJET ===
 
   // Données du trajet principal
   $trajetData = [
@@ -218,7 +218,7 @@ try {
     }
   }
 
-  // === CRÉATION DU TRAJET RETOUR ===
+  // === CREATION DU TRAJET RETOUR ===
 
   $trajetRetourId = null;
   if ($retourPrevu) {
@@ -249,7 +249,7 @@ try {
     DB::update('trajets', $trajetId, ['trajet_retour_id' => $trajetRetourId]);
   }
 
-  // === DÉDUCTION DE LA COMMISSION ===
+  // === DEDUCTION DE LA COMMISSION ===
 
   // Débiter la commission
   $newCredits = $user['credits'] - $commission;
@@ -266,7 +266,7 @@ try {
   ];
   DB::insert('transactions', $transactionData);
 
-  // === RÉCUPÉRATION DES DONNÉES COMPLÈTES ===
+  // === RECUPERATION DES DONNEES COMPLETES ===
 
   $trajetComplete = DB::query(
     "SELECT t.*, u.nom, u.prenom, u.email, u.note_moyenne,
@@ -286,7 +286,7 @@ try {
     );
   }
 
-  // === RÉPONSE ===
+  // === REPONSE ===
 
   $responseData = [
     'trajet' => $trajetComplete,

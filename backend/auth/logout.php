@@ -48,7 +48,7 @@ try {
     );
   }
 
-  jsonResponse(true, "Déconnexion réussie. À bientôt {$pseudo} !", [
+  jsonResponse(true, "Déconnexion réussie. A bientôt {$pseudo} !", [
     'user_id' => $userId,
     'redirect_url' => '/frontend/login.html'
   ]);

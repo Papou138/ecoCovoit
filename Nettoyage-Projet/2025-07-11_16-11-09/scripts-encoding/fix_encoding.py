@@ -26,8 +26,8 @@ def fix_encoding_issues():
         "Ã®": "î",
         "Ã¯": "ï",
         "Ã§": "ç",
-        "Ã‰": "É",
-        "Ã€": "À",
+        "Ã‰": "E",
+        "Ã€": "A",
         "Ã‚": "Â",
         'Ã"': "Ô",
         "Ã™": "Ù",
@@ -139,7 +139,7 @@ def fix_encoding_issues():
 
             # Vérifier si le fichier a été modifié
             if content != original_content:
-                # Écrire le contenu corrigé
+                # Ecrire le contenu corrigé
                 with open(file_path, "w", encoding="utf-8") as f:
                     f.write(content)
                 modified_files += 1

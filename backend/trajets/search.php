@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 }
 
 try {
-  // === RÉCUPÉRATION DES PARAMÈTRES ===
+  // === RECUPERATION DES PARAMETRES ===
 
   $depart = trim($_GET['depart'] ?? '');
   $arrivee = trim($_GET['arrivee'] ?? '');
@@ -42,7 +42,7 @@ try {
   $noteMin = isset($_GET['note_min']) ? (float)$_GET['note_min'] : null;
   $dureeMax = isset($_GET['duree_max']) ? (int)$_GET['duree_max'] : null; // en minutes
 
-  // === VALIDATION DES PARAMÈTRES OBLIGATOIRES ===
+  // === VALIDATION DES PARAMETRES OBLIGATOIRES ===
 
   if (empty($depart)) {
     jsonResponse(false, 'La ville de départ est requise');
@@ -68,7 +68,7 @@ try {
     jsonResponse(false, 'Impossible de rechercher des trajets dans le passé');
   }
 
-  // === RECHERCHE DANS LA BASE DE DONNÉES ===
+  // === RECHERCHE DANS LA BASE DE DONNEES ===
 
   $trajets = DB::searchTrajets($depart, $arrivee, $date);
 
@@ -111,12 +111,12 @@ try {
     $trajet['disponible'] = $trajet['nombre_places_restantes'] > 0 && $trajet['statut'] === 'planifie';
 
     // Badge écologique
-    $trajet['badge_eco'] = $trajet['est_ecologique'] ? '🌱 Écologique' : null;
+    $trajet['badge_eco'] = $trajet['est_ecologique'] ? '🌱 Ecologique' : null;
 
     $trajetsFiltered[] = $trajet;
   }
 
-  // === TRI DES RÉSULTATS ===
+  // === TRI DES RESULTATS ===
 
   $sortBy = $_GET['sort'] ?? 'date'; // date, prix, note, duree
   $sortOrder = $_GET['order'] ?? 'asc'; // asc, desc
@@ -190,7 +190,7 @@ try {
     'places_totales' => array_sum(array_column($trajetsFiltered, 'nombre_places_restantes'))
   ];
 
-  // === RÉPONSE ===
+  // === REPONSE ===
 
   $responseData = [
     'criteres_recherche' => [

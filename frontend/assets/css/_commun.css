@@ -217,7 +217,7 @@ label i,
   text-align: center;
 }
 
-/* ===== EN-TÊTES ET TYPOGRAPHIE ===== */
+/* ===== EN-TETES ET TYPOGRAPHIE ===== */
 
 .section-title {
   font-size: var(--font-size-xl);
@@ -234,7 +234,7 @@ label i,
   font-size: var(--font-size-lg);
 }
 
-/* ===== SYSTÈMES DE GRILLE ===== */
+/* ===== SYSTEMES DE GRILLE ===== */
 
 .grid {
   display: grid;
@@ -253,7 +253,7 @@ label i,
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-/* ===== SECTION DES FONCTIONNALITÉS ===== */
+/* ===== SECTION DES FONCTIONNALITES ===== */
 
 .features-section {
   padding: var(--space-xl) 0;
@@ -312,7 +312,7 @@ label i,
   box-shadow: var(--shadow-lg);
 }
 
-/* ===== SYSTÈME DE BOUTONS ===== */
+/* ===== SYSTEME DE BOUTONS ===== */
 
 .btn {
   display: inline-flex;
@@ -423,7 +423,7 @@ label i,
   width: 100%;
 }
 
-/* ===== SYSTÈME DE FORMULAIRES ===== */
+/* ===== SYSTEME DE FORMULAIRES ===== */
 
 .form-group {
   display: flex;

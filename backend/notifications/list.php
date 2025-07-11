@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $user = requireAuth();
 
 try {
-  // === TRAITEMENT SELON LA MÉTHODE ===
+  // === TRAITEMENT SELON LA METHODE ===
 
   switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
@@ -59,14 +59,14 @@ try {
  */
 function listNotifications($user)
 {
-  // === RÉCUPÉRATION DES PARAMÈTRES ===
+  // === RECUPERATION DES PARAMETRES ===
 
   $limite = min((int)($_GET['limite'] ?? 20), 50); // Max 50 notifications
   $page = max((int)($_GET['page'] ?? 1), 1);
   $nonLueSeulement = isset($_GET['non_lues']) && $_GET['non_lues'] === '1';
   $type = $_GET['type'] ?? null; // Filtrer par type
 
-  // === RÉCUPÉRATION DES NOTIFICATIONS ===
+  // === RECUPERATION DES NOTIFICATIONS ===
 
   $criteria = ['utilisateur_id' => $user['id']];
 
@@ -80,7 +80,7 @@ function listNotifications($user)
 
   $notifications = DB::findAll('notifications', $criteria, 'date_creation DESC');
 
-  // === ENRICHISSEMENT DES DONNÉES ===
+  // === ENRICHISSEMENT DES DONNEES ===
 
   $notificationsEnrichies = [];
   foreach ($notifications as $notification) {
@@ -119,7 +119,7 @@ function listNotifications($user)
     'types' => getNotificationTypes($user['id'])
   ];
 
-  // === RÉPONSE ===
+  // === REPONSE ===
 
   $responseData = [
     'notifications' => $notificationsPaginees,
@@ -188,7 +188,7 @@ function markNotificationsAsRead($user)
     }
   }
 
-  // === RÉPONSE ===
+  // === REPONSE ===
 
   $responseData = [
     'notifications_modifiees' => $notificationsModifiees,
@@ -244,7 +244,7 @@ function deleteNotifications($user)
     }
   }
 
-  // === RÉPONSE ===
+  // === REPONSE ===
 
   $responseData = [
     'notifications_supprimees' => $notificationsSupprimees,
@@ -343,6 +343,6 @@ function formatDateRelative($diff)
   } elseif ($diff->i > 0) {
     return 'Il y a ' . $diff->i . ' minute' . ($diff->i > 1 ? 's' : '');
   } else {
-    return 'À l\'instant';
+    return 'A l\'instant';
   }
 }

@@ -19,7 +19,7 @@ if (!empty($trajets)) {
   $trajet = $trajets[0];
   echo "   Premier trajet: {$trajet['depart']} → {$trajet['arrivee']} - {$trajet['prix']}€\n";
   echo "   Chauffeur: {$trajet['nom']} {$trajet['prenom']}\n";
-  echo "   Véhicule: {$trajet['marque']} {$trajet['modele']} (" . ($trajet['est_ecologique'] ? 'Écologique' : 'Standard') . ")\n";
+  echo "   Véhicule: {$trajet['marque']} {$trajet['modele']} (" . ($trajet['est_ecologique'] ? 'Ecologique' : 'Standard') . ")\n";
 }
 
 echo "\n2. ✅ Test des données de la base...\n";
@@ -83,14 +83,14 @@ echo "   • Validation: Complète avec gestion d'erreurs\n";
 echo "   • Performance: Optimisée pour les recherches\n";
 echo "   • Scalabilité: Prête pour montée en charge\n";
 
-echo "\n=== 🎉 JOUR 4 TERMINÉ AVEC SUCCÈS ! ===\n";
-echo "\n🚀 **RÉSULTAT:**\n";
+echo "\n=== 🎉 JOUR 4 TERMINE AVEC SUCCES ! ===\n";
+echo "\n🚀 **RESULTAT:**\n";
 echo "✅ Toutes les APIs de trajets sont fonctionnelles\n";
 echo "✅ La recherche, la création et la participation fonctionnent\n";
 echo "✅ Les données sont cohérentes et bien structurées\n";
 echo "✅ Le système est prêt pour l'intégration frontend\n";
 
-echo "\n📅 **PROCHAINE ÉTAPE - JOUR 5:**\n";
+echo "\n📅 **PROCHAINE ETAPE - JOUR 5:**\n";
 echo "🔄 APIs de gestion avancée des trajets:\n";
 echo "   - Démarrer/Terminer un trajet\n";
 echo "   - Historique et notifications\n";

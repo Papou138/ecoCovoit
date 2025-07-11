@@ -457,7 +457,7 @@ function getAvisStats($userId = null)
     'moyenne' => round(array_sum(array_column($avisPassager, 'note')) / count($avisPassager), 2)
   ] : ['count' => 0, 'moyenne' => 0];
 
-  // Évolution mensuelle (6 derniers mois)
+  // Evolution mensuelle (6 derniers mois)
   $evolutionMensuelle = [];
   for ($i = 5; $i >= 0; $i--) {
     $mois = date('Y-m', strtotime("-{$i} months"));

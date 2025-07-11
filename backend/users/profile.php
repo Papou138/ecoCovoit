@@ -136,7 +136,7 @@ function updateUserProfile()
   $updatedData = [];
   $requirePasswordCheck = false;
 
-  // === VALIDATION ET PRÉPARATION DES DONNÉES ===
+  // === VALIDATION ET PREPARATION DES DONNEES ===
 
   // Mise à jour du pseudo
   if (!empty($pseudo) && $pseudo !== $currentUser['pseudo']) {
@@ -198,7 +198,7 @@ function updateUserProfile()
     $requirePasswordCheck = true;
   }
 
-  // === VÉRIFICATION DU MOT DE PASSE ACTUEL ===
+  // === VERIFICATION DU MOT DE PASSE ACTUEL ===
 
   if ($requirePasswordCheck && empty($currentPassword)) {
     jsonResponse(false, 'Le mot de passe actuel est requis pour cette modification');
@@ -208,7 +208,7 @@ function updateUserProfile()
     jsonResponse(false, 'Mot de passe actuel incorrect');
   }
 
-  // === MISE À JOUR ===
+  // === MISE A JOUR ===
 
   if (empty($updatedData)) {
     jsonResponse(false, 'Aucune modification détectée');

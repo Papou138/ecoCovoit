@@ -42,7 +42,7 @@ function simulateRequest($url, $method = 'GET', $data = null)
   return $result ? json_decode($result, true) : null;
 }
 
-echo "1. TESTS DE CONFIGURATION SYSTÈME\n";
+echo "1. TESTS DE CONFIGURATION SYSTEME\n";
 echo "=" . str_repeat("=", 50) . "\n";
 
 // Test 1: Récupération de la configuration
@@ -157,7 +157,7 @@ $_SESSION['role'] = 'admin';
 $response = simulateRequest('/backend/system/optimization.php?action=cache_cleanup');
 test("Nettoyage du cache", $response && $response['success']);
 
-echo "\n7. TESTS D'INTÉGRITÉ DES FICHIERS\n";
+echo "\n7. TESTS D'INTEGRITE DES FICHIERS\n";
 echo "=" . str_repeat("=", 50) . "\n";
 
 // Test 18: Vérification des fichiers de configuration
@@ -183,7 +183,7 @@ if ($hasLogs) {
   test("Logs de monitoring valides", $logs !== null && is_array($logs));
 }
 
-echo "\n8. TESTS DE SÉCURITÉ ET ACCÈS\n";
+echo "\n8. TESTS DE SECURITE ET ACCES\n";
 echo "=" . str_repeat("=", 50) . "\n";
 
 // Test 21: Accès non autorisé aux fonctions admin
@@ -229,7 +229,7 @@ $healthCheck = simulateRequest('/backend/system/monitoring.php?action=health');
 $dashboardStats = simulateRequest('/backend/system/optimization.php?action=dashboard');
 
 if ($configStats && $configStats['success']) {
-  echo "📊 STATISTIQUES SYSTÈME:\n";
+  echo "📊 STATISTIQUES SYSTEME:\n";
   $stats = $configStats['data'];
   echo "   Utilisateurs totaux: " . $stats['users']['total'] . "\n";
   echo "   Utilisateurs actifs: " . $stats['users']['actifs'] . "\n";
@@ -240,7 +240,7 @@ if ($configStats && $configStats['success']) {
 }
 
 if ($healthCheck && $healthCheck['success']) {
-  echo "\n🏥 SANTÉ SYSTÈME:\n";
+  echo "\n🏥 SANTE SYSTEME:\n";
   $health = $healthCheck['data'];
   echo "   Statut global: " . strtoupper($health['overall_status']) . "\n";
   echo "   Vérifications: " . count($health['checks']) . "\n";
@@ -264,13 +264,13 @@ if ($dashboardStats && $dashboardStats['success']) {
 }
 
 echo "\n" . str_repeat("=", 70) . "\n";
-echo "RÉSUMÉ DES TESTS JOUR 8\n";
+echo "RESUME DES TESTS JOUR 8\n";
 echo str_repeat("=", 70) . "\n";
 echo "Tests réussis: $testsPassed/$totalTests\n";
 echo "Taux de réussite: " . round(($testsPassed / $totalTests) * 100, 1) . "%\n";
 
 if ($testsPassed === $totalTests) {
-  echo "🎉 TOUS LES TESTS SONT PASSÉS !\n";
+  echo "🎉 TOUS LES TESTS SONT PASSES !\n";
   echo "Le système de finalisation et d'optimisation est entièrement fonctionnel.\n";
 } else {
   echo "⚠️ Certains tests ont échoué. Vérifiez les fonctionnalités concernées.\n";

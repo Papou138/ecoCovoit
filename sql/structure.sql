@@ -1,5 +1,5 @@
 -- ========================================
--- STRUCTURE BASE DE DONNÉES ecoCovoit
+-- STRUCTURE BASE DE DONNEES ecoCovoit
 -- Version optimisée pour 8 jours de développement
 -- ========================================
 
@@ -200,7 +200,7 @@ CREATE TABLE incidents (
 );
 
 -- ========================================
--- DONNÉES DE TEST
+-- DONNEES DE TEST
 -- Utilisateurs et données de base pour tester
 -- ========================================
 

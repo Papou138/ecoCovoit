@@ -495,7 +495,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Annuler un trajet
   window.cancelTrip = async function (tripId) {
-    if (!confirm('Êtes-vous sûr de vouloir annuler ce trajet ?')) return;
+    if (!confirm('Etes-vous sûr de vouloir annuler ce trajet ?')) return;
 
     try {
       const response = await fetch('../backend/trajets/annuler.php', {
@@ -525,7 +525,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Supprimer un véhicule
   window.deleteVehicle = async function (vehicleId) {
-    if (!confirm('Êtes-vous sûr de vouloir supprimer ce véhicule ?')) return;
+    if (!confirm('Etes-vous sûr de vouloir supprimer ce véhicule ?')) return;
 
     try {
       const response = await fetch('../backend/vehicules/supprimer.php', {
@@ -594,7 +594,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Déconnexion
   async function logout() {
-    if (!confirm('Êtes-vous sûr de vouloir vous déconnecter ?')) return;
+    if (!confirm('Etes-vous sûr de vouloir vous déconnecter ?')) return;
 
     try {
       await fetch('../backend/auth/logout.php');

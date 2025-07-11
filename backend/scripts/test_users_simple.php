@@ -31,7 +31,7 @@ try {
   $vehicle = DB::findById('vehicules', $vehicleId);
   if ($vehicle) {
     echo "   ✅ Véhicule récupéré: {$vehicle['marque']} {$vehicle['modele']}\n";
-    echo "   - Écologique: " . ($vehicle['type_energie'] === 'electrique' ? 'Oui' : 'Non') . "\n";
+    echo "   - Ecologique: " . ($vehicle['type_energie'] === 'electrique' ? 'Oui' : 'Non') . "\n";
     echo "   - Hybride: " . ($vehicle['type_energie'] === 'hybride' ? 'Oui' : 'Non') . "\n";
   }
 

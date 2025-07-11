@@ -3,7 +3,7 @@
 /**
  * Script d'initialisation de la base de données
  *
- * À exécuter une seule fois pour créer toute la structure
+ * A exécuter une seule fois pour créer toute la structure
  * Usage: php init_database.php
  */
 

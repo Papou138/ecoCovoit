@@ -7,9 +7,9 @@
 require_once '../config/config.php';
 require_once '../models/DB.php';
 
-echo "=== 🔄 VALIDATION FINALE - JOUR 5 : APIS AVANCÉES ===\n\n";
+echo "=== 🔄 VALIDATION FINALE - JOUR 5 : APIS AVANCEES ===\n\n";
 
-// === VÉRIFICATION DES FONCTIONNALITÉS IMPLÉMENTÉES ===
+// === VERIFICATION DES FONCTIONNALITES IMPLEMENTEES ===
 
 echo "1. ✅ Fonctionnalités développées au Jour 5...\n";
 
@@ -30,7 +30,7 @@ foreach ($fonctionnalites as $fonctionnalite) {
   echo "   ✅ $fonctionnalite\n";
 }
 
-// === VÉRIFICATION DES APIS ===
+// === VERIFICATION DES APIS ===
 
 echo "\n2. 📁 APIs créées et validées...\n";
 
@@ -61,9 +61,9 @@ foreach ($apis as $file => $info) {
   }
 }
 
-// === STATISTIQUES DE DONNÉES ===
+// === STATISTIQUES DE DONNEES ===
 
-echo "\n3. 📊 État de la base de données...\n";
+echo "\n3. 📊 Etat de la base de données...\n";
 
 $stats = [
   'utilisateurs' => count(DB::findAll('utilisateurs')),
@@ -90,7 +90,7 @@ foreach ($statutsTrajets as $statut => $count) {
   echo "      - " . ucfirst($statut) . ": $count\n";
 }
 
-// === COHÉRENCE DES DONNÉES ===
+// === COHERENCE DES DONNEES ===
 
 echo "\n4. 🔍 Vérification de la cohérence...\n";
 
@@ -209,16 +209,16 @@ foreach ($architecture as $composant => $description) {
   echo "   • $composant: $description\n";
 }
 
-echo "\n=== 🎉 JOUR 5 COMPLÉTÉ AVEC SUCCÈS ! ===\n";
+echo "\n=== 🎉 JOUR 5 COMPLETE AVEC SUCCES ! ===\n";
 
-echo "\n🚀 **RÉSULTAT JOUR 5:**\n";
+echo "\n🚀 **RESULTAT JOUR 5:**\n";
 echo "✅ Gestion avancée des trajets implémentée\n";
 echo "✅ Système d'historique et statistiques fonctionnel\n";
 echo "✅ Notifications temps réel opérationnelles\n";
 echo "✅ Calculs financiers et environnementaux automatisés\n";
 echo "✅ Architecture robuste et évolutive\n";
 
-echo "\n📅 **RÉCAPITULATIF GÉNÉRAL (5/8 jours):**\n";
+echo "\n📅 **RECAPITULATIF GENERAL (5/8 jours):**\n";
 echo "   Jour 1 ✅ : Configuration et base de données\n";
 echo "   Jour 2 ✅ : Système d'authentification\n";
 echo "   Jour 3 ✅ : APIs de gestion utilisateurs\n";
@@ -228,7 +228,7 @@ echo "   Jour 6 📅 : APIs d'administration\n";
 echo "   Jour 7 📅 : Système d'évaluations et avis\n";
 echo "   Jour 8 📅 : Tests d'intégration et optimisations\n";
 
-echo "\n🎯 **PROCHAINE ÉTAPE - JOUR 6:**\n";
+echo "\n🎯 **PROCHAINE ETAPE - JOUR 6:**\n";
 echo "🛡️ **APIs d'Administration:**\n";
 echo "   - Panel d'administration\n";
 echo "   - Gestion des utilisateurs (suspension, validation)\n";

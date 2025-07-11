@@ -246,7 +246,7 @@
   display: block;
 }
 
-/* ===== STYLES SUPPLÉMENTAIRES POUR VÉHICULES ===== */
+/* ===== STYLES SUPPLEMENTAIRES POUR VEHICULES ===== */
 .vehicle-type-selector {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

@@ -58,9 +58,9 @@ Pour les pages d'administration, j'ai également ajouté :
 ## Mots-clés principaux utilisés
 
 - **Covoiturage** : Mot-clé principal
-- **Écologique / Écoresponsable** : Positionnement environnemental
+- **Ecologique / Ecoresponsable** : Positionnement environnemental
 - **Transport** : Secteur d'activité
-- **Économies** : Avantage financier
+- **Economies** : Avantage financier
 - **Véhicules électriques** : Spécificité technique
 - **Communauté** : Aspect social
 

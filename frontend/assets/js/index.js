@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'Rennes',
     'Reims',
     'Le Havre',
-    'Saint-Étienne',
+    'Saint-Etienne',
     'Toulon',
     'Grenoble',
     'Dijon',

@@ -57,7 +57,7 @@ function validateAdminArchitecture()
   }
 
   $totalSizeKb = round($totalSize / 1024, 1);
-  echo "\n📊 **RÉSUMÉ ARCHITECTURE:**\n";
+  echo "\n📊 **RESUME ARCHITECTURE:**\n";
   echo "   📁 Fichiers valides: {$validFiles}/4\n";
   echo "   📏 Taille totale: {$totalSizeKb}KB\n";
   echo "   ✅ Architecture administrative complète\n\n";
@@ -70,7 +70,7 @@ function validateAdminArchitecture()
  */
 function validateDataConsistency()
 {
-  echo "🔍 **VALIDATION COHÉRENCE DES DONNÉES**\n";
+  echo "🔍 **VALIDATION COHERENCE DES DONNEES**\n";
   echo "======================================\n";
 
   // Vérification des utilisateurs
@@ -155,7 +155,7 @@ function validateDataConsistency()
   echo "   💳 Crédits en circulation: " . round($totalCredits, 2) . "€\n";
   echo "   💸 Volume transactions: " . round($totalTransactions, 2) . "€\n";
 
-  echo "\n✅ **COHÉRENCE VALIDÉE**\n\n";
+  echo "\n✅ **COHERENCE VALIDEE**\n\n";
 
   return [
     'users' => count($users),
@@ -171,7 +171,7 @@ function validateDataConsistency()
  */
 function testAdminFeatures()
 {
-  echo "🧪 **TEST FONCTIONNALITÉS ADMINISTRATIVES**\n";
+  echo "🧪 **TEST FONCTIONNALITES ADMINISTRATIVES**\n";
   echo "==========================================\n";
 
   // Test 1: Création d'un incident de test
@@ -283,7 +283,7 @@ function testAdminFeatures()
     }
   }
 
-  echo "\n✅ **TOUS LES TESTS FONCTIONNELS RÉUSSIS**\n\n";
+  echo "\n✅ **TOUS LES TESTS FONCTIONNELS REUSSIS**\n\n";
 }
 
 /**
@@ -336,11 +336,11 @@ function calculatePerformanceStats()
     return $u['statut'] === 'actif';
   })) / count($users)) * 100, 1) : 0;
 
-  echo "⏱️ **TEMPS DE RÉSOLUTION:**\n";
+  echo "⏱️ **TEMPS DE RESOLUTION:**\n";
   echo "   📊 Incidents résolus: {$resolvedCount}\n";
   echo "   ⏰ Temps moyen: {$avgResolutionTime}h\n";
 
-  echo "\n⚖️ **EFFICACITÉ MODÉRATION:**\n";
+  echo "\n⚖️ **EFFICACITE MODERATION:**\n";
   echo "   📋 Signalements traités: {$signalements}\n";
   echo "   🛡️ Actions de modération: {$moderations}\n";
   echo "   📈 Efficacité: {$moderationEfficiency}%\n";
@@ -380,7 +380,7 @@ function runValidation()
     echo "❌ Problème d'architecture détecté\n";
   }
 
-  echo "📊 **DONNÉES SYSTÈME:**\n";
+  echo "📊 **DONNEES SYSTEME:**\n";
   echo "   👥 {$dataStats['users']} utilisateurs ({$dataStats['admins']} admins)\n";
   echo "   🚗 {$dataStats['trajets']} trajets gérés\n";
   echo "   🚨 {$dataStats['incidents']} incidents traités\n";
@@ -391,7 +391,7 @@ function runValidation()
   echo "   ⚖️ Efficacité modération: {$perfStats['moderation_efficiency']}%\n";
   echo "   👥 Taux activation: {$perfStats['activation_rate']}%\n";
 
-  echo "\n🏆 **FONCTIONNALITÉS JOUR 6:**\n";
+  echo "\n🏆 **FONCTIONNALITES JOUR 6:**\n";
   echo "✅ Dashboard administrateur avec statistiques en temps réel\n";
   echo "✅ Gestion complète des utilisateurs (validation, suspension, réactivation)\n";
   echo "✅ Système de modération des trajets avec signalements\n";
@@ -399,7 +399,7 @@ function runValidation()
   echo "✅ Notifications administratives automatiques\n";
   echo "✅ Statistiques de performance et rapports\n";
 
-  echo "\n📅 **RÉCAPITULATIF GÉNÉRAL (6/8 jours):**\n";
+  echo "\n📅 **RECAPITULATIF GENERAL (6/8 jours):**\n";
   echo "   Jour 1 ✅ : Configuration et base de données\n";
   echo "   Jour 2 ✅ : Système d'authentification\n";
   echo "   Jour 3 ✅ : APIs de gestion utilisateurs\n";
@@ -409,7 +409,7 @@ function runValidation()
   echo "   Jour 7 📅 : Système d'évaluations et avis\n";
   echo "   Jour 8 📅 : Tests d'intégration et optimisations\n";
 
-  echo "\n🎯 **PROCHAINE ÉTAPE - JOUR 7:**\n";
+  echo "\n🎯 **PROCHAINE ETAPE - JOUR 7:**\n";
   echo "⭐ **Système d'évaluations et avis:**\n";
   echo "   - API de création et gestion des avis\n";
   echo "   - Système de notation (1-5 étoiles)\n";
@@ -419,7 +419,7 @@ function runValidation()
 
   echo "\n🚀 **PROGRESSION:** 75% du backend ecoCovoit complété !\n\n";
 
-  echo "🎉 **JOUR 6 VALIDÉ AVEC SUCCÈS !**\n";
+  echo "🎉 **JOUR 6 VALIDE AVEC SUCCES !**\n";
   echo "Le système d'administration est pleinement opérationnel.\n\n";
 }
 

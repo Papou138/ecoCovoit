@@ -58,7 +58,7 @@ function initTestData()
 {
   global $baseUrl;
 
-  echo "📊 **INITIALISATION DES DONNÉES DE TEST**\n";
+  echo "📊 **INITIALISATION DES DONNEES DE TEST**\n";
   echo "=========================================\n";
 
   // Créer un administrateur de test si nécessaire
@@ -288,7 +288,7 @@ function testUserManagement($baseUrl)
  */
 function testTrajetModeration($baseUrl)
 {
-  echo "🚗 **TEST MODÉRATION DES TRAJETS**\n";
+  echo "🚗 **TEST MODERATION DES TRAJETS**\n";
   echo "=================================\n";
 
   // Test liste des trajets
@@ -480,13 +480,13 @@ function runTests()
   // Nettoyage de session
   session_destroy();
 
-  echo "🎯 **RÉSUMÉ DES TESTS JOUR 6**\n";
+  echo "🎯 **RESUME DES TESTS JOUR 6**\n";
   echo "============================\n";
   echo "✅ Dashboard administrateur testé\n";
   echo "✅ Gestion des utilisateurs testée\n";
   echo "✅ Modération des trajets testée\n";
   echo "✅ Gestion des incidents testée\n";
-  echo "\n🎉 **JOUR 6 COMPLÉTÉ AVEC SUCCÈS !**\n\n";
+  echo "\n🎉 **JOUR 6 COMPLETE AVEC SUCCES !**\n\n";
 
   echo "🔧 **APIs d'Administration disponibles:**\n";
   echo "   📊 /admin/dashboard.php - Tableau de bord\n";
@@ -495,7 +495,7 @@ function runTests()
   echo "   🚨 /admin/incidents.php - Gestion incidents\n\n";
 
   echo "🚀 **PROGRESSION:** 75% du backend ecoCovoit complété !\n";
-  echo "📅 **PROCHAINE ÉTAPE:** Jour 7 - Système d'évaluations et avis\n\n";
+  echo "📅 **PROCHAINE ETAPE:** Jour 7 - Système d'évaluations et avis\n\n";
 }
 
 // Exécution des tests

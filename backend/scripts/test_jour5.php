@@ -16,9 +16,9 @@ chdir(__DIR__);
 require_once '../config/config.php';
 require_once '../models/DB.php';
 
-echo "=== 🔄 TESTS DES APIS AVANCÉES - JOUR 5 ===\n\n";
+echo "=== 🔄 TESTS DES APIS AVANCEES - JOUR 5 ===\n\n";
 
-// === TEST 1: DONNÉES DE BASE ===
+// === TEST 1: DONNEES DE BASE ===
 
 echo "1. 📊 Vérification des données existantes...\n";
 
@@ -34,7 +34,7 @@ echo "   - Annulés: $trajetsAnnules\n";
 echo "   - En cours: $trajetsEnCours\n";
 echo "   Total notifications: $totalNotifications\n";
 
-// === TEST 2: CRÉATION DE DONNÉES POUR TESTS ===
+// === TEST 2: CREATION DE DONNEES POUR TESTS ===
 
 echo "\n2. 🔧 Création de données de test supplémentaires...\n";
 
@@ -264,8 +264,8 @@ echo "   - En cours: $newTrajetsEnCours\n";
 echo "   Total participations: $totalParticipations\n";
 echo "   Total notifications: $newTotalNotifications\n";
 
-// Évolution
-echo "\n   📊 Évolution pendant les tests:\n";
+// Evolution
+echo "\n   📊 Evolution pendant les tests:\n";
 echo "   - Notifications créées: " . ($newTotalNotifications - $totalNotifications) . "\n";
 echo "   - Trajets terminés: " . ($newTrajetsTermines - $trajetsTermines) . "\n";
 
@@ -288,8 +288,8 @@ foreach ($apiFiles as $file => $description) {
   }
 }
 
-echo "\n=== 🎉 JOUR 5 - RÉSUMÉ FINAL ===\n";
-echo "\n🚀 **FONCTIONNALITÉS IMPLÉMENTÉES:**\n";
+echo "\n=== 🎉 JOUR 5 - RESUME FINAL ===\n";
+echo "\n🚀 **FONCTIONNALITES IMPLEMENTEES:**\n";
 echo "✅ Gestion complète du cycle de vie des trajets\n";
 echo "✅ Système d'historique avec statistiques détaillées\n";
 echo "✅ Notifications en temps réel\n";
@@ -303,7 +303,7 @@ echo "• Participations: $totalParticipations\n";
 echo "• Notifications: $newTotalNotifications\n";
 echo "• Utilisateurs actifs: " . count(DB::findAll('utilisateurs')) . "\n";
 
-echo "\n🎯 **PROCHAINES ÉTAPES - JOUR 6:**\n";
+echo "\n🎯 **PROCHAINES ETAPES - JOUR 6:**\n";
 echo "📋 APIs d'administration:\n";
 echo "   - Gestion des utilisateurs (admin)\n";
 echo "   - Modération des trajets\n";

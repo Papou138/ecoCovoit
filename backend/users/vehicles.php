@@ -99,7 +99,7 @@ function addVehicle()
   $nombrePlaces = (int)($input['nombre_places'] ?? 4);
   $typeEnergie = $input['type_energie'] ?? 'essence';
 
-  // === VALIDATION DES DONNÉES ===
+  // === VALIDATION DES DONNEES ===
 
   if (empty($marque)) {
     jsonResponse(false, 'La marque est requise');
@@ -164,7 +164,7 @@ function addVehicle()
     jsonResponse(false, 'Type d\'énergie invalide: ' . implode(', ', $typesEnergie));
   }
 
-  // === CRÉATION DU VÉHICULE ===
+  // === CREATION DU VEHICULE ===
 
   $vehicleData = [
     'proprietaire_id' => $currentUser['id'],

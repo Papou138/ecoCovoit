@@ -68,7 +68,7 @@ try {
   if ($user) {
     echo "   ✅ Utilisateur récupéré: {$user['pseudo']}\n";
   } else {
-    echo "   ❌ Échec récupération utilisateur\n";
+    echo "   ❌ Echec récupération utilisateur\n";
   }
 
   // Test recherche par email
@@ -76,14 +76,14 @@ try {
   if ($userByEmail) {
     echo "   ✅ Recherche par email réussie\n";
   } else {
-    echo "   ❌ Échec recherche par email\n";
+    echo "   ❌ Echec recherche par email\n";
   }
 
   // Test vérification mot de passe
   if (password_verify('TestPassword123', $user['mot_de_passe'])) {
     echo "   ✅ Vérification mot de passe réussie\n";
   } else {
-    echo "   ❌ Échec vérification mot de passe\n";
+    echo "   ❌ Echec vérification mot de passe\n";
   }
 } catch (Exception $e) {
   echo "   ❌ Erreur: " . $e->getMessage() . "\n";

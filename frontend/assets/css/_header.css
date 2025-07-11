@@ -161,7 +161,7 @@ header {
   letter-spacing: 4px;
 }
 
-/* ===== NAVIGATION GÉNÉRALE ===== */
+/* ===== NAVIGATION GENERALE ===== */
 
 nav ul {
   list-style: none;
@@ -352,7 +352,7 @@ nav ul li button:hover i {
   transform: scale(1.1);
 }
 
-/* ===== BOUTON DÉCONNEXION ===== */
+/* ===== BOUTON DECONNEXION ===== */
 
 .logout-btn {
   background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
@@ -775,7 +775,7 @@ nav ul li button:hover i {
     min-width: 28px;
   }
 
-  /* ===== BOUTON DÉCONNEXION MOBILE ===== */
+  /* ===== BOUTON DECONNEXION MOBILE ===== */
 
   .logout-btn {
     background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
@@ -810,7 +810,7 @@ nav ul li button:hover i {
   }
 }
 
-/* ===== AMÉLIORATIONS GÉNÉRALES ===== */
+/* ===== AMELIORATIONS GENERALES ===== */
 
 /* Animation pour les éléments actifs */
 @keyframes pulse {

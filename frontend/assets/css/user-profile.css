@@ -68,7 +68,7 @@
   padding: 2rem var(--space-md);
 }
 
-/* ===== CONTENEUR ADMIN HARMONISÉ ===== */
+/* ===== CONTENEUR ADMIN HARMONISE ===== */
 .admin-container {
   max-width: 1600px;
   margin: 0 auto;
@@ -1189,7 +1189,7 @@
   margin-right: 0.5rem;
 }
 
-/* ===== SECTION CURRENT-TRIPS HARMONISÉE ===== */
+/* ===== SECTION CURRENT-TRIPS HARMONISEE ===== */
 .current-trips-section {
   background: white;
   border-radius: var(--radius-md);
@@ -1254,7 +1254,7 @@
   min-height: 120px;
 }
 
-/* ===== SECTION QUICK-ACTIONS HARMONISÉE ===== */
+/* ===== SECTION QUICK-ACTIONS HARMONISEE ===== */
 .quick-actions-section {
   background: white;
   border-radius: var(--radius-md);

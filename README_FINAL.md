@@ -7,7 +7,7 @@
 ### 🎯 Statut du projet
 
 - **Version :** 1.0.0
-- **Statut :** ✅ TERMINÉ
+- **Statut :** ✅ TERMINE
 - **Date de completion :** 12 juillet 2025
 - **Durée de développement :** 8 jours
 - **Backend :** 45 fichiers PHP, 308.3 KB de code
@@ -89,7 +89,7 @@ ecoCovoit/
 - ✅ Gestion des incidents
 - **Code :** 4 fichiers, 47.7 KB
 
-### **Jour 7 : Évaluations et Avis**
+### **Jour 7 : Evaluations et Avis**
 
 - ✅ Système de notation 5 étoiles
 - ✅ Modération automatique de contenu
@@ -137,7 +137,7 @@ ecoCovoit/
 - Commissions automatiques
 - Historique financier détaillé
 
-### ⭐ **Évaluations et réputation**
+### ⭐ **Evaluations et réputation**
 
 - Système de notation bidirectionnel
 - Calcul de réputation avancé
@@ -296,7 +296,7 @@ GET /backend/system/optimization.php?action=search_trajets&depart=Paris&arrivee=
 
 - ✅ Principe de moindre privilège
 - ✅ Validation côté serveur
-- ✅ Échappement des sorties
+- ✅ Echappement des sorties
 - ✅ Headers de sécurité
 - ✅ Rate limiting
 - ✅ Monitoring de sécurité

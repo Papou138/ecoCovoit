@@ -184,7 +184,7 @@ function validateAvis($avisId, $moderatorId, $action, $reason = '')
       break;
 
     case 'edit':
-      // Édition du commentaire par le modérateur
+      // Edition du commentaire par le modérateur
       if (isset($reason) && !empty($reason)) {
         $avis['commentaire'] = $reason; // Le nouveau commentaire est passé dans 'reason'
         $avis['commentaire_modere'] = $reason;

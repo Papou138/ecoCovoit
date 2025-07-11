@@ -291,7 +291,7 @@ function deleteUser($userId, $reason)
 
   // Anonymiser les données au lieu de supprimer complètement
   $result = $db->update('utilisateurs', [
-    'nom' => 'SUPPRIMÉ',
+    'nom' => 'SUPPRIME',
     'prenom' => 'UTILISATEUR',
     'email' => "deleted_{$userId}@example.com",
     'telephone' => null,

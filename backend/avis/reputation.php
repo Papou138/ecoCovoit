@@ -344,12 +344,12 @@ function getUserBadges($userId)
     ];
   }
 
-  // Badge Écologique (basé sur les km parcourus)
+  // Badge Ecologique (basé sur les km parcourus)
   $totalKm = array_sum(array_column($trajets, 'distance_km'));
   if ($totalKm >= 1000) {
     $badges[] = [
       'id' => 'eco_champion',
-      'nom' => 'Éco Champion',
+      'nom' => 'Eco Champion',
       'description' => 'Plus de 1000 km partagés',
       'icone' => '🌱',
       'couleur' => 'green'
@@ -357,7 +357,7 @@ function getUserBadges($userId)
   } elseif ($totalKm >= 500) {
     $badges[] = [
       'id' => 'eco_warrior',
-      'nom' => 'Éco Warrior',
+      'nom' => 'Eco Warrior',
       'description' => 'Plus de 500 km partagés',
       'icone' => '♻️',
       'couleur' => 'green'

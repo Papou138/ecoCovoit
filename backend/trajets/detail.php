@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 }
 
 try {
-  // === RÉCUPÉRATION DES PARAMÈTRES ===
+  // === RECUPERATION DES PARAMETRES ===
 
   $trajetId = (int)($_GET['id'] ?? 0);
 
@@ -47,7 +47,7 @@ try {
     // Pas d'authentification - vue anonyme
   }
 
-  // === RÉCUPÉRATION DU TRAJET ===
+  // === RECUPERATION DU TRAJET ===
 
   $trajet = DB::findById('trajets', $trajetId);
 
@@ -55,7 +55,7 @@ try {
     jsonResponse(false, 'Trajet introuvable', null, 404);
   }
 
-  // === ENRICHISSEMENT DES DONNÉES ===
+  // === ENRICHISSEMENT DES DONNEES ===
 
   // Informations du chauffeur
   $chauffeur = DB::findById('utilisateurs', $trajet['chauffeur_id']);
@@ -179,7 +179,7 @@ try {
     }
   }
 
-  // === CONSTRUCTION DE LA RÉPONSE ===
+  // === CONSTRUCTION DE LA REPONSE ===
 
   $responseData = [
     'trajet' => [
@@ -227,7 +227,7 @@ try {
       'couleur' => $vehicule['couleur'],
       'type_carburant' => $vehicule['type_carburant'],
       'est_ecologique' => $estEcologique,
-      'badge_eco' => $estEcologique ? '🌱 Écologique' : null,
+      'badge_eco' => $estEcologique ? '🌱 Ecologique' : null,
       'immatriculation' => $estProprietaire ? $vehicule['immatriculation'] : substr($vehicule['immatriculation'], 0, 2) . 'XX-XXX'
     ],
     'points_passage' => array_map(function ($point) {

@@ -536,7 +536,7 @@
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* ===== SECTION DE MODÉRATION ===== */
+/* ===== SECTION DE MODERATION ===== */
 .moderate-section {
   background: linear-gradient(135deg, var(--color-bg-tertiary), #f1f3f4);
   padding: 1.5rem;
@@ -588,7 +588,7 @@
   font-style: italic;
 }
 
-/* ===== ÉTATS ET ANIMATIONS ===== */
+/* ===== ETATS ET ANIMATIONS ===== */
 .loading {
   text-align: center;
   padding: 4rem 2rem;

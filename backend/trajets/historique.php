@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 $user = requireAuth();
 
 try {
-    // === RÉCUPÉRATION DES PARAMÈTRES ===
+    // === RECUPERATION DES PARAMETRES ===
 
     $type = $_GET['type'] ?? 'all'; // 'chauffeur', 'passager', 'all'
     $statut = $_GET['statut'] ?? 'all'; // 'termine', 'annule', 'all'
@@ -49,7 +49,7 @@ try {
     $depuis = $_GET['depuis'] ?? null;
     $jusqu = $_GET['jusqu'] ?? null;
 
-    // === VALIDATION DES PARAMÈTRES ===
+    // === VALIDATION DES PARAMETRES ===
 
     if (!in_array($type, ['chauffeur', 'passager', 'all'])) {
         jsonResponse(false, 'Type invalide. Valeurs autorisées: chauffeur, passager, all');
@@ -68,21 +68,21 @@ try {
         jsonResponse(false, 'Format de date invalide pour "jusqu" (YYYY-MM-DD attendu)');
     }
 
-    // === RÉCUPÉRATION DES TRAJETS COMME CHAUFFEUR ===
+    // === RECUPERATION DES TRAJETS COMME CHAUFFEUR ===
 
     $trajetsChaufeur = [];
     if ($type === 'chauffeur' || $type === 'all') {
         $trajetsChaufeur = getTrajetsAsDriver($user['id'], $statut, $depuis, $jusqu);
     }
 
-    // === RÉCUPÉRATION DES TRAJETS COMME PASSAGER ===
+    // === RECUPERATION DES TRAJETS COMME PASSAGER ===
 
     $trajetsPassager = [];
     if ($type === 'passager' || $type === 'all') {
         $trajetsPassager = getTrajetsAsPassenger($user['id'], $statut, $depuis, $jusqu);
     }
 
-    // === FUSION ET TRI DES RÉSULTATS ===
+    // === FUSION ET TRI DES RESULTATS ===
 
     $allTrajets = array_merge($trajetsChaufeur, $trajetsPassager);
 
@@ -105,7 +105,7 @@ try {
 
     $stats = calculateUserStats($user['id'], $trajetsChaufeur, $trajetsPassager);
 
-    // === RÉPONSE ===
+    // === REPONSE ===
 
     $responseData = [
         'trajets' => $trajetsPagines,

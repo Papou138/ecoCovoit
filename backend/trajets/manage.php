@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'PUT') {
 $user = requireAuth();
 
 try {
-  // === RÉCUPÉRATION DES PARAMÈTRES ===
+  // === RECUPERATION DES PARAMETRES ===
 
   $trajetId = (int)($_GET['id'] ?? 0);
   $action = $_GET['action'] ?? '';
@@ -49,7 +49,7 @@ try {
     jsonResponse(false, 'Action invalide. Actions autorisées: start, finish, cancel');
   }
 
-  // === VÉRIFICATIONS DE BASE ===
+  // === VERIFICATIONS DE BASE ===
 
   $trajet = DB::findById('trajets', $trajetId);
 
@@ -106,7 +106,7 @@ function startTrajet($trajet, $user)
     jsonResponse(false, 'Impossible de démarrer un trajet avec plus d\'1 heure de retard');
   }
 
-  // === MISE À JOUR DU TRAJET ===
+  // === MISE A JOUR DU TRAJET ===
 
   $updateData = [
     'statut' => 'en_cours',
@@ -116,7 +116,7 @@ function startTrajet($trajet, $user)
 
   DB::update('trajets', $trajet['id'], $updateData);
 
-  // === MISE À JOUR DES PARTICIPATIONS ===
+  // === MISE A JOUR DES PARTICIPATIONS ===
 
   $participations = DB::findAll('participations', [
     'trajet_id' => $trajet['id'],
@@ -142,7 +142,7 @@ function startTrajet($trajet, $user)
     );
   }
 
-  // === RÉPONSE ===
+  // === REPONSE ===
 
   $responseData = [
     'trajet_id' => $trajet['id'],
@@ -166,7 +166,7 @@ function finishTrajet($trajet, $user)
     jsonResponse(false, 'Ce trajet ne peut pas être terminé (statut: ' . $trajet['statut'] . ')');
   }
 
-  // === RÉCUPÉRATION DES DONNÉES ===
+  // === RECUPERATION DES DONNEES ===
 
   $input = json_decode(file_get_contents('php://input'), true) ?? [];
 
@@ -174,7 +174,7 @@ function finishTrajet($trajet, $user)
   $commentaireChauffeur = trim($input['commentaire'] ?? '');
   $kilometrage = (float)($input['kilometrage'] ?? 0);
 
-  // === MISE À JOUR DU TRAJET ===
+  // === MISE A JOUR DU TRAJET ===
 
   $updateData = [
     'statut' => 'termine',
@@ -187,7 +187,7 @@ function finishTrajet($trajet, $user)
 
   DB::update('trajets', $trajet['id'], $updateData);
 
-  // === MISE À JOUR DES PARTICIPATIONS ===
+  // === MISE A JOUR DES PARTICIPATIONS ===
 
   $participations = DB::findAll('participations', [
     'trajet_id' => $trajet['id'],
@@ -202,7 +202,7 @@ function finishTrajet($trajet, $user)
     ]);
   }
 
-  // === MISE À JOUR DES STATISTIQUES UTILISATEURS ===
+  // === MISE A JOUR DES STATISTIQUES UTILISATEURS ===
 
   // Incrémenter le nombre de trajets effectués pour le chauffeur
   $chauffeur = DB::findById('utilisateurs', $user['id']);
@@ -231,7 +231,7 @@ function finishTrajet($trajet, $user)
     );
   }
 
-  // === CALCUL DES ÉCONOMIES CO2 ===
+  // === CALCUL DES ECONOMIES CO2 ===
 
   $economiesCO2 = 0;
   if ($kilometrage > 0) {
@@ -240,7 +240,7 @@ function finishTrajet($trajet, $user)
     $economiesCO2 = round(($kilometrage * 120 * ($facteurEconomie - 1)) / 1000, 2); // kg CO2
   }
 
-  // === RÉPONSE ===
+  // === REPONSE ===
 
   $responseData = [
     'trajet_id' => $trajet['id'],
@@ -266,7 +266,7 @@ function cancelTrajet($trajet, $user)
     jsonResponse(false, 'Ce trajet ne peut pas être annulé (statut: ' . $trajet['statut'] . ')');
   }
 
-  // === RÉCUPÉRATION DES DONNÉES ===
+  // === RECUPERATION DES DONNEES ===
 
   $input = json_decode(file_get_contents('php://input'), true) ?? [];
 
@@ -277,7 +277,7 @@ function cancelTrajet($trajet, $user)
     jsonResponse(false, 'La raison de l\'annulation est requise');
   }
 
-  // === RÉCUPÉRATION DES PARTICIPATIONS ===
+  // === RECUPERATION DES PARTICIPATIONS ===
 
   $participations = DB::findAll('participations', [
     'trajet_id' => $trajet['id'],
@@ -340,7 +340,7 @@ function cancelTrajet($trajet, $user)
     $participantsRembourses++;
   }
 
-  // === GESTION DES PÉNALITÉS CHAUFFEUR ===
+  // === GESTION DES PENALITES CHAUFFEUR ===
 
   $penaliteChauffeur = 0;
   if (!$remboursementIntegral) {
@@ -366,7 +366,7 @@ function cancelTrajet($trajet, $user)
     }
   }
 
-  // === MISE À JOUR DU TRAJET ===
+  // === MISE A JOUR DU TRAJET ===
 
   $updateData = [
     'statut' => 'annule',
@@ -378,7 +378,7 @@ function cancelTrajet($trajet, $user)
 
   DB::update('trajets', $trajet['id'], $updateData);
 
-  // === RÉPONSE ===
+  // === REPONSE ===
 
   $responseData = [
     'trajet_id' => $trajet['id'],

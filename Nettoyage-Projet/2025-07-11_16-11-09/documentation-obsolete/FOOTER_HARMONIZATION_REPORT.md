@@ -176,7 +176,7 @@ J'ai vérifié et harmonisé les footers de toutes les pages HTML du projet ecoC
 3. Maintenir la cohérence des liens et informations
 4. Vérifier la validité des liens emails et téléphone
 
-### **Évolutions possibles**
+### **Evolutions possibles**
 
 - Ajout de nouveaux réseaux sociaux
 - Mise à jour des informations de contact

@@ -39,7 +39,7 @@ try {
     echo "   - {$trajet['ville_depart']} → {$trajet['ville_arrivee']}\n";
     echo "     Chauffeur: {$trajet['chauffeur_pseudo']}\n";
     echo "     Prix: {$trajet['prix']}€, Places: {$trajet['nombre_places_restantes']}\n";
-    echo "     Écologique: " . ($trajet['est_ecologique'] ? 'Oui' : 'Non') . "\n";
+    echo "     Ecologique: " . ($trajet['est_ecologique'] ? 'Oui' : 'Non') . "\n";
   }
 
   // Test 4: Création d'un nouveau trajet

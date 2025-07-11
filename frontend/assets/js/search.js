@@ -34,7 +34,7 @@ const formRecherche = document.getElementById('formRecherche');
   }
 })();
 
-// Écouteur pour le formulaire de recherche (si présent)
+// Ecouteur pour le formulaire de recherche (si présent)
 if (formRecherche) {
   formRecherche.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -158,7 +158,7 @@ function afficherTrajets(trajets) {
       trajet.ville_arrivee
     }</h3>
                 <span class="eco-badge">${
-                  trajet.vehicule_electrique ? '🌱 Éco' : ''
+                  trajet.vehicule_electrique ? '🌱 Eco' : ''
                 }</span>
             </div>
             <div class="trajet-details">

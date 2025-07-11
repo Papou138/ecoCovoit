@@ -13,7 +13,7 @@ require_once '../models/DB.php';
 
 echo "=== 🚗 TESTS DIRECTS DES APIS TRAJETS - JOUR 4 ===\n\n";
 
-// === SIMULATION DE DONNÉES D'ENVIRONNEMENT ===
+// === SIMULATION DE DONNEES D'ENVIRONNEMENT ===
 
 // Simuler les variables $_GET pour la recherche
 $_GET = [
@@ -210,7 +210,7 @@ if ($executionTime < 1000) {
   echo "   ⚠️ Performance à améliorer\n";
 }
 
-echo "\n=== 🎯 RÉSUMÉ FINAL ===\n";
+echo "\n=== 🎯 RESUME FINAL ===\n";
 echo "✅ APIs trajets testées et validées\n";
 echo "✅ Recherche avec filtres fonctionnelle\n";
 echo "✅ Détail des trajets complet\n";
@@ -218,8 +218,8 @@ echo "✅ Gestion d'erreurs appropriée\n";
 echo "✅ Cohérence des données vérifiée\n";
 echo "✅ Performance acceptable\n";
 
-echo "\n🚀 **JOUR 4 TERMINÉ AVEC SUCCÈS !**\n";
-echo "\n📋 **PROCHAINES ÉTAPES (JOUR 5):**\n";
+echo "\n🚀 **JOUR 4 TERMINE AVEC SUCCES !**\n";
+echo "\n📋 **PROCHAINES ETAPES (JOUR 5):**\n";
 echo "- APIs de gestion des trajets (démarrer, terminer, annuler)\n";
 echo "- API d'historique des trajets\n";
 echo "- API de notifications\n";

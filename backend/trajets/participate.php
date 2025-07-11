@@ -35,7 +35,7 @@ try {
     jsonResponse(false, 'ID de trajet invalide');
   }
 
-  // === GESTION DES DIFFÉRENTES MÉTHODES ===
+  // === GESTION DES DIFFERENTES METHODES ===
 
   switch ($_SERVER['REQUEST_METHOD']) {
     case 'POST':
@@ -59,7 +59,7 @@ try {
  */
 function participateToTrajet($user, $trajetId)
 {
-  // === RÉCUPÉRATION DES DONNÉES ===
+  // === RECUPERATION DES DONNEES ===
 
   $input = json_decode(file_get_contents('php://input'), true);
 
@@ -72,7 +72,7 @@ function participateToTrajet($user, $trajetId)
   $pointDepose = trim($input['point_depose'] ?? '');
   $message = trim($input['message'] ?? '');
 
-  // === VALIDATION DES PARAMÈTRES ===
+  // === VALIDATION DES PARAMETRES ===
 
   $errors = [];
 
@@ -96,7 +96,7 @@ function participateToTrajet($user, $trajetId)
     jsonResponse(false, 'Erreurs de validation', ['errors' => $errors], 400);
   }
 
-  // === VÉRIFICATIONS MÉTIER ===
+  // === VERIFICATIONS METIER ===
 
   // Récupérer le trajet
   $trajet = DB::findById('trajets', $trajetId);
@@ -142,7 +142,7 @@ function participateToTrajet($user, $trajetId)
     jsonResponse(false, 'Crédits insuffisants. Montant requis: ' . $montantTotal . '€');
   }
 
-  // === CRÉATION DE LA PARTICIPATION ===
+  // === CREATION DE LA PARTICIPATION ===
 
   $participationData = [
     'trajet_id' => $trajetId,
@@ -162,7 +162,7 @@ function participateToTrajet($user, $trajetId)
     jsonResponse(false, 'Erreur lors de la création de la participation');
   }
 
-  // === MISE À JOUR DU TRAJET ===
+  // === MISE A JOUR DU TRAJET ===
 
   // Réduire le nombre de places restantes
   $newPlacesRestantes = $trajet['nombre_places_restantes'] - $nombrePlaces;
@@ -170,7 +170,7 @@ function participateToTrajet($user, $trajetId)
     'nombre_places_restantes' => $newPlacesRestantes
   ]);
 
-  // === GESTION DES CRÉDITS ===
+  // === GESTION DES CREDITS ===
 
   // Débiter le passager
   $newCreditsPassager = $user['credits'] - $montantTotal;
@@ -212,12 +212,12 @@ function participateToTrajet($user, $trajetId)
   // - Au chauffeur : nouvelle participation
   // - Au passager : confirmation de participation
 
-  // === RÉCUPÉRATION DES DONNÉES COMPLÈTES ===
+  // === RECUPERATION DES DONNEES COMPLETES ===
 
   $participation = DB::findById('participations', $participationId);
   $trajetMisAJour = DB::findById('trajets', $trajetId);
 
-  // === RÉPONSE ===
+  // === REPONSE ===
 
   $responseData = [
     'participation' => $participation,
@@ -236,7 +236,7 @@ function participateToTrajet($user, $trajetId)
  */
 function cancelParticipation($user, $trajetId)
 {
-  // === VÉRIFICATIONS ===
+  // === VERIFICATIONS ===
 
   // Récupérer la participation
   $participation = DB::findAll('participations', [
@@ -283,7 +283,7 @@ function cancelParticipation($user, $trajetId)
 
   DB::delete('participations', $participation['id']);
 
-  // === MISE À JOUR DU TRAJET ===
+  // === MISE A JOUR DU TRAJET ===
 
   $newPlacesRestantes = $trajet['nombre_places_restantes'] + $participation['nombre_places'];
   DB::update('trajets', $trajetId, [
@@ -341,7 +341,7 @@ function cancelParticipation($user, $trajetId)
   ];
   DB::insert('transactions', $transactionChauffeurData);
 
-  // === RÉPONSE ===
+  // === REPONSE ===
 
   $responseData = [
     'montant_rembourse' => $montantRembourse,

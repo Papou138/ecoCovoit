@@ -9,11 +9,11 @@
 require_once '../config/config.php';
 require_once '../models/DB.php';
 
-echo "\n=== VALIDATION JOUR 7 - SYSTÈME D'ÉVALUATIONS ET AVIS ===\n";
+echo "\n=== VALIDATION JOUR 7 - SYSTEME D'EVALUATIONS ET AVIS ===\n";
 echo "Date de validation: " . date('Y-m-d H:i:s') . "\n\n";
 
 // 1. Génération de données de test si nécessaire
-echo "1. GÉNÉRATION DE DONNÉES DE TEST\n";
+echo "1. GENERATION DE DONNEES DE TEST\n";
 echo str_repeat("=", 50) . "\n";
 
 // Vérifier si nous avons assez d'utilisateurs et trajets
@@ -160,7 +160,7 @@ foreach ($participations as $participation) {
 }
 
 // 2. Génération d'avis réalistes
-echo "\n2. GÉNÉRATION D'AVIS DE TEST\n";
+echo "\n2. GENERATION D'AVIS DE TEST\n";
 echo str_repeat("=", 50) . "\n";
 
 $avisExamples = [
@@ -184,7 +184,7 @@ $avisExamples = [
     'trajet_id' => 5,
     'type' => 'chauffeur',
     'note' => 5,
-    'commentaire' => 'Parfait ! Très bon chauffeur, respectueux du code de la route. Conversation intéressante et bonne ambiance. À refaire sans hésiter.',
+    'commentaire' => 'Parfait ! Très bon chauffeur, respectueux du code de la route. Conversation intéressante et bonne ambiance. A refaire sans hésiter.',
     'date_creation' => date('Y-m-d H:i:s', strtotime('-5 days')),
     'valide' => true,
     'date_validation' => date('Y-m-d H:i:s', strtotime('-5 days'))
@@ -308,7 +308,7 @@ foreach ($avisExamples as $avis) {
 echo "Total avis créés: $avisCreated\n";
 
 // 3. Mise à jour des notes moyennes et niveaux
-echo "\n3. MISE À JOUR DES STATISTIQUES UTILISATEURS\n";
+echo "\n3. MISE A JOUR DES STATISTIQUES UTILISATEURS\n";
 echo str_repeat("=", 50) . "\n";
 
 $users = DB::findAll('utilisateurs');
@@ -435,7 +435,7 @@ $avisEnAttente = array_filter($allAvis, function ($a) {
   return !$a['valide'];
 });
 
-echo "📊 STATISTIQUES GÉNÉRALES:\n";
+echo "📊 STATISTIQUES GENERALES:\n";
 echo "   Total avis: " . count($allAvis) . "\n";
 echo "   Avis validés: " . count($avisValides) . "\n";
 echo "   Avis en attente: " . count($avisEnAttente) . "\n";
@@ -514,7 +514,7 @@ foreach ($files as $name => $path) {
 echo "   Total: " . round($totalSize / 1024, 1) . " KB\n";
 
 echo "\n" . str_repeat("=", 70) . "\n";
-echo "✅ VALIDATION JOUR 7 TERMINÉE\n";
+echo "✅ VALIDATION JOUR 7 TERMINEE\n";
 echo str_repeat("=", 70) . "\n";
 
 echo "🎯 OBJECTIFS ATTEINTS:\n";
@@ -525,12 +525,12 @@ echo "   ✅ Classements multi-critères\n";
 echo "   ✅ Interface d'administration\n";
 echo "   ✅ APIs sécurisées et performantes\n";
 
-echo "\n📊 MÉTRIQUES JOUR 7:\n";
+echo "\n📊 METRIQUES JOUR 7:\n";
 echo "   • " . count($allAvis) . " avis générés\n";
 echo "   • " . count($usersWithAvis) . " utilisateurs évalués\n";
 echo "   • " . count($avisEnAttente) . " avis en modération\n";
 echo "   • " . round($totalSize / 1024, 1) . " KB de code\n";
 echo "   • 3 APIs fonctionnelles\n";
 
-echo "\n🚀 PRÊT POUR LE JOUR 8 !\n";
+echo "\n🚀 PRET POUR LE JOUR 8 !\n";
 echo "Date: " . date('Y-m-d H:i:s') . "\n";

@@ -128,7 +128,7 @@ frontend/assets/js/
 - ✅ Code JavaScript centralisé et réutilisable
 - ✅ Séparation claire des responsabilités
 - ✅ Débogage facilité
-- ✅ Évolutivité améliorée
+- ✅ Evolutivité améliorée
 
 ### 👥 **Equipe**
 

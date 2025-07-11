@@ -50,10 +50,10 @@ $passagers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // 3. Envoie une notification (email simulé)
 foreach ($passagers as $p) {
     envoyer_email(
-    $p['email'],
-    "ecoCovoit - Évaluation du trajet",
-    "Bonjour {$p['pseudo']}, le trajet est terminé.\nVeuillez vous connecter pour évaluer votre chauffeur."
-);
+        $p['email'],
+        "ecoCovoit - Evaluation du trajet",
+        "Bonjour {$p['pseudo']}, le trajet est terminé.\nVeuillez vous connecter pour évaluer votre chauffeur."
+    );
 }
 
 echo json_encode(["success" => true, "message" => "Trajet terminé. Avis demandés aux passagers."]);

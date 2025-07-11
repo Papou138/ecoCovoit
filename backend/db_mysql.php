@@ -1,6 +1,6 @@
 <?php
 /**
- * FICHIER OBSOLÈTE - Utilisez Database.php à la place
+ * FICHIER OBSOLETE - Utilisez Database.php à la place
  *
  * Ce fichier est conservé pour compatibilité avec l'ancien code
  * mais la nouvelle classe Database dans models/Database.php est recommandée

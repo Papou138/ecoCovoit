@@ -312,7 +312,7 @@ if ($response !== false) {
   }
 }
 
-echo "\n=== 🎯 RÉSUMÉ DES TESTS ===\n";
+echo "\n=== 🎯 RESUME DES TESTS ===\n";
 echo "✅ APIs trajets fonctionnelles\n";
 echo "✅ Recherche avec filtres opérationnelle\n";
 echo "✅ Détail des trajets complet\n";

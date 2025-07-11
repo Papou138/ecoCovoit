@@ -1,4 +1,4 @@
-# GUIDE D'UTILISATION - NAVIGATION HARMONISÉE
+# GUIDE D'UTILISATION - NAVIGATION HARMONISEE
 
 ## 🎯 OBJECTIF
 
@@ -124,7 +124,7 @@ powershell -ExecutionPolicy Bypass -File simple-nav-check.ps1
 
 ## 📝 BONNES PRATIQUES
 
-### ✅ À Faire
+### ✅ A Faire
 
 - Utiliser Font Awesome pour les icônes
 - Maintenir la cohérence des liens
@@ -132,7 +132,7 @@ powershell -ExecutionPolicy Bypass -File simple-nav-check.ps1
 - Tester sur différents appareils
 - Garder le lien Contact accessible
 
-### ❌ À Éviter
+### ❌ A Eviter
 
 - Mélanger emojis et Font Awesome
 - Oublier la classe `active`
@@ -140,7 +140,7 @@ powershell -ExecutionPolicy Bypass -File simple-nav-check.ps1
 - Négliger l'accessibilité
 - Modifier directement les pages sans le template
 
-## 🚀 DÉPANNAGE
+## 🚀 DEPANNAGE
 
 ### Problèmes Courants
 
@@ -173,7 +173,7 @@ Pour toute question ou problème :
 - Référer au rapport d'harmonisation
 - Tester avec les pages existantes
 
-## 🎉 RÉSULTAT
+## 🎉 RESULTAT
 
 Une navigation harmonieuse, intuitive et efficace sur l'ensemble du projet ecoCovoit !
 

@@ -469,7 +469,7 @@
   box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4);
 }
 
-/* ===== BOUTONS SPÉCIFIQUES AUX FILTRES ===== */
+/* ===== BOUTONS SPECIFIQUES AUX FILTRES ===== */
 #btn-filtrer {
   background: linear-gradient(135deg, #17a2b8, #007bff);
   color: white;
@@ -494,7 +494,7 @@
   background: linear-gradient(135deg, #59359a, #c2185b);
 }
 
-/* ===== ÉTATS VIDES ET CHARGEMENT ===== */
+/* ===== ETATS VIDES ET CHARGEMENT ===== */
 .loading {
   text-align: center;
   padding: 4rem 2rem;

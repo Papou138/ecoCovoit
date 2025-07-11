@@ -35,7 +35,7 @@ try {
     $password = $input['password'] ?? $_POST['password'] ?? '';
     $confirmPassword = $input['confirm_password'] ?? $_POST['confirm_password'] ?? '';
 
-    // === VALIDATION DES DONNÉES ===
+    // === VALIDATION DES DONNEES ===
 
     // Champs requis
     if (empty($pseudo)) {
@@ -86,7 +86,7 @@ try {
         jsonResponse(false, 'Le mot de passe doit contenir au moins une minuscule, une majuscule et un chiffre');
     }
 
-    // === VÉRIFICATION DE L'UNICITÉ ===
+    // === VERIFICATION DE L'UNICITE ===
 
     // Vérifier si le pseudo existe déjà
     $existingPseudo = DB::findBy('utilisateurs', 'pseudo', $pseudo);
@@ -100,7 +100,7 @@ try {
         jsonResponse(false, 'Cette adresse email est déjà utilisée');
     }
 
-    // === CRÉATION DU COMPTE ===
+    // === CREATION DU COMPTE ===
 
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
