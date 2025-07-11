@@ -1,4 +1,7 @@
-// user-profile.js - Gestion de la page de profil utilisateur
+/**
+ * Fonctions principales de gestion du profil utilisateur
+ * Inclut le chargement, l'affichage et la modification des informations utilisateur, véhicules, préférences et trajets
+ */
 
 document.addEventListener('DOMContentLoaded', function () {
   // Variables globales

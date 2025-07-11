@@ -1,11 +1,16 @@
+/**
+ * Fonctions principales de recherche et d'affichage des trajets
+ * Inclut la gestion des filtres, du tri et de l'affichage des résultats
+ */
+
 let trajetsGlobal = []; // Variable globale pour stocker les trajets
-const selectTri = document.getElementById("tri-option");
-const selectNote = document.getElementById("filtre-note");
-const resultats = document.getElementById("resultats");
-const formRecherche = document.getElementById("formRecherche");
+const selectTri = document.getElementById('tri-option');
+const selectNote = document.getElementById('filtre-note');
+const resultats = document.getElementById('resultats');
+const formRecherche = document.getElementById('formRecherche');
 
 // Gestion des filtres avancés - Doit être exécuté immédiatement
-(function() {
+(function () {
   const toggleButton = document.getElementById('toggle-filters');
   const filtersContent = document.getElementById('filters-content');
 
@@ -23,7 +28,7 @@ const formRecherche = document.getElementById("formRecherche");
         toggleButton.setAttribute('aria-expanded', 'true');
       }
     });
-    
+
     // Initialiser l'attribut aria-expanded
     toggleButton.setAttribute('aria-expanded', 'false');
   }
@@ -31,7 +36,7 @@ const formRecherche = document.getElementById("formRecherche");
 
 // Écouteur pour le formulaire de recherche (si présent)
 if (formRecherche) {
-  formRecherche.addEventListener("submit", function (e) {
+  formRecherche.addEventListener('submit', function (e) {
     e.preventDefault();
     chargerTrajets(new FormData(this));
   });
@@ -42,20 +47,20 @@ async function chargerTrajets(formData) {
   afficherChargement();
 
   const searchData = new URLSearchParams();
-  searchData.append("depart", formData.get("depart"));
-  searchData.append("arrivee", formData.get("arrivee"));
-  searchData.append("date", formData.get("date"));
+  searchData.append('depart', formData.get('depart'));
+  searchData.append('arrivee', formData.get('arrivee'));
+  searchData.append('date', formData.get('date'));
 
   try {
-    const response = await fetch("../backend/trajets/rechercher.php", {
-      method: "POST",
+    const response = await fetch('../backend/trajets/rechercher.php', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: searchData,
     });
 
-    if (!response.ok) throw new Error("Erreur réseau");
+    if (!response.ok) throw new Error('Erreur réseau');
     const data = await response.json();
 
     if (!data.success || !data.trajets || data.trajets.length === 0) {
@@ -81,7 +86,7 @@ async function chargerTrajets(formData) {
     afficherErreur();
     // ************ Log pour le debug : ***********
     resultats.innerHTML += `<div style="color:red;font-size:0.9em;">Erreur de connexion au backend : ${error.message}</div>`;
-    console.error("Erreur:", error);
+    console.error('Erreur:', error);
   }
 }
 
@@ -95,13 +100,13 @@ function trierEtAfficher() {
 
   // Appliquer le tri
   switch (tri) {
-    case "note":
+    case 'note':
       trajets.sort((a, b) => b.note_moyenne - a.note_moyenne);
       break;
-    case "prix":
+    case 'prix':
       trajets.sort((a, b) => a.prix - b.prix);
       break;
-    case "places":
+    case 'places':
       trajets.sort((a, b) => b.nb_places_dispo - a.nb_places_dispo);
       break;
   }
@@ -136,15 +141,15 @@ function afficherErreur() {
 // Fonction d'affichage des trajets
 function afficherTrajets(trajets) {
   const noteMin = parseFloat(selectNote.value);
-  resultats.innerHTML = "";
+  resultats.innerHTML = '';
 
   trajets.forEach((trajet) => {
-    const trajetDiv = document.createElement("div");
-    trajetDiv.classList.add("trajet-card");
+    const trajetDiv = document.createElement('div');
+    trajetDiv.classList.add('trajet-card');
 
     // Marquage visuel si la note est inférieure au filtre actuel
     if (trajet.note_moyenne < noteMin) {
-      trajetDiv.classList.add("note-faible");
+      trajetDiv.classList.add('note-faible');
     }
 
     trajetDiv.innerHTML = `
@@ -153,7 +158,7 @@ function afficherTrajets(trajets) {
       trajet.ville_arrivee
     }</h3>
                 <span class="eco-badge">${
-                  trajet.vehicule_electrique ? "🌱 Éco" : ""
+                  trajet.vehicule_electrique ? '🌱 Éco' : ''
                 }</span>
             </div>
             <div class="trajet-details">
@@ -180,9 +185,9 @@ function afficherTrajets(trajets) {
 // Gestion du formulaire de recherche pour index.html
 const searchForm = document.getElementById('search-form');
 if (searchForm) {
-  searchForm.addEventListener('submit', function(e) {
+  searchForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    
+
     // Récupérer les valeurs du formulaire
     const departure = document.getElementById('departure').value;
     const arrival = document.getElementById('arrival').value;
@@ -191,7 +196,7 @@ if (searchForm) {
     const maxPrice = document.getElementById('max-price').value;
     const maxDuration = document.getElementById('max-duration').value;
     const minRating = document.getElementById('min-rating').value;
-    
+
     // Construire l'URL avec les paramètres de recherche
     const params = new URLSearchParams();
     if (departure) params.append('depart', departure);
@@ -201,7 +206,7 @@ if (searchForm) {
     if (maxPrice) params.append('max_prix', maxPrice);
     if (maxDuration) params.append('max_duree', maxDuration);
     if (minRating) params.append('min_note', minRating);
-    
+
     // Rediriger vers la page de résultats
     window.location.href = `rechercher-covoiturage.html?${params.toString()}`;
   });
@@ -209,8 +214,8 @@ if (searchForm) {
 
 // Initialisation des écouteurs d'événements (si les éléments existent)
 if (selectTri) {
-  selectTri.addEventListener("change", trierEtAfficher);
+  selectTri.addEventListener('change', trierEtAfficher);
 }
 if (selectNote) {
-  selectNote.addEventListener("change", trierEtAfficher);
+  selectNote.addEventListener('change', trierEtAfficher);
 }
