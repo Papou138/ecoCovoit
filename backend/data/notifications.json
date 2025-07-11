@@ -1,0 +1,47 @@
+[
+    {
+        "utilisateur_id": 1,
+        "type": "nouvelle_participation",
+        "message": "Votre participation au trajet  →  est confirmée",
+        "trajet_id": 1,
+        "lu": false,
+        "date_creation": "2025-07-11 23:34:11",
+        "id": 1
+    },
+    {
+        "utilisateur_id": 2,
+        "type": "nouvelle_participation",
+        "message": "Nouvelle participation de   à votre trajet",
+        "trajet_id": 1,
+        "lu": false,
+        "date_creation": "2025-07-11 23:34:11",
+        "id": 2
+    },
+    {
+        "utilisateur_id": 1,
+        "type": "trajet_demarre",
+        "message": "Le trajet  →  a démarré",
+        "trajet_id": 1,
+        "lu": false,
+        "date_creation": "2025-07-11 23:34:11",
+        "id": 3
+    },
+    {
+        "utilisateur_id": 1,
+        "type": "trajet_termine",
+        "message": "Le trajet  →  s'est terminé. N'oubliez pas de laisser un avis !",
+        "trajet_id": 1,
+        "lu": false,
+        "date_creation": "2025-07-11 23:34:11",
+        "id": 4
+    },
+    {
+        "id": 5,
+        "utilisateur_id": 1,
+        "type": "test_validation",
+        "message": "Test de validation Jour 6 - Système d'administration opérationnel",
+        "date_creation": "2025-07-11 23:50:06",
+        "lu": false,
+        "data": "{\"test\":\"jour6\",\"admin_id\":1}"
+    }
+]

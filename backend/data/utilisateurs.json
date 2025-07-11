@@ -18,7 +18,8 @@
         "credits": 65,
         "statut": "actif",
         "date_creation": "2025-07-11 20:43:05",
-        "date_modification": "2025-07-11 23:02:03"
+        "date_modification": "2025-07-11 23:34:11",
+        "nb_trajets_effectues": 1
     },
     {
         "id": 3,
@@ -63,5 +64,30 @@
         "date_inscription": "2025-07-11 23:12:32",
         "id": 6,
         "date_creation": "2025-07-11 23:12:32"
+    },
+    {
+        "nom": "Probleme",
+        "prenom": "User1",
+        "email": "probleme1@test.com",
+        "mot_de_passe": "$2y$12$cQb1DMi.ZK8WJdPUWln49.UsfSIPd8bKbTYXWMRr0JLuEfwxwLoH2",
+        "telephone": "0111111111",
+        "role": "utilisateur",
+        "statut": "en_attente",
+        "date_creation": "2025-07-11 23:46:59",
+        "credits": 50,
+        "id": 7
+    },
+    {
+        "nom": "Suspendu",
+        "prenom": "User2",
+        "email": "suspendu@test.com",
+        "mot_de_passe": "$2y$12$tOsHS1l7MopTZu46vKrKNeZ3odiZL5imEwFKcrmZ4jutARHQN2SuC",
+        "telephone": "0222222222",
+        "role": "utilisateur",
+        "statut": "suspendu",
+        "raison_suspension": "Test de suspension",
+        "date_creation": "2025-07-11 23:46:59",
+        "credits": 25,
+        "id": 8
     }
 ]

@@ -1,0 +1,43 @@
+[
+  {
+    "reporter_id": 1,
+    "type": "harcellement",
+    "description": "Incident de test - Harcèlement signalé",
+    "statut": "ouvert",
+    "priorite": "urgente",
+    "date_creation": "2025-07-11 23:46:59",
+    "date_modification": "2025-07-11 23:46:59",
+    "id": 1
+  },
+  {
+    "reporter_id": 1,
+    "type": "probleme_technique",
+    "description": "Incident de test - Problème technique",
+    "statut": "en_cours",
+    "priorite": "normale",
+    "date_creation": "2025-07-11 23:46:59",
+    "date_modification": "2025-07-11 23:46:59",
+    "assigned_to": 1,
+    "id": 2
+  },
+  {
+    "id": 3,
+    "reporter_id": 1,
+    "type": "test_validation",
+    "description": "Incident de validation automatique - Jour 6",
+    "statut": "ferme",
+    "priorite": "normale",
+    "date_creation": "2025-07-11 23:50:06",
+    "date_modification": "2025-07-11 23:50:06",
+    "assigned_to": 1,
+    "actions": [
+      {
+        "type": "assigned",
+        "admin_id": 1,
+        "description": "Auto-assigné pour test",
+        "date": "2025-07-11 23:50:06"
+      }
+    ],
+    "date_fermeture": "2025-07-11 23:50:06"
+  }
+]

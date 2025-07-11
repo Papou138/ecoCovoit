@@ -8,9 +8,34 @@
         "date_depart": "2025-07-13 20:43:05",
         "prix": 25,
         "nombre_places_total": 3,
-        "nombre_places_restantes": 3,
-        "statut": "planifie",
-        "date_creation": "2025-07-11 20:43:05"
+        "nombre_places_restantes": 2,
+        "statut": "termine",
+        "date_creation": "2025-07-11 20:43:05",
+        "date_modification": "2025-07-11 23:50:06",
+        "heure_depart_reelle": "23:34:11",
+        "date_mise_a_jour": "2025-07-11 23:34:11",
+        "heure_arrivee_reelle": "01:34",
+        "kilometrage_reel": 125,
+        "date_fin": "2025-07-11 23:34:11",
+        "signalements": [
+            {
+                "reporter_id": 1,
+                "reason": "test_validation",
+                "description": "Test de validation automatique",
+                "date": "2025-07-11 23:50:06",
+                "traite": false
+            }
+        ],
+        "signale": false,
+        "moderation_statut": "approuve",
+        "actions_moderateur": [
+            {
+                "moderator_id": 1,
+                "action": "approve",
+                "reason": "Test de validation réussi",
+                "date": "2025-07-11 23:50:06"
+            }
+        ]
     },
     {
         "chauffeur_id": 2,
