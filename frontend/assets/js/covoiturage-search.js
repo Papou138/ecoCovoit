@@ -6,6 +6,7 @@
 
 class CovoiturageSearch {
     constructor() {
+        // Récupération des éléments DOM
         this.searchForm = document.getElementById('search-form');
         this.resultsList = document.getElementById('covoiturages-list');
         this.resultsCount = document.getElementById('results-count');
@@ -15,10 +16,20 @@ class CovoiturageSearch {
         this.priceSlider = document.getElementById('max-price');
         this.priceDisplay = document.querySelector('.price-display');
 
+        // Variables d'état
         this.currentResults = [];
         this.hasSearched = false;
         this.isLoading = false;
 
+        // Vérifications de sécurité
+        if (!this.priceSlider) {
+            console.warn('Elément price-slider non trouvé');
+        }
+        if (!this.priceDisplay) {
+            console.warn('Elément price-display non trouvé');
+        }
+
+        // Initialisation
         this.initEventListeners();
         this.initDateField();
         this.updatePriceDisplay();
@@ -39,7 +50,7 @@ class CovoiturageSearch {
 
         // Slider de prix - multiple événements pour garantir la mise à jour
         if (this.priceSlider) {
-            // Événement 'input' pour mise à jour en temps réel
+            // Événement 'input' pour mise à jour en temps réel (le plus important)
             this.priceSlider.addEventListener('input', () => {
                 this.updatePriceDisplay();
                 this.applyFilters();
@@ -56,6 +67,11 @@ class CovoiturageSearch {
                 if (e.buttons === 1) { // Bouton gauche enfoncé
                     this.updatePriceDisplay();
                 }
+            });
+
+            // Événement 'touchmove' pour les appareils tactiles
+            this.priceSlider.addEventListener('touchmove', () => {
+                this.updatePriceDisplay();
             });
         }
 
@@ -524,7 +540,6 @@ class CovoiturageSearch {
         }
     }
 }
-}
 
 // Fonctions globales pour les boutons
 function showDetails(tripId) {
@@ -594,13 +609,30 @@ function showNotification(message, type = 'info') {
 
 // Initialisation
 document.addEventListener('DOMContentLoaded', () => {
-    const searchInstance = new CovoiturageSearch();
+    console.log('🚗 ecoCovoit - Initialisation de la recherche de covoiturage...');
 
-    // Rendre l'instance accessible globalement pour le débogage
-    window.covoiturageSearch = searchInstance;
+    // Vérifier que les éléments essentiels existent
+    const priceSlider = document.getElementById('max-price');
+    const priceDisplay = document.querySelector('.price-display');
 
-    // Gérer les paramètres d'URL avancés
-    searchInstance.handleAdvancedUrlParams();
+    console.log('Éléments trouvés:', {
+        priceSlider: !!priceSlider,
+        priceDisplay: !!priceDisplay
+    });
+
+    try {
+        const searchInstance = new CovoiturageSearch();
+
+        // Rendre l'instance accessible globalement pour le débogage
+        window.covoiturageSearch = searchInstance;
+
+        // Gérer les paramètres d'URL avancés
+        searchInstance.handleAdvancedUrlParams();
+
+        console.log('Système de recherche de covoiturage initialisé avec succès');
+    } catch (error) {
+        console.error('Erreur lors de l\'initialisation:', error);
+    }
 
     // Ajouter des écouteurs pour les interactions clavier
     document.addEventListener('keydown', (e) => {
@@ -618,7 +650,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-
-    // Message de bienvenue (optionnel)
-    console.log('🚗 ecoCovoit - Système de recherche de covoiturage initialisé');
 });
