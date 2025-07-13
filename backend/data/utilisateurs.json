@@ -112,5 +112,25 @@
         "nombre_avis": 1,
         "niveau_reputation": "nouveau",
         "date_modification": "2025-07-12 00:03:37"
+    },
+    {
+        "pseudo": "testuser_1752411357",
+        "email": "test_1752411357@example.com",
+        "mot_de_passe": "$2y$12$f7\/Pm47qsblm0Zx24LahYeFN5N4mS0d5te.Rmw6zCCNJpesVYvWF6",
+        "role": "utilisateur",
+        "credits": 20,
+        "statut": "actif",
+        "date_creation": "2025-07-13 14:55:58",
+        "id": 9
+    },
+    {
+        "pseudo": "test_validation_1752412077",
+        "email": "validation_1752412077@test.com",
+        "mot_de_passe": "$2y$12$WXM7wObmNsRmfLXtqFAHC.3jb9ovKD6yeowYpMarvWkKv5aSJYt7a",
+        "role": "utilisateur",
+        "credits": 20,
+        "statut": "actif",
+        "date_creation": "2025-07-13 15:07:57",
+        "id": 10
     }
 ]

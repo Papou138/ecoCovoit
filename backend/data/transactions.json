@@ -20,5 +20,27 @@
         "date_transaction": "2025-07-11 23:02:03",
         "id": 2,
         "date_creation": "2025-07-11 23:02:03"
+    },
+    {
+        "utilisateur_id": 9,
+        "type": "credit",
+        "montant": 20,
+        "solde_avant": 0,
+        "solde_apres": 20,
+        "description": "Crédits de bienvenue",
+        "date_transaction": "2025-07-13 14:55:58",
+        "id": 3,
+        "date_creation": "2025-07-13 14:55:58"
+    },
+    {
+        "utilisateur_id": 10,
+        "type": "credit",
+        "montant": 20,
+        "solde_avant": 0,
+        "solde_apres": 20,
+        "description": "Crédits de bienvenue",
+        "date_transaction": "2025-07-13 15:07:57",
+        "id": 4,
+        "date_creation": "2025-07-13 15:07:57"
     }
 ]

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test d'Intégration Frontend-Backend Final</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .test-section {
+        background: #f8f9fa;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 8px;
+      }
+      .result {
+        padding: 8px;
+        margin: 5px 0;
+        border-radius: 4px;
+      }
+      .success {
+        background: #d4edda;
+        color: #155724;
+      }
+      .error {
+        background: #f8d7da;
+        color: #721c24;
+      }
+      .warning {
+        background: #fff3cd;
+        color: #856404;
+      }
+      button {
+        background: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      pre {
+        background: #e9ecef;
+        padding: 10px;
+        border-radius: 4px;
+        overflow-x: auto;
+        font-size: 12px;
+      }
+      .summary {
+        background: #e3f2fd;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🔍 Test d'Intégration Frontend-Backend Final</h1>
+
+    <div class="summary">
+      <h2>📊 Résumé des Tests</h2>
+      <div id="summary">
+        <div class="result warning">En attente des tests...</div>
+      </div>
+    </div>
+
+    <div class="test-section">
+      <h3>🔐 Tests d'Authentification</h3>
+      <button onclick="testAuthentication()">
+        Tester Authentification Complète
+      </button>
+      <div id="auth-results"></div>
+    </div>
+
+    <div class="test-section">
+      <h3>🚗 Tests de Trajets</h3>
+      <button onclick="testTrajets()">Tester Cycle Complet des Trajets</button>
+      <div id="trajets-results"></div>
+    </div>
+
+    <div class="test-section">
+      <h3>👤 Tests Utilisateur</h3>
+      <button onclick="testUser()">Tester Fonctionnalités Utilisateur</button>
+      <div id="user-results"></div>
+    </div>
+
+    <div class="test-section">
+      <h3>🛠️ Tests Système</h3>
+      <button onclick="testSystem()">Tester APIs Système</button>
+      <div id="system-results"></div>
+    </div>
+
+    <div class="test-section">
+      <h3>🧪 Test Complet</h3>
+      <button onclick="runFullTest()">Lancer Test Complet de Production</button>
+      <div id="full-results"></div>
+    </div>
+
+    <script>
+      let testStats = {
+        total: 0,
+        passed: 0,
+        failed: 0,
+        warnings: 0,
+      };
+
+      function updateSummary() {
+        const summary = document.getElementById('summary');
+        const successRate =
+          testStats.total > 0
+            ? ((testStats.passed / testStats.total) * 100).toFixed(1)
+            : 0;
+
+        let statusClass = 'success';
+        let statusText = '🎉 EXCELLENT';
+
+        if (successRate < 100)
+          (statusClass = 'warning'),
+            (statusText = '⚠️ AMÉLIORATIONS NÉCESSAIRES');
+        if (successRate < 80)
+          (statusClass = 'error'), (statusText = '❌ CORRECTIONS CRITIQUES');
+
+        summary.innerHTML = `
+                <div class="result ${statusClass}">
+                    <strong>${statusText}</strong><br>
+                    Tests: ${testStats.total} |
+                    Réussis: ${testStats.passed} |
+                    Échoués: ${testStats.failed} |
+                    Avertissements: ${testStats.warnings}<br>
+                    Taux de réussite: ${successRate}%
+                </div>
+            `;
+      }
+
+      function addResult(containerId, title, type, message, data = null) {
+        const container = document.getElementById(containerId);
+        const div = document.createElement('div');
+        div.className = `result ${type}`;
+
+        const icon =
+          type === 'success' ? '✅' : type === 'warning' ? '⚠️' : '❌';
+        div.innerHTML = `
+                <strong>${icon} ${title}</strong><br>
+                ${message}
+                ${data ? `<pre>${JSON.stringify(data, null, 2)}</pre>` : ''}
+            `;
+
+        container.appendChild(div);
+
+        testStats.total++;
+        if (type === 'success') testStats.passed++;
+        else if (type === 'error') testStats.failed++;
+        else testStats.warnings++;
+
+        updateSummary();
+      }
+
+      async function apiCall(url, options = {}) {
+        try {
+          const response = await fetch(url, {
+            headers: { 'Content-Type': 'application/json' },
+            ...options,
+          });
+
+          const data = await response.json();
+          return {
+            success: response.ok,
+            status: response.status,
+            data: data,
+          };
+        } catch (error) {
+          return {
+            success: false,
+            status: 0,
+            error: error.message,
+          };
+        }
+      }
+
+      async function testAuthentication() {
+        const container = 'auth-results';
+        document.getElementById(container).innerHTML = '';
+
+        // Test 1: Inscription
+        const registerData = {
+          pseudo: `testuser_${Date.now()}`,
+          email: `test_${Date.now()}@example.com`,
+          password: 'TestPassword123!',
+          confirm_password: 'TestPassword123!',
+        };
+
+        const registerResult = await apiCall(
+          'http://localhost:8000/auth/register.php',
+          {
+            method: 'POST',
+            body: JSON.stringify(registerData),
+          }
+        );
+
+        if (registerResult.success && registerResult.data.success) {
+          addResult(
+            container,
+            'Inscription utilisateur',
+            'success',
+            'Nouvel utilisateur créé avec succès'
+          );
+        } else {
+          addResult(
+            container,
+            'Inscription utilisateur',
+            'error',
+            registerResult.data?.message ||
+              registerResult.error ||
+              'Erreur inconnue'
+          );
+        }
+
+        // Test 2: Connexion avec utilisateur existant
+        const loginData = {
+          email: 'chauffeur@test.fr',
+          password: 'password123',
+        };
+
+        const loginResult = await apiCall(
+          'http://localhost:8000/auth/login.php',
+          {
+            method: 'POST',
+            body: JSON.stringify(loginData),
+          }
+        );
+
+        if (loginResult.success) {
+          addResult(
+            container,
+            'Connexion utilisateur',
+            'success',
+            'Connexion fonctionnelle'
+          );
+        } else {
+          addResult(
+            container,
+            'Connexion utilisateur',
+            'warning',
+            loginResult.data?.message || 'Identifiants de test invalides'
+          );
+        }
+
+        // Test 3: Déconnexion
+        const logoutResult = await apiCall(
+          'http://localhost:8000/auth/logout.php',
+          {
+            method: 'POST',
+          }
+        );
+
+        if (logoutResult.success) {
+          addResult(
+            container,
+            'Déconnexion',
+            'success',
+            'Déconnexion fonctionnelle'
+          );
+        } else {
+          addResult(
+            container,
+            'Déconnexion',
+            'warning',
+            'Problème de déconnexion'
+          );
+        }
+      }
+
+      async function testTrajets() {
+        const container = 'trajets-results';
+        document.getElementById(container).innerHTML = '';
+
+        // Test 1: Recherche de trajets
+        const searchResult = await apiCall(
+          'http://localhost:8000/trajets/rechercher.php?depart=Paris&arrivee=Lyon'
+        );
+
+        if (searchResult.success) {
+          addResult(
+            container,
+            'Recherche trajets',
+            'success',
+            'API de recherche fonctionnelle'
+          );
+        } else {
+          addResult(
+            container,
+            'Recherche trajets',
+            'error',
+            'Erreur dans la recherche'
+          );
+        }
+
+        // Test 2: Détail d'un trajet
+        const detailResult = await apiCall(
+          'http://localhost:8000/trajets/detail.php?id=1'
+        );
+
+        if (detailResult.status === 200) {
+          addResult(
+            container,
+            'Détail trajet',
+            'success',
+            'API de détail accessible'
+          );
+        } else {
+          addResult(
+            container,
+            'Détail trajet',
+            'warning',
+            `HTTP ${detailResult.status}`
+          );
+        }
+
+        // Test 3: Création de trajet (sans authentification - attendu d'échouer)
+        const createData = {
+          depart: 'Marseille',
+          arrivee: 'Nice',
+          date_depart: '2025-07-20',
+          heure_depart: '14:00',
+          places_disponibles: 3,
+          prix_par_place: 15,
+        };
+
+        const createResult = await apiCall(
+          'http://localhost:8000/trajets/create.php',
+          {
+            method: 'POST',
+            body: JSON.stringify(createData),
+          }
+        );
+
+        if (createResult.status === 401) {
+          addResult(
+            container,
+            'Sécurité création trajet',
+            'success',
+            'Authentification requise (sécurité OK)'
+          );
+        } else if (createResult.success) {
+          addResult(
+            container,
+            'Création trajet',
+            'warning',
+            'Création possible sans auth (sécurité à vérifier)'
+          );
+        } else {
+          addResult(container, 'API création trajet', 'warning', 'Erreur API');
+        }
+      }
+
+      async function testUser() {
+        const container = 'user-results';
+        document.getElementById(container).innerHTML = '';
+
+        // Test APIs utilisateur (attendues d'échouer sans auth)
+        const userAPIs = [
+          {
+            url: 'http://localhost:8000/users/profile.php',
+            name: 'Profil utilisateur',
+          },
+          {
+            url: 'http://localhost:8000/users/vehicles.php',
+            name: 'Gestion véhicules',
+          },
+          {
+            url: 'http://localhost:8000/users/preferences.php',
+            name: 'Préférences',
+          },
+        ];
+
+        for (const api of userAPIs) {
+          const result = await apiCall(api.url);
+
+          if (result.status === 401) {
+            addResult(
+              container,
+              `Sécurité ${api.name}`,
+              'success',
+              'Authentification requise (sécurité OK)'
+            );
+          } else if (result.success) {
+            addResult(
+              container,
+              api.name,
+              'warning',
+              'Accessible sans auth (sécurité à vérifier)'
+            );
+          } else {
+            addResult(container, api.name, 'warning', `HTTP ${result.status}`);
+          }
+        }
+      }
+
+      async function testSystem() {
+        const container = 'system-results';
+        document.getElementById(container).innerHTML = '';
+
+        // Test APIs système
+        const configResult = await apiCall(
+          'http://localhost:8000/system/config.php?action=config'
+        );
+
+        if (configResult.success && configResult.data.success) {
+          addResult(
+            container,
+            'Configuration système',
+            'success',
+            'API de configuration opérationnelle'
+          );
+        } else {
+          addResult(
+            container,
+            'Configuration système',
+            'error',
+            'Erreur API configuration'
+          );
+        }
+
+        const monitoringResult = await apiCall(
+          'http://localhost:8000/system/monitoring.php?action=health'
+        );
+
+        if (monitoringResult.success && monitoringResult.data.success) {
+          addResult(
+            container,
+            'Monitoring système',
+            'success',
+            'API de monitoring opérationnelle'
+          );
+        } else {
+          addResult(
+            container,
+            'Monitoring système',
+            'error',
+            'Erreur API monitoring'
+          );
+        }
+
+        // Test APIs admin (attendues d'échouer sans auth admin)
+        const adminResult = await apiCall(
+          'http://localhost:8000/admin/dashboard.php'
+        );
+
+        if (adminResult.status === 401) {
+          addResult(
+            container,
+            'Sécurité admin',
+            'success',
+            'Authentification admin requise (sécurité OK)'
+          );
+        } else {
+          addResult(
+            container,
+            'Sécurité admin',
+            'error',
+            'Admin accessible sans auth (CRITIQUE)'
+          );
+        }
+      }
+
+      async function runFullTest() {
+        const container = 'full-results';
+        document.getElementById(container).innerHTML = '';
+
+        // Réinitialiser les stats
+        testStats = { total: 0, passed: 0, failed: 0, warnings: 0 };
+        updateSummary();
+
+        addResult(
+          container,
+          'Test complet démarré',
+          'success',
+          "Lancement de tous les tests d'intégration..."
+        );
+
+        // Lancer tous les tests en séquence
+        await testAuthentication();
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
+        await testTrajets();
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
+        await testUser();
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
+        await testSystem();
+
+        // Résumé final
+        const successRate = (
+          (testStats.passed / testStats.total) *
+          100
+        ).toFixed(1);
+
+        if (successRate >= 90) {
+          addResult(
+            container,
+            'Test complet terminé',
+            'success',
+            `🎉 EXCELLENT - Taux de réussite: ${successRate}% - Prêt pour production!`
+          );
+        } else if (successRate >= 75) {
+          addResult(
+            container,
+            'Test complet terminé',
+            'warning',
+            `⚠️ BON - Taux de réussite: ${successRate}% - Quelques ajustements nécessaires`
+          );
+        } else {
+          addResult(
+            container,
+            'Test complet terminé',
+            'error',
+            `❌ CRITIQUE - Taux de réussite: ${successRate}% - Corrections importantes nécessaires`
+          );
+        }
+      }
+
+      // Auto-démarrage des tests
+      document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(() => {
+          testSystem(); // Commencer par les tests système
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

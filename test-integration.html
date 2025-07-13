@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test d'Intégration Frontend-Backend</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      .test-section {
+        background: white;
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .test-result {
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 4px;
+        font-family: monospace;
+      }
+      .success {
+        background-color: #d4edda;
+        color: #155724;
+      }
+      .error {
+        background-color: #f8d7da;
+        color: #721c24;
+      }
+      .info {
+        background-color: #d1ecf1;
+        color: #0c5460;
+      }
+      button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      .loading {
+        opacity: 0.6;
+        pointer-events: none;
+      }
+      pre {
+        background: #f8f9fa;
+        padding: 10px;
+        border-radius: 4px;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🔍 Test d'Intégration Frontend-Backend ecoCovoit</h1>
+
+    <div class="test-section">
+      <h2>📊 État des Serveurs</h2>
+      <div id="server-status"></div>
+      <button onclick="checkServers()">Vérifier les serveurs</button>
+    </div>
+
+    <div class="test-section">
+      <h2>🔐 Tests d'Authentification</h2>
+      <div id="auth-results"></div>
+      <button onclick="testAuth()">Tester l'authentification</button>
+      <button onclick="testRegister()">Tester l'inscription</button>
+      <button onclick="testLogout()">Tester la déconnexion</button>
+    </div>
+
+    <div class="test-section">
+      <h2>🚗 Tests de Trajets</h2>
+      <div id="trajets-results"></div>
+      <button onclick="testSearchTrajets()">Rechercher trajets</button>
+      <button onclick="testCreateTrajet()">Créer trajet</button>
+      <button onclick="testTrajetDetail()">Détail trajet</button>
+    </div>
+
+    <div class="test-section">
+      <h2>👤 Tests Utilisateur</h2>
+      <div id="user-results"></div>
+      <button onclick="testUserProfile()">Profil utilisateur</button>
+      <button onclick="testUserVehicles()">Gestion véhicules</button>
+      <button onclick="testUserPreferences()">Préférences</button>
+    </div>
+
+    <div class="test-section">
+      <h2>📋 Tests Réservations</h2>
+      <div id="reservations-results"></div>
+      <button onclick="testReservations()">Mes réservations</button>
+      <button onclick="testParticipation()">Participation trajet</button>
+    </div>
+
+    <div class="test-section">
+      <h2>🛠️ Tests Administration</h2>
+      <div id="admin-results"></div>
+      <button onclick="testAdminDashboard()">Dashboard admin</button>
+      <button onclick="testAdminUsers()">Gestion utilisateurs</button>
+    </div>
+
+    <div class="test-section">
+      <h2>📈 Résumé des Tests</h2>
+      <div id="summary"></div>
+      <button onclick="runAllTests()">Lancer tous les tests</button>
+    </div>
+
+    <script>
+      let testResults = {
+        passed: 0,
+        failed: 0,
+        total: 0,
+      };
+
+      // Fonction utilitaire pour afficher les résultats
+      function displayResult(
+        containerId,
+        title,
+        success,
+        message,
+        data = null
+      ) {
+        const container = document.getElementById(containerId);
+        const resultClass = success ? 'success' : 'error';
+        const icon = success ? '✅' : '❌';
+
+        const resultDiv = document.createElement('div');
+        resultDiv.className = `test-result ${resultClass}`;
+        resultDiv.innerHTML = `
+                <strong>${icon} ${title}</strong><br>
+                ${message}
+                ${data ? `<pre>${JSON.stringify(data, null, 2)}</pre>` : ''}
+            `;
+
+        container.appendChild(resultDiv);
+
+        testResults.total++;
+        if (success) testResults.passed++;
+        else testResults.failed++;
+
+        updateSummary();
+      }
+
+      function updateSummary() {
+        const summary = document.getElementById('summary');
+        const successRate =
+          testResults.total > 0
+            ? ((testResults.passed / testResults.total) * 100).toFixed(1)
+            : 0;
+
+        summary.innerHTML = `
+                <div class="test-result info">
+                    <strong>📊 Résultats des Tests</strong><br>
+                    Total: ${testResults.total} |
+                    Réussis: ${testResults.passed} |
+                    Échoués: ${testResults.failed} |
+                    Taux de réussite: ${successRate}%
+                </div>
+            `;
+      }
+
+      // Test des serveurs
+      async function checkServers() {
+        const statusDiv = document.getElementById('server-status');
+        statusDiv.innerHTML =
+          '<div class="test-result info">🔄 Vérification des serveurs...</div>';
+
+        // Test serveur frontend
+        try {
+          const frontendResponse = await fetch(
+            'http://localhost:8080/index.html'
+          );
+          displayResult(
+            'server-status',
+            'Serveur Frontend (port 8080)',
+            frontendResponse.ok,
+            `HTTP ${frontendResponse.status}`
+          );
+        } catch (error) {
+          displayResult(
+            'server-status',
+            'Serveur Frontend (port 8080)',
+            false,
+            `Erreur: ${error.message}`
+          );
+        }
+
+        // Test serveur backend
+        try {
+          const backendResponse = await fetch(
+            'http://localhost:8000/index.php'
+          );
+          displayResult(
+            'server-status',
+            'Serveur Backend (port 8000)',
+            backendResponse.ok,
+            `HTTP ${backendResponse.status}`
+          );
+        } catch (error) {
+          displayResult(
+            'server-status',
+            'Serveur Backend (port 8000)',
+            false,
+            `Erreur: ${error.message}`
+          );
+        }
+      }
+
+      // Tests d'authentification
+      async function testAuth() {
+        try {
+          const response = await fetch('http://localhost:8000/auth/login.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email: 'chauffeur@test.fr',
+              password: 'password123',
+            }),
+          });
+
+          const data = await response.json();
+          displayResult(
+            'auth-results',
+            'Connexion utilisateur',
+            response.ok && data.success,
+            data.message || `HTTP ${response.status}`,
+            response.ok ? data : null
+          );
+        } catch (error) {
+          displayResult(
+            'auth-results',
+            'Connexion utilisateur',
+            false,
+            `Erreur: ${error.message}`
+          );
+        }
+      }
+
+      async function testRegister() {
+        try {
+          const timestamp = Date.now();
+          const response = await fetch(
+            'http://localhost:8000/auth/register.php',
+            {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                pseudo: `testuser_${timestamp}`,
+                email: `test_${timestamp}@example.com`,
+                password: 'Password123!',
+                confirm_password: 'Password123!',
+              }),
+            }
+          );
+
+          const data = await response.json();
+          displayResult(
+            'auth-results',
+            'Inscription utilisateur',
+            response.ok && data.success,
+            data.message || `HTTP ${response.status}`,
+            response.ok ? data : null
+          );
+        } catch (error) {
+          displayResult(
+            'auth-results',
+            'Inscription utilisateur',
+            false,
+            `Erreur: ${error.message}`
+          );
+        }
+      }
+
+      async function testLogout() {
+        try {
+          const response = await fetch(
+            'http://localhost:8000/auth/logout.php',
+            {
+              method: 'POST',
+            }
+          );
+
+          const data = await response.json();
+          displayResult(
+            'auth-results',
+            'Déconnexion',
+            response.ok,
+            data.message || `HTTP ${response.status}`,
+            response.ok ? data : null
+          );
+        } catch (error) {
+          displayResult(
+            'auth-results',
+            'Déconnexion',
+            false,
+            `Erreur: ${error.message}`
+          );
+        }
+      }
+
+      // Tests de trajets
+      async function testSearchTrajets() {
+        try {
+          const response = await fetch(
+            'http://localhost:8000/trajets/rechercher.php?depart=Paris&arrivee=Lyon'
+          );
+          const data = await response.json();
+
+          displayResult(
+            'trajets-results',
+            'Recherche trajets',
+            response.ok,
+            `${response.status} - ${data.message || 'Réponse reçue'}`,
+            data
+          );
+        } catch (error) {
+          displayResult(
+            'trajets-results',
+            'Recherche trajets',
+            false,
+            `Erreur: ${error.message}`
+          );
+        }
+      }
+
+      async function testCreateTrajet() {
+        try {
+          const response = await fetch(
+            'http://localhost:8000/trajets/create.php',
+            {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                depart: 'Marseille',
+                arrivee: 'Nice',
+                date_depart: '2025-07-20',
+                heure_depart: '14:00',
+                places_disponibles: 3,
+                prix_par_place: 15,
+              }),
+            }
+          );
+
+          const data = await response.json();
+          displayResult(
+            'trajets-results',
+            'Création trajet',
+            response.ok,
+            `${response.status} - ${data.message || 'Trajet créé'}`,
+            data
+          );
+        } catch (error) {
+          displayResult(
+            'trajets-results',
+            'Création trajet',
+            false,
+            `Erreur: ${error.message}`
+          );
+        }
+      }
+
+      async function testTrajetDetail() {
+        try {
+          const response = await fetch(
+            'http://localhost:8000/trajets/detail.php?id=1'
+          );
+          const data = await response.json();
+
+          displayResult(
+            'trajets-results',
+            'Détail trajet',
+            response.ok,
+            `${response.status} - ${data.message || 'Détails récupérés'}`,
+            data
+          );
+        } catch (error) {
+          displayResult(
+            'trajets-results',
+            'Détail trajet',
+            false,
+            `Erreur: ${error.message}`
+          );
+        }
+      }
+
+      // Tests utilisateur (nécessitent authentification)
+      async function testUserProfile() {
+        try {
+          const response = await fetch(
+            'http://localhost:8000/users/profile.php'
+          );
+          const data = await response.json();
+
+          displayResult(
+            'user-results',
+            'Profil utilisateur',
+            response.ok,
+            `${response.status} - ${data.message || 'Profil récupéré'}`,
+            data
+          );
+        } catch (error) {
+          displayResult(
+            'user-results',
+            'Profil utilisateur',
+            false,
+            `Erreur: ${error.message}`
+          );
+        }
+      }
+
+      async function testUserVehicles() {
+        try {
+          const response = await fetch(
+            'http://localhost:8000/users/vehicles.php'
+          );
+          const data = await response.json();
+
+          displayResult(
+            'user-results',
+            'Gestion véhicules',
+            response.ok,
+            `${response.status} - ${data.message || 'Véhicules récupérés'}`,
+            data
+          );
+        } catch (error) {
+          displayResult(
+            'user-results',
+            'Gestion véhicules',
+            false,
+            `Erreur: ${error.message}`
+          );
+        }
+      }
+
+      async function testUserPreferences() {
+        try {
+          const response = await fetch(
+            'http://localhost:8000/users/preferences.php'
+          );
+          const data = await response.json();
+
+          displayResult(
+            'user-results',
+            'Préférences utilisateur',
+            response.ok,
+            `${response.status} - ${data.message || 'Préférences récupérées'}`,
+            data
+          );
+        } catch (error) {
+          displayResult(
+            'user-results',
+            'Préférences utilisateur',
+            false,
+            `Erreur: ${error.message}`
+          );
+        }
+      }
+
+      // Tests réservations
+      async function testReservations() {
+        try {
+          const response = await fetch(
+            'http://localhost:8000/reservations/mes-reservations.php'
+          );
+          const data = await response.json();
+
+          displayResult(
+            'reservations-results',
+            'Mes réservations',
+            response.ok,
+            `${response.status} - ${data.message || 'Réservations récupérées'}`,
+            data
+          );
+        } catch (error) {
+          displayResult(
+            'reservations-results',
+            'Mes réservations',
+            false,
+            `Erreur: ${error.message}`
+          );
+        }
+      }
+
+      async function testParticipation() {
+        try {
+          const response = await fetch(
+            'http://localhost:8000/trajets/participate.php',
+            {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                trajet_id: 1,
+                places_demandees: 1,
+              }),
+            }
+          );
+
+          const data = await response.json();
+          displayResult(
+            'reservations-results',
+            'Participation trajet',
+            response.ok,
+            `${response.status} - ${
+              data.message || 'Participation enregistrée'
+            }`,
+            data
+          );
+        } catch (error) {
+          displayResult(
+            'reservations-results',
+            'Participation trajet',
+            false,
+            `Erreur: ${error.message}`
+          );
+        }
+      }
+
+      // Tests administration
+      async function testAdminDashboard() {
+        try {
+          const response = await fetch(
+            'http://localhost:8000/admin/dashboard.php'
+          );
+          const data = await response.json();
+
+          displayResult(
+            'admin-results',
+            'Dashboard admin',
+            response.ok,
+            `${response.status} - ${data.message || 'Dashboard chargé'}`,
+            data
+          );
+        } catch (error) {
+          displayResult(
+            'admin-results',
+            'Dashboard admin',
+            false,
+            `Erreur: ${error.message}`
+          );
+        }
+      }
+
+      async function testAdminUsers() {
+        try {
+          const response = await fetch('http://localhost:8000/admin/users.php');
+          const data = await response.json();
+
+          displayResult(
+            'admin-results',
+            'Gestion utilisateurs',
+            response.ok,
+            `${response.status} - ${data.message || 'Utilisateurs chargés'}`,
+            data
+          );
+        } catch (error) {
+          displayResult(
+            'admin-results',
+            'Gestion utilisateurs',
+            false,
+            `Erreur: ${error.message}`
+          );
+        }
+      }
+
+      // Lancer tous les tests
+      async function runAllTests() {
+        // Réinitialiser les résultats
+        testResults = { passed: 0, failed: 0, total: 0 };
+
+        // Vider les conteneurs de résultats
+        [
+          'server-status',
+          'auth-results',
+          'trajets-results',
+          'user-results',
+          'reservations-results',
+          'admin-results',
+        ].forEach((id) => {
+          document.getElementById(id).innerHTML = '';
+        });
+
+        // Lancer tous les tests avec des délais pour éviter la surcharge
+        await checkServers();
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
+        await testAuth();
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
+        await testRegister();
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
+        await testSearchTrajets();
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
+        await testCreateTrajet();
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
+        await testTrajetDetail();
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
+        await testUserProfile();
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
+        await testReservations();
+        await new Promise((resolve) => setTimeout(resolve, 500));
+
+        await testAdminDashboard();
+      }
+
+      // Lancer la vérification des serveurs au chargement
+      document.addEventListener('DOMContentLoaded', function () {
+        checkServers();
+      });
+    </script>
+  </body>
+</html>
