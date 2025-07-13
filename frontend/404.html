@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page non trouvée | ecoCovoit</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+            margin: 20px;
+        }
+        .error-code {
+            font-size: 6rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.2s;
+            font-weight: 500;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            background: #218838;
+        }
+        .car-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="car-icon">🚗</div>
+        <div class="error-code">404</div>
+        <div class="error-message">Oups ! Cette page semble avoir pris un autre chemin...</div>
+        <p>La page que vous cherchez n'existe pas ou a été déplacée.</p>
+        <a href="/frontend/index.html" class="btn">Retour à l'accueil</a>
+    </div>
+</body>
+</html>

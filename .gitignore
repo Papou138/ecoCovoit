@@ -2,17 +2,26 @@
 # Fichiers de configuration sensibles
 # ===================================
 
-# Configuration de base de données et secrets
-backend/config/config.php
-backend/config/database.php
-backend/config/.env
+# Fichiers de configuration spécifiques à l'environnement
 .env
 .env.local
 .env.production
 
-# Fichiers de configuration spécifiques à l'environnement
-config/local.php
-config/production.php
+# ===================================
+# Heroku et déploiement
+# ===================================
+
+# Heroku installer
+heroku-installer.exe
+heroku-install.sh
+
+# Fichiers de test et développement
+test_*.php
+test-*.html
+*_test.php
+RAPPORT_*.md
+ANALYSE_*.md
+PLAN_*.md
 
 # ===================================
 # Dépendances et modules

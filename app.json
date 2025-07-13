@@ -1,0 +1,36 @@
+{
+  "name": "ecocovoit",
+  "description": "Plateforme de covoiturage écologique développée en PHP",
+  "keywords": ["php", "covoiturage", "ecologie", "plateforme"],
+  "website": "https://ecocovoit.herokuapp.com/",
+  "repository": "https://github.com/Papou138/ecoCovoit",
+  "success_url": "/frontend/index.html",
+  "env": {
+    "APP_ENV": {
+      "description": "Environment de l'application",
+      "value": "production"
+    },
+    "APP_DEBUG": {
+      "description": "Mode debug",
+      "value": "false"
+    },
+    "JWT_SECRET": {
+      "description": "Clé secrète pour JWT",
+      "generator": "secret"
+    },
+    "BASE_URL": {
+      "description": "URL de base de l'application",
+      "value": "https://ecocovoit.herokuapp.com"
+    },
+    "API_BASE_URL": {
+      "description": "URL de base des APIs",
+      "value": "https://ecocovoit.herokuapp.com/backend"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    }
+  ],
+  "stack": "heroku-22"
+}
