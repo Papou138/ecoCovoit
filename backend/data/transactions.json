@@ -1,0 +1,24 @@
+[
+    {
+        "utilisateur_id": 4,
+        "type": "credit",
+        "montant": 20,
+        "solde_avant": 0,
+        "solde_apres": 20,
+        "description": "Crédits de bienvenue",
+        "date_transaction": "2025-07-11 22:50:55",
+        "id": 1,
+        "date_creation": "2025-07-11 22:50:55"
+    },
+    {
+        "utilisateur_id": 2,
+        "type": "credit",
+        "montant": 15,
+        "solde_avant": 50,
+        "solde_apres": 65,
+        "description": "Bonus de test",
+        "date_transaction": "2025-07-11 23:02:03",
+        "id": 2,
+        "date_creation": "2025-07-11 23:02:03"
+    }
+]

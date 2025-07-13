@@ -1,0 +1,175 @@
+# ===================================
+# Fichiers de configuration sensibles
+# ===================================
+
+# Configuration de base de données et secrets
+backend/config/config.php
+backend/config/database.php
+backend/config/.env
+.env
+.env.local
+.env.production
+
+# Fichiers de configuration spécifiques à l'environnement
+config/local.php
+config/production.php
+
+# ===================================
+# Dépendances et modules
+# ===================================
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Composer (PHP)
+vendor/
+composer.lock
+
+# ===================================
+# Fichiers de build et distribution
+# ===================================
+
+# Dossiers de build
+build/
+dist/
+out/
+.tmp/
+
+# Fichiers minifiés et optimisés
+*.min.js
+*.min.css
+frontend/assets/css/*.min.css
+frontend/assets/js/*.min.js
+
+# ===================================
+# Fichiers temporaires et cache
+# ===================================
+
+# Cache PHP
+*.cache
+cache/
+temp/
+tmp/
+
+# Logs
+logs/
+*.log
+error.log
+access.log
+backend/logs/
+frontend/logs/
+
+# Sessions PHP
+sessions/
+backend/sessions/
+
+# ===================================
+# Fichiers de sauvegarde et temporaires
+# ===================================
+
+# Sauvegardes de base de données
+*.sql.backup
+*.sql.bak
+*.dump
+backup/
+backups/
+
+# Fichiers temporaires d'éditeurs
+*~
+*.swp
+*.swo
+*.tmp
+.DS_Store
+Thumbs.db
+
+# ===================================
+# IDE et éditeurs
+# ===================================
+
+# VS Code (garder les paramètres de base mais ignorer les spécifiques)
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# PHPStorm
+.idea/
+*.iml
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ===================================
+# Système d'exploitation
+# ===================================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# Linux
+*~
+.directory
+
+# ===================================
+# Uploads et fichiers utilisateur
+# ===================================
+
+# Dossier d'uploads (à adapter selon vos besoins)
+uploads/
+backend/uploads/
+frontend/uploads/
+user-files/
+
+# Images de profil uploadées
+profile-pics/
+avatars/
+
+# ===================================
+# Tests et développement
+# ===================================
+
+# Coverage reports
+coverage/
+*.coverage
+.nyc_output/
+
+# Test databases
+test.db
+test.sqlite
+
+# ===================================
+# Divers
+# ===================================
+
+# Fichiers ZIP et archives
+*.zip
+*.tar.gz
+*.rar
+
+# Documentation générée automatiquement
+docs/api/
+docs/build/
+
+# Certificats SSL locaux
+*.pem
+*.key
+*.crt
+ssl/
+
+# Scripts
+*.sh
+*.bat
+*.ps1

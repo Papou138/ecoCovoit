@@ -1,0 +1,121 @@
+﻿﻿<!-- TEMPLATE STANDARDISÉEDU HEADER POUR TOUTES LES PAGES -->
+<!-- A copier dans chaque page HTML du projet -->
+
+<header>
+  <div class="header-content">
+    <div class="logo-container">
+      <img
+        src="assets/img/logo-ecoRide.png"
+        alt="Logo ecoCovoit"
+        class="logo"
+        width="50"
+        height="50"
+        loading="lazy"
+      />
+      <h1 class="app-title">ecoCovoit</h1>
+    </div>
+
+    <button
+      id="menu-toggle"
+      class="menu-toggle"
+      aria-label="Ouvrir le menu principal"
+      aria-expanded="false"
+      aria-controls="main-nav"
+      type="button"
+    >
+      <span class="hamburger-line" aria-hidden="true"></span>
+      <span class="hamburger-line" aria-hidden="true"></span>
+      <span class="hamburger-line" aria-hidden="true"></span>
+    </button>
+
+    <nav
+      id="main-nav"
+      class="main-nav"
+      role="navigation"
+      aria-label="Menu principal de navigation"
+    >
+      <ul class="nav-list">
+        <!-- NAVIGATION PUBLIQUE (pages publiques accessibles sans connexion) -->
+        <li>
+          <a href="index.html" class="nav-link"
+            ><i class="fas fa-home"></i> Accueil</a
+          >
+        </li>
+        <li>
+          <a href="rechercher-covoiturage.html" class="nav-link"
+            ><i class="fas fa-search"></i> Rechercher</a
+          >
+        </li>
+        <li>
+          <a href="contact.html" class="nav-link"
+            ><i class="fas fa-envelope"></i> Contact</a
+          >
+        </li>
+        <li>
+          <a href="login.html" class="nav-link"
+            ><i class="fas fa-sign-in-alt"></i> Connexion</a
+          >
+        </li>
+        <li>
+          <a href="register.html" class="nav-link"
+            ><i class="fas fa-user-plus"></i> Inscription</a
+          >
+        </li>
+
+        <!-- NAVIGATION UTILISATEUR CONNECTE (remplacer la navigation publique) -->
+        <!--
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+        <li><a href="rechercher-covoiturage.html" class="nav-link"><i class="fas fa-search"></i> Rechercher</a></li>
+        <li><a href="add-voyage.html" class="nav-link"><i class="fas fa-plus"></i> Publier</a></li>
+        <li><a href="mes-reservations.html" class="nav-link"><i class="fas fa-calendar-check"></i> Mes réservations</a></li>
+        <li><a href="historique.html" class="nav-link"><i class="fas fa-history"></i> Historique</a></li>
+        <li><a href="user-profile.html" class="nav-link"><i class="fas fa-user-circle"></i> Mon profil</a></li>
+        <li><a href="add-vehicule.html" class="nav-link"><i class="fas fa-car"></i> Mes véhicules</a></li>
+        <li><a href="add-preferences.html" class="nav-link"><i class="fas fa-cog"></i> Préférences</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li><button class="nav-link logout-btn" onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i> Déconnexion</button></li>
+        -->
+
+        <!-- NAVIGATION ADMIN/EMPLOYE (remplacer la navigation publique) -->
+        <!--
+        <li><a href="admin-dashboard.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+        <li><a href="admin-comptes.html" class="nav-link"><i class="fas fa-users"></i> Comptes</a></li>
+        <li><a href="employe-avis.html" class="nav-link"><i class="fas fa-star"></i> Avis</a></li>
+        <li><a href="employe-incidents.html" class="nav-link"><i class="fas fa-exclamation-triangle"></i> Incidents</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li><button class="nav-link logout-btn" onclick="logout()" type="button"><i class="fas fa-sign-out-alt"></i> Déconnexion</button></li>
+        -->
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!--
+INSTRUCTIONS D'UTILISATION :
+
+1. Copier cette structure dans chaque page HTML
+2. Ajouter la classe "active" sur le lien correspondant à la page actuelle
+3. Activer/désactiver les liens selon le type d'utilisateur :
+   - NAVIGATION PUBLIQUE : Décommenter les liens publics (index, rechercher, contact, connexion, inscription)
+   - NAVIGATION UTILISATEUR : Décommenter les liens utilisateur connecté (+ contact)
+   - NAVIGATION ADMIN : Décommenter les liens admin/employé (+ contact)
+4. S'assurer que les liens CSS sont présents :
+   - <link rel="stylesheet" href="assets/css/_header.css" />
+   - <link rel="stylesheet" href="assets/css/_commun.css" />
+5. Ajouter le script du menu mobile :
+   - <script src="assets/js/menu.js"></script>
+6. Ajouter Font Awesome pour les icônes :
+   - <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+EXEMPLE pour la page user-profile.html :
+1. Commenter tous les liens publics
+2. Décommenter tous les liens utilisateur connecté
+3. Ajouter class="active" sur le lien "Mon profil"
+4. Garder le lien "Contact" accessible
+
+EXEMPLE pour la page admin-dashboard.html :
+1. Commenter tous les liens publics
+2. Décommenter tous les liens admin
+3. Ajouter class="active" sur le lien "Dashboard"
+4. Garder le lien "Contact" accessible
+-->

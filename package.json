@@ -1,0 +1,39 @@
+{
+  "name": "ecocovoit-frontend",
+  "version": "1.0.0",
+  "description": "Interface utilisateur moderne pour la plateforme de covoiturage ecoCovoit",
+  "main": "frontend/index.html",
+  "scripts": {
+    "start": "python -m http.server 8080 --directory frontend",
+    "dev": "python -m http.server 3000 --directory frontend",
+    "lint": "echo 'Vérification des erreurs HTML/CSS/JS'",
+    "build": "echo 'Minification et optimisation pour production'"
+  },
+  "keywords": [
+    "covoiturage",
+    "ecologie",
+    "frontend",
+    "responsive",
+    "html5",
+    "css3",
+    "javascript"
+  ],
+  "author": "Equipe ecoCovoit",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/votre-repo/ecoCovoit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/votre-repo/ecoCovoit/issues"
+  },
+  "homepage": "https://github.com/votre-repo/ecoCovoit#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

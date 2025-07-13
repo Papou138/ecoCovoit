@@ -1,252 +1,434 @@
-<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <title>Détail du covoiturage - ecoCovoit</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta
+      name="description"
+      content="détails du covoiturage ecoCovoit - Consultez les informations complètes d'un trajet écoresponsable et réservez votre place."
+    />
+    <meta
+      name="keywords"
+      content="détails trajet, covoiturage, réservation, transport écologique, informations voyage"
+    />
+    <meta name="author" content="ecoCovoit" />
+    <title>détails du covoiturage - EcoCovoit</title>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
+    <link rel="stylesheet" href="assets/css/_header.css" />
+    <link rel="stylesheet" href="assets/css/_footer.css" />
+    <link rel="stylesheet" href="assets/css/detail.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
   </head>
   <body>
-    <header>
-      <!-- Inclure ton header / menu ici (peut être copié de index.html) -->
+    <!-- HEADER -->
+    <header class="header-user">
+      <div class="header-content">
+        <div class="logo-container">
+          <img
+            src="assets/img/logo-ecoRide.png"
+            alt="Logo ecoCovoit"
+            class="logo"
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <h1 class="app-title">ecoCovoit</h1>
+        </div>
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Ouvrir le menu Principal"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          type="button"
+        >
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
+          <ul class="nav-list">
+            <!-- NAVIGATION UTILISATEUR CONNECTE -->
+            <li>
+              <a href="index.html" class="nav-link"
+                ><i class="fas fa-home"></i> Accueil</a
+              >
+            </li>
+            <li>
+              <a href="rechercher-covoiturage.html" class="nav-link"
+                ><i class="fas fa-search"></i> Rechercher</a
+              >
+            </li>
+            <li>
+              <a href="add-voyage.html" class="nav-link"
+                ><i class="fas fa-plus"></i> Publier</a
+              >
+            </li>
+            <li>
+              <a href="mes-reservations.html" class="nav-link"
+                ><i class="fas fa-calendar-check"></i> Mes réservations</a
+              >
+            </li>
+            <li>
+              <a href="historique.html" class="nav-link"
+                ><i class="fas fa-history"></i> Historique</a
+              >
+            </li>
+            <li>
+              <a href="user-profile.html" class="nav-link"
+                ><i class="fas fa-user-circle"></i> Mon profil</a
+              >
+            </li>
+            <li>
+              <a href="add-vehicule.html" class="nav-link"
+                ><i class="fas fa-car"></i> Mes véhicules</a
+              >
+            </li>
+            <li>
+              <a href="add-preferences.html" class="nav-link"
+                ><i class="fas fa-cog"></i> Préférences</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+            <li>
+              <button
+                class="nav-link logout-btn"
+                onclick="logout()"
+                type="button"
+              >
+                <i class="fas fa-sign-out-alt"></i> Déconnexion
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-      <section class="trajet-detail">
-        <div class="container">
-          <h1><i class="fas fa-route"></i> Paris → Lyon</h1>
-
-          <!-- Infos trajet -->
-          <div class="trajet-info">
-            <div class="info-group">
-              <h3><i class="fas fa-info-circle"></i> Informations trajet</h3>
-              <p><i class="fas fa-calendar-alt"></i> Jeudi 20 juin 2025</p>
-              <p><i class="fas fa-clock"></i> Départ : 08h00</p>
-              <p><i class="fas fa-hourglass-half"></i> Durée : 4h30</p>
-              <p><i class="fas fa-map-marked-alt"></i> Distance : 465 km</p>
-            </div>
-
-            <div class="info-group">
-              <h3><i class="fas fa-leaf"></i> Impact écologique</h3>
-              <p><i class="fas fa-charging-station"></i> Véhicule électrique</p>
-              <p><i class="fas fa-tree"></i> -75% d'émissions CO2</p>
-              <p><i class="fas fa-users"></i> 2 places disponibles</p>
-              <p class="eco-badge">🌱 Trajet éco-responsable</p>
+      <!-- SECTION PRESENTATION HERO -->
+      <section class="trip-detail-header">
+        <div class="trip-detail-header-content">
+          <div class="trip-hero-info">
+            <h1 id="route-title">
+              <span id="departure-city">Paris</span>
+              <i class="fas fa-arrow-right"></i>
+              <span id="arrival-city">Lyon</span>
+            </h1>
+            <div class="trip-date-time">
+              <i class="fas fa-calendar"></i>
+              <span id="trip-date">Samedi 8 juillet 2025</span>
+              <span class="time-range">
+                <span id="departure-time">08:30</span> -
+                <span id="arrival-time">10:45</span>
+              </span>
             </div>
           </div>
-
-          <!-- Box prix de réservation -->
-          <div class="reservation-box">
-            <div class="prix-container">
-              <span class="prix">15 €</span>
-              <span class="prix-details">par personne</span>
-            </div>
-            <button
-              class="btn-reserver"
-              id="btn-participer"
-              data-trajet-id="12"
-            >
-              <i class="fas fa-check-circle"></i> Réserver ce trajet
-            </button>
-            <p class="places-dispo">
-              <i class="fas fa-user-friends"></i> 2 places encore disponibles
-            </p>
-            <div id="participation-message" class="message-box"></div>
+          <div class="trip-hero-icon">
+            <i class="fas fa-route"></i>
           </div>
-
-          <!-- Véhicule -->
-          <div class="vehicule-info">
-            <h2>Véhicule</h2>
-            <p><strong>Marque :</strong> Renault</p>
-            <p><strong>Modèle :</strong> Zoé</p>
-            <p><strong>Énergie :</strong> Électrique</p>
-            <p><strong>Immatriculation :</strong> AB-123-CD</p>
-          </div>
-
-          <!-- Section conducteur -->
-          <div class="conducteur-info">
-            <img
-              src="assets/img/photo-chauffeur.jpg"
-              alt="Avatar du conducteur"
-            />
-            <div class="conducteur-details">
-              <h3><i class="fas fa-user-circle"></i> Alice Dupont</h3>
-              <p class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-                <span>4.7/5</span>
-              </p>
-              <p class="member-since">
-                <i class="fas fa-clock"></i> Membre depuis 2023
-              </p>
-            </div>
-          </div>
-
-          <!-- Préférences conducteur -->
-          <div class="preferences">
-            <h2>Préférences du chauffeur</h2>
-            <ul>
-              <li>✅ Non-fumeur</li>
-              <li>✅ Animaux acceptés</li>
-              <li>✅ Musique autorisée</li>
-              <li>📝 Autres : "Pause café bienvenue ☕"</li>
-            </ul>
-          </div>
-
-          <!-- Note moyenne -->
-          <div id="note-moyenne" class="note-global">
-            <!-- Note moyenne ici -->
-          </div>
-
-          <!-- Avis -->
-          <section>
-            <h2>Avis sur ce chauffeur</h2>
-            <div id="avis-liste">
-              <p>Chargement des avis en cours...</p>
-            </div>
-          </section>
         </div>
       </section>
+
+      <!-- DETAILS DU TRAJET -->
+      <section class="trip-detail-section">
+        <div class="detail-container">
+          <div class="trip-detail-grid">
+            <!-- INFORMATIONS PRINCIPALES -->
+            <div class="main-info">
+              <!-- INFORMATIONS DU TRAJET -->
+              <div class="trip-info-cards">
+                <div class="info-card">
+                  <div class="info-icon">
+                    <i class="fas fa-hourglass-half"></i>
+                  </div>
+                  <div class="info-content">
+                    <div class="info-label">Durée</div>
+                    <div class="info-value" id="trip-duration">2h15</div>
+                  </div>
+                </div>
+
+                <div class="info-card">
+                  <div class="info-icon">
+                    <i class="fas fa-users"></i>
+                  </div>
+                  <div class="info-content">
+                    <div class="info-label">Places disponibles</div>
+                    <div class="info-value" id="available-seats">2 sur 4</div>
+                  </div>
+                </div>
+
+                <div class="info-card">
+                  <div class="info-icon">
+                    <i class="fas fa-euro-sign"></i>
+                  </div>
+                  <div class="info-content">
+                    <div class="info-label">Prix par personne</div>
+                    <div class="info-value" id="trip-price">25 €</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- VEHICULE -->
+              <div class="vehicle-section">
+                <h2>véhicule</h2>
+                <div class="vehicle-card">
+                  <div class="vehicle-icon">
+                    <i class="fas fa-car"></i>
+                  </div>
+                  <div class="vehicle-info">
+                    <div class="vehicle-name" id="vehicle-name">
+                      Tesla Model 3
+                    </div>
+                    <div class="vehicle-details">
+                      <span id="vehicle-energy" class="energy-badge electric">
+                        <i class="fas fa-bolt"></i>
+                        Electrique
+                      </span>
+                      <span class="vehicle-color" id="vehicle-color">Bleu</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SIDEBAR -->
+            <div class="sidebar">
+              <!-- PROFIL DU CONDUCTEUR -->
+              <div class="driver-section">
+                <h2>Votre conducteur</h2>
+                <div class="driver-card">
+                  <div class="driver-header">
+                    <div class="driver-avatar" id="driver-avatar">MD</div>
+                    <div class="driver-basic-info">
+                      <div class="driver-name" id="driver-name">Marie D.</div>
+                      <div class="driver-rating">
+                        <div class="stars" id="driver-stars">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-value" id="driver-rating-value"
+                          >4.8</span
+                        >
+                        <span class="rating-count" id="driver-rating-count"
+                          >(23 avis)</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PREFERENCES -->
+              <div class="preferences-section">
+                <h3>préférences du conducteur</h3>
+                <div class="preferences-list" id="preferences-list">
+                  <div class="preference-item">
+                    <i class="fas fa-smoking-ban"></i>
+                    <span>Non-fumeur</span>
+                  </div>
+                  <div class="preference-item">
+                    <i class="fas fa-paw"></i>
+                    <span>Animaux acceptés</span>
+                  </div>
+                  <div class="preference-item">
+                    <i class="fas fa-music"></i>
+                    <span>Musique autorisée</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ACTION DE PARTICIPATION -->
+              <div class="participation-section">
+                <div class="price-display">
+                  <div class="total-price" id="total-price">25 €</div>
+                  <div class="price-label">par personne</div>
+                </div>
+
+                <button
+                  class="btn btn-primary btn-large participate-btn"
+                  id="participate-btn"
+                >
+                  <i class="fas fa-plus"></i>
+                  Participer à ce trajet
+                </button>
+
+                <div class="credit-info hidden" id="credit-info">
+                  <p>
+                    <i class="fas fa-info-circle"></i> Vous avez actuellement
+                    <span id="user-credits">15</span> crédits
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AVIS DU CONDUCTEUR -->
+          <div class="reviews-section">
+            <h2>Avis sur le conducteur</h2>
+            <div class="reviews-summary">
+              <div class="rating-overview">
+                <div class="average-rating">
+                  <span class="big-rating" id="average-rating">4.8</span>
+                  <div class="stars-large" id="stars-large">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="total-reviews" id="total-reviews">
+                    Basé sur 23 avis
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="reviews-list" id="reviews-list">
+              <!-- Les avis seront chargés dynamiquement -->
+            </div>
+
+            <button
+              class="btn btn-outline show-more-reviews"
+              id="show-more-reviews"
+            >
+              Voir plus d'avis
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODAL DE CONFIRMATION -->
+      <div class="modal" id="participation-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Confirmer votre participation</h3>
+            <button class="modal-close" id="modal-close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="confirmation-details">
+              <h4>Récapitulatif du trajet</h4>
+              <div class="detail-row">
+                <span>Trajet:</span>
+                <span id="modal-route">Paris &rarr; Lyon</span>
+              </div>
+              <div class="detail-row">
+                <span>Date et heure:</span>
+                <span id="modal-datetime">Sam. 8 juillet 2025 à 08:30</span>
+              </div>
+              <div class="detail-row">
+                <span>Conducteur:</span>
+                <span id="modal-driver">Marie D.</span>
+              </div>
+              <div class="detail-row">
+                <span>Prix:</span>
+                <span id="modal-price">25 €</span>
+              </div>
+            </div>
+
+            <div class="credit-warning">
+              <i class="fas fa-exclamation-triangle"></i>
+              <p>
+                Cette réservation utilisera
+                <strong id="modal-credit-cost">25</strong> de vos crédits.
+              </p>
+              <p>
+                Il vous restera
+                <strong id="modal-remaining-credits">-10</strong> crédits après
+                cette transaction.
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline" id="cancel-participation">
+              Annuler
+            </button>
+            <button class="btn btn-primary" id="confirm-participation">
+              <i class="fas fa-check"></i>
+              Confirmer ma participation
+            </button>
+          </div>
+        </div>
+      </div>
     </main>
 
-    <footer>
-      <!-- Footer copié depuis index.html -->
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
+          <p>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
+          </p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
+          <ul>
+            <li>
+              <i class="fas fa-gavel"></i>
+              <a href="mentions.html"> Mentions légales</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <a href="contact.html"> Nous contacter</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" title="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" title="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i>
+        </p>
+      </div>
     </footer>
 
-    <!-- Script pour la réservation -->
-    <script>
-      document
-        .getElementById("btn-participer")
-        .addEventListener("click", () => {
-          const trajetId =
-            document.getElementById("btn-participer").dataset.trajetId;
-          const msgBox = document.getElementById("participation-message");
-
-          if (
-            !confirm(
-              "Confirmez-vous vouloir participer à ce trajet ? Cela coûtera 2 crédits."
-            )
-          ) {
-            return;
-          }
-
-          // Désactiver le bouton pendant la requête
-          const btn = document.getElementById("btn-participer");
-          btn.disabled = true;
-          btn.innerHTML =
-            '<i class="fas fa-spinner fa-spin"></i> Traitement en cours...';
-
-          fetch("../backend/reservations/participer.php", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: "trajet_id=" + encodeURIComponent(trajetId),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              msgBox.textContent = data.message;
-              msgBox.style.color = data.success ? "green" : "red";
-              msgBox.classList.add("visible");
-
-              // Réactiver le bouton
-              btn.disabled = false;
-              btn.innerHTML =
-                '<i class="fas fa-check-circle"></i> Réserver ce trajet';
-
-              if (data.success) {
-                // Mettre à jour le nombre de places disponibles
-                const placesElement = document.querySelector(".places-dispo");
-                const places = parseInt(placesElement.textContent) - 1;
-                placesElement.innerHTML = `<i class="fas fa-user-friends"></i> ${places} place${
-                  places > 1 ? "s" : ""
-                } encore disponible${places > 1 ? "s" : ""}`;
-              }
-            })
-            .catch((error) => {
-              msgBox.textContent =
-                "Une erreur est survenue. Veuillez réessayer.";
-              msgBox.style.color = "red";
-              msgBox.classList.add("visible");
-
-              // Réactiver le bouton
-              btn.disabled = false;
-              btn.innerHTML =
-                '<i class="fas fa-check-circle"></i> Réserver ce trajet';
-            });
-        });
-    </script>
-
-    <!-- Script pour les avis -->
-    <script>
-      const params = new URLSearchParams(window.location.search);
-      const trajetId = params.get("trajet_id");
-
-      if (!trajetId) {
-        document.getElementById("avis-liste").innerHTML =
-          "<p>Trajet non spécifié</p>";
-        throw new Error("trajet_id manquant dans l'URL");
-      }
-
-      // Étape 1 : récupérer l'ID du chauffeur depuis le trajet
-      fetch("../backend/trajets/get-chauffeur.php?trajet_id=" + trajetId)
-        .then((res) => res.json())
-        .then((data) => {
-          if (!data.success) {
-            document.getElementById("avis-liste").innerHTML =
-              "<p>Erreur : trajet introuvable</p>";
-            return;
-          }
-
-          const chauffeurId = data.chauffeur_id;
-
-          // Étape 2 : charger les avis du chauffeur
-          fetch(
-            "../backend/avis/lister_valides.php?chauffeur_id=" + chauffeurId
-          )
-            .then((res) => res.json())
-            .then((avisList) => {
-              const container = document.getElementById("avis-liste");
-              container.innerHTML = "";
-
-              if (avisList.length === 0) {
-                container.innerHTML = "<p>Aucun avis pour ce chauffeur.</p>";
-                return;
-              }
-
-              let total = 0;
-
-              avisList.forEach((avis) => {
-                total += avis.note;
-
-                const div = document.createElement("div");
-                div.classList.add("avis-item");
-                div.innerHTML = `
-                  <p><strong>Note :</strong> ${avis.note} ⭐</p>
-                  <p><em>${avis.commentaire}</em></p>
-                  <hr />
-                `;
-                container.appendChild(div);
-              });
-
-              const moyenne = (total / avisList.length).toFixed(1);
-              const noteEl = document.getElementById("note-moyenne");
-
-              noteEl.textContent = `Note moyenne : ${moyenne} ⭐`;
-
-              // Bonus : badge si note élevée
-              if (moyenne >= 4.0) {
-                noteEl.innerHTML += ` <span class="badge-good">👍 Très bien noté</span>`;
-              }
-            });
-        });
-    </script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/detail.js"></script>
   </body>
 </html>

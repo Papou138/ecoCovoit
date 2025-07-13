@@ -1,64 +1,274 @@
-<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <title>Mes réservations – ecoCovoit</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Gérez vos réservations de covoiturage sur ecoCovoit - Consultez et modifiez vos trajets écoresponsables réservés."
+    />
+    <meta
+      name="keywords"
+      content="réservations, trajets, covoiturage, gestion, transport écologique, mes voyages"
+    />
+    <meta name="author" content="ecoCovoit" />
+    <title>Mes réservations â€“ ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
+    <link rel="stylesheet" href="assets/css/_header.css" />
+    <link rel="stylesheet" href="assets/css/_footer.css" />
+    <link rel="stylesheet" href="assets/css/mes-reservations.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   </head>
   <body>
+    <header class="header-user">
+      <div class="header-content">
+        <div class="logo-container">
+          <img
+            src="assets/img/logo-ecoRide.png"
+            alt="Logo ecoCovoit"
+            class="logo"
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <h1 class="app-title">ecoCovoit</h1>
+        </div>
+
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Ouvrir le menu Principal"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          type="button"
+        >
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
+          <ul class="nav-list">
+            <!-- NAVIGATION UTILISATEUR CONNECTE -->
+            <li>
+              <a href="index.html" class="nav-link"
+                ><i class="fas fa-home"></i> Accueil</a
+              >
+            </li>
+            <li>
+              <a href="rechercher-covoiturage.html" class="nav-link"
+                ><i class="fas fa-search"></i> Rechercher</a
+              >
+            </li>
+            <li>
+              <a href="add-voyage.html" class="nav-link"
+                ><i class="fas fa-plus"></i> Publier</a
+              >
+            </li>
+            <li>
+              <a href="mes-reservations.html" class="nav-link active"
+                ><i class="fas fa-calendar-check"></i> Mes réservations</a
+              >
+            </li>
+            <li>
+              <a href="historique.html" class="nav-link"
+                ><i class="fas fa-history"></i> Historique</a
+              >
+            </li>
+            <li>
+              <a href="user-profile.html" class="nav-link"
+                ><i class="fas fa-user-circle"></i> Mon profil</a
+              >
+            </li>
+            <li>
+              <a href="add-vehicule.html" class="nav-link"
+                ><i class="fas fa-car"></i> Mes véhicules</a
+              >
+            </li>
+            <li>
+              <a href="add-preferences.html" class="nav-link"
+                ><i class="fas fa-cog"></i> Préférences</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+            <li>
+              <button
+                class="nav-link logout-btn"
+                onclick="logout()"
+                type="button"
+              >
+                <i class="fas fa-sign-out-alt"></i> Déconnexion
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <main>
-      <h1>📅 Mes trajets réservés</h1>
-      <div id="reservations-container">Chargement...</div>
+      <!-- SECTION PRESENTATION -->
+      <section class="presentation-section">
+        <div class="presentation-content">
+          <div class="text-content">
+            <h2>Mes réservations</h2>
+            <p>
+              <i class="fas fa-calendar-check"></i> Gérez vos trajets réservés
+              en toute simplicité
+            </p>
+            <p>
+              <i class="fas fa-route"></i> Suivez vos trajets en temps réel<br />
+              <i class="fas fa-clock"></i> Consultez l'historique de vos
+              voyages<br />
+              <i class="fas fa-user-friends"></i> Rencontrez d'autres
+              voyageurs<br />
+              <i class="fas fa-leaf"></i> Contribuez à un transport
+              éco-responsable
+            </p>
+          </div>
+          <div class="image-container">
+            <div class="reservations-hero-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="reservations-container">
+        <!-- Statistiques des réservations -->
+        <div class="stats-overview">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+            <div class="stat-value" id="total-reservations">0</div>
+            <div class="stat-label">Réservations actives</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+            <div class="stat-value" id="completed-trips">0</div>
+            <div class="stat-label">Trajets terminés</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-leaf"></i></div>
+            <div class="stat-value" id="co2-saved">0</div>
+            <div class="stat-label">kg CO₂ économisés</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-euro-sign"></i></div>
+            <div class="stat-value" id="money-saved">0</div>
+            <div class="stat-label">€ économisés</div>
+          </div>
+        </div>
+
+        <!-- Filtres -->
+        <div class="filters-section">
+          <h3><i class="fas fa-filter"></i> Filtrer mes réservations</h3>
+          <div class="filter-controls">
+            <select id="status-filter" class="filter-select">
+              <option value="">Tous les statuts</option>
+              <option value="en_attente">En attente</option>
+              <option value="confirme">Confirmé</option>
+              <option value="en_cours">En cours</option>
+              <option value="termine">Terminé</option>
+              <option value="annule">Annulé</option>
+            </select>
+            <input
+              type="date"
+              id="date-filter"
+              class="filter-input"
+              placeholder="Date"
+            />
+            <button id="reset-filters" class="btn-secondary">
+              <i class="fas fa-times"></i> Réinitialiser
+            </button>
+          </div>
+        </div>
+
+        <!-- Liste des réservations -->
+        <div class="reservations-list">
+          <h3><i class="fas fa-list"></i> Mes trajets réservés</h3>
+          <div id="reservations-cards">
+            <div class="loading-card">
+              <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+              </div>
+              <p>Chargement de vos réservations...</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
-    <script>
-      const container = document.getElementById("reservations-container");
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
+          <p>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
+          </p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
+          <ul>
+            <li>
+              <i class="fas fa-gavel"></i>
+              <a href="mentions.html"> Mentions légales</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <a href="contact.html"> Nous contacter</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" title="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" title="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i>
+        </p>
+      </div>
+    </footer>
 
-      fetch("../backend/reservations/mes_reservations.php")
-        .then((res) => res.json())
-        .then((data) => {
-          container.innerHTML = "";
-
-          if (data.length === 0) {
-            container.innerHTML =
-              "<p>Vous n’avez encore réservé aucun trajet.</p>";
-            return;
-          }
-
-          data.forEach((trajet) => {
-            const div = document.createElement("div");
-            div.classList.add("trajet");
-
-            div.innerHTML = `
-            <h3>${trajet.ville_depart} → ${trajet.ville_arrivee}</h3>
-            <p><strong>Date :</strong> ${trajet.date}</p>
-            <p><strong>Chauffeur :</strong> ${trajet.pseudo_chauffeur}</p>
-            <p><strong>Statut :</strong> ${trajet.statut}</p>
-            ${
-              trajet.statut !== "termine"
-                ? `<button onclick="annuler(${trajet.id})">❌ Annuler</button>`
-                : ""
-            }
-          `;
-
-            container.appendChild(div);
-          });
-        });
-
-      function annuler(trajetId) {
-        if (!confirm("Annuler votre réservation pour ce trajet ?")) return;
-
-        fetch("../backend/trajets/annuler.php", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: "trajet_id=" + trajetId,
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            alert(data.message);
-            location.reload();
-          });
-      }
-    </script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/mes-reservations.js"></script>
   </body>
 </html>

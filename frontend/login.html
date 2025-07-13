@@ -1,84 +1,414 @@
-<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Connexion – ecoCovoit</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta
+      name="description"
+      content="Connexion à ecoCovoit - Accédez à votre espace personnel pour gérer vos covoiturages écoresponsables."
+    />
+    <meta
+      name="keywords"
+      content="connexion, login, espace personnel, covoiturage, écologique"
+    />
+    <meta name="author" content="ecoCovoit" />
+    <title>Connexion - EcoCovoit</title>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
+    <link rel="stylesheet" href="assets/css/_header.css" />
+    <link rel="stylesheet" href="assets/css/_footer.css" />
+    <link rel="stylesheet" href="assets/css/login.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
   </head>
   <body>
-    <header><h1>Connexion – ecoCovoit</h1></header>
+    <!-- HEADER -->
+    <header class="header-public">
+      <div class="header-content">
+        <div class="logo-container">
+          <img
+            src="assets/img/logo-ecoRide.png"
+            alt="Logo ecoCovoit"
+            class="logo"
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <h1 class="app-title">ecoCovoit</h1>
+        </div>
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Ouvrir le menu Principal"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          type="button"
+        >
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
+          <ul class="nav-list">
+            <!-- NAVIGATION PUBLIQUE -->
+            <li>
+              <a href="index.html" class="nav-link">
+                <i class="fas fa-home"></i> Accueil
+              </a>
+            </li>
+            <li>
+              <a href="rechercher-covoiturage.html" class="nav-link">
+                <i class="fas fa-search"></i> Rechercher
+              </a>
+            </li>
+            <li>
+              <a href="contact.html" class="nav-link">
+                <i class="fas fa-envelope"></i> Contact
+              </a>
+            </li>
+            <li>
+              <a href="login.html" class="nav-link active">
+                <i class="fas fa-sign-in-alt"></i> Connexion
+              </a>
+            </li>
+            <li>
+              <a href="register.html" class="nav-link">
+                <i class="fas fa-user-plus"></i> Inscription
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
     <main>
-      <section class="login-section">
-        <div class="container">
-          <form id="login-form" class="form-card">
-            <h2>Connexion</h2>
+      <!-- SECTION PRESENTATION -->
+      <section class="presentation-section">
+        <div class="presentation-content">
+          <div class="text-content">
+            <h2>Bienvenue sur ecoCovoit</h2>
+            <p>
+              <i class="fas fa-user-circle"></i> Connectez-vous à votre espace
+              personnel
+            </p>
+            <p>
+              <i class="fas fa-car"></i> Accédez à vos trajets de covoiturage<br />
+              <i class="fas fa-users"></i> Rejoignez la communauté
+              écoresponsable<br />
+              <i class="fas fa-leaf"></i> Contribuez à un transport plus vert<br />
+              <i class="fas fa-gift"></i> Profitez de vos crédits gratuits
+            </p>
+          </div>
+          <div class="image-container">
+            <div class="auth-hero-icon">
+              <i class="fas fa-user-circle"></i>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <div class="form-group">
-              <label for="email"><i class="fas fa-envelope"></i> Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                placeholder="Adresse email"
-              />
+      <section class="auth-section">
+        <div class="auth-container">
+          <!-- Onglets -->
+          <div class="auth-tabs">
+            <button class="auth-tab active" id="login-tab">
+              <i class="fas fa-sign-in-alt"></i> Connexion
+            </button>
+            <button class="auth-tab" id="register-tab">
+              <i class="fas fa-user-plus"></i> Inscription
+            </button>
+          </div>
+
+          <!-- FORMULAIRE DE CONNEXION -->
+          <div class="auth-form-container active" id="login-form-container">
+            <div class="auth-header">
+              <div class="auth-header-icon">
+                <i class="fas fa-sign-in-alt"></i>
+              </div>
+              <h1><span class="highlight">Connexion</span></h1>
+              <p>Connectez-vous à votre espace ecoCovoit</p>
+              <div class="auth-header-decoration">
+                <div class="decoration-line"></div>
+                <i class="fas fa-user-circle decoration-icon"></i>
+                <div class="decoration-line"></div>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="password"
-                ><i class="fas fa-lock"></i> Mot de passe</label
-              >
-              <input
-                type="password"
-                id="password"
-                name="password"
-                required
-                placeholder="Mot de passe"
-              />
+            <form id="login-form" class="auth-form">
+              <div class="form-group">
+                <label for="login-email">
+                  <i class="fas fa-envelope"></i> Email
+                </label>
+                <div class="input-wrapper">
+                  <i class="fas fa-envelope"></i>
+                  <input
+                    type="email"
+                    id="login-email"
+                    name="email"
+                    placeholder="votre@email.com"
+                    required
+                    class="form-input"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="login-password">
+                  <i class="fas fa-lock"></i> Mot de passe
+                </label>
+                <div class="input-wrapper">
+                  <i class="fas fa-lock"></i>
+                  <input
+                    type="password"
+                    id="login-password"
+                    name="password"
+                    placeholder="Votre mot de passe"
+                    required
+                    class="form-input"
+                  />
+                  <button
+                    type="button"
+                    class="password-toggle"
+                    id="login-password-toggle"
+                  >
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-options">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="remember-me" name="remember" />
+                  Se souvenir de moi
+                </label>
+                <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-large">
+                <i class="fas fa-sign-in-alt"></i>
+                Se connecter
+              </button>
+
+              <div class="auth-message" id="login-message"></div>
+            </form>
+          </div>
+
+          <!-- FORMULAIRE D'INSCRIPTION -->
+          <div class="auth-form-container" id="register-form-container">
+            <div class="auth-header">
+              <div class="auth-header-icon">
+                <i class="fas fa-user-plus"></i>
+              </div>
+              <h1><span class="highlight">Inscription</span></h1>
+              <p>
+                Créez votre compte ecoCovoit et rejoignez un nouveau monde de
+                déplacements écoresponsables !
+              </p>
+              <div class="auth-header-decoration">
+                <div class="decoration-line"></div>
+                <i class="fas fa-gift decoration-icon"></i>
+                <div class="decoration-line"></div>
+              </div>
             </div>
 
-            <button type="submit" class="search-button">Se connecter</button>
-            <div id="login-message" class="message-box"></div>
-          </form>
+            <form id="register-form" class="auth-form">
+              <div class="form-group">
+                <label for="register-pseudo">
+                  <i class="fas fa-user"></i> Pseudo
+                </label>
+                <div class="input-wrapper">
+                  <i class="fas fa-user"></i>
+                  <input
+                    type="text"
+                    id="register-pseudo"
+                    name="pseudo"
+                    placeholder="Votre pseudo"
+                    required
+                    minlength="3"
+                    maxlength="20"
+                    class="form-input"
+                  />
+                </div>
+                <div class="field-help">Entre 3 et 20 caractères</div>
+              </div>
+
+              <div class="form-group">
+                <label for="register-email">
+                  <i class="fas fa-envelope"></i> Email
+                </label>
+                <div class="input-wrapper">
+                  <i class="fas fa-envelope"></i>
+                  <input
+                    type="email"
+                    id="register-email"
+                    name="email"
+                    placeholder="votre@email.com"
+                    required
+                    class="form-input"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="register-password">
+                  <i class="fas fa-lock"></i> Mot de passe
+                </label>
+                <div class="input-wrapper">
+                  <i class="fas fa-lock"></i>
+                  <input
+                    type="password"
+                    id="register-password"
+                    name="password"
+                    placeholder="Votre mot de passe"
+                    required
+                    minlength="8"
+                    class="form-input"
+                  />
+                  <button
+                    type="button"
+                    class="password-toggle"
+                    id="register-password-toggle"
+                  >
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+                <div class="password-strength" id="password-strength"></div>
+                <div class="field-help">
+                  Le mot de passe doit contenir au moins 8 caractères, avec au
+                  moins :
+                  <ul>
+                    <li>1 lettre minuscule</li>
+                    <li>1 lettre majuscule</li>
+                    <li>1 chiffre</li>
+                    <li>1 caractère spécial (!@#$%^&*)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="register-password-confirm">
+                  <i class="fas fa-lock"></i> Confirmer le mot de passe
+                </label>
+                <div class="input-wrapper">
+                  <i class="fas fa-lock"></i>
+                  <input
+                    type="password"
+                    id="register-password-confirm"
+                    name="password_confirm"
+                    placeholder="Confirmez votre mot de passe"
+                    required
+                    class="form-input"
+                  />
+                </div>
+                <div class="password-match" id="password-match"></div>
+              </div>
+
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input
+                    type="checkbox"
+                    id="accept-terms"
+                    name="terms"
+                    required
+                  />
+                  J'accepte les
+                  <a href="mentions.html" target="_blank"
+                    >conditions d'utilisation</a
+                  >
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-large">
+                <i class="fas fa-user-plus"></i>
+                Créer mon compte
+              </button>
+
+              <div class="auth-message" id="register-message"></div>
+            </form>
+          </div>
+
+          <!-- Informations crédits -->
+          <div class="credits-info">
+            <div class="credits-card">
+              <i class="fas fa-gift"></i>
+              <h3>Offre de bienvenue</h3>
+              <p>
+                Recevez <strong>20 crédits gratuits</strong> à l'inscription
+                pour commencer vos trajets !
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer>
-      <p>&copy; 2025 ecoCovoit – Tous droits réservés</p>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
+          <p>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
+          </p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
+          <ul>
+            <li>
+              <i class="fas fa-gavel"></i
+              ><a href="mentions.html"> Mentions légales</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i
+              ><a href="contact.html"> Nous contacter</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link" title="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link" title="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i>
+        </p>
+      </div>
     </footer>
 
-    <script>
-      document
-        .getElementById("login-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          const formData = new FormData(this);
-
-          fetch("../backend/auth/login.php", {
-            method: "POST",
-            body: formData,
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              const msg = document.getElementById("login-message");
-              msg.textContent = data.message;
-              msg.style.color = data.success ? "green" : "red";
-
-              if (data.success) {
-                // Rediriger vers la page d’accueil ou espace utilisateur
-                setTimeout(() => {
-                  window.location.href = "user-profile.html"; // à ajuster selon ta structure
-                }, 1000);
-              }
-            });
-        });
-    </script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/auth.js"></script>
   </body>
 </html>

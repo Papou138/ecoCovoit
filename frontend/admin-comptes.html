@@ -1,0 +1,366 @@
+﻿﻿?<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Gestion des comptes ecoCovoit - Interface administrateur pour g�rer les utilisateurs de la plateforme de covoiturage."
+    />
+    <meta
+      name="keywords"
+      content="gestion comptes, utilisateurs, administration, mod�ration, covoiturage"
+    />
+    <meta name="author" content="ecoCovoit" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Gestion des Comptes - Admin ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
+    <link rel="stylesheet" href="assets/css/_header.css" />
+    <link rel="stylesheet" href="assets/css/_footer.css" />
+    <link rel="stylesheet" href="assets/css/admin-comptes.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header-admin">
+      <div class="header-content">
+        <div class="logo-container">
+          <img
+            src="assets/img/logo-ecoRide.png"
+            alt="Logo ecoCovoit"
+            class="logo"
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <h1 class="app-title">ecoCovoit - Admin</h1>
+        </div>
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Ouvrir le menu principal"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          type="button"
+        >
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
+          <ul class="nav-list">
+            <!-- NAVIGATION ADMIN -->
+            <li>
+              <a href="admin-dashboard.html" class="nav-link"
+                ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+              >
+            </li>
+            <li>
+              <a href="admin-comptes.html" class="nav-link active"
+                ><i class="fas fa-users"></i> Comptes</a
+              >
+            </li>
+            <li>
+              <a href="employe-avis.html" class="nav-link"
+                ><i class="fas fa-star"></i> Avis</a
+              >
+            </li>
+            <li>
+              <a href="employe-incidents.html" class="nav-link"
+                ><i class="fas fa-exclamation-triangle"></i> Incidents</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+            <li>
+              <button
+                class="nav-link logout-btn"
+                onclick="logout()"
+                type="button"
+              >
+                <i class="fas fa-sign-out-alt"></i> D�connexion
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- SECTION PRESENTATION -->
+      <section class="presentation-section">
+        <div class="presentation-content">
+          <div class="text-content">
+            <h2>Gestion des Comptes</h2>
+            <p>
+              <i class="fas fa-users-cog"></i> Administration compl�te des
+              utilisateurs de la plateforme
+            </p>
+            <p>
+              <i class="fas fa-shield-alt"></i> S�curit� et contr�le<br />
+              <i class="fas fa-chart-bar"></i> Statistiques en temps r�el<br />
+              <i class="fas fa-tools"></i> Outils d'administration<br />
+              <i class="fas fa-user-check"></i> Gestion des permissions
+            </p>
+          </div>
+          <div class="image-container">
+            <div class="admin-hero-icon">
+              <i class="fas fa-users-cog"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="admin-container">
+        <!-- Statistiques des comptes -->
+        <div class="stats-overview">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-users"></i></div>
+            <div class="stat-value" id="total-accounts">2,847</div>
+            <div class="stat-label">Total comptes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-user-check"></i></div>
+            <div class="stat-value" id="active-accounts">2,341</div>
+            <div class="stat-label">Comptes actifs</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-user-slash"></i></div>
+            <div class="stat-value" id="suspended-accounts">12</div>
+            <div class="stat-label">Suspendus</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-user-plus"></i></div>
+            <div class="stat-value" id="new-accounts">127</div>
+            <div class="stat-label">Ce mois</div>
+          </div>
+        </div>
+
+        <!-- Filtres -->
+        <div class="filters-section">
+          <h3>Filtres de recherche</h3>
+          <div class="filters-grid">
+            <div class="filter-group">
+              <label for="filter-status">Statut</label>
+              <select id="filter-status">
+                <option value="tous">Tous les statuts</option>
+                <option value="actif">Actifs</option>
+                <option value="inactif">Inactifs</option>
+                <option value="suspendu">Suspendus</option>
+                <option value="verifie">V�rifi�s</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-role">R�le</label>
+              <select id="filter-role">
+                <option value="tous">Tous les r�les</option>
+                <option value="utilisateur">Utilisateur</option>
+                <option value="chauffeur">Chauffeur</option>
+                <option value="employe">Employ�</option>
+                <option value="admin">Administrateur</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-date-debut">Inscrit apr�s le</label>
+              <input type="date" id="filter-date-debut" />
+            </div>
+            <div class="filter-group">
+              <label for="filter-search">Recherche</label>
+              <input
+                type="text"
+                id="filter-search"
+                placeholder="Nom, email..."
+              />
+            </div>
+          </div>
+          <div class="search-actions">
+            <button onclick="applyFilters()" class="btn btn-primary">
+              Rechercher
+            </button>
+            <button onclick="resetFilters()" class="btn btn-warning">
+              R�initialiser
+            </button>
+            <button onclick="exportUsers()" class="btn btn-success">
+              Exporter
+            </button>
+            <button onclick="showCreateUserModal()" class="btn btn-primary">
+              Nouveau compte
+            </button>
+          </div>
+        </div>
+
+        <!-- Tableau des utilisateurs -->
+        <div class="users-table">
+          <div class="table-header">
+            <div class="table-title">Liste des utilisateurs</div>
+            <div class="table-controls">
+              <button
+                onclick="refreshUsers()"
+                class="btn btn-primary btn-small"
+              >
+                Actualiser
+              </button>
+            </div>
+          </div>
+
+          <div id="users-container">
+            <div class="loading">
+              <div class="spinner"></div>
+              <p>Chargement des utilisateurs...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination-container">
+          <!-- Pagination g�n�r�e dynamiquement -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal de cr�ation/�dition d'utilisateur -->
+    <div id="userModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="modal-title">Cr�er un utilisateur</h2>
+          <button
+            type="button"
+            class="close"
+            onclick="closeUserModal()"
+            onkeydown="if(event.key==='Enter') closeUserModal()"
+            aria-label="Fermer"
+          >
+            &times;
+          </button>
+        </div>
+        <form id="userForm">
+          <div class="form-group">
+            <label for="user-nom">Nom *</label>
+            <input type="text" id="user-nom" name="nom" required />
+          </div>
+          <div class="form-group">
+            <label for="user-prenom">Pr�nom *</label>
+            <input type="text" id="user-prenom" name="prenom" required />
+          </div>
+          <div class="form-group">
+            <label for="user-email">Email *</label>
+            <input type="email" id="user-email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="user-telephone">T�l�phone</label>
+            <input type="tel" id="user-telephone" name="telephone" />
+          </div>
+          <div class="form-group">
+            <label for="user-role">R�le</label>
+            <select id="user-role" name="role">
+              <option value="utilisateur">Utilisateur</option>
+              <option value="chauffeur">Chauffeur</option>
+              <option value="employe">Employ�</option>
+              <option value="admin">Administrateur</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="user-status">Statut</label>
+            <select id="user-status" name="status">
+              <option value="actif">Actif</option>
+              <option value="inactif">Inactif</option>
+              <option value="suspendu">Suspendu</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="user-notes">Notes administratives</label>
+            <textarea
+              id="user-notes"
+              name="notes"
+              rows="3"
+              placeholder="Notes internes (optionnel)"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <button
+              type="button"
+              onclick="closeUserModal()"
+              class="btn btn-warning"
+            >
+              Annuler
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
+          <p>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            �coresponsable
+          </p>
+          <p>
+            <i class="fas fa-handshake"></i> R�duisons ensemble notre empreinte
+            carbone
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
+          <ul>
+            <li>
+              <i class="fas fa-gavel"></i>
+              <a href="mentions.html"> Mentions l�gales</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <a href="contact.html"> Nous contacter</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" title="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" title="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EcoRide. Tous droits r�serv�s.</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilit� plus verte
+          <i class="fas fa-leaf"></i>
+        </p>
+      </div>
+    </footer>
+
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/admin-comptes.js"></script>
+  </body>
+</html>

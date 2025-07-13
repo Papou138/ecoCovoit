@@ -1,0 +1,415 @@
+﻿﻿<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dashboard Administrateur ecoCovoit - Interface d'administration pour gérer la plateforme de covoiturage écoresponsable."
+    />
+    <meta
+      name="keywords"
+      content="administration, dashboard, gestion, covoiturage, statistiques, modération"
+    />
+    <meta name="author" content="ecoCovoit" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Dashboard Administrateur - ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
+    <link rel="stylesheet" href="assets/css/_header.css" />
+    <link rel="stylesheet" href="assets/css/_footer.css" />
+    <link rel="stylesheet" href="assets/css/admin-dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header-admin">
+      <div class="header-content">
+        <div class="logo-container">
+          <img
+            src="assets/img/logo-ecoRide.png"
+            alt="Logo ecoCovoit"
+            class="logo"
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <h1 class="app-title">ecoCovoit - Dashboard</h1>
+        </div>
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Ouvrir le menu principal"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          type="button"
+        >
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
+          <ul class="nav-list">
+            <!-- NAVIGATION ADMIN -->
+            <li>
+              <a href="admin-dashboard.html" class="nav-link active"
+                ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+              >
+            </li>
+            <li>
+              <a href="admin-comptes.html" class="nav-link"
+                ><i class="fas fa-users"></i> Comptes</a
+              >
+            </li>
+            <li>
+              <a href="employe-avis.html" class="nav-link"
+                ><i class="fas fa-star"></i> Avis</a
+              >
+            </li>
+            <li>
+              <a href="employe-incidents.html" class="nav-link"
+                ><i class="fas fa-exclamation-triangle"></i> Incidents</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+            <li>
+              <button
+                class="nav-link logout-btn"
+                onclick="logout()"
+                type="button"
+              >
+                <i class="fas fa-sign-out-alt"></i> Déconnexion
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- SECTION PRESENTATION -->
+      <section class="presentation-section">
+        <div class="presentation-content">
+          <div class="text-content">
+            <h2>Dashboard Administrateur</h2>
+            <p>
+              <i class="fas fa-chart-line"></i> Vue d'ensemble complète de la
+              plateforme ecoCovoit
+            </p>
+            <p>
+              <i class="fas fa-tachometer-alt"></i> Monitoring en temps réel<br />
+              <i class="fas fa-chart-bar"></i> Statistiques détaillées<br />
+              <i class="fas fa-bell"></i> Alertes et notifications<br />
+              <i class="fas fa-cogs"></i> Gestion avancée
+            </p>
+          </div>
+          <div class="image-container">
+            <div class="admin-hero-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="admin-container">
+        <!-- Alertes importantes -->
+        <div class="alerts-section">
+          <h3 class="section-title">Alertes importantes</h3>
+          <div id="alerts-container">
+            <div class="alert-item alert-critical">
+              <div class="activity-icon"></div>
+              <div>
+                <div class="activity-title">Serveur de paiement instable</div>
+                <div class="activity-desc">
+                  Plusieurs échecs de paiement détectés dans la dernière heure
+                </div>
+              </div>
+              <button class="btn btn-danger">Résoudre</button>
+            </div>
+            <div class="alert-item alert-warning">
+              <div class="activity-icon"></div>
+              <div>
+                <div class="activity-title">Pic d'utilisation</div>
+                <div class="activity-desc">
+                  Trafic 150% supérieur à la normale ce soir
+                </div>
+              </div>
+              <button class="btn btn-warning">Surveiller</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistiques principales -->
+        <div class="dashboard-grid">
+          <div class="stats-section">
+            <h3 class="section-title">Utilisateurs</h3>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-value" id="total-users">2,847</div>
+                <div class="stat-label">Total</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="new-users">127</div>
+                <div class="stat-label">Ce mois</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="active-users">1,623</div>
+                <div class="stat-label">Actifs</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="verified-users">2,341</div>
+                <div class="stat-label">Vérifiés</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stats-section">
+            <h3 class="section-title">Trajets</h3>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-value" id="total-trips">8,412</div>
+                <div class="stat-label">Total</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="completed-trips">7,891</div>
+                <div class="stat-label">Terminés</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="active-trips">89</div>
+                <div class="stat-label">En cours</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="cancelled-trips">432</div>
+                <div class="stat-label">Annulés</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stats-section">
+            <h3 class="section-title">Finances</h3>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-value" id="revenue">€ 24.7k</div>
+                <div class="stat-label">Revenus</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="commission">€ 4.2k</div>
+                <div class="stat-label">Commission</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="refunds">€ 847</div>
+                <div class="stat-label">Remboursements</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="pending">€ 1.2k</div>
+                <div class="stat-label">En attente</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stats-section">
+            <h3 class="section-title">Impact écologique</h3>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-value" id="co2-saved">12.4 t</div>
+                <div class="stat-label">CO₂ économisé</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="km-shared">89.2 k</div>
+                <div class="stat-label">km partagés</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="fuel-saved">€ 6.8 k</div>
+                <div class="stat-label">Carburant économisé</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="trees-equivalent">847</div>
+                <div class="stat-label">Arbres équivalents</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Graphiques -->
+        <div class="chart-container">
+          <h3 class="section-title">Evolution des inscriptions</h3>
+          <div class="chart-placeholder">
+            Graphique des inscriptions sur les 12 derniers mois
+            <br /><small>(Intégration Chart.js à venir)</small>
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <h3 class="section-title">Répartition des trajets par région</h3>
+          <div class="chart-placeholder">
+            Carte de répartition géographique des trajets
+            <br /><small>(Intégration carte interactive à venir)</small>
+          </div>
+        </div>
+
+        <!-- Actions rapides -->
+        <div class="quick-actions">
+          <h3 class="section-title">Actions rapides</h3>
+          <div class="actions-grid">
+            <a href="admin-comptes.html" class="action-card">
+              <div class="action-icon"></div>
+              <div class="action-title">Gérer les comptes</div>
+              <div class="action-desc">Voir et modérer les utilisateurs</div>
+            </a>
+            <a href="employe-avis.html" class="action-card">
+              <div class="action-icon"></div>
+              <div class="action-title">Valider les avis</div>
+              <div class="action-desc">Modérer les commentaires</div>
+            </a>
+            <a href="employe-incidents.html" class="action-card">
+              <div class="action-icon"></div>
+              <div class="action-title">Support client</div>
+              <div class="action-desc">Résoudre les incidents</div>
+            </a>
+            <div class="action-card" onclick="generateReport()">
+              <div class="action-icon"></div>
+              <div class="action-title">Générer rapport</div>
+              <div class="action-desc">Rapport d'activité mensuel</div>
+            </div>
+            <div class="action-card" onclick="sendNewsletter()">
+              <div class="action-icon"></div>
+              <div class="action-title">Newsletter</div>
+              <div class="action-desc">Envoyer communication</div>
+            </div>
+            <div class="action-card" onclick="systemMaintenance()">
+              <div class="action-icon"></div>
+              <div class="action-title">Maintenance</div>
+              <div class="action-desc">Gestion système</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activité récente -->
+        <div class="recent-activity">
+          <h3 class="section-title">Activité récente</h3>
+          <div class="activity-list" id="activity-list">
+            <div class="activity-item">
+              <div class="activity-icon success"></div>
+              <div class="activity-content">
+                <div class="activity-title">Nouveau trajet publié</div>
+                <div class="activity-desc">
+                  Paris &rarr; Lyon par Marie Dupont
+                </div>
+              </div>
+              <div class="activity-time">Il y a 5 min</div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon info"></div>
+              <div class="activity-content">
+                <div class="activity-title">Nouvel utilisateur</div>
+                <div class="activity-desc">Jean Martin a créé son compte</div>
+              </div>
+              <div class="activity-time">Il y a 12 min</div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon warning"></div>
+              <div class="activity-content">
+                <div class="activity-title">Incident signalé</div>
+                <div class="activity-desc">Problème de paiement #1247</div>
+              </div>
+              <div class="activity-time">Il y a 23 min</div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon success"></div>
+              <div class="activity-content">
+                <div class="activity-title">Avis validé</div>
+                <div class="activity-desc">
+                  Avis 5 étoiles pour trajet #8891
+                </div>
+              </div>
+              <div class="activity-time">Il y a 45 min</div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon info"></div>
+              <div class="activity-content">
+                <div class="activity-title">Trajet terminé</div>
+                <div class="activity-desc">
+                  Bordeaux &rarr; Toulouse avec 3 passagers
+                </div>
+              </div>
+              <div class="activity-time">Il y a 1h</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
+          <p>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
+          </p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
+          <ul>
+            <li>
+              <i class="fas fa-gavel"></i>
+              <a href="mentions.html"> Mentions légales</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <a href="contact.html"> Nous contacter</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" title="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" title="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i>
+        </p>
+      </div>
+    </footer>
+
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/admin-dashboard.js"></script>
+  </body>
+</html>

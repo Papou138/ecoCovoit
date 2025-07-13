@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "proprietaire_id": 2,
+        "marque": "Tesla",
+        "modele": "Model 3",
+        "couleur": "Blanc",
+        "immatriculation": "AB-123-CD",
+        "nombre_places": 4,
+        "type_energie": "electrique",
+        "actif": true
+    },
+    {
+        "proprietaire_id": 2,
+        "marque": "Peugeot",
+        "modele": "208",
+        "couleur": "Rouge",
+        "immatriculation": "TEST-1752267528",
+        "date_premiere_immat": "2020-01-15",
+        "nombre_places": 4,
+        "type_energie": "essence",
+        "actif": true,
+        "id": 2,
+        "date_creation": "2025-07-11 22:58:48",
+        "date_modification": "2025-07-11 22:58:48"
+    },
+    {
+        "proprietaire_id": 2,
+        "marque": "Toyota",
+        "modele": "Prius",
+        "couleur": "Verte",
+        "immatriculation": "TEST-1752267723",
+        "nombre_places": 4,
+        "type_energie": "hybride",
+        "actif": false,
+        "id": 3,
+        "date_creation": "2025-07-11 23:02:03",
+        "date_modification": "2025-07-11 23:02:03"
+    },
+    {
+        "proprietaire_id": 6,
+        "marque": "Renault",
+        "modele": "Zoé",
+        "couleur": "Blanc",
+        "immatriculation": "AB-123-CD",
+        "type_carburant": "électrique",
+        "nombre_places": 4,
+        "date_ajout": "2025-07-11 23:12:32",
+        "id": 4,
+        "date_creation": "2025-07-11 23:12:32"
+    }
+]

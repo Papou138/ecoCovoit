@@ -1,31 +1,35 @@
-/* ========================= */
-/* Variables CSS globales    */
-/* ========================= */
-:root {
-  /* Familles de polices */
-  --font-mono: "Consolas", "Monaco", monospace;
+/* ============================ */
+/* =  VARIABLES CSS GLOBALES  = */
+/* ============================ */
 
-  /* Palette de couleurs */
+:root {
+  /* FAMILLES DE POLICES */
+  --font-mono: 'Consolas', 'Monaco', monospace;
+
+  /* PALETTE DE COULEURS */
   --color-primary: #4caf50; /* Vert - Couleur principale */
   --color-primary-dark: #45a049; /* Vert foncé */
   --color-primary-light: #a5d6a7; /* Version claire de la couleur primaire */
   --color-secondary: #2196f3; /* Bleu */
   --color-tertiary: #ff9800; /* Orange pour les alertes/notifications */
+  --color-accent: #43e97b; /* Couleur d'accentuation - Vert lumineux */
+  --color-accent-light: #a2f2c0; /* Version claire de la couleur d'accentuation */
   --color-border: #e0e0e0; /* Couleur de bordure standard */
 
-  /* Couleurs de texte */
+  /* COULEURS DE TEXTE */
   --color-text-primary: #333333; /* Texte principal */
   --color-text-secondary: #666666; /* Texte secondaire */
+  --color-text-tertiary: #2196f3; /* Texte tertiaire */
   --color-text-light: #ffffff; /* Texte clair */
 
-  /* Couleurs de fond */
+  /* COULEURS DE FOND */
   --color-bg-primary: #ffffff; /* Fond principal */
   --color-bg-secondary: #f0f8ff; /* Fond secondaire */
   --color-bg-tertiary: #f8f9fa; /* Fond tertiaire */
   --color-bg-light: #f6f6f6; /* Fond léger */
   --color-text: #222222; /* Couleur de texte par défaut */
 
-  /* Couleurs d'état */
+  /* COULEURS D'ETAT */
   --color-success: #28a745; /* Succès */
   --color-success-dark: #218838; /* Succès foncé */
   --color-success-light: #eafaf1; /* Succès clair */
@@ -34,12 +38,12 @@
   --color-warning-light: #fff3cc; /* Avertissement léger */
   --color-info: #17a2b8; /* Information */
 
-  /* Couleurs d'état pour les boutons */
+  /* COULEURS D'ETAT POUR LES BOUTONS */
   --color-danger: #dc3545;
   --color-danger-dark: #c82333;
   --color-danger-light: #f8d7da;
 
-  /* Espacements */
+  /* ESPACEMENTS */
   --space-xxs: 0.125rem; /* 2px */
   --space-xs: 0.25rem; /* 4px */
   --space-sm: 0.5rem; /* 8px */
@@ -48,24 +52,25 @@
   --space-xl: 2rem; /* 32px */
   --space-xxl: 4rem; /* 64px */
 
-  /* Border radius */
+  /* BORDER RADIUS */
   --radius-sm: 4px; /* Petit arrondi */
   --radius-md: 8px; /* Arrondi moyen */
   --radius-lg: 16px; /* Grand arrondi */
   --radius-full: 999px; /* Arrondi complet */
 
-  /* Ombres */
+  /* OMBRES */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12); /* Ombre moyenne */
   --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15); /* Ombre prononcée */
+  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.2); /* Ombre extra-large */
   --shadow-focus: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Ombre de focus */
 
-  /* Transitions */
+  /* TRANSITIONS */
   --transition-fast: 150ms ease; /* Transition rapide */
   --transition-base: 300ms ease; /* Transition normale */
   --transition-slow: 500ms ease; /* Transition lente */
 
-  /* Tailles de police */
+  /* TAILLES DE POLICE */
   --font-size-xs: 0.75rem; /* 12px */
   --font-size-sm: 0.875rem; /* 14px */
   --font-size-base: 1rem; /* 16px */
@@ -73,17 +78,52 @@
   --font-size-xl: 1.25rem; /* 20px */
   --font-size-xxl: 1.5rem; /* 24px */
 
-  /* Grilles */
+  /* GRILLES */
   --grid-gap: 2rem;
   --grid-columns-mobile: 1fr;
   --grid-columns-desktop: repeat(4, 1fr);
+
+  /* MISE EN PAGE */
+  --container-max-width: 1200px;
+  --section-padding-desktop: var(--space-xxl);
+  --section-padding-tablet: var(--space-xl);
+  --section-padding-mobile: var(--space-lg);
+
+  /* VARIABLES POUR LES IMAGES RESPONSIVES */
+  --image-max-height-desktop: 450px;
+  --image-max-height-tablet: 350px;
+  --image-max-height-mobile: 250px;
+  --image-min-height: 150px;
+
+  /* VARIABLES POUR LES RATIOS D'ASPECT */
+  --aspect-ratio-wide: 16/9;
+  --aspect-ratio-standard: 4/3;
+  --aspect-ratio-portrait: 3/4;
+  --aspect-ratio-square: 1/1;
+
+  /* VARIABLES POUR LES BREAKPOINTS */
+  --breakpoint-xl: 1100px;
+  --breakpoint-lg: 900px;
+  --breakpoint-md: 768px;
+  --breakpoint-sm: 480px;
+
+  /* VARIABLES POUR LES z-index */
+  --z-index-base: 1;
+  --z-index-elevated: 2;
+  --z-index-overlay: 10;
+  --z-index-modal: 100;
+
+  /* VARIABLES POUR LES ANIMATIONS */
+  --animation-duration-fast: 0.3s;
+  --animation-duration-normal: 0.6s;
+  --animation-duration-slow: 0.8s;
 }
 
-/* ========================= */
-/* Styles communs réutilisables */
-/* ========================= */
+/* ================================== */
+/* =  STYLES COMMUNS REUTILISABLES  = */
+/* ================================== */
 
-/* Mise en page principale */
+/* ===== MISE EN PAGE PRINCIPALE ===== */
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: var(--color-bg-light);
@@ -108,7 +148,8 @@ main {
   padding: var(--space-xl) 0;
 }
 
-/* Section présentation */
+/* ===== SECTION PRINCIPALE ===== */
+
 #presentation {
   text-align: center;
   margin-bottom: 0;
@@ -126,7 +167,8 @@ main {
   width: 100%;
 }
 
-/* Gestion des images */
+/* ===== GESTION DES IMAGES ===== */
+
 .image-container {
   width: 100%;
   max-width: 800px;
@@ -147,7 +189,8 @@ main {
   transform: scale(1.02);
 }
 
-/* Images dans les labels de formulaire */
+/* ===== IMAGES DANS LES LABELS DE FORMULAIRE ===== */
+
 label img,
 .form-label img {
   display: inline-block;
@@ -161,7 +204,8 @@ label img,
   background: var(--color-bg-tertiary);
 }
 
-/* Icônes dans les labels de formulaire */
+/* ===== ICÔNES DANS LES LABELS DE FORMULAIRE ===== */
+
 label i,
 .form-label i {
   display: inline-block;
@@ -173,7 +217,8 @@ label i,
   text-align: center;
 }
 
-/* En-têtes et typographie */
+/* ===== EN-TETES ET TYPOGRAPHIE ===== */
+
 .section-title {
   font-size: var(--font-size-xl);
   color: var(--color-text-primary);
@@ -189,7 +234,8 @@ label i,
   font-size: var(--font-size-lg);
 }
 
-/* Systèmes de grille */
+/* ===== SYSTEMES DE GRILLE ===== */
+
 .grid {
   display: grid;
   gap: var(--space-md);
@@ -207,7 +253,8 @@ label i,
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
-/* Section des fonctionnalités */
+/* ===== SECTION DES FONCTIONNALITES ===== */
+
 .features-section {
   padding: var(--space-xl) 0;
   background-color: var(--color-bg-secondary);
@@ -250,7 +297,8 @@ label i,
   line-height: 1.6;
 }
 
-/* Composants cartes */
+/* ===== COMPOSANTS CARTES ===== */
+
 .card {
   background-color: var(--color-bg-primary);
   border-radius: var(--radius-md);
@@ -264,7 +312,8 @@ label i,
   box-shadow: var(--shadow-lg);
 }
 
-/* Système de boutons */
+/* ===== SYSTEME DE BOUTONS ===== */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -374,7 +423,8 @@ label i,
   width: 100%;
 }
 
-/* Système de formulaires */
+/* ===== SYSTEME DE FORMULAIRES ===== */
+
 .form-group {
   display: flex;
   flex-direction: column;
@@ -506,12 +556,12 @@ select[disabled] {
   opacity: 0.7;
 }
 
-input[type="date"].form-input {
+input[type='date'].form-input {
   padding-right: var(--space-lg);
 }
 
-input[type="checkbox"],
-input[type="radio"] {
+input[type='checkbox'],
+input[type='radio'] {
   accent-color: var(--color-primary);
   margin-right: var(--space-xs);
 }
@@ -540,7 +590,8 @@ select.error {
   transition: var(--transition-fast);
 }
 
-/* Images dans les formulaires (aperçu, upload, etc.) */
+/* ===== IMAGES DANS LES FORMULAIRES (aperçu, upload, etc.) ===== */
+
 .form-image-preview {
   display: block;
   max-width: 120px;
@@ -585,7 +636,7 @@ select.error {
   color: var(--color-text-light);
 }
 
-/* Messages d'état */
+/* ===== MESSAGES D'ETAT ===== */
 .alert {
   padding: var(--space-md);
   border-radius: var(--radius-md);
@@ -610,7 +661,8 @@ select.error {
   color: var(--color-warning);
 }
 
-/* Utilitaires de mise en page */
+/* ===== UTILITAIRES DE MISE EN PAGE ===== */
+
 .flex {
   display: flex;
 }
@@ -634,7 +686,10 @@ select.error {
   gap: var(--space-lg);
 }
 
-/* Animations communes */
+/* ========================= */
+/* =  ANIMATIONS COMMUNES  = */
+/* ========================= */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -646,7 +701,10 @@ select.error {
   }
 }
 
-/* Responsive design */
+/* ======================= */
+/* =  RESPONSIVE DESIGN  = */
+/* ======================= */
+
 @media screen and (max-width: 1024px) {
   .container {
     padding: 0 var(--space-lg);

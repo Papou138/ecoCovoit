@@ -58,13 +58,13 @@ try {
 
     foreach ($passagers as $passager) {
         $to = $passager['email'];
-        $subject = "ecoCovoit – Évaluez votre trajet";
+        $subject = "ecoCovoit – Evaluez votre trajet";
         $message = "Bonjour " . $passager['pseudo'] . ",\n\n"
-                 . "Le trajet auquel vous avez participé est terminé. "
-                 . "Merci de vous connecter à votre espace pour le valider "
-                 . "et laisser un avis au chauffeur.\n\n"
-                 . "👉 Cliquez ici : http://localhost/ecoCovoit/frontend/laisser-avis.html?trajet_id=$trajet_id\n\n"
-                 . "À bientôt sur ecoCovoit !";
+            . "Le trajet auquel vous avez participé est terminé. "
+            . "Merci de vous connecter à votre espace pour le valider "
+            . "et laisser un avis au chauffeur.\n\n"
+            . "👉 Cliquez ici : http://localhost/ecoCovoit/frontend/laisser-avis.html?trajet_id=$trajet_id\n\n"
+            . "A bientôt sur ecoCovoit !";
         $headers = "From: noreply@ecocovoit.com";
 
         mail($to, $subject, $message, $headers); // simple version locale

@@ -1,0 +1,128 @@
+[
+    {
+        "id": 1,
+        "chauffeur_id": 2,
+        "vehicule_id": 1,
+        "ville_depart": "Paris",
+        "ville_arrivee": "Lyon",
+        "date_depart": "2025-07-13 20:43:05",
+        "prix": 25,
+        "nombre_places_total": 3,
+        "nombre_places_restantes": 2,
+        "statut": "termine",
+        "date_creation": "2025-07-11 20:43:05",
+        "date_modification": "2025-07-11 23:56:15",
+        "heure_depart_reelle": "23:34:11",
+        "date_mise_a_jour": "2025-07-11 23:34:11",
+        "heure_arrivee_reelle": "01:34",
+        "kilometrage_reel": 125,
+        "date_fin": "2025-07-11 23:34:11",
+        "signalements": [
+            {
+                "reporter_id": 1,
+                "reason": "test_validation",
+                "description": "Test de validation automatique",
+                "date": "2025-07-11 23:50:06",
+                "traite": false
+            },
+            {
+                "reporter_id": 1,
+                "reason": "test_validation",
+                "description": "Test de validation automatique",
+                "date": "2025-07-11 23:56:15",
+                "traite": false
+            }
+        ],
+        "signale": false,
+        "moderation_statut": "approuve",
+        "actions_moderateur": [
+            {
+                "moderator_id": 1,
+                "action": "approve",
+                "reason": "Test de validation réussi",
+                "date": "2025-07-11 23:56:15"
+            }
+        ]
+    },
+    {
+        "chauffeur_id": 2,
+        "vehicule_id": 1,
+        "ville_depart": "Marseille",
+        "ville_arrivee": "Nice",
+        "date_depart": "2025-07-14 22:43:16",
+        "prix": 15,
+        "nombre_places_total": 3,
+        "nombre_places_restantes": 3,
+        "statut": "planifie",
+        "id": 2,
+        "date_creation": "2025-07-11 22:43:16"
+    },
+    {
+        "chauffeur_id": 6,
+        "depart": "Paris",
+        "arrivee": "Lyon",
+        "date_depart": "2025-07-12",
+        "heure_depart": "08:00",
+        "nombre_places": 3,
+        "nombre_places_restantes": 3,
+        "prix": 25,
+        "vehicule_id": 4,
+        "description": "Trajet direct sans arrêt",
+        "accepte_animaux": false,
+        "accepte_fumeurs": false,
+        "accepte_bagages": true,
+        "max_detour": 5,
+        "statut": "planifie",
+        "date_creation": "2025-07-11 23:12:32",
+        "duree_estimee": 120,
+        "id": 3
+    },
+    {
+        "chauffeur_id": 6,
+        "depart": "Paris",
+        "arrivee": "Marseille",
+        "date_depart": "2025-07-13",
+        "heure_depart": "14:30",
+        "nombre_places": 2,
+        "nombre_places_restantes": 1,
+        "prix": 45,
+        "vehicule_id": 4,
+        "description": "Trajet avec arrêt à Avignon possible",
+        "accepte_animaux": true,
+        "accepte_fumeurs": false,
+        "accepte_bagages": true,
+        "max_detour": 15,
+        "statut": "planifie",
+        "date_creation": "2025-07-11 23:12:32",
+        "duree_estimee": 180,
+        "id": 4
+    },
+    {
+        "id": 5,
+        "chauffeur_id": 3,
+        "depart": "Lyon",
+        "arrivee": "Marseille",
+        "date_depart": "2025-07-05",
+        "heure_depart": "08:00",
+        "places_disponibles": 3,
+        "prix_par_place": 25,
+        "statut": "termine",
+        "distance_km": 315,
+        "date_creation": "2025-07-05 00:03:37",
+        "description": "Trajet Lyon-Marseille, arrêt possible à Valence"
+    },
+    {
+        "id": 6,
+        "chauffeur_id": 4,
+        "depart": "Toulouse",
+        "arrivee": "Bordeaux",
+        "date_depart": "2025-07-09",
+        "heure_depart": "14:30",
+        "places_disponibles": 2,
+        "prix_par_place": 18,
+        "statut": "termine",
+        "distance_km": 244,
+        "date_creation": "2025-07-09 00:03:37",
+        "description": "Trajet direct sans arrêt"
+    }
+]

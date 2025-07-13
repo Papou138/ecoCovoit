@@ -1,105 +1,424 @@
-<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mon profil – ecoCovoit</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta
+      name="description"
+      content="Mon profil ecoCovoit - Consultez et modifiez vos informations personnelles, vos statistiques de covoiturage écoresponsable."
+    />
+    <meta
+      name="keywords"
+      content="profil utilisateur, compte, informations personnelles, statistiques, covoiturage, écologique"
+    />
+    <meta name="author" content="ecoCovoit" />
+    <title>Mon profil - ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
+    <link rel="stylesheet" href="assets/css/_header.css" />
+    <link rel="stylesheet" href="assets/css/_footer.css" />
+    <link rel="stylesheet" href="assets/css/user-profile.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
   </head>
   <body>
-    <header>
-      <h1>Bienvenue sur votre espace utilisateur</h1>
+    <header class="header-user">
+      <div class="header-content">
+        <div class="logo-container">
+          <img
+            src="assets/img/logo-ecoRide.png"
+            alt="Logo ecoCovoit"
+            class="logo"
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <h1 class="app-title">ecoCovoit</h1>
+        </div>
+
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Ouvrir le menu Principal"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          type="button"
+        >
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
+          <ul class="nav-list">
+            <!-- NAVIGATION UTILISATEUR CONNECTE -->
+            <li>
+              <a href="index.html" class="nav-link"
+                ><i class="fas fa-home"></i> Accueil</a
+              >
+            </li>
+            <li>
+              <a href="rechercher-covoiturage.html" class="nav-link"
+                ><i class="fas fa-search"></i> Rechercher</a
+              >
+            </li>
+            <li>
+              <a href="add-voyage.html" class="nav-link"
+                ><i class="fas fa-plus"></i> Publier</a
+              >
+            </li>
+            <li>
+              <a href="mes-reservations.html" class="nav-link"
+                ><i class="fas fa-calendar-check"></i> Mes réservations</a
+              >
+            </li>
+            <li>
+              <a href="historique.html" class="nav-link"
+                ><i class="fas fa-history"></i> Historique</a
+              >
+            </li>
+            <li>
+              <a href="user-profile.html" class="nav-link active"
+                ><i class="fas fa-user-circle"></i> Mon profil</a
+              >
+            </li>
+            <li>
+              <a href="add-vehicule.html" class="nav-link"
+                ><i class="fas fa-car"></i> Mes véhicules</a
+              >
+            </li>
+            <li>
+              <a href="add-preferences.html" class="nav-link"
+                ><i class="fas fa-cog"></i> Préférences</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+            <li>
+              <button
+                class="nav-link logout-btn"
+                onclick="logout()"
+                type="button"
+              >
+                <i class="fas fa-sign-out-alt"></i> Déconnexion
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-      <section class="profile-section">
-        <div class="container">
-          <h2>Mon Profil</h2>
-          <div id="user-info" class="form-card">
-            <p>Chargement en cours...</p>
+      <!-- SECTION PRESENTATION -->
+      <section class="presentation-section">
+        <div class="presentation-content">
+          <div class="text-content">
+            <h2>Mon Profil</h2>
+            <p>
+              <i class="fas fa-user-circle"></i> Gérez vos informations
+              personnelles et vos préférences
+            </p>
+            <p>
+              <i class="fas fa-chart-bar"></i> Statistiques personnelles<br />
+              <i class="fas fa-cog"></i> Préférences et véhicules<br />
+              <i class="fas fa-coins"></i> Gestion des crédits<br />
+              <i class="fas fa-route"></i> Trajets en cours
+            </p>
           </div>
-
-          <!-- Nouvelle section pour les trajets -->
-          <section class="mes-trajets">
-            <h2>Mes Trajets en cours</h2>
-            <div class="trajets-list">
-              <div class="trajet form-card" data-trajet-id="12">
-                <div class="trajet-header">
-                  <h3><i class="fas fa-route"></i> Lyon → Paris</h3>
-                  <span class="trajet-date">15/06/2025</span>
-                </div>
-                <div class="trajet-actions">
-                  <button class="terminer-btn">
-                    <i class="fas fa-flag-checkered"></i> Arrivée à destination
-                  </button>
-                  <div class="message-zone"></div>
-                </div>
-              </div>
+          <div class="image-container">
+            <div class="profile-hero-icon">
+              <i class="fas fa-user-cog"></i>
             </div>
-          </section>
-
-          <button id="logout-btn" class="search-button">Se déconnecter</button>
+          </div>
         </div>
       </section>
+
+      <div class="admin-container">
+        <!-- Statistiques utilisateur -->
+        <div class="stats-overview">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-route"></i></div>
+            <div class="stat-value" id="trips-count">0</div>
+            <div class="stat-label">Trajets réalisés</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-road"></i></div>
+            <div class="stat-value" id="kilometers-saved">0</div>
+            <div class="stat-label">km économisés</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-leaf"></i></div>
+            <div class="stat-value" id="co2-saved">0</div>
+            <div class="stat-label">kg CO₂ évités</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-star"></i></div>
+            <div class="stat-value" id="rating-average">0</div>
+            <div class="stat-label">Note moyenne</div>
+          </div>
+        </div>
+
+        <!-- Section infos et crédits -->
+        <div class="profile-overview">
+          <div class="info-card">
+            <div class="card-header">
+              <h3><i class="fas fa-user"></i> Informations personnelles</h3>
+              <button class="btn btn-primary btn-small" id="edit-profile-btn">
+                <i class="fas fa-edit"></i> Modifier
+              </button>
+            </div>
+            <div id="user-info" class="card-content">
+              <div class="loading">
+                <i class="fas fa-spinner fa-spin"></i> Chargement en cours...
+              </div>
+            </div>
+          </div>
+
+          <div class="credits-card">
+            <div class="credits-bg-decoration">
+              <div class="credits-coin-icon">
+                <i class="fas fa-coins"></i>
+              </div>
+              <div class="credits-pattern"></div>
+            </div>
+            <div class="card-header">
+              <h3><i class="fas fa-wallet"></i> Mes crédits</h3>
+              <div class="credits-status-badge">
+                <i class="fas fa-check-circle"></i>
+                <span>Actif</span>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="credits-display">
+                <div class="credits-main">
+                  <span class="credits-amount" id="credits-amount">0</span>
+                  <span class="credits-label">crédits disponibles</span>
+                </div>
+                <div class="credits-info">
+                  <div class="credits-stat">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>Dernière recharge : <strong>+20</strong></span>
+                  </div>
+                  <div class="credits-stat">
+                    <i class="fas fa-calendar"></i>
+                    <span>Ce mois : <strong>15 utilisés</strong></span>
+                  </div>
+                </div>
+              </div>
+              <div class="credits-actions">
+                <button
+                  class="btn btn-primary credits-btn"
+                  id="add-credits-btn"
+                >
+                  <i class="fas fa-plus"></i>
+                  <span>Recharger</span>
+                </button>
+                <button
+                  class="btn btn-secondary credits-btn"
+                  id="credits-history-btn"
+                >
+                  <i class="fas fa-history"></i>
+                  <span>Historique</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mes véhicules et préférences -->
+        <div class="profile-details">
+          <div class="details-card">
+            <div class="card-header">
+              <h3><i class="fas fa-car"></i> Mes véhicules</h3>
+              <button class="btn btn-primary btn-small" id="add-vehicle-btn">
+                <i class="fas fa-plus"></i> Ajouter
+              </button>
+            </div>
+            <div id="vehicles-list" class="card-content">
+              <div class="loading">
+                <i class="fas fa-spinner fa-spin"></i> Chargement en cours...
+              </div>
+            </div>
+          </div>
+
+          <div class="details-card">
+            <div class="card-header">
+              <h3><i class="fas fa-cog"></i> Mes préférences</h3>
+              <button
+                class="btn btn-primary btn-small"
+                id="edit-preferences-btn"
+              >
+                <i class="fas fa-edit"></i> Modifier
+              </button>
+            </div>
+            <div id="preferences-list" class="card-content">
+              <div class="loading">
+                <i class="fas fa-spinner fa-spin"></i> Chargement en cours...
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mes trajets en cours -->
+        <div class="current-trips-section">
+          <div class="card-header">
+            <h3><i class="fas fa-route"></i> Mes trajets en cours</h3>
+            <button class="btn btn-primary btn-small" id="view-all-trips-btn">
+              <i class="fas fa-eye"></i> Voir tout
+            </button>
+          </div>
+          <div class="card-content">
+            <div id="current-trips" class="trips-container">
+              <div class="loading">
+                <i class="fas fa-spinner fa-spin"></i> Chargement en cours...
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions rapides -->
+        <div class="quick-actions-section">
+          <h3>Actions rapides</h3>
+          <div class="actions-grid">
+            <a href="add-voyage.html" class="action-card">
+              <div class="action-icon">
+                <i class="fas fa-plus-circle"></i>
+              </div>
+              <span>Proposer un trajet</span>
+            </a>
+            <a href="rechercher-covoiturage.html" class="action-card">
+              <div class="action-icon">
+                <i class="fas fa-search"></i>
+              </div>
+              <span>Rechercher un trajet</span>
+            </a>
+            <a href="mes-reservations.html" class="action-card">
+              <div class="action-icon">
+                <i class="fas fa-calendar-check"></i>
+              </div>
+              <span>Mes réservations</span>
+            </a>
+            <a href="historique.html" class="action-card">
+              <div class="action-icon">
+                <i class="fas fa-history"></i>
+              </div>
+              <span>Historique complet</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal de modification de profil -->
+      <div id="edit-profile-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3><i class="fas fa-user-edit"></i> Modifier mes informations</h3>
+            <span class="close">&times;</span>
+          </div>
+          <div class="modal-body">
+            <form id="edit-profile-form">
+              <div class="form-group">
+                <label for="edit-pseudo"
+                  ><i class="fas fa-user"></i> Pseudo</label
+                >
+                <input type="text" id="edit-pseudo" name="pseudo" required />
+              </div>
+              <div class="form-group">
+                <label for="edit-email"
+                  ><i class="fas fa-envelope"></i> Email</label
+                >
+                <input type="email" id="edit-email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="edit-password"
+                  ><i class="fas fa-lock"></i> Nouveau mot de passe
+                  (optionnel)</label
+                >
+                <input type="password" id="edit-password" name="password" />
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn btn-secondary cancel-btn">
+                  <i class="fas fa-times"></i> Annuler
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-save"></i> Enregistrer
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </main>
 
-    <footer>
-      <p>&copy; 2025 ecoCovoit – Tous droits réservés</p>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
+          <p>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
+          </p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
+          <ul>
+            <li>
+              <i class="fas fa-gavel"></i>
+              <a href="mentions.html"> Mentions légales</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <a href="contact.html"> Nous contacter</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" title="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" title="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i>
+        </p>
+      </div>
     </footer>
 
-    <script>
-      // Récupérer les infos utilisateur via PHP
-      fetch("../backend/auth/get-user.php")
-        .then((res) => res.json())
-        .then((data) => {
-          const container = document.getElementById("user-info");
-
-          if (!data.success) {
-            container.innerHTML = `<p>${data.message}</p>`;
-            return;
-          }
-
-          container.innerHTML = `
-          <p><strong>Pseudo :</strong> ${data.user.pseudo}</p>
-          <p><strong>Email :</strong> ${data.user.email}</p>
-          <p><strong>Rôle :</strong> ${data.user.role}</p>
-          <p><strong>Crédits :</strong> ${data.user.credit} 💰</p>
-        `;
-        });
-
-      // Gestion des boutons "Terminer trajet"
-      document.querySelectorAll(".terminer-btn").forEach((button) => {
-        button.addEventListener("click", function () {
-          const trajetId = this.closest(".trajet").dataset.trajetId;
-          if (!confirm("Confirmez-vous la fin de ce trajet ?")) return;
-
-          fetch("../backend/trajets/terminer.php", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: "trajet_id=" + encodeURIComponent(trajetId),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              const msg = this.nextElementSibling;
-              msg.textContent = data.message;
-              msg.style.color = data.success ? "green" : "red";
-              if (data.success) this.remove(); // On peut retirer le bouton
-            });
-        });
-      });
-
-      // Déconnexion
-      document.getElementById("logout-btn").addEventListener("click", () => {
-        fetch("../backend/auth/logout.php").then(
-          () => (window.location.href = "login.html")
-        );
-      });
-    </script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/user-profile.js"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -12,19 +12,19 @@
       content="covoiturage, écologique, transport, mobilité verte"
     />
     <meta name="author" content="ecoCovoit" />
-    <title>ecoCovoit – Accueil</title>
+    <title>Accueil - ecoCovoit</title>
     <link rel="stylesheet" href="assets/css/_commun.css" />
     <link rel="stylesheet" href="assets/css/_header.css" />
     <link rel="stylesheet" href="assets/css/_footer.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
   </head>
   <body>
-    <!-- MENU NAVIGATION -->
-    <header>
+    <!-- HEADER -->
+    <header class="header-public">
       <div class="header-content">
         <div class="logo-container">
           <img
@@ -40,297 +40,277 @@
         <button
           id="menu-toggle"
           class="menu-toggle"
-          aria-label="Menu Principal"
+          aria-label="Ouvrir le menu principal"
           aria-expanded="false"
           aria-controls="main-nav"
+          type="button"
         >
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
         </button>
+
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
+          <ul class="nav-list">
+            <!-- NAVIGATION PUBLIQUE -->
+            <li>
+              <a href="index.html" class="nav-link active"
+                ><i class="fas fa-home"></i> Accueil</a
+              >
+            </li>
+            <li>
+              <a href="rechercher-covoiturage.html" class="nav-link"
+                ><i class="fas fa-search"></i> Rechercher</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+            <li>
+              <a href="login.html" class="nav-link"
+                ><i class="fas fa-sign-in-alt"></i> Connexion</a
+              >
+            </li>
+            <li>
+              <a href="register.html" class="nav-link"
+                ><i class="fas fa-user-plus"></i> Inscription</a
+              >
+            </li>
+          </ul>
+        </nav>
       </div>
-      <nav id="main-nav" class="main-nav" aria-hidden="true">
-        <ul>
-          <li><a href="index.html" class="active">Accueil</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle">
-              <i class="fas fa-user"></i> Mon Compte
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="login.html"
-                  ><i class="fas fa-sign-in-alt"></i> Connexion</a
-                >
-              </li>
-              <li>
-                <a href="register.html"
-                  ><i class="fas fa-user-plus"></i> Inscription</a
-                >
-              </li>
-              <li>
-                <a href="user-profile.html"
-                  ><i class="fas fa-user-circle"></i> Mon Profil</a
-                >
-              </li>
-              <li>
-                <a href="#" id="logout"
-                  ><i class="fas fa-sign-out-alt"></i> Déconnexion</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle">Trajets</a>
-            <ul class="dropdown-menu">
-              <li><a href="add-voyage.html">Proposer un trajet</a></li>
-              <li><a href="mes-reservations.html">Mes réservations</a></li>
-              <li>
-                <a href="notation.html"
-                  ><i class="fas fa-star"></i> Avis & Notations</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-          </li>
-        </ul>
-      </nav>
     </header>
 
-    <!-- SECTION PRÉSENTATION -->
     <main>
-      <section id="presentation" class="presentation-section">
-        <div class="container">
-          <div class="presentation-content">
-            <div class="text-content">
-              <h2>Bienvenue sur ecoCovoit</h2>
-              <p>
-                ecoCovoit est votre solution de covoiturage écoresponsable.
-                Réduisez votre empreinte carbone en partageant vos trajets avec
-                d'autres utilisateurs.
-              </p>
-            </div>
-            <div class="image-container">
-              <img
-                src="assets/img/covoit-ecoresponsable..jpg"
-                alt="Voiture écologique"
-                class="responsive-image"
-                loading="lazy"
-                width="800"
-                height="450"
-              />
-            </div>
+      <!-- SECTION PRESENTATION -->
+      <section class="presentation-section">
+        <div class="presentation-content">
+          <div class="text-content">
+            <h2>Covoiturage écoresponsable</h2>
+            <p>
+              <i class="fas fa-leaf"></i> EcoCovoit est la plateforme qui vous
+              permet de partager vos trajets tout en réduisant votre empreinte
+              carbone et vos coûts.
+            </p>
+            <p>
+              <i class="fas fa-bolt"></i> Optez pour des véhicules
+              électriques<br />
+              <i class="fas fa-piggy-bank"></i> Réduisez vos coûts de
+              transport<br />
+              <i class="fas fa-users"></i> Rencontrez de nouvelles personnes<br />
+              <i class="fas fa-seedling"></i> Protégez l'environnement
+            </p>
+          </div>
+          <div class="image-container">
+            <img
+              src="assets/img/covoit-ecoresponsable.jpg"
+              alt="Illustration covoiturage écologique avec véhicules électriques"
+              class="responsive-image"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
 
-      <!-- FORMULAIRE DE RECHERCHE -->
-      <section id="recherche" class="search-section">
-        <div class="search-container animate-slideUp">
-          <h2>Rechercher un covoiturage</h2>
-          <form id="formRecherche" aria-label="Recherche de trajets">
+      <!-- SECTION RECHERCHE -->
+      <section class="search-section">
+        <div class="search-container">
+          <h2><i class="fas fa-search"></i> Trouvez votre itinéraire</h2>
+          <form id="search-form" class="search-form">
             <div class="search-main-fields">
               <div class="form-group">
-                <label for="depart"
-                  ><i class="fas fa-map-marker-alt"></i> Départ</label
+                <label for="departure"
+                  ><i class="fas fa-map-marker-alt"></i> Ville de départ</label
                 >
                 <input
                   type="text"
-                  id="depart"
-                  name="depart"
-                  class="form-input"
+                  id="departure"
+                  name="departure"
+                  placeholder="D'où partez-vous ?"
                   required
-                  placeholder="Ville de départ"
-                  aria-required="true"
+                  class="form-input"
+                  autocomplete="address-line1"
                 />
               </div>
               <div class="form-group">
-                <label for="arrivee"
-                  ><i class="fas fa-map-marker"></i> Arrivée</label
+                <label for="arrival"
+                  ><i class="fas fa-map-pin"></i> Ville d'arrivée</label
                 >
                 <input
                   type="text"
-                  id="arrivee"
-                  name="arrivee"
-                  class="form-input"
+                  id="arrival"
+                  name="arrival"
+                  placeholder="Où allez-vous ?"
                   required
-                  placeholder="Ville d'arrivée"
-                  aria-required="true"
+                  class="form-input"
+                  autocomplete="address-line2"
                 />
               </div>
               <div class="form-group">
                 <label for="date"
-                  ><i class="fas fa-calendar"></i> Date du trajet</label
+                  ><i class="fas fa-calendar-alt"></i> Date de départ</label
                 >
                 <input
                   type="date"
                   id="date"
                   name="date"
-                  class="form-input"
                   required
-                  aria-required="true"
+                  class="form-input"
+                  min=""
                 />
               </div>
             </div>
 
             <!-- Filtres avancés -->
             <div class="advanced-filters">
-              <button
-                type="button"
-                class="toggle-filters"
-                id="toggle-filters"
-                aria-expanded="false"
-                aria-controls="filters-content"
-                aria-label="Afficher ou masquer les filtres avancés"
-              >
-                <i class="fas fa-sliders-h" aria-hidden="true"></i> Filtres
-                avancés
+              <button type="button" class="toggle-filters" id="toggle-filters">
+                <i class="fas fa-filter"></i>
+                Filtres avancés
               </button>
-              <div
-                class="filters-content"
-                id="filters-content"
-                aria-hidden="true"
-                aria-labelledby="toggle-filters"
-              >
-                <h3 class="filters-title">Filtres avancés</h3>
+
+              <div class="filters-content" id="filters-content">
+                <!-- Section checkbox véhicules électriques -->
+                <div class="filters-checkbox-section">
+                  <div class="form-group form-group-checkbox">
+                    <label for="eco-filter" class="checkbox-label">
+                      <input
+                        type="checkbox"
+                        id="eco-filter"
+                        name="eco-filter"
+                      />
+                      <i class="fas fa-bolt"></i> Véhicules électriques
+                      uniquement
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Grille des filtres numériques -->
                 <div class="filters-grid">
-                  <!-- Type de véhicule -->
+                  <!-- Filtre prix maximum -->
                   <div class="form-group">
-                    <label for="ecologique">
-                      <i class="fas fa-leaf"></i> Type de véhicule
-                    </label>
-                    <select
-                      name="ecologique"
-                      id="ecologique"
-                      class="form-input"
-                      aria-labelledby="ecologique-label"
+                    <label for="max-price"
+                      ><i class="fas fa-euro-sign"></i> Prix maximum</label
                     >
-                      <option value="">Tous les véhicules</option>
-                      <option value="oui">Véhicules écologiques</option>
-                      <option value="non">Véhicules standards</option>
-                    </select>
-                  </div>
-
-                  <!-- Prix Max -->
-                  <div class="form-group">
-                    <label for="prix" id="prix-label">
-                      <i class="fas fa-euro-sign" aria-hidden="true"></i> Prix
-                      Max
-                    </label>
                     <input
                       type="number"
-                      id="prix"
-                      name="prix"
-                      class="form-input"
-                      placeholder="Ex: 30"
+                      id="max-price"
+                      name="max-price"
+                      placeholder="Ex: 25"
                       min="0"
-                      max="1000"
-                      step="0.01"
-                      aria-labelledby="prix-label"
-                      aria-describedby="prix-help"
+                      class="form-input"
                     />
-                    <div id="prix-help" class="help-text">
-                      Entrer un montant entre 0 et 1000 €
-                    </div>
                   </div>
 
-                  <!-- Durée Max -->
+                  <!-- Filtre durée maximum -->
                   <div class="form-group">
-                    <label for="duree" id="duree-label">
-                      <i class="fas fa-clock" aria-hidden="true"></i> Durée Max
-                      (heures)
-                    </label>
+                    <label for="max-duration"
+                      ><i class="fa-regular fa-clock"></i> Durée maximum</label
+                    >
                     <input
                       type="number"
-                      id="duree"
-                      name="duree"
-                      class="form-input"
-                      placeholder="Ex: 5"
+                      id="max-duration"
+                      name="max-duration"
+                      placeholder="Ex: 4h"
                       min="0"
-                      max="24"
-                      aria-labelledby="duree-label"
-                      aria-describedby="duree-help"
-                    />
-                    <div id="duree-help" class="help-text">
-                      Entrer une durée entre 0 et 24 heures
-                    </div>
-                  </div>
-
-                  <!-- Note Minimale -->
-                  <div class="form-group">
-                    <label for="filtre-note" id="note-label">
-                      <i class="fas fa-star" aria-hidden="true"></i> Note
-                      minimale
-                    </label>
-                    <input
-                      type="number"
-                      id="filtre-note"
-                      name="note"
-                      class="form-input"
-                      placeholder="Ex: 4"
-                      min="0"
-                      max="5"
                       step="0.5"
-                      aria-labelledby="note-label"
-                      aria-describedby="note-help"
+                      class="form-input"
                     />
-                    <div id="note-help" class="help-text">
-                      Entrer une note entre 0 et 5
-                    </div>
+                  </div>
+
+                  <!-- Filtre note minimum -->
+                  <div class="form-group">
+                    <label for="min-rating"
+                      ><i class="fa-regular fa-star"></i> Note minimum</label
+                    >
+                    <select
+                      id="min-rating"
+                      name="min-rating"
+                      class="form-select"
+                    >
+                      <option value="">Toutes les notes</option>
+                      <option value="1">1 étoile et plus</option>
+                      <option value="2">2 étoiles et plus</option>
+                      <option value="3">3 étoiles et plus</option>
+                      <option value="4">4 étoiles et plus</option>
+                      <option value="5">5 étoiles uniquement</option>
+                    </select>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Zone de tri -->
-            <div class="tri-container">
-              <h3 class="tri-title">Trier les résultats</h3>
-              <div class="tri-groupe">
-                <label for="tri-option"
-                  ><i class="fas fa-sort"></i> Trier par :</label
-                >
-                <select id="tri-option" class="form-input">
-                  <option value="note">Note</option>
-                  <option value="prix">Prix</option>
-                  <option value="places">Places disponibles</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- Bouton de Recherche -->
             <button type="submit" class="search-button">
-              <i class="fas fa-search"></i> Rechercher
+              <i class="fas fa-search"></i>
+              Rechercher des covoiturages
             </button>
           </form>
-          <div id="resultats" class="results-container"></div>
         </div>
       </section>
 
       <!-- SECTION AVANTAGES -->
-      <section id="avantages" class="features-section">
+      <section class="benefits-section">
         <div class="container">
-          <h2>Pourquoi choisir ecoCovoit ?</h2>
-          <div class="features-grid grid-4-columns">
-            <div class="feature-card">
-              <i class="fas fa-leaf"></i>
-              <h3>Écologique</h3>
-              <p>Réduisez votre empreinte carbone en partageant vos trajets</p>
+          <h2><i class="fas fa-star"></i> Pourquoi choisir EcoCovoit ?</h2>
+          <div class="benefits-grid">
+            <div class="benefit-card" data-number="01">
+              <div class="benefit-icon">
+                <i class="fas fa-leaf"></i>
+              </div>
+              <h3>Ecologique</h3>
+              <p>
+                Réduisez votre empreinte carbone en partageant vos trajets et en
+                privilégiant des véhicules électriques pour un impact
+                environnemental minimal.
+              </p>
+              <div class="benefit-stats">
+                <span><i class="fas fa-minus"></i> 50% CO₂</span>
+              </div>
             </div>
-            <div class="feature-card">
-              <i class="fas fa-wallet"></i>
-              <h3>Économique</h3>
-              <p>Partagez les frais de transport avec d'autres voyageurs</p>
+            <div class="benefit-card" data-number="02">
+              <div class="benefit-icon">
+                <i class="fas fa-euro-sign"></i>
+              </div>
+              <h3>Economique</h3>
+              <p>
+                Partagez les coûts de vos déplacements et réalisez des économies
+                substantielles sur vos frais de transport quotidiens.
+              </p>
+              <div class="benefit-stats">
+                <span><i class="fas fa-arrow-down"></i> 70% coûts</span>
+              </div>
             </div>
-            <div class="feature-card">
-              <i class="fas fa-users"></i>
-              <h3>Communautaire</h3>
-              <p>Rejoignez une communauté de voyageurs responsables</p>
+            <div class="benefit-card" data-number="03">
+              <div class="benefit-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3>Convivial</h3>
+              <p>
+                Rencontrez de nouvelles personnes partageant vos valeurs et
+                créez des liens sociaux durables lors de vos voyages.
+              </p>
+              <div class="benefit-stats">
+                <span><i class="fas fa-heart"></i> Communauté</span>
+              </div>
             </div>
-            <div class="feature-card">
-              <i class="fas fa-shield-alt"></i>
+            <div class="benefit-card" data-number="04">
+              <div class="benefit-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
               <h3>Sécurisé</h3>
-              <p>Profitez d'un système de réservation sûr et fiable</p>
+              <p>
+                Système d'évaluation rigoureux et profils vérifiés pour garantir
+                des trajets en toute confiance et sécurité.
+              </p>
+              <div class="benefit-stats">
+                <span><i class="fas fa-star"></i> 4.8/5</span>
+              </div>
             </div>
           </div>
         </div>
@@ -338,36 +318,62 @@
     </main>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="footer">
       <div class="footer-content">
-        <div class="footer-section contact-section">
-          <h3>Contact</h3>
+        <div class="footer-section">
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
           <p>
-            <i class="fas fa-envelope"></i>
-            <a href="mailto:contact@ecocovoit.fr">contact@ecocovoit.fr</a>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
+          </p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
           </p>
         </div>
         <div class="footer-section">
-          <h3>Liens utiles</h3>
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
           <ul>
-            <li><a href="#">Mentions légales</a></li>
-            <li><a href="#">Politique de confidentialité</a></li>
-            <li><a href="#">CGU</a></li>
+            <li>
+              <i class="fas fa-gavel"></i>
+              <a href="mentions.html"> Mentions légales</a>
+            </li>
           </ul>
         </div>
         <div class="footer-section">
-          <h3>À propos</h3>
-          <p>
-            ecoCovoit s'engage pour une mobilité plus verte et plus économique.
-          </p>
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" title="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" title="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 ecoCovoit - Tous droits réservés</p>
+        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i>
+        </p>
       </div>
     </footer>
 
-    <script src="assets/js/search.js"></script>
     <script src="assets/js/menu.js"></script>
+    <script src="assets/js/search.js"></script>
+    <script src="assets/js/index.js"></script>
   </body>
 </html>

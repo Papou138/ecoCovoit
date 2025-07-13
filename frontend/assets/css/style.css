@@ -1,286 +1,9 @@
-/* ========================= */
-/* HERO / PRESENTATION       */
-/* ========================= */
-.presentation-section {
-  position: relative;
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-dark),
-    var(--color-primary)
-  );
-  color: var(--color-text-light);
-  padding: var(--space-xxl) 0;
-  overflow: hidden;
-}
+/* ============================== */
+/* =  STYLES GENERAUX PARTAGES  = */
+/* ============================== */
 
-.presentation-content {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: var(--space-xl);
-  align-items: center;
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: 0 var(--space-md);
-}
+/* ===== FORM CARDS ET TRAJETS CARDS ===== */
 
-.text-content {
-  animation: slideInLeft 0.8s ease-out;
-}
-
-.text-content h2 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  margin-bottom: var(--space-lg);
-  color: var(--color-text-light);
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-.text-content p {
-  font-size: var(--font-size-lg);
-  line-height: 1.6;
-  opacity: 0.9;
-  max-width: 600px;
-}
-
-.image-container {
-  animation: slideInRight 0.8s ease-out;
-}
-
-.responsive-image {
-  max-width: 100%;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-}
-
-/* ========================= */
-/* RECHERCHE SECTION         */
-/* ========================= */
-.search-section {
-  background-color: var(--color-bg-secondary);
-  padding: var(--space-xl) 0;
-  position: relative;
-  z-index: 1;
-}
-
-.search-container {
-  max-width: 1200px;
-  margin: -80px auto 0;
-  padding: var(--space-xl);
-  background-color: var(--color-bg-primary);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  position: relative;
-  animation: slideUp 0.6s ease-out;
-}
-
-.search-container h2 {
-  text-align: center;
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-xl);
-  font-size: var(--font-size-xl);
-  font-weight: 700;
-}
-
-.search-main-fields {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-lg);
-  margin-bottom: var(--space-lg);
-  width: 100%;
-  padding: 0;
-}
-
-/* Filtres avancés */
-.advanced-filters {
-  margin-top: var(--space-lg);
-}
-
-.toggle-filters {
-  width: 100%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-xs);
-  color: var(--color-primary);
-  background: var(--color-bg-secondary);
-  border: 2px solid var(--color-primary);
-  padding: var(--space-sm) var(--space-md);
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition-base);
-}
-
-.toggle-filters:hover {
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
-}
-
-.filters-content {
-  display: none;
-  padding: var(--space-lg) 0;
-  transition: var(--transition-base);
-  background-color: var(--color-bg-tertiary);
-  border-radius: var(--radius-md);
-  margin-top: var(--space-md);
-}
-
-.filters-content.active {
-  display: block;
-  animation: fadeIn var(--transition-base);
-}
-
-.filters-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-lg);
-  width: 100%;
-  box-sizing: border-box; /* Assure que le padding n'affecte pas la largeur totale */
-}
-
-/* Bouton de recherche */
-.search-button {
-  width: 100%;
-  margin-top: var(--space-lg);
-  padding: var(--space-lg);
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
-  border: none;
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition-base);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  justify-content: center;
-  min-height: 48px;
-}
-
-.search-button:hover {
-  background-color: var(--color-primary-dark);
-  transform: translateY(-2px);
-}
-
-/* ========================= */
-/* ANIMATIONS                */
-/* ========================= */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ========================= */
-/* RESPONSIVE DESIGN         */
-/* ========================= */
-@media screen and (max-width: 1100px) {
-  .presentation-content {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    text-align: center;
-  }
-  .image-container {
-    text-align: center;
-  }
-  .search-container {
-    margin: 0 var(--space-lg);
-    padding: var(--space-lg);
-    width: auto;
-  }
-  .search-main-fields {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-sm);
-  }
-}
-
-@media screen and (max-width: 700px), (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-md);
-  }
-  .search-main-fields {
-    grid-template-columns: 1fr;
-    gap: var(--space-sm);
-    flex-direction: column;
-  }
-  .header-content {
-    flex-direction: column;
-    gap: var(--space-md);
-    padding: var(--space-md);
-  }
-  .presentation-content {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    text-align: center;
-  }
-  .image-container {
-    text-align: center;
-  }
-  .search-container {
-    margin: 0 var(--space-md);
-    padding: var(--space-md);
-    max-width: 100%;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .search-container {
-    margin: 0;
-    padding: var(--space-sm);
-    border-radius: 0;
-  }
-  .search-main-fields {
-    padding: var(--space-xs);
-    gap: var(--space-xs);
-  }
-}
-
-/* ========================= */
-/* AUTRES STYLES EXISTANTS   */
-/* ========================= */
 .form-card,
 .trajet-card {
   background: var(--color-bg-primary);
@@ -295,7 +18,8 @@
   transform: translateY(-2px);
 }
 
-/* Messages et notifications */
+/* ===== MESSAGES ET NOTIFICATIONS ===== */
+
 .message-box,
 .message-zone {
   min-height: 20px;
@@ -311,7 +35,16 @@
   opacity: 1;
 }
 
-/* Sections spécifiques */
+/* ===== CONTENEUR GENERAL ===== */
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* ===== SECTIONS SPECIFIQUES ===== */
+
 .presentation {
   padding: var(--space-lg);
   text-align: center;
@@ -324,7 +57,8 @@
   border-radius: var(--radius-md);
 }
 
-/* Trajet cards et détails */
+/* ===== TRAJETS CARDS ET DETAILS ===== */
+
 .trajet-header {
   display: flex;
   justify-content: space-between;
@@ -377,16 +111,16 @@
 }
 
 #tri-option,
-#fitre-note {
+#filtre-note {
   padding: 8px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   background-color: white;
   cursor: pointer;
 }
 
 #tri-option:hover,
-#fitre-note:hover {
+#filtre-note:hover {
   border-color: #4caf50;
 }
 
@@ -397,7 +131,8 @@
   box-shadow: 0 0 3px rgba(76, 175, 80, 0.3);
 }
 
-/* Style de carte trajet */
+/* ===== STYLE DE CARTE TRAJET ===== */
+
 .note-faible {
   opacity: 0.6;
   filter: grayscale(0.3);
@@ -420,15 +155,23 @@
   color: green;
 }
 
-/* Media queries */
-@media screen and (max-width: 900px) {
-  .filters-grid {
-    grid-template-columns: 1fr;
+/* ============================== */
+/* =  RESPONSIVE DESIGN GLOBAL  = */
+/* ============================== */
+
+@media screen and (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-md);
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
     gap: var(--space-md);
   }
-}
 
-@media (max-width: 768px) {
   .trajet-header {
     flex-direction: column;
     text-align: center;

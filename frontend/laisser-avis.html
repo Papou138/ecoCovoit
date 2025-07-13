@@ -1,76 +1,506 @@
-<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <title>Laisser un avis – ecoCovoit</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Laisser un avis sur ecoCovoit - Evaluez votre expérience de covoiturage et aidez la communauté écoresponsable."
+    />
+    <meta
+      name="keywords"
+      content="avis, évaluation, covoiturage, commentaire, expérience, communauté, feedback"
+    />
+    <meta name="author" content="ecoCovoit" />
+    <title>Laisser un avis - ecoCovoit</title>
+    <link rel="stylesheet" href="assets/css/_commun.css" />
+    <link rel="stylesheet" href="assets/css/_header.css" />
+    <link rel="stylesheet" href="assets/css/_footer.css" />
+    <link rel="stylesheet" href="assets/css/laisser-avis.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   </head>
   <body>
+    <!-- HEADER -->
+    <header class="header-user">
+      <div class="header-content">
+        <div class="logo-container">
+          <img
+            src="assets/img/logo-ecoRide.png"
+            alt="Logo ecoCovoit"
+            class="logo"
+            width="50"
+            height="50"
+            loading="lazy"
+          />
+          <h1 class="app-title">ecoCovoit</h1>
+        </div>
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Ouvrir le menu principal"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          type="button"
+        >
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+          <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
+
+        <nav
+          id="main-nav"
+          class="main-nav"
+          role="navigation"
+          aria-label="Menu principal de navigation"
+        >
+          <ul class="nav-list">
+            <!-- NAVIGATION UTILISATEUR CONNECTE -->
+            <li>
+              <a href="index.html" class="nav-link"
+                ><i class="fas fa-home"></i> Accueil</a
+              >
+            </li>
+            <li>
+              <a href="rechercher-covoiturage.html" class="nav-link"
+                ><i class="fas fa-search"></i> Rechercher</a
+              >
+            </li>
+            <li>
+              <a href="add-voyage.html" class="nav-link"
+                ><i class="fas fa-plus"></i> Publier</a
+              >
+            </li>
+            <li>
+              <a href="mes-reservations.html" class="nav-link"
+                ><i class="fas fa-calendar-check"></i> Mes réservations</a
+              >
+            </li>
+            <li>
+              <a href="historique.html" class="nav-link"
+                ><i class="fas fa-history"></i> Historique</a
+              >
+            </li>
+            <li>
+              <a href="user-profile.html" class="nav-link"
+                ><i class="fas fa-user-circle"></i> Mon profil</a
+              >
+            </li>
+            <li>
+              <a href="add-vehicule.html" class="nav-link"
+                ><i class="fas fa-car"></i> Mes véhicules</a
+              >
+            </li>
+            <li>
+              <a href="add-preferences.html" class="nav-link"
+                ><i class="fas fa-cog"></i> Préférences</a
+              >
+            </li>
+            <li>
+              <a href="contact.html" class="nav-link"
+                ><i class="fas fa-envelope"></i> Contact</a
+              >
+            </li>
+            <li>
+              <button
+                class="nav-link logout-btn"
+                onclick="logout()"
+                type="button"
+              >
+                <i class="fas fa-sign-out-alt"></i> Déconnexion
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
     <main>
-      <h1>Laisser un avis sur votre trajet</h1>
+      <!-- SECTION PRESENTATION -->
+      <section class="presentation-section">
+        <div class="presentation-content">
+          <div class="text-content">
+            <h2>Evaluez votre expérience</h2>
+            <p>
+              <i class="fas fa-star"></i> Votre avis compte pour la communauté
+            </p>
+            <p>
+              <i class="fas fa-heart"></i> Partagez votre expérience de
+              covoiturage<br />
+              <i class="fas fa-users"></i> Aidez les autres utilisateurs<br />
+              <i class="fas fa-thumbs-up"></i> Améliorez la qualité du
+              service<br />
+              <i class="fas fa-award"></i> Contribuez à l'évaluation des
+              chauffeurs
+            </p>
+          </div>
+          <div class="image-container">
+            <div class="avis-hero-icon">
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <form id="avis-form" class="form-card">
-        <input type="hidden" id="trajet_id" name="trajet_id" />
-        <label for="note">Note</label>
-        <select name="note" id="note" required>
-          <option value="">-- Choisir --</option>
-          <option value="1">1 ⭐</option>
-          <option value="2">2 ⭐⭐</option>
-          <option value="3">3 ⭐⭐⭐</option>
-          <option value="4">4 ⭐⭐⭐⭐</option>
-          <option value="5">5 ⭐⭐⭐⭐⭐</option>
-        </select>
+      <div class="avis-container">
+        <!-- Section informations du trajet -->
+        <div class="trajet-info-section">
+          <h3><i class="fas fa-route"></i> Informations du trajet</h3>
+          <div class="trajet-info" id="trajet-info">
+            <div class="trajet-loading" id="trajet-loading">
+              <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+              </div>
+              <p>Chargement des détails du trajet...</p>
+            </div>
+            <div
+              class="trajet-content"
+              id="trajet-content"
+              style="display: none"
+            >
+              <div class="trajet-details-grid">
+                <div class="detail-item">
+                  <div class="detail-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="detail-content">
+                    <span class="detail-label">Départ</span>
+                    <span class="detail-value" id="depart-value">Paris</span>
+                  </div>
+                </div>
 
-        <label for="commentaire">Commentaire</label>
-        <textarea
-          name="commentaire"
-          id="commentaire"
-          rows="5"
-          required
-        ></textarea>
+                <div class="detail-item">
+                  <div class="detail-icon">
+                    <i class="fas fa-flag-checkered"></i>
+                  </div>
+                  <div class="detail-content">
+                    <span class="detail-label">Arrivée</span>
+                    <span class="detail-value" id="arrivee-value">Lyon</span>
+                  </div>
+                </div>
 
-        <button type="submit" class="search-button">Envoyer l’avis</button>
-        <div id="avis-message" class="message-box"></div>
-      </form>
+                <div class="detail-item">
+                  <div class="detail-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                  </div>
+                  <div class="detail-content">
+                    <span class="detail-label">Date</span>
+                    <span class="detail-value" id="date-value"
+                      >15 janvier 2024</span
+                    >
+                  </div>
+                </div>
+
+                <div class="detail-item">
+                  <div class="detail-icon">
+                    <i class="fas fa-user"></i>
+                  </div>
+                  <div class="detail-content">
+                    <span class="detail-label">Chauffeur</span>
+                    <span class="detail-value" id="chauffeur-value"
+                      >Marie Dupont</span
+                    >
+                  </div>
+                </div>
+
+                <div class="detail-item">
+                  <div class="detail-icon">
+                    <i class="fas fa-euro-sign"></i>
+                  </div>
+                  <div class="detail-content">
+                    <span class="detail-label">Prix</span>
+                    <span class="detail-value" id="prix-value">35 €</span>
+                  </div>
+                </div>
+
+                <div class="detail-item">
+                  <div class="detail-icon">
+                    <i class="fas fa-clock"></i>
+                  </div>
+                  <div class="detail-content">
+                    <span class="detail-label">Durée</span>
+                    <span class="detail-value" id="duree-value">4h30</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form id="avis-form" class="avis-form">
+          <input type="hidden" id="trajet_id" name="trajet_id" />
+
+          <!-- Section notation générale -->
+          <div class="rating-section">
+            <h3><i class="fas fa-star"></i> Note générale</h3>
+            <div class="star-rating" id="main-rating">
+              <span class="star" data-rating="1"
+                ><i class="fas fa-star"></i
+              ></span>
+              <span class="star" data-rating="2"
+                ><i class="fas fa-star"></i
+              ></span>
+              <span class="star" data-rating="3"
+                ><i class="fas fa-star"></i
+              ></span>
+              <span class="star" data-rating="4"
+                ><i class="fas fa-star"></i
+              ></span>
+              <span class="star" data-rating="5"
+                ><i class="fas fa-star"></i
+              ></span>
+            </div>
+            <input type="hidden" id="note" name="note" required />
+          </div>
+
+          <!-- Section critères de notation -->
+          <div class="rating-criteria">
+            <div class="criteria-header">
+              <h3><i class="fas fa-star-half-alt"></i> Notation détaillée</h3>
+              <p class="criteria-description">
+                Evaluez différents aspects de votre expérience
+              </p>
+            </div>
+            <div class="criteria-grid">
+              <!-- Critères comportementaux -->
+              <div class="criteria-group">
+                <h4 class="criteria-group-title">
+                  <i class="fas fa-user-check"></i> Comportement du chauffeur
+                </h4>
+                <div class="criteria-row">
+                  <div class="criteria-item">
+                    <div class="criteria-label">
+                      <i class="fas fa-clock"></i>
+                      <span>Ponctualité</span>
+                    </div>
+                    <div class="criteria-rating" data-criteria="ponctualite">
+                      <span class="star" data-rating="1"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="2"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="3"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="4"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="5"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                    </div>
+                    <input type="hidden" name="ponctualite" />
+                  </div>
+
+                  <div class="criteria-item">
+                    <div class="criteria-label">
+                      <i class="fas fa-comments"></i>
+                      <span>Communication</span>
+                    </div>
+                    <div class="criteria-rating" data-criteria="communication">
+                      <span class="star" data-rating="1"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="2"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="3"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="4"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="5"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                    </div>
+                    <input type="hidden" name="communication" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Critères techniques -->
+              <div class="criteria-group">
+                <h4 class="criteria-group-title">
+                  <i class="fas fa-car"></i> Véhicule et conduite
+                </h4>
+                <div class="criteria-row">
+                  <div class="criteria-item">
+                    <div class="criteria-label">
+                      <i class="fas fa-tachometer-alt"></i>
+                      <span>Conduite</span>
+                    </div>
+                    <div class="criteria-rating" data-criteria="conduite">
+                      <span class="star" data-rating="1"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="2"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="3"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="4"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="5"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                    </div>
+                    <input type="hidden" name="conduite" />
+                  </div>
+
+                  <div class="criteria-item">
+                    <div class="criteria-label">
+                      <i class="fas fa-couch"></i>
+                      <span>Confort</span>
+                    </div>
+                    <div class="criteria-rating" data-criteria="confort">
+                      <span class="star" data-rating="1"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="2"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="3"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="4"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                      <span class="star" data-rating="5"
+                        ><i class="fas fa-star"></i
+                      ></span>
+                    </div>
+                    <input type="hidden" name="confort" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section commentaire -->
+          <div class="comment-section">
+            <h3><i class="fas fa-comment-dots"></i> Commentaire détaillé</h3>
+            <label for="commentaire">Partagez votre expérience</label>
+            <textarea
+              id="commentaire"
+              name="commentaire"
+              class="comment-textarea"
+              placeholder="Décrivez votre expérience de covoiturage pour aider les autres utilisateurs..."
+              maxlength="500"
+              required
+            ></textarea>
+            <div class="character-count">
+              <span id="char-count">0</span>/500 caractères
+            </div>
+          </div>
+
+          <!-- Section photos -->
+          <div class="photo-section">
+            <h3><i class="fas fa-camera"></i> Photos du trajet</h3>
+            <label class="photo-upload" for="photos">
+              <div class="photo-upload-icon">
+                <i class="fas fa-camera"></i>
+              </div>
+              <div class="photo-upload-text">
+                Ajouter des photos (optionnel)
+              </div>
+              <input
+                type="file"
+                id="photos"
+                name="photos[]"
+                multiple
+                accept="image/*"
+              />
+            </label>
+            <div class="photo-preview" id="photo-preview"></div>
+          </div>
+
+          <!-- Actions du formulaire -->
+          <div class="form-actions">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              onclick="history.back()"
+            >
+              <i class="fas fa-arrow-left"></i>
+              Annuler
+            </button>
+            <button type="submit" class="btn btn-primary" id="submit-btn">
+              <i class="fas fa-paper-plane"></i>
+              Publier mon avis
+            </button>
+          </div>
+
+          <div id="avis-message" class="message-box hidden"></div>
+        </form>
+      </div>
     </main>
 
-    <script>
-      // Récupérer l'ID du trajet depuis l'URL
-      const urlParams = new URLSearchParams(window.location.search);
-      const trajetId = urlParams.get("trajet_id");
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3><i class="fas fa-car-side"></i> ecoCovoit</h3>
+          <p>
+            <i class="fas fa-seedling"></i> La plateforme de covoiturage
+            écoresponsable
+          </p>
+          <p>
+            <i class="fas fa-handshake"></i> Réduisons ensemble notre empreinte
+            carbone
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-address-book"></i> Contact</h3>
+          <p>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:contact@ecoride.fr"> contact@ecoride.fr</a>
+          </p>
+          <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-info-circle"></i> Informations</h3>
+          <ul>
+            <li>
+              <i class="fas fa-gavel"></i>
+              <a href="mentions.html"> Mentions légales</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <a href="contact.html"> Nous contacter</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3><i class="fas fa-share-alt"></i> Suivez-nous</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-link" title="Twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="#" class="social-link" title="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EcoRide. Tous droits réservés.</p>
+        <p>
+          <i class="fas fa-leaf"></i> Pour une mobilité plus verte
+          <i class="fas fa-leaf"></i>
+        </p>
+      </div>
+    </footer>
 
-      // Sécurité basique
-      if (!trajetId) {
-        document.getElementById("avis-message").textContent =
-          "Trajet non spécifié.";
-        document.getElementById("avis-form").style.color = "none";
-      } else {
-        document.getElementById("trajet_id").value = trajetId;
-      }
-
-      document
-        .getElementById("avis-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          const formData = new FormData(this);
-
-          fetch("../backend/avis/enregistrer.php", {
-            method: "POST",
-            body: formData,
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              const msg = document.getElementById("avis-message");
-              msg.textContent = data.message;
-              msg.style.color = data.success ? "green" : "red";
-              if (data.success) this.reset();
-            })
-            .catch(() => {
-              const msg = document.getElementById("avis-message");
-              msg.textContent = "Erreur réseau. Veuillez réessayer.";
-              msg.style.color = "red";
-            });
-        });
-    </script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/laisser-avis.js"></script>
   </body>
 </html>
